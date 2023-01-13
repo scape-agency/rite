@@ -5,4 +5,4 @@ User-agent: *
 Disallow:
 
 
-SITEMAP: http://www.rite.tools/sitemap.xml
+SITEMAP: http://www.pyrites.dev/sitemap.xml
