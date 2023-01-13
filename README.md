@@ -8,32 +8,32 @@
 <br/>
 
 <div align="center">
-  <a href="https://github.com/scaoe-agency/rite/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug_report.yml">Report a Bug</a>
+  <a href="https://github.com/scape-agency/rite/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug_report.yml">Report a Bug</a>
   |
-  <a href="https://github.com/scaoe-agency/rite/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Afeature-request%2CHelp+wanted+%F0%9F%AA%A7&template=feature_request.yml">Request a Feature</a>
+  <a href="https://github.com/scape-agency/rite/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Afeature-request%2CHelp+wanted+%F0%9F%AA%A7&template=feature_request.yml">Request a Feature</a>
   |
-  <a href="https://github.com/scaoe-agency/rite/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Aquestion&template=question.yml">Ask a Question</a>
+  <a href="https://github.com/scape-agency/rite/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Aquestion&template=question.yml">Ask a Question</a>
   |
-  <a href="https://github.com/scaoe-agency/rite/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Aenhancement&template=suggestion.yml">Make a Sugestion</a>
+  <a href="https://github.com/scape-agency/rite/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Aenhancement&template=suggestion.yml">Make a Sugestion</a>
   |
-  <a href="https://github.com/scaoe-agency/rite/discussions">Start a Discussion</a>
+  <a href="https://github.com/scape-agency/rite/discussions">Start a Discussion</a>
 </div>
 
 <br/>
 
 <div align="center">
 
-[![license](https://img.shields.io/github/license/scaoe-agency/rite?color=green&label=license&style=flat-square)](LICENSE.txt)
+[![license](https://img.shields.io/github/license/scape-agency/rite?color=green&label=license&style=flat-square)](LICENSE.txt)
 [![website](https://img.shields.io/website?color=blue&down_color=red&down_message=offline&label=website&style=flat-square&up_color=green&up_message=online&url=https%3A%2F%2Fwww.pyrites.dev)](https://www.pyrites.dev)
 ![python](https://img.shields.io/pypi/pyversions/rite?color=blue&label=python&style=flat-square)
 ![wheel](https://img.shields.io/pypi/wheel/rite?color=green&label=wheel&style=flat-square)
 
-![stars](https://img.shields.io/github/stars/scaoe-agency/rite?color=blue&label=stars&style=flat-square)
-![forks](https://img.shields.io/github/forks/scaoe-agency/rite?color=blue&label=forks&style=flat-square)
-![downloads](https://img.shields.io/github/downloads/scaoe-agency/rite/total?color=blue&label=downloads&style=flat-square)
-![issues](https://img.shields.io/github/issues/scaoe-agency/rite?label=issues&style=flat-square)
-![sponsors](https://img.shields.io/github/sponsors/scaoe-agency?color=blue&label=sponsors&style=flat-square)
-![contributors](https://img.shields.io/github/contributors/scaoe-agency/rite?color=blue&label=contributors&style=flat-square)
+![stars](https://img.shields.io/github/stars/scape-agency/rite?color=blue&label=stars&style=flat-square)
+![forks](https://img.shields.io/github/forks/scape-agency/rite?color=blue&label=forks&style=flat-square)
+![downloads](https://img.shields.io/github/downloads/scape-agency/rite/total?color=blue&label=downloads&style=flat-square)
+![issues](https://img.shields.io/github/issues/scape-agency/rite?label=issues&style=flat-square)
+![sponsors](https://img.shields.io/github/sponsors/scape-agency?color=blue&label=sponsors&style=flat-square)
+![contributors](https://img.shields.io/github/contributors/scape-agency/rite?color=blue&label=contributors&style=flat-square)
 
 </div>
 
