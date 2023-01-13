@@ -1,14 +1,26 @@
 <header>
 <p align="center">
-    <img src="assets/image/logo_dark.png" width="20%" height="20%" alt="Starling Bearing Logo">
+    <img src=".github/images/rite_logo.png" width="20%" height="20%" alt="rite Logo">
 </p>
-<h1 align='center' style='border-bottom: none;'>Bearing</h1>
-<h3 align='center'>Spatial Python Framework</h3>
+<h3 align='center'>Python Utility Package</h3>
 </header>
+
 <br/>
 
 
-**Bearing** is a Spatial Python Framework.
+---
+
+**rite** is a Python Utility Package.
 
 
-**Bearing** is an open-source project by [Starling Associates](https://www.starling.associates "Starling Associates website") and [Scape Agency](https://www.scape.agency "Scape Agency website").
+---
+
+
+**rite** is an open-source project by [Scape Agency](https://www.scape.agency "Scape Agency website").
+
+## Scape Agency
+
+Scape Agency is a spatial innovation collective that dreams, discovers and designs the everyday of tomorrow. We blend design thinking with emerging technologies to create a brighter perspective for people and planet. Our products and services naturalise technology in liveable and sustainable –scapes that spark the imagination and inspire future generations.
+
+- website: [scape.agency](https://www.scape.agency "Scape Agency website")
+- github: [github.com/scape-agency](https://github.com/scape-agency "Scape Agency Github")
