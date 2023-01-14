@@ -97,9 +97,9 @@ plugins:
 # Customization
 extra:
   generator: false
-  # analytics:
-  #   provider: google
-  #   property: G-QF552XF9WM
+  analytics:
+    provider: google
+    property: G-49589BK5M9
   social:
     - icon: fontawesome/solid/globe 
       link: https://www.scape.agency
