@@ -2,7 +2,10 @@
 <p align="center">
     <img src=".github/images/rite_logo.png" width="20%" height="20%" alt="rite Logo">
 </p>
+
 <h3 align='center'>Python Utility Package</h3>
+<p align="center">rite to write py right</p>
+
 </header>
 
 <br/>
@@ -60,6 +63,12 @@
 
 **rite** is a Python Utility Package.
 
+Focus:
+- Data
+- Files
+- Folders
+
+
 
 
 ## Quick Start
@@ -80,11 +89,10 @@ pip install rite==0.0.0
 
 
 
+
 ## Authors
 
-**rite** is an open-source project by [Scape Agency](https://www.scape.agency "Scape Agency website").
-
-## Scape Agency
+**rite** is an open-source project by **[Scape Agency](https://www.scape.agency "Scape Agency website")**.
 
 Scape Agency is a spatial innovation collective that dreams, discovers and designs the everyday of tomorrow. We blend design thinking with emerging technologies to create a brighter perspective for people and planet. Our products and services naturalise technology in liveable and sustainable –scapes that spark the imagination and inspire future generations.
 
