@@ -4,7 +4,7 @@
 </p>
 
 <h3 align='center'>Python Utility Package</h3>
-<p align="center">rite to write py right</p>
+<p align="center">rites to write py right</p>
 
 </header>
 
