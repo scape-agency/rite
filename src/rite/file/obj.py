@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """Provides OBJ Class."""
 
@@ -7,7 +6,9 @@ import os
 
 
 class OBJWriter(object):
-    """A class used to represent a OBJ File."""
+    """
+    A class used to represent a OBJ File.
+    """
 
     def __init__(self):
         """Init."""

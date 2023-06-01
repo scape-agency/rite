@@ -1,13 +1,17 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""Provides JSON stuff."""
 
-# unused: import geojson
+"""
+Provides JSON stuff.
+"""
+
+
 import json
 
 
 class FileJSON:
-    """A class used to represent a JSON File."""
+    """
+    A class used to represent a JSON File.
+    """
 
     @staticmethod
     def load_json(path):
@@ -29,11 +33,13 @@ class FileJSON:
 
 
 def test():
-    """Test Function."""
+    """
+    Test Function.
+    """
     pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     """Main"""
     import doctest
     doctest.testmod()
