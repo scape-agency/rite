@@ -67,6 +67,8 @@ def server_run(
 
 
 def main():
+    """
+    """
     try:
         server_run()
     except KeyboardInterrupt:

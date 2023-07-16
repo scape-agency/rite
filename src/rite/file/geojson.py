@@ -75,7 +75,9 @@ def test():
 
 
 if __name__ == '__main__':
-    """Main"""
+    """
+    Main
+    """
     import doctest
     doctest.testmod()
     test()

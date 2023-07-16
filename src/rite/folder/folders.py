@@ -1,38 +1,68 @@
-#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 
+# =============================================================================
+# Docstring
+# =============================================================================
+
+"""
+Provides Case Class
+===================
+
+Todo:
+-----
+
+Links:
+------
+
+"""
+
+
+# =============================================================================
 # Import
+# =============================================================================
+
+# Import | Futures
+
+# Import | Standard Library
 import os
 import uuid
 import os, shutil, glob
 import ntpath
 from datetime import date
-
 import json
 import shutil
-
-
-
 from collections import defaultdict
-
 import unicodedata
 import re
 
+# Import | Libraries
+
+# Import | Local Modules
+
+
+# =============================================================================
+# Functions
+# =============================================================================
 
 def delete_contents(folder):
-  for filename in os.listdir(folder):
-      file_path = os.path.join(folder, filename)
-      try:
-          if os.path.isfile(file_path) or os.path.islink(file_path):
-              os.unlink(file_path)
-          elif os.path.isdir(file_path):
-              shutil.rmtree(file_path)
-      except Exception as e:
-          print('Failed to delete %s. Reason: %s' % (file_path, e))
+    """
+    """
+    for filename in os.listdir(folder):
+        file_path = os.path.join(folder, filename)
+        try:
+            if os.path.isfile(file_path) or os.path.islink(file_path):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path):
+                shutil.rmtree(file_path)
+        except Exception as e:
+            print('Failed to delete %s. Reason: %s' % (file_path, e))
 
 
 
 def create_date_dict():
+    """
+    """
     date_dict = {}
     date_today = date.today()
     date_default = str(date_today)
@@ -44,22 +74,30 @@ def create_date_dict():
 
 
 def create_uuid_random():
+    """
+    """
 # make a random UUID
     id = uuid.uuid4()
     return id
 
 def create_uuid_hex():
+    """
+    """
 # Convert a UUID to a string of hex digits in standard form
     id = str(uuid.uuid4())
     return id
 
 def create_uuid_hex32():
-    """"Convert a UUID to a string of hex digits in standard form"""
+    """
+    Convert a UUID to a string of hex digits in standard form
+    """
     id = uuid.uuid4().hex
     return id
 
 
 def create_slug(value, allow_unicode=False):
+    """
+    """
     value = str(value)
     if allow_unicode:
         value = unicodedata.normalize('NFKC', value)
@@ -69,6 +107,8 @@ def create_slug(value, allow_unicode=False):
     return re.sub(r'[-\s]+', '-', value).strip('-_')
 
 def create_slug_snake(value, allow_unicode=False):
+    """
+    """
     value = str(value)
     if allow_unicode:
         value = unicodedata.normalize('NFKC', value)
@@ -98,6 +138,8 @@ def slugify(value, allow_unicode=False):
 
 
 def etree_to_dict(t):
+    """
+    """
     d = {t.tag: {} if t.attrib else None}
     children = list(t)
     if children:
@@ -120,60 +162,74 @@ def etree_to_dict(t):
 
 # Function | Create Directory
 def create_dir(dir_path, mode=777):
-  if not os.path.exists(dir_path):
-    # os.mkdir(dir_path)
-    try:
-        os.makedirs(dir_path, mode)
-    except OSError as err:
-        return err
-  else:
-    pass
+    """
+    """
+    if not os.path.exists(dir_path):
+        # os.mkdir(dir_path)
+        try:
+            os.makedirs(dir_path, mode)
+        except OSError as err:
+            return err
+    else:
+        pass
 
 
 # Function | Write Template
 def write_template(environment, context, template, export_path):
-  template = environment.get_template(template)
-  with open(export_path, 'w') as fh:
-    fh.write(template.render(context))
+    """
+    """
+    template = environment.get_template(template)
+    with open(export_path, 'w') as fh:
+        fh.write(template.render(context))
 
 
 
 def list_dirs(rootdir):
-  dirs = []
-  for file in os.listdir(rootdir):
-    d = os.path.join(rootdir, file)
-    if os.path.isdir(d):
-      dirs.append(file)
-  return(dirs)
+    """
+    """
+    dirs = []
+    for file in os.listdir(rootdir):
+        d = os.path.join(rootdir, file)
+        if os.path.isdir(d):
+            dirs.append(file)
+    return(dirs)
 
  
 
 def copy_file(src, dst):
-  shutil.copyfile(src, dst)
+    """
+    """
+    shutil.copyfile(src, dst)
 
 
 def list_files(rootdir):
-  dirs = []
-  for file in os.listdir(rootdir):
-    d = os.path.join(rootdir, file)
-    dirs.append(file)
-  return(dirs)
+    """
+    """
+    dirs = []
+    for file in os.listdir(rootdir):
+        d = os.path.join(rootdir, file)
+        dirs.append(file)
+    return(dirs)
 
 
 
 def copy_files(source_dir, target_dir):
-  file_names = os.listdir(source_dir)
-    
-  for file_name in file_names:
-    # shutil.move(os.path.join(source_dir, file_name), target_dir)
-    source = os.path.join(source_dir, file_name)
-    target = os.path.join(target_dir, file_name)
-    # print(source)
-    # print(target)
-    shutil.copyfile(source, target)
+    """
+    """
+    file_names = os.listdir(source_dir)
+        
+    for file_name in file_names:
+        # shutil.move(os.path.join(source_dir, file_name), target_dir)
+        source = os.path.join(source_dir, file_name)
+        target = os.path.join(target_dir, file_name)
+        # print(source)
+        # print(target)
+        shutil.copyfile(source, target)
 
 
-def copy_all_files(source_dir, target_dir):        
+def copy_all_files(source_dir, target_dir):
+    """
+    """
     for root, dirs, files in os.walk(source_dir):  # replace the . with your starting directory
 
         for file in files:
@@ -184,12 +240,16 @@ def copy_all_files(source_dir, target_dir):
 
 
 def path_leaf(path):
+    """
+    """
     head, tail = ntpath.split(path)
     return tail or ntpath.basename(head)
 
 
 
 def load_json(file):
-  with open(file) as f:
-    dict = json.load(f)
-    return(dict)
+    """
+    """
+    with open(file) as f:
+        dict = json.load(f)
+        return(dict)
