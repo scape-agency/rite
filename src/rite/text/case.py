@@ -773,43 +773,6 @@ class Case(object):
         return ' '.join(num_dict.get(word, word) for word in text.split())
 
     @staticmethod
-    def to_caesar_cipher_case(text: str, shift: int) -> str:
-        """
-        Encodes the text using a Caesar cipher with a given shift.
-        Example: ('AB', 3) -> 'DE'
-
-        Parameters:
-        text (str): The text to encode.
-        shift (int): The shift for the Caesar cipher.
-
-        Returns:
-        str: The encoded text.
-        """
-        return ''.join(chr((ord(char) - 65 + shift) % 26 + 65) if char.isupper() else chr((ord(char) - 97 + shift) % 26 + 97) if char.islower() else char for char in text)
-
-    @staticmethod
-    def to_baconian_cipher_case(text: str) -> str:
-        """
-        Encodes text using the Baconian cipher.
-        Note: This is a simplified version for the English alphabet only.
-
-        Parameters:
-        text (str): The text to encode.
-
-        Returns:
-        str: The encoded text using the Baconian cipher.
-        """
-        bacon_dict = {
-            'a': 'aaaaa', 'b': 'aaaab', 'c': 'aaaba', 'd': 'aaabb', 'e': 'aabaa',
-            'f': 'aabab', 'g': 'aabba', 'h': 'aabbb', 'i': 'abaaa', 'j': 'abaab',
-            'k': 'ababa', 'l': 'ababb', 'm': 'abbaa', 'n': 'abbab', 'o': 'abbba',
-            'p': 'abbbb', 'q': 'baaaa', 'r': 'baaab', 's': 'baaba', 't': 'baabb',
-            'u': 'babaa', 'v': 'babab', 'w': 'babba', 'x': 'babbb', 'y': 'bbaaa',
-            'z': 'bbaab'
-        }
-        return ' '.join(bacon_dict.get(char, char) for char in text.lower() if char.isalpha())
-
-    @staticmethod
     def to_reverse_each_vowel_case(text: str) -> str:
         """
         Reverses the order of vowels in each word.
@@ -828,7 +791,6 @@ class Case(object):
             return ''.join(vowel_list.pop() if char in vowels else char for char in word)
 
         return ' '.join(reverse_vowels(word) for word in text.split())
-
 
     @staticmethod
     def to_vowel_concatenation_case(text: str) -> str:
@@ -1009,7 +971,8 @@ class Case(object):
     def to_double_every_second_word_case(text: str) -> str:
         """
         Doubles every second word in the text.
-        Example: 'Hello world program' -> 'Hello Hello world world program program'
+        Example: 'Hello world program' -> 'Hello Hello world world program
+        program'
 
         Parameters:
         text (str): The text to process.
@@ -1082,6 +1045,65 @@ class Case(object):
         return ' '.join(num_to_word_dict.get(word, word) for word in text.split())
 
 
+    @staticmethod
+    def to_abbreviation_case(text: str) -> str:
+        """
+        Converts text to its abbreviation.
+        Example: 'As Soon As Possible' -> 'ASAP'
+
+        Parameters:
+        text (str): The text to abbreviate.
+
+        Returns:
+        str: The abbreviation of the text.
+        """
+        return ''.join(word[0].upper() for word in text.split() if word.isalpha())
+
+    @staticmethod
+    def to_shuffle_sentences_case(text: str) -> str:
+        """
+        Randomly shuffles the sentences in the text.
+        Example: 'This is sentence one. This is sentence two.' -> 'This is sentence two. This is sentence one.'
+
+        Parameters:
+        text (str): The text to shuffle.
+
+        Returns:
+        str: The text with shuffled sentences.
+        """
+        sentences = text.split('. ')
+        random.shuffle(sentences)
+        return '. '.join(sentences)
+
+    @staticmethod
+    def to_mirror_text_case(text: str) -> str:
+        """
+        Creates a mirrored version of the text.
+        Example: 'Hello' -> 'Hello olleH'
+
+        Parameters:
+        text (str): The text to mirror.
+
+        Returns:
+        str: The mirrored text.
+        """
+        return text + ' ' + text[::-1]
+
+    @staticmethod
+    def to_insert_random_spaces_case(text: str) -> str:
+        """
+        Inserts random spaces within the text.
+        Example: 'Hello' -> 'H e l l o' (output may vary)
+
+        Parameters:
+        text (str): The text to process.
+
+        Returns:
+        str: The text with random spaces inserted.
+        """
+        return ' '.join(' '.join(char) for char in text)
+
+
 # Example usage:
 text = "example TEXT for Conversion. it's a test"
 
@@ -1130,8 +1152,7 @@ scramble_middle_letters_case = Case.to_scramble_middle_letters_case(text)
 ascii_value_case = Case.to_ascii_value_case("AB")
 repeated_letters_case = Case.to_repeated_letters_case("Hello")
 numeric_words_to_numbers_case = Case.to_numeric_words_to_numbers_case(text)
-caesar_cipher_case = Case.to_caesar_cipher_case("AB", 3)
-baconian_cipher_case = Case.to_baconian_cipher_case("Hello")
+
 reverse_each_vowel_case = Case.to_reverse_each_vowel_case("Hello")
 vowel_concatenation_case = Case.to_vowel_concatenation_case(text)
 diagonal_text_case = Case.to_diagonal_text_case("Hello")
@@ -1149,6 +1170,10 @@ longest_word = Case.to_longest_word_case("This is a test")
 character_frequency_count = Case.to_character_frequency_count_case("hello")
 reverse_words_individually = Case.to_reverse_words_individually_case("Hello world")
 substitute_numbers_with_words = Case.to_substitute_numbers_with_words_case(text)
+abbreviation = Case.to_abbreviation_case(text)
+shuffled_sentences = Case.to_shuffle_sentences_case("This is sentence one. This is sentence two.")
+mirror_text = Case.to_mirror_text_case("Hello")
+insert_random_spaces = Case.to_insert_random_spaces_case("Hello")
 
 print("Camel Case:", camel_case)
 print("Snake Case:", snake_case)
@@ -1195,8 +1220,6 @@ print("Scramble Middle Letters Case:", scramble_middle_letters_case)
 print("ASCII Value Case:", ascii_value_case)
 print("Repeated Letters Case:", repeated_letters_case)
 print("Numeric Words to Numbers Case:", numeric_words_to_numbers_case)
-print("Caesar Cipher Case:", caesar_cipher_case)
-print("Baconian Cipher Case:", baconian_cipher_case)
 print("Reverse Each Vowel Case:", reverse_each_vowel_case)
 print("Vowel Concatenation Case:", vowel_concatenation_case)
 print("Diagonal Text Case:", diagonal_text_case)
@@ -1214,3 +1237,7 @@ print("Longest Word:", longest_word)
 print("Character Frequency Count:", character_frequency_count)
 print("Reverse Words Individually:", reverse_words_individually)
 print("Substitute Numbers with Words:", substitute_numbers_with_words)
+print("Abbreviation:", abbreviation)
+print("Shuffled Sentences:", shuffled_sentences)
+print("Mirror Text:", mirror_text)
+print("Insert Random Spaces:", insert_random_spaces)
