@@ -57,38 +57,33 @@
 
 </details>
 
-
 ## About
-
 
 **rite** is a Python Utility Package.
 
 Focus:
+
 - Data
 - Files
 - Folders
-
-
-
 
 ## Quick Start
 
 ### Installation
 
-```
+``` sh
 pip install rite
 ```
-```
+
+``` sh
 pip install rite==0.0.0
 ```
+
 [PyPi](https://pypi.org/project/rite/)
 
 ## Usage
 
 ...
-
-
-
 
 ## Authors
 
@@ -99,17 +94,14 @@ Scape Agency is a spatial innovation collective that dreams, discovers and desig
 - website: [scape.agency](https://www.scape.agency "Scape Agency website")
 - github: [github.com/scape-agency](https://github.com/scape-agency "Scape Agency Github")
 
-
 ## License
 
 Except where otherwise noted, **rite** is licensed under the terms of the [MIT License](https://opensource.org/licenses/MIT "MIT License").
-
 
 ## Contributing
 
 We'd love for you to contribute and to make **rite** even better than it is today!
 Please refer to the [contribution guidelines](CONTRIBUTING.md) for information.
-
 
 ## Disclaimer
 

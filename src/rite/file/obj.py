@@ -41,18 +41,3 @@ class OBJWriter(object):
             for ring in facet:
                 file_handle.write("f {0}\n".format(" ".join([str(v) for v in ring])))
 
-    def test_something(self):
-        """Test Method."""
-        pass
-
-
-def test():
-    """Test Function."""
-    pass
-
-
-if __name__ == '__main__':
-    """Main"""
-    import doctest
-    doctest.testmod()
-    test()

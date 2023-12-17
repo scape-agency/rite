@@ -27,13 +27,11 @@ class FileJSON:
                 json.dump(dictionary, outfile)
 
 
-def test():
-    """Test Function."""
-    pass
 
 
-if __name__ == '__main__':
-    """Main"""
-    import doctest
-    doctest.testmod()
-    test()
+def load_json(file):
+    """
+    """
+    with open(file) as f:
+        dict = json.load(f)
+        return(dict)
