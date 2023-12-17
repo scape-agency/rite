@@ -28,7 +28,7 @@ import unicodedata
 # Import | Local Modules
 
 
-class Slug(object):
+class URL(object):
     """"""
 
     # Static Methods
