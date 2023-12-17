@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 
@@ -19,19 +18,19 @@ Todo:
 
 
 # Import | Futures
-# […]
+
 
 # Import | Standard Library
 from io import StringIO
 from io import BytesIO
-# […]
+
 
 # Import | Libraries
 from PIL import Image
-# […]
+
 
 # Import | Local Modules
-# […]
+
 
 
 

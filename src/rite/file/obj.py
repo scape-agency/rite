@@ -6,9 +6,7 @@ import os
 
 
 class OBJWriter(object):
-    """
-    A class used to represent a OBJ File.
-    """
+    """A class used to represent a OBJ File."""
 
     def __init__(self):
         """Init."""

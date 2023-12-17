@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 
@@ -19,17 +18,17 @@ Todo:
 
 
 # Import | Futures
-# […]
+
 
 # Import | Standard Library
 from datetime import date
-# […]
+
 
 # Import | Libraries
-# […]
+
 
 # Import | Local Modules
-# […]
+
 
 
 class Date:

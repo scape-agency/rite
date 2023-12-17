@@ -1,5 +1,3 @@
-
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 
@@ -19,23 +17,18 @@ Todo:
 """
 
 
-# Import | Futures
-# […]
+
 
 # Import | Standard Library
 import re
 import unicodedata
-# […]
 
 # Import | Libraries
-# […]
 
 # Import | Local Modules
-# […]
 
 
-
-class Slug:
+class Slug(object):
     """"""
 
     # Static Methods
@@ -48,24 +41,3 @@ class Slug:
             return False
 
         return result
-
-
-    # Methods | test
-
-    def test_something(self):
-        """Test Method"""
-        pass
-
-
-def test():
-    """Test Function"""
-    pass
-
-
-if __name__ == '__main__':
-    """Main"""
-    import doctest
-    doctest.testmod()
-    test()
-
-

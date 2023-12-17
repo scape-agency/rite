@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 
@@ -19,16 +18,16 @@ Todo:
 
 
 # Import | Futures
-# […]
+
 
 # Import | Standard Library
-# […]
+
 
 # Import | Libraries
-# […]
+
 
 # Import | Local Modules
-# […]
+
 
 
 

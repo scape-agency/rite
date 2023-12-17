@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 
@@ -75,9 +74,7 @@ def test():
 
 
 if __name__ == '__main__':
-    """
-    Main
-    """
+    """Main"""
     import doctest
     doctest.testmod()
     test()

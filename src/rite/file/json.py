@@ -1,23 +1,16 @@
 # -*- coding: utf-8 -*-
+"""Provides JSON stuff."""
 
-"""
-Provides JSON stuff.
-"""
-
-
+# unused: import geojson
 import json
 
 
 class FileJSON:
-    """
-    A class used to represent a JSON File.
-    """
+    """A class used to represent a JSON File."""
 
     @staticmethod
     def load_json(path):
-        """
-        Load JSON.
-        """
+        """Load JSON."""
         f = open(path)
         data = json.loads(f.read())
         f.close()
@@ -26,9 +19,7 @@ class FileJSON:
     # NOTE(SB): indent quadruples file size
     @staticmethod
     def save_dict_to_json(path, dictionary, indent=True):
-        """
-        Save dictionary to a JSON file.
-        """
+        """Save dictionary to a JSON file."""
         with open(path, "w") as outfile:
             if indent:
                 json.dump(dictionary, outfile, indent=4)
@@ -37,13 +28,11 @@ class FileJSON:
 
 
 def test():
-    """
-    Test Function.
-    """
+    """Test Function."""
     pass
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     """Main"""
     import doctest
     doctest.testmod()

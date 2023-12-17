@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 
@@ -19,18 +18,18 @@ Todo:
 
 
 # Import | Futures
-# […]
+
 
 # Import | Standard Library
-# […]
+
 
 # Import | Libraries
-# […]
+
 
 # Import | Local Modules
 from starling.data.colour import Colour
 from starling.geometry.point import Point
-# […]
+
 
 
 class Pixel(object):

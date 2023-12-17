@@ -18,16 +18,18 @@ Todo:
 
 
 # Import | Futures
-# […]
+
 
 # Import | Standard Library
-# […]
+
 
 # Import | Libraries
-# […]
+
 
 # Import | Local Modules
-# […]
+
+
+
 
 
 
@@ -115,23 +117,3 @@ class Colour(object):
     def value(self):
         """"""
         return (self._r, self._g, self._b, self._a)
-
-
-
-    # Methods | test
-
-    def test_something(self):
-        """Test Method"""
-        pass
-
-
-def test():
-    """Test Function"""
-    pass
-
-
-if __name__ == '__main__':
-    """Main"""
-    import doctest
-    doctest.testmod()
-    test()
