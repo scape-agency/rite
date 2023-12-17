@@ -22,8 +22,6 @@ Links:
 # Import
 # =============================================================================
 
-# Import | Futures
-
 # Import | Standard Library
 
 # Import | Libraries
@@ -41,7 +39,7 @@ __credits__ =       [
                         "Lars van Vianen",
                     ]
 __license__ =       "MIT License"
-__version__ =       "0.0.0"
+__version__ =       "0.0.1"
 __maintainer__ =    "Scape Agency"
 __email__ =         "info@scape.agency"
 __status__ =        "Alpha"

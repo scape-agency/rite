@@ -2,7 +2,7 @@
 
 
 """
-Provides File Utils
+Provides Date Utils
 
 ...
 
@@ -54,4 +54,3 @@ class Date:
         date_dict['date_us_simple'] = date_default.replace("-","/")
         # print(date_dict)
         return(date_dict)
-
