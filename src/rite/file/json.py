@@ -28,7 +28,6 @@ import json
 import yaml
 import csv
 
-
 # Import | Libraries
 import xmltodict  # Requires installation: pip install xmltodict
 
@@ -39,7 +38,7 @@ import xmltodict  # Requires installation: pip install xmltodict
 # Classes
 # =============================================================================
 
-class JSONHandler:
+class JSONHandler(object):
     """
     A class for handling JSON data operations.
 
@@ -71,7 +70,6 @@ class JSONHandler:
             print(f"Error reading JSON file: {e}")
             raise
 
-
     # def load_json(file):
     #     """
     #     """
@@ -86,7 +84,7 @@ class JSONHandler:
     #     data = json.loads(f.read())
     #     f.close()
     #     return data
-    
+
     @staticmethod
     def write_json(file_path: str, data: Any, indent: int = 4):
         """
@@ -95,7 +93,8 @@ class JSONHandler:
         Parameters:
             file_path (str): The path to the JSON file.
             data (Any): The data to write to the file.
-            indent (int): The indentation level for pretty-printing the JSON data.
+            indent (int): The indentation level for pretty-printing the JSON
+            data.
         """
         try:
             with open(file_path, 'w', encoding='utf-8') as file:
@@ -200,7 +199,8 @@ class JSONHandler:
 
         Parameters:
             data (Dict): The JSON data to filter.
-            filter_func (Callable): A function that takes a dictionary and returns a boolean.
+            filter_func (Callable): A function that takes a dictionary and
+            returns a boolean.
 
         Returns:
             Dict: Filtered JSON data.
@@ -239,7 +239,9 @@ class JSONHandler:
         for k, v in data.items():
             new_key = f"{parent_key}{sep}{k}" if parent_key else k
             if isinstance(v, Dict):
-                items.extend(JSONHandler.flatten_json(v, new_key, sep=sep).items())
+                items.extend(
+                    JSONHandler.flatten_json(v, new_key, sep=sep).items()
+                )
             else:
                 items.append((new_key, v))
         return dict(items)
@@ -292,7 +294,6 @@ class JSONHandler:
         """
         return yaml.safe_load(yaml_data)
 
-
     @staticmethod
     def sort_json(data: Dict, by_key=True, reverse=False) -> Dict:
         """
@@ -306,7 +307,13 @@ class JSONHandler:
         Returns:
             Dict: The sorted JSON object.
         """
-        return dict(sorted(data.items(), key=lambda item: item[0 if by_key else 1], reverse=reverse))
+        return dict(
+            sorted(
+                data.items(),
+                key=lambda item: item[0 if by_key else 1],
+                reverse=reverse
+            )
+        )
 
     @staticmethod
     def diff_json(json1: Dict, json2: Dict) -> Dict:
@@ -399,8 +406,6 @@ class JSONHandler:
                 return None
         return json_data
 
-
-
     @staticmethod
     def indent_json(json_data: Any, indent: int = 4) -> str:
         """
@@ -429,7 +434,9 @@ class JSONHandler:
         return json.dumps(json_data, separators=(',', ':'))
 
     @staticmethod
-    def transform_keys(json_data: Any, transform_func: Callable[[Any], Any]) -> Any:
+    def transform_keys(
+        json_data: Any, transform_func: Callable[[Any], Any]
+    ) -> Any:
         """
         Apply a transformation to all keys in a JSON object.
 
@@ -441,9 +448,17 @@ class JSONHandler:
             Any: The JSON data with transformed keys.
         """
         if isinstance(json_data, dict):
-            return {transform_func(k): JSONHandler.transform_keys(v, transform_func) for k, v in json_data.items()}
+            return {
+                transform_func(k): JSONHandler.transform_keys(
+                    v, transform_func
+                ) for k, v in json_data.items()
+            }
         elif isinstance(json_data, list):
-            return [JSONHandler.transform_keys(elem, transform_func) for elem in json_data]
+            return [
+                JSONHandler.transform_keys(
+                    elem, transform_func
+                ) for elem in json_data
+            ]
         else:
             return json_data
 
@@ -495,8 +510,10 @@ class JSONHandler:
 
         Parameters:
             data (dict): The dictionary to save.
-            file_path (str): The path of the file where the JSON data will be saved.
-            indent (int): The indentation level for pretty-printing the JSON data.
+            file_path (str): The path of the file where the JSON data will be
+            saved.
+            indent (int): The indentation level for pretty-printing the JSON
+            data.
         """
         try:
             with open(file_path, 'w', encoding='utf-8') as file:
@@ -506,115 +523,144 @@ class JSONHandler:
             raise
 
 
+# =============================================================================
+# Functions
+# =============================================================================
 
-# Example usage
-json_data = {
-    'name': 'John Doe',
-    'age': 30,
-    'is_employee': True
-}
+def test():
+    """
+    Test Function
+    """
 
-# Write JSON to file
-JSONHandler.write_json('user.json', json_data)
+    # Example usage
+    json_data = {
+        'name': 'John Doe',
+        'age': 30,
+        'is_employee': True
+    }
 
-# Read JSON from file
-read_data = JSONHandler.read_json('user.json')
-print(read_data)
+    # Write JSON to file
+    JSONHandler.write_json('user.json', json_data)
 
-# Validate JSON
-is_valid = JSONHandler.validate_json('{"name": "John Doe", "age": 30}')
-print(f"Is valid JSON: {is_valid}")
+    # Read JSON from file
+    read_data = JSONHandler.read_json('user.json')
+    print(read_data)
 
-# Pretty print JSON
-JSONHandler.pretty_print_json({"name": "John", "age": 30})
+    # Validate JSON
+    is_valid = JSONHandler.validate_json('{"name": "John Doe", "age": 30}')
+    print(f"Is valid JSON: {is_valid}")
 
-# Merge JSON
-merged_json = JSONHandler.merge_json({"name": "John"}, {"age": 30})
-print(merged_json)
+    # Pretty print JSON
+    JSONHandler.pretty_print_json({"name": "John", "age": 30})
 
-# Find in JSON
-value = JSONHandler.find_in_json({"person": {"name": "John", "age": 30}}, "age")
-print(value)
+    # Merge JSON
+    merged_json = JSONHandler.merge_json({"name": "John"}, {"age": 30})
+    print(merged_json)
 
-# Convert JSON to XML and back
-json_data = {"person": {"name": "John", "age": 30}}
-xml_data = JSONHandler.json_to_xml(json_data)
-print(xml_data)
-back_to_json = JSONHandler.xml_to_json(xml_data)
-print(back_to_json)
+    # Find in JSON
+    value = JSONHandler.find_in_json(
+        {"person": {"name": "John", "age": 30}}, "age"
+    )
+    print(value)
 
-# Filter JSON
-filtered_json = JSONHandler.filter_json({"name": "John", "age": 30}, lambda x: x["age"] > 25)
-print(filtered_json)
+    # Convert JSON to XML and back
+    json_data = {"person": {"name": "John", "age": 30}}
+    xml_data = JSONHandler.json_to_xml(json_data)
+    print(xml_data)
+    back_to_json = JSONHandler.xml_to_json(xml_data)
+    print(back_to_json)
 
-# Update JSON
-updated_json = JSONHandler.update_json({"name": "John", "age": 30}, {"age": 31})
-print(updated_json)
+    # Filter JSON
+    filtered_json = JSONHandler.filter_json(
+        {"name": "John", "age": 30}, lambda x: x["age"] > 25
+    )
+    print(filtered_json)
 
-# Flatten JSON
-flattened_json = JSONHandler.flatten_json({"person": {"name": "John", "age": 30}})
-print(flattened_json)
+    # Update JSON
+    updated_json = JSONHandler.update_json(
+        {"name": "John", "age": 30}, {"age": 31}
+    )
+    print(updated_json)
 
-# Deep Merge JSON
-merged_json = JSONHandler.deep_merge_json({"person": {"name": "John", "age": 30}}, {"person": {"age": 31, "city": "New York"}})
-print(merged_json)
+    # Flatten JSON
+    flattened_json = JSONHandler.flatten_json(
+        {"person": {"name": "John", "age": 30}}
+    )
+    print(flattened_json)
 
-# Convert JSON to YAML and back
-json_data = {"person": {"name": "John", "age": 30}}
-yaml_data = JSONHandler.json_to_yaml(json_data)
-print(yaml_data)
-back_to_json = JSONHandler.yaml_to_json(yaml_data)
-print(back_to_json)
+    # Deep Merge JSON
+    merged_json = JSONHandler.deep_merge_json(
+        {"person": {"name": "John", "age": 30}},
+        {"person": {"age": 31, "city": "New York"}}
+    )
+    print(merged_json)
 
-# Sort JSON
-sorted_json = JSONHandler.sort_json({"b": 2, "a": 1}, by_key=True)
-print(sorted_json)
+    # Convert JSON to YAML and back
+    json_data = {"person": {"name": "John", "age": 30}}
+    yaml_data = JSONHandler.json_to_yaml(json_data)
+    print(yaml_data)
+    back_to_json = JSONHandler.yaml_to_json(yaml_data)
+    print(back_to_json)
 
-# Find differences between JSON objects
-diff = JSONHandler.diff_json({"a": 1, "b": 2}, {"b": 3, "c": 4})
-print(diff)
+    # Sort JSON
+    sorted_json = JSONHandler.sort_json({"b": 2, "a": 1}, by_key=True)
+    print(sorted_json)
 
-# Extract keys from JSON
-keys = JSONHandler.extract_keys({"a": {"b": 2}, "c": 3})
-print(keys)
+    # Find differences between JSON objects
+    diff = JSONHandler.diff_json({"a": 1, "b": 2}, {"b": 3, "c": 4})
+    print(diff)
 
-# Convert JSON to CSV and back
-json_data = [{"name": "John", "age": 30}, {"name": "Jane", "age": 25}]
-JSONHandler.json_to_csv(json_data, 'data.csv')
-csv_to_json_data = JSONHandler.csv_to_json('data.csv')
-print(csv_to_json_data)
+    # Extract keys from JSON
+    keys = JSONHandler.extract_keys({"a": {"b": 2}, "c": 3})
+    print(keys)
 
-# Extract data using path
-data = JSONHandler.extract_from_path({"a": {"b": {"c": 1}}}, "a/b/c")
-print(data)
+    # Convert JSON to CSV and back
+    json_data = [{"name": "John", "age": 30}, {"name": "Jane", "age": 25}]
+    JSONHandler.json_to_csv(json_data, 'data.csv')
+    csv_to_json_data = JSONHandler.csv_to_json('data.csv')
+    print(csv_to_json_data)
 
-# Indent JSON
-json_data = {"name": "John", "age": 30}
-indented_json = JSONHandler.indent_json(json_data)
-print(indented_json)
+    # Extract data using path
+    data = JSONHandler.extract_from_path({"a": {"b": {"c": 1}}}, "a/b/c")
+    print(data)
 
-# Compress JSON
-compressed_json = JSONHandler.compress_json(json_data)
-print(compressed_json)
+    # Indent JSON
+    json_data = {"name": "John", "age": 30}
+    indented_json = JSONHandler.indent_json(json_data)
+    print(indented_json)
 
-# Transform Keys
-uppercased_json = JSONHandler.transform_keys(json_data, str.upper)
-print(uppercased_json)
+    # Compress JSON
+    compressed_json = JSONHandler.compress_json(json_data)
+    print(compressed_json)
 
-# Path Exists
-exists = JSONHandler.path_exists({"a": {"b": {"c": 1}}}, "a/b/c")
-print(exists)
+    # Transform Keys
+    uppercased_json = JSONHandler.transform_keys(json_data, str.upper)
+    print(uppercased_json)
 
-# Nested Update
-updated_json = JSONHandler.nested_update({"a": {"b": 1}}, "a/b", 2)
-print(updated_json)
+    # Path Exists
+    exists = JSONHandler.path_exists({"a": {"b": {"c": 1}}}, "a/b/c")
+    print(exists)
 
-data_dict = {
-    "name": "John Doe",
-    "age": 30,
-    "is_employee": True
-}
+    # Nested Update
+    updated_json = JSONHandler.nested_update({"a": {"b": 1}}, "a/b", 2)
+    print(updated_json)
 
-# Save the dictionary to a JSON file
-JSONHandler.save_dict_to_json(data_dict, 'data.json')
+    data_dict = {
+        "name": "John Doe",
+        "age": 30,
+        "is_employee": True
+    }
 
+    # Save the dictionary to a JSON file
+    JSONHandler.save_dict_to_json(data_dict, 'data.json')
+
+
+# =============================================================================
+# Main
+# =============================================================================
+
+if __name__ == '__main__':
+    """Main"""
+    import doctest
+    doctest.testmod()
+    test()
