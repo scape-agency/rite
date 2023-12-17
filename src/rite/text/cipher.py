@@ -9,9 +9,6 @@
 Provides Cipher Class
 =====================
 
-Provides Cipher Class
-=====================
-
 This class includes methods for encoding and decoding text using various
 ciphers.
 Currently implemented ciphers are the Caesar Cipher and Baconian Cipher.

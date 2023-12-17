@@ -17,18 +17,12 @@ Todo:
 """
 
 
-# Import | Futures
-
-
 # Import | Standard Library
 from datetime import date
 
-
 # Import | Libraries
 
-
 # Import | Local Modules
-
 
 
 class Date:
@@ -61,20 +55,3 @@ class Date:
         # print(date_dict)
         return(date_dict)
 
-    # Methods | test
-
-    def test_something(self):
-        """Test Method"""
-        pass
-
-
-def test():
-    """Test Function"""
-    pass
-
-
-if __name__ == '__main__':
-    """Main"""
-    import doctest
-    doctest.testmod()
-    test()
