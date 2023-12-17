@@ -163,9 +163,23 @@ class MyHTTPRequestHandler(BaseHTTPRequestHandler):
 # Functions
 # =============================================================================
 
-# Running the server
-if __name__ == '__main__':
+def test():
+    """
+    Test Function
+    """
+
+    # Running the server
     MyHTTPRequestHandler.run(
         handler_class = MyHTTPRequestHandler,
         port = 8000
     )
+
+# =============================================================================
+# Main
+# =============================================================================
+
+if __name__ == '__main__':
+    """Main"""
+    import doctest
+    doctest.testmod()
+    test()

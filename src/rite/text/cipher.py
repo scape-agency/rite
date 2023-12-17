@@ -638,53 +638,73 @@ class Cipher(object):
         return decoded_text
 
 
-# Example usage:
-caesar_cipher = Cipher.to_caesar_cipher("AB", 3)
-decoded_caesar = Cipher.from_caesar_cipher(caesar_cipher, 3)
-baconian_cipher = Cipher.to_baconian_cipher("Hello")
-decoded_baconian = Cipher.from_baconian_cipher(baconian_cipher)
-vigenere_cipher = Cipher.to_vigenere_cipher("Hello World", "Key")
-decoded_vigenere = Cipher.from_vigenere_cipher(vigenere_cipher, "Key")
-atbash_cipher = Cipher.to_atbash_cipher("Hello")
-rot13_cipher = Cipher.to_rot13_cipher("Hello")
-binary_encoded = Cipher.to_binary_encoding("Hello")
-binary_decoded = Cipher.from_binary_decoding(binary_encoded)
-rail_fence_cipher = Cipher.to_rail_fence_cipher("Hello World", 3)
-decoded_rail_fence = Cipher.from_rail_fence_cipher(rail_fence_cipher, 3)
-xor_cipher = Cipher.to_xor_cipher("Hello", "key")
-reverse_cipher = Cipher.to_reverse_cipher("Hello")
-transposition_cipher = Cipher.to_transposition_cipher("Hello World", 4)
-decoded_transposition = Cipher.from_transposition_cipher(transposition_cipher, 4)
-playfair_cipher = Cipher.to_playfair_cipher("Hello", "Key")
-decoded_playfair = Cipher.from_playfair_cipher(playfair_cipher, "Key")
-scytale_cipher = Cipher.to_scytale_cipher("Hello", 3)
-decoded_scytale = Cipher.from_scytale_cipher(scytale_cipher, 3)
-autokey_cipher = Cipher.to_autokey_cipher("Hello", "Key")
-decoded_autokey = Cipher.from_autokey_cipher(autokey_cipher, "Key")
-four_square_cipher = Cipher.to_four_square_cipher("Hello", "Key1", "Key2")
-decoded_four_square = Cipher.from_four_square_cipher(four_square_cipher, "Key1", "Key2")
+# =============================================================================
+# Functions
+# =============================================================================
 
-print("Caesar Cipher:", caesar_cipher)
-print("Decoded Caesar:", decoded_caesar)
-print("Baconian Cipher:", baconian_cipher)
-print("Decoded Baconian:", decoded_baconian)
-print("Vigenère Cipher:", vigenere_cipher)
-print("Decoded Vigenère:", decoded_vigenere)
-print("Atbash Cipher:", atbash_cipher)
-print("Rot13 Cipher:", rot13_cipher)
-print("Binary Encoded:", binary_encoded)
-print("Binary Decoded:", binary_decoded)
-print("Rail Fence Cipher:", rail_fence_cipher)
-print("Decoded Rail Fence:", decoded_rail_fence)
-print("XOR Cipher:", xor_cipher)
-print("Reverse Cipher:", reverse_cipher)
-print("Transposition Cipher:", transposition_cipher)
-print("Decoded Transposition:", decoded_transposition)
-print("Playfair Cipher:", playfair_cipher)
-print("Decoded Playfair:", decoded_playfair)
-print("Scytale Cipher:", scytale_cipher)
-print("Decoded Scytale:", decoded_scytale)
-print("Autokey Cipher:", autokey_cipher)
-print("Decoded Autokey:", decoded_autokey)
-print("Four-Square Cipher:", four_square_cipher)
-print("Decoded Four-Square:", decoded_four_square)
+def test():
+    """
+    Test Function
+    """
+
+    # Example usage:
+    caesar_cipher = Cipher.to_caesar_cipher("AB", 3)
+    decoded_caesar = Cipher.from_caesar_cipher(caesar_cipher, 3)
+    baconian_cipher = Cipher.to_baconian_cipher("Hello")
+    decoded_baconian = Cipher.from_baconian_cipher(baconian_cipher)
+    vigenere_cipher = Cipher.to_vigenere_cipher("Hello World", "Key")
+    decoded_vigenere = Cipher.from_vigenere_cipher(vigenere_cipher, "Key")
+    atbash_cipher = Cipher.to_atbash_cipher("Hello")
+    rot13_cipher = Cipher.to_rot13_cipher("Hello")
+    binary_encoded = Cipher.to_binary_encoding("Hello")
+    binary_decoded = Cipher.from_binary_decoding(binary_encoded)
+    rail_fence_cipher = Cipher.to_rail_fence_cipher("Hello World", 3)
+    decoded_rail_fence = Cipher.from_rail_fence_cipher(rail_fence_cipher, 3)
+    xor_cipher = Cipher.to_xor_cipher("Hello", "key")
+    reverse_cipher = Cipher.to_reverse_cipher("Hello")
+    transposition_cipher = Cipher.to_transposition_cipher("Hello World", 4)
+    decoded_transposition = Cipher.from_transposition_cipher(transposition_cipher, 4)
+    playfair_cipher = Cipher.to_playfair_cipher("Hello", "Key")
+    decoded_playfair = Cipher.from_playfair_cipher(playfair_cipher, "Key")
+    scytale_cipher = Cipher.to_scytale_cipher("Hello", 3)
+    decoded_scytale = Cipher.from_scytale_cipher(scytale_cipher, 3)
+    autokey_cipher = Cipher.to_autokey_cipher("Hello", "Key")
+    decoded_autokey = Cipher.from_autokey_cipher(autokey_cipher, "Key")
+    four_square_cipher = Cipher.to_four_square_cipher("Hello", "Key1", "Key2")
+    decoded_four_square = Cipher.from_four_square_cipher(four_square_cipher, "Key1", "Key2")
+
+    print("Caesar Cipher:", caesar_cipher)
+    print("Decoded Caesar:", decoded_caesar)
+    print("Baconian Cipher:", baconian_cipher)
+    print("Decoded Baconian:", decoded_baconian)
+    print("Vigenère Cipher:", vigenere_cipher)
+    print("Decoded Vigenère:", decoded_vigenere)
+    print("Atbash Cipher:", atbash_cipher)
+    print("Rot13 Cipher:", rot13_cipher)
+    print("Binary Encoded:", binary_encoded)
+    print("Binary Decoded:", binary_decoded)
+    print("Rail Fence Cipher:", rail_fence_cipher)
+    print("Decoded Rail Fence:", decoded_rail_fence)
+    print("XOR Cipher:", xor_cipher)
+    print("Reverse Cipher:", reverse_cipher)
+    print("Transposition Cipher:", transposition_cipher)
+    print("Decoded Transposition:", decoded_transposition)
+    print("Playfair Cipher:", playfair_cipher)
+    print("Decoded Playfair:", decoded_playfair)
+    print("Scytale Cipher:", scytale_cipher)
+    print("Decoded Scytale:", decoded_scytale)
+    print("Autokey Cipher:", autokey_cipher)
+    print("Decoded Autokey:", decoded_autokey)
+    print("Four-Square Cipher:", four_square_cipher)
+    print("Decoded Four-Square:", decoded_four_square)
+
+
+# =============================================================================
+# Main
+# =============================================================================
+
+if __name__ == '__main__':
+    """Main"""
+    import doctest
+    doctest.testmod()
+    test()

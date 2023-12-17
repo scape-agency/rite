@@ -38,7 +38,6 @@ import sqlite3
 # Classes
 # =============================================================================
 
-
 class SQLiteServer:
     """
     A SQLite3 server class for handling database operations with enhanced
@@ -146,17 +145,38 @@ class SQLiteServer:
                 logging.error(f"Transaction failed: {e}")
                 raise
 
-# Example usage
-db_server = SQLiteServer('example.db')
 
-# Insert data
-db_server.insert('users', {'name': 'Bob', 'age': 25})
+# =============================================================================
+# Functions
+# =============================================================================
 
-# Update data
-db_server.update('users', {'age': 26}, "name = 'Bob'")
+def test():
+    """
+    Test Function
+    """
 
-# Fetch data
-print(db_server.fetch_all('SELECT * FROM users'))
+    # Example usage
+    db_server = SQLiteServer('example.db')
 
-# Delete data
-db_server.delete('users', "name = 'Bob'")
+    # Insert data
+    db_server.insert('users', {'name': 'Bob', 'age': 25})
+
+    # Update data
+    db_server.update('users', {'age': 26}, "name = 'Bob'")
+
+    # Fetch data
+    print(db_server.fetch_all('SELECT * FROM users'))
+
+    # Delete data
+    db_server.delete('users', "name = 'Bob'")
+
+
+# =============================================================================
+# Main
+# =============================================================================
+
+if __name__ == '__main__':
+    """Main"""
+    import doctest
+    doctest.testmod()
+    test()

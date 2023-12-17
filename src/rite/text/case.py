@@ -390,28 +390,6 @@ class Case(object):
         return ''.join(char.upper() if i % 2 else char.lower() for i, char in enumerate(text))  # noqa E501
 
     @staticmethod
-    def to_morse_code_case(text: str) -> str:
-        """
-        Convert the text to Morse code.
-        Example: 'HELP' -> '.... . .-.. .--.'
-
-        Parameters:
-        text (str): The text to convert.
-
-        Returns:
-        str: The text in Morse code.
-        """
-        morse_dict = {
-            'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.',
-            'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---',
-            'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---',
-            'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-',
-            'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--',
-            'Z': '--..', ' ': '/'
-        }
-        return ' '.join(morse_dict.get(char.upper(), '') for char in text)
-
-    @staticmethod
     def to_nato_phonetic_alphabet_case(text: str) -> str:
         """
         Translates each letter to its corresponding NATO phonetic alphabet
@@ -653,28 +631,6 @@ class Case(object):
         return ' '.join(shuffle_word(word) for word in text.split())
 
     @staticmethod
-    def to_morse_code_decryption_case(text: str) -> str:
-        """
-        Decode Morse code back into text.
-        Example: '.... . .-.. .-.. ---' -> 'HELLO'
-
-        Parameters:
-        text (str): The Morse code to decode.
-
-        Returns:
-        str: The decoded text.
-        """
-        morse_dict = {
-            '.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D', '.': 'E',
-            '..-.': 'F', '--.': 'G', '....': 'H', '..': 'I', '.---': 'J',
-            '-.-': 'K', '.-..': 'L', '--': 'M', '-.': 'N', '---': 'O',
-            '.--.': 'P', '--.-': 'Q', '.-.': 'R', '...': 'S', '-': 'T',
-            '..-': 'U', '...-': 'V', '.--': 'W', '-..-': 'X', '-.--': 'Y',
-            '--..': 'Z', '/': ' '
-        }
-        return ''.join(morse_dict.get(code, '') for code in text.split(' '))
-
-    @staticmethod
     def to_vowel_removal_case(text: str) -> str:
         """
         Remove all vowels from the text.
@@ -836,29 +792,6 @@ class Case(object):
         """
         # Placeholder implementation; real Braille transcription is more complex
         return "Braille: " + text
-
-    @staticmethod
-    def to_morse_code_wordwise_case(text: str) -> str:
-        """
-        Converts each word to Morse code, maintaining word boundaries.
-        Example: 'Hi' -> '.... ..'
-
-        Parameters:
-        text (str): The text to convert.
-
-        Returns:
-        str: The text with each word converted to Morse code.
-        """
-        morse_dict = {
-            'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.',
-            'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---',
-            'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---',
-            'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-',
-            'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--',
-            'Z': '--..', ' ': '/'
-        }
-        return ' / '.join(' '.join(morse_dict.get(char.upper(), '') for char in word) for word in text.split())
-
 
     @staticmethod
     def to_palindrome_check_case(text: str) -> bool:
@@ -1104,140 +1037,153 @@ class Case(object):
         return ' '.join(' '.join(char) for char in text)
 
 
-# Example usage:
-text = "example TEXT for Conversion. it's a test"
+# =============================================================================
+# Functions
+# =============================================================================
 
-camel_case = Case.to_camel_case(text)
-snake_case = Case.to_snake_case(text)
-kebab_case = Case.to_kebab_case(text)
-spinal_case = Case.to_spinal_case(text)
-title_case = Case.to_title_case(text)
-upper_case = Case.to_upper_case(text)
-lower_case = Case.to_lower_case(text)
-sentence_case = Case.to_sentence_case(text)
-constant_case = Case.to_constant_case(text)
-pascal_case = Case.to_pascal_case(text)
-dot_case = Case.to_dot_case(text)
-path_case = Case.to_path_case(text)
-reverse_case = Case.to_reverse_case(text)
-swap_case = Case.to_swap_case(text)
-random_case = Case.to_random_case(text)
-slug_case = Case.to_slug_case(text)
-mocking_spongebob_case = Case.to_mocking_spongebob_case(text)
-vowel_uppercase_case = Case.to_vowel_uppercase_case(text)
-consonant_uppercase_case = Case.to_consonant_uppercase_case(text)
-leet_speak_case = Case.to_leet_speak_case(text)
-first_letter_uppercase_case = Case.to_first_letter_uppercase_case(text)
-backwards_words_case = Case.to_backwards_words_case(text)
-alternate_case = Case.to_alternate_uppercase_lowercase_case(text)
-morse_code_case = Case.to_morse_code_case("SOS")
-nato_case = Case.to_nato_phonetic_alphabet_case("ABCD")
-binary_case = Case.to_binary_case(text)
-hexadecimal_case = Case.to_hexadecimal_case(text)
-upside_down_case = Case.to_upside_down_case(text)
-emoji_case = Case.to_emoji_case(text)
-zalgo_text_case = Case.to_zalgo_text_case("Zalgo")
-inverted_case = Case.to_inverted_case(text)
-rainbow_case = Case.to_rainbow_case("Rainbow")
-acronym_case = Case.to_acronym_case("Central Processing Unit")
-spongebob_meme_case = Case.to_spongebob_meme_case("spongebob case")
-reversed_sentence_case = Case.to_reversed_sentence_case(text)
-pig_latin_case = Case.to_pig_latin_case("hello")
-reverse_words_case = Case.to_reverse_words_case(text)
-random_shuffle_case = Case.to_random_shuffle_case(text)
-morse_code_decryption_case = Case.to_morse_code_decryption_case(".... . .-.. .-.. ---")  # noqa E501
-vowel_removal_case = Case.to_vowel_removal_case(text)
-first_letter_of_each_word_case = Case.to_first_letter_of_each_word_case(text)
-scramble_middle_letters_case = Case.to_scramble_middle_letters_case(text)
-ascii_value_case = Case.to_ascii_value_case("AB")
-repeated_letters_case = Case.to_repeated_letters_case("Hello")
-numeric_words_to_numbers_case = Case.to_numeric_words_to_numbers_case(text)
+def test():
+    """
+    Test Function
+    """
 
-reverse_each_vowel_case = Case.to_reverse_each_vowel_case("Hello")
-vowel_concatenation_case = Case.to_vowel_concatenation_case(text)
-diagonal_text_case = Case.to_diagonal_text_case("Hello")
-braille_transcription_case = Case.to_braille_transcription_case("Hello")
-morse_code_wordwise_case = Case.to_morse_code_wordwise_case("Hi")
-palindrome_check = Case.to_palindrome_check_case(text)
-interleaved_text = Case.to_interleave_words_case(text1, text2)
-alternate_character_deletion = Case.to_alternate_character_deletion_case("Hello")
-numeronym = Case.to_numeronym_case("Internationalization")
-word_count = Case.to_word_count_case(text)
-reversed_word_order = Case.to_reverse_word_order_case(text)
-alphabet_position = Case.to_alphabet_position_case("ab")
-double_every_second_word = Case.to_double_every_second_word_case(text)
-longest_word = Case.to_longest_word_case("This is a test")
-character_frequency_count = Case.to_character_frequency_count_case("hello")
-reverse_words_individually = Case.to_reverse_words_individually_case("Hello world")
-substitute_numbers_with_words = Case.to_substitute_numbers_with_words_case(text)
-abbreviation = Case.to_abbreviation_case(text)
-shuffled_sentences = Case.to_shuffle_sentences_case("This is sentence one. This is sentence two.")
-mirror_text = Case.to_mirror_text_case("Hello")
-insert_random_spaces = Case.to_insert_random_spaces_case("Hello")
+    # Example usage:
+    text = "example TEXT for Conversion. it's a test"
 
-print("Camel Case:", camel_case)
-print("Snake Case:", snake_case)
-print("Kebab Case:", kebab_case)
-print("Spinal Case:", spinal_case)
-print("Title Case:", title_case)
-print("Upper Case:", upper_case)
-print("Lower Case:", lower_case)
-print("Sentence Case:", sentence_case)
-print("Constant Case:", constant_case)
-print("Pascal Case:", pascal_case)
-print("Dot Case:", dot_case)
-print("Path Case:", path_case)
-print("Reverse Case:", reverse_case)
-print("Swap Case:", swap_case)
-print("Random Case:", random_case)
-print("Slug Case:", slug_case)
-print("Mocking Spongebob Case:", mocking_spongebob_case)
-print("Vowel Uppercase Case:", vowel_uppercase_case)
-print("Consonant Uppercase Case:", consonant_uppercase_case)
-print("Leet Speak Case:", leet_speak_case)
-print("First Letter Uppercase Case:", first_letter_uppercase_case)
-print("Backwards Words Case:", backwards_words_case)
-print("Alternate Uppercase Lowercase Case:", alternate_case)
-print("Morse Code Case:", morse_code_case)
-print("NATO Phonetic Alphabet Case:", nato_case)
-print("Binary Case:", binary_case)
-print("Hexadecimal Case:", hexadecimal_case)
-print("Upside Down Case:", upside_down_case)
-print("Emoji Case:", emoji_case)
-print("Zalgo Text Case:", zalgo_text_case)
-print("Inverted Case:", inverted_case)
-print("Rainbow Case:", rainbow_case)
-print("Acronym Case:", acronym_case)
-print("Spongebob Meme Case:", spongebob_meme_case)
-print("Reversed Sentence Case:", reversed_sentence_case)
-print("Pig Latin Case:", pig_latin_case)
-print("Reverse Words Case:", reverse_words_case)
-print("Random Shuffle Case:", random_shuffle_case)
-print("Morse Code Decryption Case:", morse_code_decryption_case)
-print("Vowel Removal Case:", vowel_removal_case)
-print("First Letter of Each Word Case:", first_letter_of_each_word_case)
-print("Scramble Middle Letters Case:", scramble_middle_letters_case)
-print("ASCII Value Case:", ascii_value_case)
-print("Repeated Letters Case:", repeated_letters_case)
-print("Numeric Words to Numbers Case:", numeric_words_to_numbers_case)
-print("Reverse Each Vowel Case:", reverse_each_vowel_case)
-print("Vowel Concatenation Case:", vowel_concatenation_case)
-print("Diagonal Text Case:", diagonal_text_case)
-print("Braille Transcription Case:", braille_transcription_case)
-print("Morse Code Wordwise Case:", morse_code_wordwise_case)
-print("Palindrome Check:", palindrome_check)
-print("Interleaved Text:", interleaved_text)
-print("Alternate Character Deletion:", alternate_character_deletion)
-print("Numeronym:", numeronym)
-print("Word Count:", word_count)
-print("Reversed Word Order:", reversed_word_order)
-print("Alphabet Position:", alphabet_position)
-print("Double Every Second Word:", double_every_second_word)
-print("Longest Word:", longest_word)
-print("Character Frequency Count:", character_frequency_count)
-print("Reverse Words Individually:", reverse_words_individually)
-print("Substitute Numbers with Words:", substitute_numbers_with_words)
-print("Abbreviation:", abbreviation)
-print("Shuffled Sentences:", shuffled_sentences)
-print("Mirror Text:", mirror_text)
-print("Insert Random Spaces:", insert_random_spaces)
+    camel_case = Case.to_camel_case(text)
+    snake_case = Case.to_snake_case(text)
+    kebab_case = Case.to_kebab_case(text)
+    spinal_case = Case.to_spinal_case(text)
+    title_case = Case.to_title_case(text)
+    upper_case = Case.to_upper_case(text)
+    lower_case = Case.to_lower_case(text)
+    sentence_case = Case.to_sentence_case(text)
+    constant_case = Case.to_constant_case(text)
+    pascal_case = Case.to_pascal_case(text)
+    dot_case = Case.to_dot_case(text)
+    path_case = Case.to_path_case(text)
+    reverse_case = Case.to_reverse_case(text)
+    swap_case = Case.to_swap_case(text)
+    random_case = Case.to_random_case(text)
+    slug_case = Case.to_slug_case(text)
+    mocking_spongebob_case = Case.to_mocking_spongebob_case(text)
+    vowel_uppercase_case = Case.to_vowel_uppercase_case(text)
+    consonant_uppercase_case = Case.to_consonant_uppercase_case(text)
+    leet_speak_case = Case.to_leet_speak_case(text)
+    first_letter_uppercase_case = Case.to_first_letter_uppercase_case(text)
+    backwards_words_case = Case.to_backwards_words_case(text)
+    alternate_case = Case.to_alternate_uppercase_lowercase_case(text)
+    nato_case = Case.to_nato_phonetic_alphabet_case("ABCD")
+    binary_case = Case.to_binary_case(text)
+    hexadecimal_case = Case.to_hexadecimal_case(text)
+    upside_down_case = Case.to_upside_down_case(text)
+    emoji_case = Case.to_emoji_case(text)
+    zalgo_text_case = Case.to_zalgo_text_case("Zalgo")
+    inverted_case = Case.to_inverted_case(text)
+    rainbow_case = Case.to_rainbow_case("Rainbow")
+    acronym_case = Case.to_acronym_case("Central Processing Unit")
+    spongebob_meme_case = Case.to_spongebob_meme_case("spongebob case")
+    reversed_sentence_case = Case.to_reversed_sentence_case(text)
+    pig_latin_case = Case.to_pig_latin_case("hello")
+    reverse_words_case = Case.to_reverse_words_case(text)
+    random_shuffle_case = Case.to_random_shuffle_case(text)
+    vowel_removal_case = Case.to_vowel_removal_case(text)
+    first_letter_of_each_word_case = Case.to_first_letter_of_each_word_case(text)
+    scramble_middle_letters_case = Case.to_scramble_middle_letters_case(text)
+    ascii_value_case = Case.to_ascii_value_case("AB")
+    repeated_letters_case = Case.to_repeated_letters_case("Hello")
+    numeric_words_to_numbers_case = Case.to_numeric_words_to_numbers_case(text)
+    reverse_each_vowel_case = Case.to_reverse_each_vowel_case("Hello")
+    vowel_concatenation_case = Case.to_vowel_concatenation_case(text)
+    diagonal_text_case = Case.to_diagonal_text_case("Hello")
+    braille_transcription_case = Case.to_braille_transcription_case("Hello")
+    palindrome_check = Case.to_palindrome_check_case(text)
+    # interleaved_text = Case.to_interleave_words_case(text1, text2)
+    alternate_character_deletion = Case.to_alternate_character_deletion_case("Hello")
+    numeronym = Case.to_numeronym_case("Internationalization")
+    word_count = Case.to_word_count_case(text)
+    reversed_word_order = Case.to_reverse_word_order_case(text)
+    alphabet_position = Case.to_alphabet_position_case("ab")
+    double_every_second_word = Case.to_double_every_second_word_case(text)
+    longest_word = Case.to_longest_word_case("This is a test")
+    character_frequency_count = Case.to_character_frequency_count_case("hello")
+    reverse_words_individually = Case.to_reverse_words_individually_case("Hello world")
+    substitute_numbers_with_words = Case.to_substitute_numbers_with_words_case(text)
+    abbreviation = Case.to_abbreviation_case(text)
+    shuffled_sentences = Case.to_shuffle_sentences_case("This is sentence one. This is sentence two.")
+    mirror_text = Case.to_mirror_text_case("Hello")
+    insert_random_spaces = Case.to_insert_random_spaces_case("Hello")
+
+    print("Camel Case:", camel_case)
+    print("Snake Case:", snake_case)
+    print("Kebab Case:", kebab_case)
+    print("Spinal Case:", spinal_case)
+    print("Title Case:", title_case)
+    print("Upper Case:", upper_case)
+    print("Lower Case:", lower_case)
+    print("Sentence Case:", sentence_case)
+    print("Constant Case:", constant_case)
+    print("Pascal Case:", pascal_case)
+    print("Dot Case:", dot_case)
+    print("Path Case:", path_case)
+    print("Reverse Case:", reverse_case)
+    print("Swap Case:", swap_case)
+    print("Random Case:", random_case)
+    print("Slug Case:", slug_case)
+    print("Mocking Spongebob Case:", mocking_spongebob_case)
+    print("Vowel Uppercase Case:", vowel_uppercase_case)
+    print("Consonant Uppercase Case:", consonant_uppercase_case)
+    print("Leet Speak Case:", leet_speak_case)
+    print("First Letter Uppercase Case:", first_letter_uppercase_case)
+    print("Backwards Words Case:", backwards_words_case)
+    print("Alternate Uppercase Lowercase Case:", alternate_case)
+    print("NATO Phonetic Alphabet Case:", nato_case)
+    print("Binary Case:", binary_case)
+    print("Hexadecimal Case:", hexadecimal_case)
+    print("Upside Down Case:", upside_down_case)
+    print("Emoji Case:", emoji_case)
+    print("Zalgo Text Case:", zalgo_text_case)
+    print("Inverted Case:", inverted_case)
+    print("Rainbow Case:", rainbow_case)
+    print("Acronym Case:", acronym_case)
+    print("Spongebob Meme Case:", spongebob_meme_case)
+    print("Reversed Sentence Case:", reversed_sentence_case)
+    print("Pig Latin Case:", pig_latin_case)
+    print("Reverse Words Case:", reverse_words_case)
+    print("Random Shuffle Case:", random_shuffle_case)
+    print("Vowel Removal Case:", vowel_removal_case)
+    print("First Letter of Each Word Case:", first_letter_of_each_word_case)
+    print("Scramble Middle Letters Case:", scramble_middle_letters_case)
+    print("ASCII Value Case:", ascii_value_case)
+    print("Repeated Letters Case:", repeated_letters_case)
+    print("Numeric Words to Numbers Case:", numeric_words_to_numbers_case)
+    print("Reverse Each Vowel Case:", reverse_each_vowel_case)
+    print("Vowel Concatenation Case:", vowel_concatenation_case)
+    print("Diagonal Text Case:", diagonal_text_case)
+    print("Braille Transcription Case:", braille_transcription_case)
+    print("Palindrome Check:", palindrome_check)
+    # print("Interleaved Text:", interleaved_text)
+    print("Alternate Character Deletion:", alternate_character_deletion)
+    print("Numeronym:", numeronym)
+    print("Word Count:", word_count)
+    print("Reversed Word Order:", reversed_word_order)
+    print("Alphabet Position:", alphabet_position)
+    print("Double Every Second Word:", double_every_second_word)
+    print("Longest Word:", longest_word)
+    print("Character Frequency Count:", character_frequency_count)
+    print("Reverse Words Individually:", reverse_words_individually)
+    print("Substitute Numbers with Words:", substitute_numbers_with_words)
+    print("Abbreviation:", abbreviation)
+    print("Shuffled Sentences:", shuffled_sentences)
+    print("Mirror Text:", mirror_text)
+    print("Insert Random Spaces:", insert_random_spaces)
+
+
+# =============================================================================
+# Main
+# =============================================================================
+
+if __name__ == '__main__':
+    """Main"""
+    import doctest
+    doctest.testmod()
+    test()

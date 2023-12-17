@@ -112,7 +112,6 @@ class UUID(object):
         except ValueError:
             return False
 
-
     @staticmethod
     def from_name(namespace, name):
         """
@@ -167,22 +166,42 @@ class UUID(object):
         return f"UUID: {str(uuid_obj)}, Version: {uuid_obj.version}, Variant: {uuid_obj.variant}"
 
 
-# Example usage
-random_uuid = UUID.create_random_uuid()
-uuid_string = UUID.create_uuid_string()
-hex_uuid = UUID.create_hex_uuid()
-is_valid = UUID.validate_uuid(uuid_string)
-namespace_uuid = uuid.NAMESPACE_DNS
-name_based_uuid = UUID.from_name(namespace_uuid, 'example.com')
-version = UUID.get_version(name_based_uuid)
-is_random = UUID.is_random_uuid(name_based_uuid)
-formatted_str = UUID.formatted_string(name_based_uuid)
+# =============================================================================
+# Functions
+# =============================================================================
 
-print(f"Random UUID: {random_uuid}")
-print(f"UUID String: {uuid_string}")
-print(f"Hex UUID: {hex_uuid}")
-print(f"Is Valid: {is_valid}")
-print(f"Name-based UUID: {name_based_uuid}")
-print(f"UUID Version: {version}")
-print(f"Is Random UUID: {is_random}")
-print(f"Formatted UUID String: {formatted_str}")
+def test():
+    """
+    Test Function
+    """
+
+    # Example usage
+    random_uuid = UUID.create_random_uuid()
+    uuid_string = UUID.create_uuid_string()
+    hex_uuid = UUID.create_hex_uuid()
+    is_valid = UUID.validate_uuid(uuid_string)
+    namespace_uuid = uuid.NAMESPACE_DNS
+    name_based_uuid = UUID.from_name(namespace_uuid, 'example.com')
+    version = UUID.get_version(name_based_uuid)
+    is_random = UUID.is_random_uuid(name_based_uuid)
+    formatted_str = UUID.formatted_string(name_based_uuid)
+
+    print(f"Random UUID: {random_uuid}")
+    print(f"UUID String: {uuid_string}")
+    print(f"Hex UUID: {hex_uuid}")
+    print(f"Is Valid: {is_valid}")
+    print(f"Name-based UUID: {name_based_uuid}")
+    print(f"UUID Version: {version}")
+    print(f"Is Random UUID: {is_random}")
+    print(f"Formatted UUID String: {formatted_str}")
+
+
+# =============================================================================
+# Main
+# =============================================================================
+
+if __name__ == '__main__':
+    """Main"""
+    import doctest
+    doctest.testmod()
+    test()
