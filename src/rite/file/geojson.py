@@ -59,22 +59,3 @@ class FileGeoJSON:
         # Writing to outfile
         with open(path, "w") as outfile:
             outfile.write(dump)
-
-
-    # Methods | test
-
-    def test_something(self):
-        """Test Method"""
-        pass
-
-
-def test():
-    """Test Function"""
-    pass
-
-
-if __name__ == '__main__':
-    """Main"""
-    import doctest
-    doctest.testmod()
-    test()

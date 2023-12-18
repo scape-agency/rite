@@ -27,9 +27,8 @@ Todo:
 
 
 # Import | Local Modules
-from starling.data.colour import Colour
-from starling.geometry.point import Point
-
+from .colour import Colour
+# from .geometry.point import Point
 
 
 class Pixel(object):
