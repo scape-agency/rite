@@ -1,0 +1,61 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"  # Trigger only on version tags
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12.7
+
+      # Cache Poetry dependencies for faster builds
+      - name: Cache Poetry dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pypoetry
+            ~/.venv
+          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-poetry-
+
+      # Install Poetry
+      - name: Install Poetry
+        run: curl -sSL https://install.python-poetry.org | python3 -
+
+      # Install dependencies using Poetry
+      - name: Install dependencies
+        run: poetry install --no-root
+
+      # Build the package using Poetry
+      - name: Build the package
+        run: poetry build
+
+      # Create a release on GitHub
+      - name: Create GitHub Release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          body: |
+            This release contains the following:
+            - Version: ${{ github.ref_name }}
+            - Package built with Poetry.
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Verify the release (optional step)
+      - name: Verify release success
+        run: |
+          echo "Release created for ${{ github.ref_name }}."
