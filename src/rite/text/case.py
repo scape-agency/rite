@@ -34,6 +34,7 @@ import random
 # Classes
 # =============================================================================
 
+
 class Case(object):
     """
     Case Class
@@ -53,7 +54,9 @@ class Case(object):
         str: The text converted to camel case.
         """
         words = text.split()
-        return words[0].lower() + ''.join(word.capitalize() for word in words[1:])  # noqa E501
+        return words[0].lower() + "".join(
+            word.capitalize() for word in words[1:]
+        )  # noqa E501
 
     @staticmethod
     def to_snake_case(text: str) -> str:
@@ -68,7 +71,7 @@ class Case(object):
         str: The text converted to snake case.
         """
         words = text.split()
-        return '_'.join(word.lower() for word in words)
+        return "_".join(word.lower() for word in words)
 
     @staticmethod
     def to_kebab_case(text: str) -> str:
@@ -84,7 +87,7 @@ class Case(object):
         str: The text converted to kebab case.
         """
         words = text.split()
-        return '-'.join(word.lower() for word in words)
+        return "-".join(word.lower() for word in words)
 
     @staticmethod
     def to_spinal_case(text: str) -> str:
@@ -100,7 +103,7 @@ class Case(object):
         str: The text converted to spinal case.
         """
         words = text.split()
-        return '-'.join(word.lower() for word in words)
+        return "-".join(word.lower() for word in words)
 
     @staticmethod
     def to_title_case(text: str) -> str:
@@ -156,8 +159,8 @@ class Case(object):
         Returns:
         str: The text converted to sentence case.
         """
-        sentences = text.split('. ')
-        return '. '.join(sentence.capitalize() for sentence in sentences)
+        sentences = text.split(". ")
+        return ". ".join(sentence.capitalize() for sentence in sentences)
 
     @staticmethod
     def to_constant_case(text: str) -> str:
@@ -174,7 +177,7 @@ class Case(object):
         str: The text converted to constant case.
         """
         words = text.split()
-        return '_'.join(word.upper() for word in words)
+        return "_".join(word.upper() for word in words)
 
     @staticmethod
     def to_pascal_case(text: str) -> str:
@@ -191,7 +194,7 @@ class Case(object):
         str: The text converted to pascal case.
         """
         words = text.split()
-        return ''.join(word.capitalize() for word in words)
+        return "".join(word.capitalize() for word in words)
 
     @staticmethod
     def to_dot_case(text: str) -> str:
@@ -207,7 +210,7 @@ class Case(object):
         str: The text converted to dot case.
         """
         words = text.split()
-        return '.'.join(word.lower() for word in words)
+        return ".".join(word.lower() for word in words)
 
     @staticmethod
     def to_path_case(text: str) -> str:
@@ -223,7 +226,7 @@ class Case(object):
         str: The text converted to path case.
         """
         words = text.split()
-        return '/'.join(word.lower() for word in words)
+        return "/".join(word.lower() for word in words)
 
     @staticmethod
     def to_reverse_case(text: str) -> str:
@@ -266,7 +269,9 @@ class Case(object):
         Returns:
         str: The text with randomized case.
         """
-        return ''.join(random.choice([char.upper(), char.lower()]) for char in text)  # noqa E501
+        return "".join(
+            random.choice([char.upper(), char.lower()]) for char in text
+        )  # noqa E501
 
     @staticmethod
     def to_slug_case(text: str) -> str:
@@ -281,7 +286,7 @@ class Case(object):
         str: The text in slug case.
         """
         words = text.split()
-        return '-'.join(word.lower() for word in words)
+        return "-".join(word.lower() for word in words)
 
     @staticmethod
     def to_mocking_spongebob_case(text: str) -> str:
@@ -295,7 +300,10 @@ class Case(object):
         Returns:
         str: The text in 'Mocking Spongebob' case.
         """
-        return ''.join(char.lower() if i % 2 else char.upper() for i, char in enumerate(text))  # noqa E501
+        return "".join(
+            char.lower() if i % 2 else char.upper()
+            for i, char in enumerate(text)
+        )  # noqa E501
 
     @staticmethod
     def to_vowel_uppercase_case(text: str) -> str:
@@ -310,7 +318,9 @@ class Case(object):
         str: The text with uppercase vowels.
         """
         vowels = "aeiou"
-        return ''.join(char.upper() if char.lower() in vowels else char for char in text)  # noqa E501
+        return "".join(
+            char.upper() if char.lower() in vowels else char for char in text
+        )  # noqa E501
 
     @staticmethod
     def to_consonant_uppercase_case(text: str) -> str:
@@ -325,7 +335,10 @@ class Case(object):
         str: The text with uppercase consonants.
         """
         vowels = "aeiou"
-        return ''.join(char.upper() if char.lower() not in vowels else char for char in text)  # noqa E501
+        return "".join(
+            char.upper() if char.lower() not in vowels else char
+            for char in text
+        )  # noqa E501
 
     @staticmethod
     def to_leet_speak_case(text: str) -> str:
@@ -340,10 +353,16 @@ class Case(object):
         str: The text in leet speak.
         """
         leet_dict = {
-            'a': '4', 'e': '3', 'l': '1', 'o': '0',
-            's': '5', 't': '7', 'i': '1', 'g': '9'
+            "a": "4",
+            "e": "3",
+            "l": "1",
+            "o": "0",
+            "s": "5",
+            "t": "7",
+            "i": "1",
+            "g": "9",
         }
-        return ''.join(leet_dict.get(char.lower(), char) for char in text)
+        return "".join(leet_dict.get(char.lower(), char) for char in text)
 
     @staticmethod
     def to_first_letter_uppercase_case(text: str) -> str:
@@ -358,7 +377,10 @@ class Case(object):
         Returns:
         str: The text with the first letter of each word in uppercase.
         """
-        return ' '.join(word[0].upper() + word[1:].lower() if word else '' for word in text.split())  # noqa E501
+        return " ".join(
+            word[0].upper() + word[1:].lower() if word else ""
+            for word in text.split()
+        )  # noqa E501
 
     @staticmethod
     def to_backwards_words_case(text: str) -> str:
@@ -372,7 +394,7 @@ class Case(object):
         Returns:
         str: The text with each word reversed.
         """
-        return ' '.join(word[::-1] for word in text.split())
+        return " ".join(word[::-1] for word in text.split())
 
     @staticmethod
     def to_alternate_uppercase_lowercase_case(text: str) -> str:
@@ -387,7 +409,10 @@ class Case(object):
         Returns:
         str: The text with alternating uppercase and lowercase letters.
         """
-        return ''.join(char.upper() if i % 2 else char.lower() for i, char in enumerate(text))  # noqa E501
+        return "".join(
+            char.upper() if i % 2 else char.lower()
+            for i, char in enumerate(text)
+        )  # noqa E501
 
     @staticmethod
     def to_nato_phonetic_alphabet_case(text: str) -> str:
@@ -403,15 +428,35 @@ class Case(object):
         str: The text in NATO phonetic alphabet.
         """
         nato_dict = {
-            'A': 'Alpha', 'B': 'Bravo', 'C': 'Charlie', 'D': 'Delta',
-            'E': 'Echo', 'F': 'Foxtrot', 'G': 'Golf', 'H': 'Hotel',
-            'I': 'India', 'J': 'Juliett', 'K': 'Kilo', 'L': 'Lima',
-            'M': 'Mike', 'N': 'November', 'O': 'Oscar', 'P': 'Papa',
-            'Q': 'Quebec', 'R': 'Romeo', 'S': 'Sierra', 'T': 'Tango',
-            'U': 'Uniform', 'V': 'Victor', 'W': 'Whiskey', 'X': 'X-ray',
-            'Y': 'Yankee', 'Z': 'Zulu', ' ': ' '
+            "A": "Alpha",
+            "B": "Bravo",
+            "C": "Charlie",
+            "D": "Delta",
+            "E": "Echo",
+            "F": "Foxtrot",
+            "G": "Golf",
+            "H": "Hotel",
+            "I": "India",
+            "J": "Juliett",
+            "K": "Kilo",
+            "L": "Lima",
+            "M": "Mike",
+            "N": "November",
+            "O": "Oscar",
+            "P": "Papa",
+            "Q": "Quebec",
+            "R": "Romeo",
+            "S": "Sierra",
+            "T": "Tango",
+            "U": "Uniform",
+            "V": "Victor",
+            "W": "Whiskey",
+            "X": "X-ray",
+            "Y": "Yankee",
+            "Z": "Zulu",
+            " ": " ",
         }
-        return ' '.join(nato_dict.get(char.upper(), '') for char in text)
+        return " ".join(nato_dict.get(char.upper(), "") for char in text)
 
     @staticmethod
     def to_binary_case(text: str) -> str:
@@ -425,7 +470,7 @@ class Case(object):
         Returns:
         str: The text in binary form.
         """
-        return ' '.join(format(ord(char), '08b') for char in text)
+        return " ".join(format(ord(char), "08b") for char in text)
 
     @staticmethod
     def to_hexadecimal_case(text: str) -> str:
@@ -439,7 +484,7 @@ class Case(object):
         Returns:
         str: The text in hexadecimal form.
         """
-        return ' '.join(format(ord(char), 'x') for char in text)
+        return " ".join(format(ord(char), "x") for char in text)
 
     @staticmethod
     def to_upside_down_case(text: str) -> str:
@@ -454,24 +499,102 @@ class Case(object):
         str: The flipped text.
         """
         flip_dict = {
-            'a': 'ɐ', 'b': 'q', 'c': 'ɔ', 'd': 'p', 'e': 'ǝ', 'f': 'ɟ',
-            'g': 'ƃ', 'h': 'ɥ', 'i': 'ᴉ', 'j': 'ɾ', 'k': 'ʞ', 'l': 'l',
-            'm': 'ɯ', 'n': 'u', 'o': 'o', 'p': 'd', 'q': 'b', 'r': 'ɹ',
-            's': 's', 't': 'ʇ', 'u': 'n', 'v': 'ʌ', 'w': 'ʍ', 'x': 'x',
-            'y': 'ʎ', 'z': 'z', 'A': '∀', 'B': '𐐒', 'C': 'Ɔ', 'D': 'ᗡ',
-            'E': 'Ǝ', 'F': 'Ⅎ', 'G': '⅁', 'H': 'H', 'I': 'I', 'J': 'ſ',
-            'K': '⋊', 'L': '˥', 'M': 'W', 'N': 'N', 'O': 'O', 'P': 'Ԁ',
-            'Q': 'Q', 'R': 'ᴚ', 'S': 'S', 'T': '⊥', 'U': '∩', 'V': 'Λ',
-            'W': 'M', 'X': 'X', 'Y': '⅄', 'Z': 'Z', '1': 'Ɩ', '2': 'ᄅ',
-            '3': 'Ɛ', '4': 'ㄣ', '5': 'ϛ', '6': '9', '7': 'ㄥ', '8': '8',
-            '9': '6', '0': '0', '.': '˙', ',': "'", '?': '¿', '!': '¡',
-            '"': '„', "'": ',', '(': ')', ')': '(', '[': ']', ']': '[',
-            '{': '}', '}': '{', '<': '>', '>': '<', '&': '⅋', '_': '‾',
-            ';': '؛', ':': '∶', '-': '-', '+': '⁺', '=': '⁼', '/': '\\',
-            '\\': '/', '|': '|', '@': '@', '#': '#', '$': '$', '%': '%',
-            '^': '︿', '&': '⅋', '*': '*', '~': '~'
+            "a": "ɐ",
+            "b": "q",
+            "c": "ɔ",
+            "d": "p",
+            "e": "ǝ",
+            "f": "ɟ",
+            "g": "ƃ",
+            "h": "ɥ",
+            "i": "ᴉ",
+            "j": "ɾ",
+            "k": "ʞ",
+            "l": "l",
+            "m": "ɯ",
+            "n": "u",
+            "o": "o",
+            "p": "d",
+            "q": "b",
+            "r": "ɹ",
+            "s": "s",
+            "t": "ʇ",
+            "u": "n",
+            "v": "ʌ",
+            "w": "ʍ",
+            "x": "x",
+            "y": "ʎ",
+            "z": "z",
+            "A": "∀",
+            "B": "𐐒",
+            "C": "Ɔ",
+            "D": "ᗡ",
+            "E": "Ǝ",
+            "F": "Ⅎ",
+            "G": "⅁",
+            "H": "H",
+            "I": "I",
+            "J": "ſ",
+            "K": "⋊",
+            "L": "˥",
+            "M": "W",
+            "N": "N",
+            "O": "O",
+            "P": "Ԁ",
+            "Q": "Q",
+            "R": "ᴚ",
+            "S": "S",
+            "T": "⊥",
+            "U": "∩",
+            "V": "Λ",
+            "W": "M",
+            "X": "X",
+            "Y": "⅄",
+            "Z": "Z",
+            "1": "Ɩ",
+            "2": "ᄅ",
+            "3": "Ɛ",
+            "4": "ㄣ",
+            "5": "ϛ",
+            "6": "9",
+            "7": "ㄥ",
+            "8": "8",
+            "9": "6",
+            "0": "0",
+            ".": "˙",
+            ",": "'",
+            "?": "¿",
+            "!": "¡",
+            '"': "„",
+            "'": ",",
+            "(": ")",
+            ")": "(",
+            "[": "]",
+            "]": "[",
+            "{": "}",
+            "}": "{",
+            "<": ">",
+            ">": "<",
+            "&": "⅋",
+            "_": "‾",
+            ";": "؛",
+            ":": "∶",
+            "-": "-",
+            "+": "⁺",
+            "=": "⁼",
+            "/": "\\",
+            "\\": "/",
+            "|": "|",
+            "@": "@",
+            "#": "#",
+            "$": "$",
+            "%": "%",
+            "^": "︿",
+            "&": "⅋",
+            "*": "*",
+            "~": "~",
         }
-        return ''.join(flip_dict.get(char, char) for char in reversed(text))
+        return "".join(flip_dict.get(char, char) for char in reversed(text))
 
     @staticmethod
     def to_emoji_case(text: str) -> str:
@@ -486,10 +609,14 @@ class Case(object):
         str: The text with words replaced by emojis.
         """
         emoji_dict = {
-            'love': '❤️', 'happy': '😊', 'sad': '😢',
-            'dog': '🐶', 'cat': '🐱', 'tree': '🌳'
+            "love": "❤️",
+            "happy": "😊",
+            "sad": "😢",
+            "dog": "🐶",
+            "cat": "🐱",
+            "tree": "🌳",
         }
-        return ' '.join(emoji_dict.get(word, word) for word in text.split())
+        return " ".join(emoji_dict.get(word, word) for word in text.split())
 
     @staticmethod
     def to_zalgo_text_case(text: str) -> str:
@@ -504,7 +631,9 @@ class Case(object):
         str: The text with Zalgo effect.
         """
         zalgo_chars = [chr(i) for i in range(0x0300, 0x036F)]
-        return ''.join(char + ''.join(random.choices(zalgo_chars, k=2)) for char in text)  # noqa E501
+        return "".join(
+            char + "".join(random.choices(zalgo_chars, k=2)) for char in text
+        )  # noqa E501
 
     @staticmethod
     def to_inverted_case(text: str) -> str:
@@ -517,7 +646,9 @@ class Case(object):
         Returns:
         str: The text with inverted case.
         """
-        return ''.join(char.upper() if char.islower() else char.lower() for char in text)  # noqa E501
+        return "".join(
+            char.upper() if char.islower() else char.lower() for char in text
+        )  # noqa E501
 
     @staticmethod
     def to_rainbow_case(text: str) -> str:
@@ -532,8 +663,10 @@ class Case(object):
         Returns:
         str: The text with symbolic color codes.
         """
-        colors = ['🟥', '🟧', '🟨', '🟩', '🟦', '🟪']
-        return ''.join(f'{colors[i % len(colors)]}{char}' for i, char in enumerate(text))  # noqa E501
+        colors = ["🟥", "🟧", "🟨", "🟩", "🟦", "🟪"]
+        return "".join(
+            f"{colors[i % len(colors)]}{char}" for i, char in enumerate(text)
+        )  # noqa E501
 
     @staticmethod
     def to_acronym_case(text: str) -> str:
@@ -547,7 +680,7 @@ class Case(object):
         Returns:
         str: The acronym of the phrase.
         """
-        return ''.join(word[0].upper() for word in text.split() if word)
+        return "".join(word[0].upper() for word in text.split() if word)
 
     @staticmethod
     def to_spongebob_meme_case(text: str) -> str:
@@ -562,7 +695,10 @@ class Case(object):
         Returns:
         str: The text in Spongebob Meme case.
         """
-        return ''.join(char.upper() if i % 2 else char.lower() for i, char in enumerate(text))  # noqa E501
+        return "".join(
+            char.upper() if i % 2 else char.lower()
+            for i, char in enumerate(text)
+        )  # noqa E501
 
     @staticmethod
     def to_reversed_sentence_case(text: str) -> str:
@@ -576,7 +712,7 @@ class Case(object):
         Returns:
         str: The sentence with reversed word order.
         """
-        return ' '.join(reversed(text.split()))
+        return " ".join(reversed(text.split()))
 
     @staticmethod
     def to_pig_latin_case(text: str) -> str:
@@ -590,12 +726,13 @@ class Case(object):
         Returns:
         str: The text in Pig Latin.
         """
-        def convert_word(word):
-            if word[0] in 'aeiou':
-                return word + 'way'
-            return word[1:] + word[0] + 'ay'
 
-        return ' '.join(convert_word(word) for word in text.split())
+        def convert_word(word):
+            if word[0] in "aeiou":
+                return word + "way"
+            return word[1:] + word[0] + "ay"
+
+        return " ".join(convert_word(word) for word in text.split())
 
     @staticmethod
     def to_reverse_words_case(text: str) -> str:
@@ -609,7 +746,7 @@ class Case(object):
         Returns:
         str: The text with each word reversed.
         """
-        return ' '.join(word[::-1] for word in text.split())
+        return " ".join(word[::-1] for word in text.split())
 
     @staticmethod
     def to_random_shuffle_case(text: str) -> str:
@@ -623,12 +760,13 @@ class Case(object):
         Returns:
         str: The text with letters in each word shuffled.
         """
+
         def shuffle_word(word):
             word_list = list(word)
             random.shuffle(word_list)
-            return ''.join(word_list)
+            return "".join(word_list)
 
-        return ' '.join(shuffle_word(word) for word in text.split())
+        return " ".join(shuffle_word(word) for word in text.split())
 
     @staticmethod
     def to_vowel_removal_case(text: str) -> str:
@@ -642,8 +780,8 @@ class Case(object):
         Returns:
         str: The text with all vowels removed.
         """
-        vowels = 'aeiouAEIOU'
-        return ''.join(char for char in text if char not in vowels)
+        vowels = "aeiouAEIOU"
+        return "".join(char for char in text if char not in vowels)
 
     @staticmethod
     def to_first_letter_of_each_word_case(text: str) -> str:
@@ -657,7 +795,7 @@ class Case(object):
         Returns:
         str: A string formed by the first letter of each word.
         """
-        return ''.join(word[0] for word in text.split() if word)
+        return "".join(word[0] for word in text.split() if word)
 
     @staticmethod
     def to_scramble_middle_letters_case(text: str) -> str:
@@ -672,14 +810,15 @@ class Case(object):
         Returns:
         str: The text with middle letters of each word scrambled.
         """
+
         def scramble_middle(word):
             if len(word) > 3:
                 middle = list(word[1:-1])
                 random.shuffle(middle)
-                return word[0] + ''.join(middle) + word[-1]
+                return word[0] + "".join(middle) + word[-1]
             return word
 
-        return ' '.join(scramble_middle(word) for word in text.split())
+        return " ".join(scramble_middle(word) for word in text.split())
 
     @staticmethod
     def to_ascii_value_case(text: str) -> str:
@@ -693,7 +832,7 @@ class Case(object):
         Returns:
         str: A string of ASCII values for each character.
         """
-        return ' '.join(str(ord(char)) for char in text)
+        return " ".join(str(ord(char)) for char in text)
 
     @staticmethod
     def to_repeated_letters_case(text: str) -> str:
@@ -707,8 +846,10 @@ class Case(object):
         Returns:
         str: The text with each letter repeated based on its position.
         """
-        return ' '.join(''.join(char * (i + 1) for i, char in enumerate(word)) for word in text.split())  # noqa E501
-
+        return " ".join(
+            "".join(char * (i + 1) for i, char in enumerate(word))
+            for word in text.split()
+        )  # noqa E501
 
     @staticmethod
     def to_numeric_words_to_numbers_case(text: str) -> str:
@@ -723,10 +864,18 @@ class Case(object):
         str: The text with numeric words converted to numbers.
         """
         num_dict = {
-            'one': '1', 'two': '2', 'three': '3', 'four': '4', 'five': '5',
-            'six': '6', 'seven': '7', 'eight': '8', 'nine': '9', 'zero': '0'
+            "one": "1",
+            "two": "2",
+            "three": "3",
+            "four": "4",
+            "five": "5",
+            "six": "6",
+            "seven": "7",
+            "eight": "8",
+            "nine": "9",
+            "zero": "0",
         }
-        return ' '.join(num_dict.get(word, word) for word in text.split())
+        return " ".join(num_dict.get(word, word) for word in text.split())
 
     @staticmethod
     def to_reverse_each_vowel_case(text: str) -> str:
@@ -740,13 +889,15 @@ class Case(object):
         Returns:
         str: The text with vowels in each word reversed.
         """
-        vowels = 'aeiouAEIOU'
+        vowels = "aeiouAEIOU"
 
         def reverse_vowels(word):
             vowel_list = [char for char in word if char in vowels]
-            return ''.join(vowel_list.pop() if char in vowels else char for char in word)
+            return "".join(
+                vowel_list.pop() if char in vowels else char for char in word
+            )
 
-        return ' '.join(reverse_vowels(word) for word in text.split())
+        return " ".join(reverse_vowels(word) for word in text.split())
 
     @staticmethod
     def to_vowel_concatenation_case(text: str) -> str:
@@ -760,8 +911,8 @@ class Case(object):
         Returns:
         str: A string of all vowels concatenated.
         """
-        vowels = 'aeiouAEIOU'
-        return ''.join(char for char in text if char in vowels)
+        vowels = "aeiouAEIOU"
+        return "".join(char for char in text if char in vowels)
 
     @staticmethod
     def to_diagonal_text_case(text: str) -> str:
@@ -776,7 +927,7 @@ class Case(object):
         Returns:
         str: The text in a diagonal representation.
         """
-        return '\n'.join(' ' * i + char for i, char in enumerate(text))
+        return "\n".join(" " * i + char for i, char in enumerate(text))
 
     @staticmethod
     def to_braille_transcription_case(text: str) -> str:
@@ -805,7 +956,7 @@ class Case(object):
         Returns:
         bool: True if the text is a palindrome, False otherwise.
         """
-        cleaned_text = ''.join(char.lower() for char in text if char.isalnum())
+        cleaned_text = "".join(char.lower() for char in text if char.isalnum())
         return cleaned_text == cleaned_text[::-1]
 
     @staticmethod
@@ -824,8 +975,8 @@ class Case(object):
         words1 = text1.split()
         words2 = text2.split()
         interleaved = [val for pair in zip(words1, words2) for val in pair]
-        interleaved.extend(words1[len(words2):] or words2[len(words1):])
-        return ' '.join(interleaved)
+        interleaved.extend(words1[len(words2) :] or words2[len(words1) :])
+        return " ".join(interleaved)
 
     @staticmethod
     def to_alternate_character_deletion_case(text: str) -> str:
@@ -857,7 +1008,6 @@ class Case(object):
             return text
         return text[0] + str(len(text) - 2) + text[-1]
 
-
     @staticmethod
     def to_word_count_case(text: str) -> int:
         """
@@ -884,7 +1034,7 @@ class Case(object):
         Returns:
         str: The text with reversed word order.
         """
-        return ' '.join(reversed(text.split()))
+        return " ".join(reversed(text.split()))
 
     @staticmethod
     def to_alphabet_position_case(text: str) -> str:
@@ -898,7 +1048,9 @@ class Case(object):
         Returns:
         str: A string with each letter replaced by its alphabet position.
         """
-        return ' '.join(str(ord(char.lower()) - 96) for char in text if char.isalpha())
+        return " ".join(
+            str(ord(char.lower()) - 96) for char in text if char.isalpha()
+        )
 
     @staticmethod
     def to_double_every_second_word_case(text: str) -> str:
@@ -914,8 +1066,10 @@ class Case(object):
         str: The text with every second word doubled.
         """
         words = text.split()
-        return ' '.join(word if i % 2 == 0 else word + ' ' + word for i, word in enumerate(words))
-
+        return " ".join(
+            word if i % 2 == 0 else word + " " + word
+            for i, word in enumerate(words)
+        )
 
     @staticmethod
     def to_longest_word_case(text: str) -> str:
@@ -957,7 +1111,7 @@ class Case(object):
         Returns:
         str: The text with each word reversed individually.
         """
-        return ' '.join(word[::-1] for word in text.split())
+        return " ".join(word[::-1] for word in text.split())
 
     @staticmethod
     def to_substitute_numbers_with_words_case(text: str) -> str:
@@ -972,11 +1126,20 @@ class Case(object):
         str: The text with numbers replaced by words.
         """
         num_to_word_dict = {
-            '0': 'zero', '1': 'one', '2': 'two', '3': 'three', '4': 'four',
-            '5': 'five', '6': 'six', '7': 'seven', '8': 'eight', '9': 'nine'
+            "0": "zero",
+            "1": "one",
+            "2": "two",
+            "3": "three",
+            "4": "four",
+            "5": "five",
+            "6": "six",
+            "7": "seven",
+            "8": "eight",
+            "9": "nine",
         }
-        return ' '.join(num_to_word_dict.get(word, word) for word in text.split())
-
+        return " ".join(
+            num_to_word_dict.get(word, word) for word in text.split()
+        )
 
     @staticmethod
     def to_abbreviation_case(text: str) -> str:
@@ -990,7 +1153,9 @@ class Case(object):
         Returns:
         str: The abbreviation of the text.
         """
-        return ''.join(word[0].upper() for word in text.split() if word.isalpha())
+        return "".join(
+            word[0].upper() for word in text.split() if word.isalpha()
+        )
 
     @staticmethod
     def to_shuffle_sentences_case(text: str) -> str:
@@ -1004,9 +1169,9 @@ class Case(object):
         Returns:
         str: The text with shuffled sentences.
         """
-        sentences = text.split('. ')
+        sentences = text.split(". ")
         random.shuffle(sentences)
-        return '. '.join(sentences)
+        return ". ".join(sentences)
 
     @staticmethod
     def to_mirror_text_case(text: str) -> str:
@@ -1020,7 +1185,7 @@ class Case(object):
         Returns:
         str: The mirrored text.
         """
-        return text + ' ' + text[::-1]
+        return text + " " + text[::-1]
 
     @staticmethod
     def to_insert_random_spaces_case(text: str) -> str:
@@ -1034,12 +1199,13 @@ class Case(object):
         Returns:
         str: The text with random spaces inserted.
         """
-        return ' '.join(' '.join(char) for char in text)
+        return " ".join(" ".join(char) for char in text)
 
 
 # =============================================================================
 # Functions
 # =============================================================================
+
 
 def test():
     """
@@ -1087,7 +1253,9 @@ def test():
     reverse_words_case = Case.to_reverse_words_case(text)
     random_shuffle_case = Case.to_random_shuffle_case(text)
     vowel_removal_case = Case.to_vowel_removal_case(text)
-    first_letter_of_each_word_case = Case.to_first_letter_of_each_word_case(text)
+    first_letter_of_each_word_case = Case.to_first_letter_of_each_word_case(
+        text
+    )
     scramble_middle_letters_case = Case.to_scramble_middle_letters_case(text)
     ascii_value_case = Case.to_ascii_value_case("AB")
     repeated_letters_case = Case.to_repeated_letters_case("Hello")
@@ -1098,7 +1266,9 @@ def test():
     braille_transcription_case = Case.to_braille_transcription_case("Hello")
     palindrome_check = Case.to_palindrome_check_case(text)
     # interleaved_text = Case.to_interleave_words_case(text1, text2)
-    alternate_character_deletion = Case.to_alternate_character_deletion_case("Hello")
+    alternate_character_deletion = Case.to_alternate_character_deletion_case(
+        "Hello"
+    )
     numeronym = Case.to_numeronym_case("Internationalization")
     word_count = Case.to_word_count_case(text)
     reversed_word_order = Case.to_reverse_word_order_case(text)
@@ -1106,10 +1276,16 @@ def test():
     double_every_second_word = Case.to_double_every_second_word_case(text)
     longest_word = Case.to_longest_word_case("This is a test")
     character_frequency_count = Case.to_character_frequency_count_case("hello")
-    reverse_words_individually = Case.to_reverse_words_individually_case("Hello world")
-    substitute_numbers_with_words = Case.to_substitute_numbers_with_words_case(text)
+    reverse_words_individually = Case.to_reverse_words_individually_case(
+        "Hello world"
+    )
+    substitute_numbers_with_words = Case.to_substitute_numbers_with_words_case(
+        text
+    )
     abbreviation = Case.to_abbreviation_case(text)
-    shuffled_sentences = Case.to_shuffle_sentences_case("This is sentence one. This is sentence two.")
+    shuffled_sentences = Case.to_shuffle_sentences_case(
+        "This is sentence one. This is sentence two."
+    )
     mirror_text = Case.to_mirror_text_case("Hello")
     insert_random_spaces = Case.to_insert_random_spaces_case("Hello")
 
@@ -1182,8 +1358,9 @@ def test():
 # Main
 # =============================================================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     """Main"""
     import doctest
+
     doctest.testmod()
     test()

@@ -22,15 +22,16 @@ Todo:
 
 # Import | Standard Library
 import json
-# […]
 
 # Import | Libraries
 import geojson
+
+# […]
+
 # […]
 
 # Import | Local Modules
 # […]
-
 
 
 class FileGeoJSON:

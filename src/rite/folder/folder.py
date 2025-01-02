@@ -35,6 +35,7 @@ import shutil
 # Classes
 # =============================================================================
 
+
 class Folder:
     """
     Folder Class
@@ -53,14 +54,13 @@ class Folder:
         self.directory_path = directory_path
 
     def list_dirs(rootdir):
-        """
-        """
+        """ """
         dirs = []
         for file in os.listdir(rootdir):
             d = os.path.join(rootdir, file)
             if os.path.isdir(d):
                 dirs.append(file)
-        return(dirs)
+        return dirs
 
     def list_files(self):
         """
@@ -73,11 +73,14 @@ class Folder:
         FileNotFoundError: If the specified directory does not exist.
         """
         try:
-            return [f for f in os.listdir(self.directory_path) if os.path.isfile(os.path.join(self.directory_path, f))]  # noqa E501
+            return [
+                f
+                for f in os.listdir(self.directory_path)
+                if os.path.isfile(os.path.join(self.directory_path, f))
+            ]  # noqa E501
         except FileNotFoundError:
             print(f"Directory not found: {self.directory_path}")
             return []
-
 
     # def list_files(rootdir):
     #     """
@@ -87,8 +90,6 @@ class Folder:
     #         d = os.path.join(rootdir, file)
     #         dirs.append(file)
     #     return(dirs)
-
-
 
     def create_subfolder(self, subfolder_name):
         """
@@ -248,17 +249,12 @@ class Folder:
                 elif os.path.isdir(file_path):
                     shutil.rmtree(file_path)
             except Exception as e:
-                print(f'Failed to delete {file_path}. Reason: {e}')
-
-
-
-
+                print(f"Failed to delete {file_path}. Reason: {e}")
 
 
 # Function | Create Directory
 def create_dir(dir_path, mode=777):
-    """
-    """
+    """ """
     if not os.path.exists(dir_path):
         try:
             os.makedirs(dir_path, mode)
@@ -267,20 +263,20 @@ def create_dir(dir_path, mode=777):
     else:
         pass
 
+
 def path_leaf(path):
-    """
-    """
+    """ """
     head, tail = ntpath.split(path)
     return tail or ntpath.basename(head)
 
+
 def copy_all_files(source_dir, target_dir):
-    """
-    """
-    for root, dirs, files in os.walk(source_dir):  # replace the . with your starting directory
+    """ """
+    for root, dirs, files in os.walk(
+        source_dir
+    ):  # replace the . with your starting directory
 
         for file in files:
-            path_file = os.path.join(root,file)
-            shutil.copy2(path_file,target_dir) # change you destination dir
+            path_file = os.path.join(root, file)
+            shutil.copy2(path_file, target_dir)  # change you destination dir
             # shutil.copy2(path_file,os.path.join(rootdir, file)) # change you destination dir
-
-

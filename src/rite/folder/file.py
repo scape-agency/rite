@@ -35,6 +35,7 @@ import shutil
 # Classes
 # =============================================================================
 
+
 class File(object):
     """
     File Class
@@ -49,7 +50,7 @@ class File(object):
         # Read contents of the file
         pass
 
-    def write_file(self, content, mode='w'):
+    def write_file(self, content, mode="w"):
         # Write content to the file
         pass
 
@@ -58,15 +59,12 @@ class File(object):
         pass
 
     def copy_file(src, dst):
-        """
-        """
+        """ """
         shutil.copyfile(src, dst)
 
 
-
 def copy_files(source_dir, target_dir):
-    """
-    """
+    """ """
     file_names = os.listdir(source_dir)
 
     for file_name in file_names:
@@ -76,5 +74,3 @@ def copy_files(source_dir, target_dir):
         # print(source)
         # print(target)
         shutil.copyfile(source, target)
-
-

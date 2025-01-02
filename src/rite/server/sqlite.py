@@ -24,10 +24,11 @@ Links:
 # Import
 # =============================================================================
 
-# Import | Standard Library
-from typing import Dict, List, Union, Tuple, Any
 import logging
 import sqlite3
+
+# Import | Standard Library
+from typing import Any, Dict, List, Tuple, Union
 
 # Import | Libraries
 
@@ -37,6 +38,7 @@ import sqlite3
 # =============================================================================
 # Classes
 # =============================================================================
+
 
 class SQLiteServer:
     """
@@ -71,8 +73,9 @@ class SQLiteServer:
         self.db_path = db_path
         logging.basicConfig(level=logging.INFO)
 
-
-    def _execute(self, query: str, params: Tuple = (), commit: bool = False) -> Any:
+    def _execute(
+        self, query: str, params: Tuple = (), commit: bool = False
+    ) -> Any:
         """
         Private method to execute a SQL query.
 
@@ -94,7 +97,11 @@ class SQLiteServer:
                 if commit:
                     conn.commit()
                 else:
-                    return cur.fetchall() if query.strip().upper().startswith("SELECT") else None
+                    return (
+                        cur.fetchall()
+                        if query.strip().upper().startswith("SELECT")
+                        else None
+                    )
         except sqlite3.Error as e:
             logging.error(f"SQLite error: {e}")
             raise
@@ -109,20 +116,19 @@ class SQLiteServer:
         return self._execute(query, params)[0]
 
     def insert(self, table: str, data_dict: dict):
-        columns = ', '.join(data_dict.keys())
-        placeholders = ':' + ', :'.join(data_dict.keys())
+        columns = ", ".join(data_dict.keys())
+        placeholders = ":" + ", :".join(data_dict.keys())
         query = f"INSERT INTO {table} ({columns}) VALUES ({placeholders})"
         self._execute(query, data_dict, commit=True)
 
     def update(self, table: str, data_dict: dict, condition: str):
-        assignments = ', '.join([f"{k} = :{k}" for k in data_dict.keys()])
+        assignments = ", ".join([f"{k} = :{k}" for k in data_dict.keys()])
         query = f"UPDATE {table} SET {assignments} WHERE {condition}"
         self._execute(query, data_dict, commit=True)
 
     def delete(self, table: str, condition: str):
         query = f"DELETE FROM {table} WHERE {condition}"
         self._execute(query, commit=True)
-
 
     def transaction(self, queries: List[Tuple[str, Tuple]]):
         """
@@ -150,33 +156,35 @@ class SQLiteServer:
 # Functions
 # =============================================================================
 
+
 def test():
     """
     Test Function
     """
 
     # Example usage
-    db_server = SQLiteServer('example.db')
+    db_server = SQLiteServer("example.db")
 
     # Insert data
-    db_server.insert('users', {'name': 'Bob', 'age': 25})
+    db_server.insert("users", {"name": "Bob", "age": 25})
 
     # Update data
-    db_server.update('users', {'age': 26}, "name = 'Bob'")
+    db_server.update("users", {"age": 26}, "name = 'Bob'")
 
     # Fetch data
-    print(db_server.fetch_all('SELECT * FROM users'))
+    print(db_server.fetch_all("SELECT * FROM users"))
 
     # Delete data
-    db_server.delete('users', "name = 'Bob'")
+    db_server.delete("users", "name = 'Bob'")
 
 
 # =============================================================================
 # Main
 # =============================================================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     """Main"""
     import doctest
+
     doctest.testmod()
     test()

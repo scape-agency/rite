@@ -34,6 +34,7 @@ import random
 # Classes
 # =============================================================================
 
+
 class Morse(object):
     """
     Morse Class
@@ -54,14 +55,35 @@ class Morse(object):
         str: The text in Morse code.
         """
         morse_dict = {
-            'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.',
-            'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---',
-            'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---',
-            'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-',
-            'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--',
-            'Z': '--..', ' ': '/'
+            "A": ".-",
+            "B": "-...",
+            "C": "-.-.",
+            "D": "-..",
+            "E": ".",
+            "F": "..-.",
+            "G": "--.",
+            "H": "....",
+            "I": "..",
+            "J": ".---",
+            "K": "-.-",
+            "L": ".-..",
+            "M": "--",
+            "N": "-.",
+            "O": "---",
+            "P": ".--.",
+            "Q": "--.-",
+            "R": ".-.",
+            "S": "...",
+            "T": "-",
+            "U": "..-",
+            "V": "...-",
+            "W": ".--",
+            "X": "-..-",
+            "Y": "-.--",
+            "Z": "--..",
+            " ": "/",
         }
-        return ' '.join(morse_dict.get(char.upper(), '') for char in text)
+        return " ".join(morse_dict.get(char.upper(), "") for char in text)
 
     @staticmethod
     def to_morse_code_decryption(text: str) -> str:
@@ -76,14 +98,35 @@ class Morse(object):
         str: The decoded text.
         """
         morse_dict = {
-            '.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D', '.': 'E',
-            '..-.': 'F', '--.': 'G', '....': 'H', '..': 'I', '.---': 'J',
-            '-.-': 'K', '.-..': 'L', '--': 'M', '-.': 'N', '---': 'O',
-            '.--.': 'P', '--.-': 'Q', '.-.': 'R', '...': 'S', '-': 'T',
-            '..-': 'U', '...-': 'V', '.--': 'W', '-..-': 'X', '-.--': 'Y',
-            '--..': 'Z', '/': ' '
+            ".-": "A",
+            "-...": "B",
+            "-.-.": "C",
+            "-..": "D",
+            ".": "E",
+            "..-.": "F",
+            "--.": "G",
+            "....": "H",
+            "..": "I",
+            ".---": "J",
+            "-.-": "K",
+            ".-..": "L",
+            "--": "M",
+            "-.": "N",
+            "---": "O",
+            ".--.": "P",
+            "--.-": "Q",
+            ".-.": "R",
+            "...": "S",
+            "-": "T",
+            "..-": "U",
+            "...-": "V",
+            ".--": "W",
+            "-..-": "X",
+            "-.--": "Y",
+            "--..": "Z",
+            "/": " ",
         }
-        return ''.join(morse_dict.get(code, '') for code in text.split(' '))
+        return "".join(morse_dict.get(code, "") for code in text.split(" "))
 
     @staticmethod
     def to_morse_code_wordwise(text: str) -> str:
@@ -98,19 +141,44 @@ class Morse(object):
         str: The text with each word converted to Morse code.
         """
         morse_dict = {
-            'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.',
-            'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---',
-            'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---',
-            'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-',
-            'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--',
-            'Z': '--..', ' ': '/'
+            "A": ".-",
+            "B": "-...",
+            "C": "-.-.",
+            "D": "-..",
+            "E": ".",
+            "F": "..-.",
+            "G": "--.",
+            "H": "....",
+            "I": "..",
+            "J": ".---",
+            "K": "-.-",
+            "L": ".-..",
+            "M": "--",
+            "N": "-.",
+            "O": "---",
+            "P": ".--.",
+            "Q": "--.-",
+            "R": ".-.",
+            "S": "...",
+            "T": "-",
+            "U": "..-",
+            "V": "...-",
+            "W": ".--",
+            "X": "-..-",
+            "Y": "-.--",
+            "Z": "--..",
+            " ": "/",
         }
-        return ' / '.join(' '.join(morse_dict.get(char.upper(), '') for char in word) for word in text.split())
+        return " / ".join(
+            " ".join(morse_dict.get(char.upper(), "") for char in word)
+            for word in text.split()
+        )
 
 
 # =============================================================================
 # Functions
 # =============================================================================
+
 
 def test():
     """
@@ -118,7 +186,9 @@ def test():
     """
 
     morse_code = Morse.to_morse_code("SOS")
-    morse_code_decryption = Morse.to_morse_code_decryption(".... . .-.. .-.. ---")
+    morse_code_decryption = Morse.to_morse_code_decryption(
+        ".... . .-.. .-.. ---"
+    )
     morse_code_wordwise = Morse.to_morse_code_wordwise("Hi")
 
     print("Morse Code Morse:", morse_code)
@@ -130,8 +200,9 @@ def test():
 # Main
 # =============================================================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     """Main"""
     import doctest
+
     doctest.testmod()
     test()

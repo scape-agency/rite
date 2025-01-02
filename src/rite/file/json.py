@@ -22,14 +22,15 @@ Links:
 # Import
 # =============================================================================
 
-# Import | Standard Library
-from typing import List, Any, Dict, Callable
-import json
-import yaml
 import csv
+import json
+
+# Import | Standard Library
+from typing import Any, Callable, Dict, List
 
 # Import | Libraries
 import xmltodict  # Requires installation: pip install xmltodict
+import yaml
 
 # Import | Local Modules
 
@@ -37,6 +38,7 @@ import xmltodict  # Requires installation: pip install xmltodict
 # =============================================================================
 # Classes
 # =============================================================================
+
 
 class JSONHandler(object):
     """
@@ -64,7 +66,7 @@ class JSONHandler(object):
             Any: The data read from the JSON file.
         """
         try:
-            with open(file_path, 'r', encoding='utf-8') as file:
+            with open(file_path, "r", encoding="utf-8") as file:
                 return json.load(file)
         except Exception as e:
             print(f"Error reading JSON file: {e}")
@@ -97,7 +99,7 @@ class JSONHandler(object):
             data.
         """
         try:
-            with open(file_path, 'w', encoding='utf-8') as file:
+            with open(file_path, "w", encoding="utf-8") as file:
                 json.dump(data, file, indent=indent)
         except Exception as e:
             print(f"Error writing JSON file: {e}")
@@ -223,7 +225,7 @@ class JSONHandler(object):
         return data
 
     @staticmethod
-    def flatten_json(data: Dict, parent_key: str = '', sep: str = '.') -> Dict:
+    def flatten_json(data: Dict, parent_key: str = "", sep: str = ".") -> Dict:
         """
         Flatten a nested JSON object into a single level.
 
@@ -311,7 +313,7 @@ class JSONHandler(object):
             sorted(
                 data.items(),
                 key=lambda item: item[0 if by_key else 1],
-                reverse=reverse
+                reverse=reverse,
             )
         )
 
@@ -367,7 +369,7 @@ class JSONHandler(object):
 
         Note: Only works with flat JSON structures.
         """
-        with open(csv_file, 'w', newline='', encoding='utf-8') as file:
+        with open(csv_file, "w", newline="", encoding="utf-8") as file:
             writer = csv.DictWriter(file, fieldnames=json_data[0].keys())
             writer.writeheader()
             for row in json_data:
@@ -384,7 +386,7 @@ class JSONHandler(object):
         Returns:
             List[Dict]: The converted data in JSON format.
         """
-        with open(csv_file, 'r', encoding='utf-8') as file:
+        with open(csv_file, "r", encoding="utf-8") as file:
             return list(csv.DictReader(file))
 
     @staticmethod
@@ -399,7 +401,7 @@ class JSONHandler(object):
         Returns:
             Any: The extracted data.
         """
-        elements = path.split('/')
+        elements = path.split("/")
         for elem in elements:
             json_data = json_data.get(elem)
             if json_data is None:
@@ -431,7 +433,7 @@ class JSONHandler(object):
         Returns:
             str: Compressed JSON string.
         """
-        return json.dumps(json_data, separators=(',', ':'))
+        return json.dumps(json_data, separators=(",", ":"))
 
     @staticmethod
     def transform_keys(
@@ -451,13 +453,13 @@ class JSONHandler(object):
             return {
                 transform_func(k): JSONHandler.transform_keys(
                     v, transform_func
-                ) for k, v in json_data.items()
+                )
+                for k, v in json_data.items()
             }
         elif isinstance(json_data, list):
             return [
-                JSONHandler.transform_keys(
-                    elem, transform_func
-                ) for elem in json_data
+                JSONHandler.transform_keys(elem, transform_func)
+                for elem in json_data
             ]
         else:
             return json_data
@@ -474,7 +476,7 @@ class JSONHandler(object):
         Returns:
             bool: True if the path exists, False otherwise.
         """
-        elements = path.split('/')
+        elements = path.split("/")
         for elem in elements:
             if isinstance(json_data, dict) and elem in json_data:
                 json_data = json_data[elem]
@@ -495,7 +497,7 @@ class JSONHandler(object):
         Returns:
             Any: The updated JSON data.
         """
-        elements = path.split('/')
+        elements = path.split("/")
         for i, elem in enumerate(elements):
             if i == len(elements) - 1:
                 json_data[elem] = value
@@ -516,7 +518,7 @@ class JSONHandler(object):
             data.
         """
         try:
-            with open(file_path, 'w', encoding='utf-8') as file:
+            with open(file_path, "w", encoding="utf-8") as file:
                 json.dump(data, file, indent=indent)
         except Exception as e:
             print(f"Error saving dictionary to JSON file: {e}")
@@ -527,23 +529,20 @@ class JSONHandler(object):
 # Functions
 # =============================================================================
 
+
 def test():
     """
     Test Function
     """
 
     # Example usage
-    json_data = {
-        'name': 'John Doe',
-        'age': 30,
-        'is_employee': True
-    }
+    json_data = {"name": "John Doe", "age": 30, "is_employee": True}
 
     # Write JSON to file
-    JSONHandler.write_json('user.json', json_data)
+    JSONHandler.write_json("user.json", json_data)
 
     # Read JSON from file
-    read_data = JSONHandler.read_json('user.json')
+    read_data = JSONHandler.read_json("user.json")
     print(read_data)
 
     # Validate JSON
@@ -591,7 +590,7 @@ def test():
     # Deep Merge JSON
     merged_json = JSONHandler.deep_merge_json(
         {"person": {"name": "John", "age": 30}},
-        {"person": {"age": 31, "city": "New York"}}
+        {"person": {"age": 31, "city": "New York"}},
     )
     print(merged_json)
 
@@ -616,8 +615,8 @@ def test():
 
     # Convert JSON to CSV and back
     json_data = [{"name": "John", "age": 30}, {"name": "Jane", "age": 25}]
-    JSONHandler.json_to_csv(json_data, 'data.csv')
-    csv_to_json_data = JSONHandler.csv_to_json('data.csv')
+    JSONHandler.json_to_csv(json_data, "data.csv")
+    csv_to_json_data = JSONHandler.csv_to_json("data.csv")
     print(csv_to_json_data)
 
     # Extract data using path
@@ -645,22 +644,19 @@ def test():
     updated_json = JSONHandler.nested_update({"a": {"b": 1}}, "a/b", 2)
     print(updated_json)
 
-    data_dict = {
-        "name": "John Doe",
-        "age": 30,
-        "is_employee": True
-    }
+    data_dict = {"name": "John Doe", "age": 30, "is_employee": True}
 
     # Save the dictionary to a JSON file
-    JSONHandler.save_dict_to_json(data_dict, 'data.json')
+    JSONHandler.save_dict_to_json(data_dict, "data.json")
 
 
 # =============================================================================
 # Main
 # =============================================================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     """Main"""
     import doctest
+
     doctest.testmod()
     test()

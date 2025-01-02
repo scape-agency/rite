@@ -35,6 +35,7 @@ import unicodedata
 # Classes
 # =============================================================================
 
+
 class Slug:
     """
     Slug Class
@@ -53,10 +54,10 @@ class Slug:
     @staticmethod
     def generate_slug(
         text: str,
-        delimiter: str = '-',
+        delimiter: str = "-",
         max_length: int = None,
         lowercase: bool = True,
-        custom_replacements: dict = None
+        custom_replacements: dict = None,
     ) -> str:
         """
         Generates a slug for the given text.
@@ -78,15 +79,15 @@ class Slug:
                 text = text.replace(key, value)
 
         # Normalize and optionally convert to lowercase
-        slug = unicodedata.normalize('NFKD', text)
+        slug = unicodedata.normalize("NFKD", text)
         if lowercase:
-            slug = slug.encode('ascii', 'ignore').decode('ascii').lower()
+            slug = slug.encode("ascii", "ignore").decode("ascii").lower()
         else:
-            slug = slug.encode('ascii', 'ignore').decode('ascii')
+            slug = slug.encode("ascii", "ignore").decode("ascii")
 
         # Replace non-word characters with the delimiter
-        slug = re.sub(r'[^\w\s]', delimiter, slug)
-        slug = re.sub(r'[\s' + re.escape(delimiter) + r']+', delimiter, slug)
+        slug = re.sub(r"[^\w\s]", delimiter, slug)
+        slug = re.sub(r"[\s" + re.escape(delimiter) + r"]+", delimiter, slug)
         slug = slug.strip(delimiter)
 
         # Truncate slug to max_length
@@ -96,7 +97,7 @@ class Slug:
         return slug
 
     @staticmethod
-    def add_prefix(slug: str, prefix: str, delimiter: str = '-') -> str:
+    def add_prefix(slug: str, prefix: str, delimiter: str = "-") -> str:
         """
         Adds a prefix to the slug.
 
@@ -111,7 +112,7 @@ class Slug:
         return f"{prefix}{delimiter}{slug}" if prefix else slug
 
     @staticmethod
-    def add_suffix(slug: str, suffix: str, delimiter: str = '-') -> str:
+    def add_suffix(slug: str, suffix: str, delimiter: str = "-") -> str:
         """
         Adds a suffix to the slug.
 
@@ -126,7 +127,9 @@ class Slug:
         return f"{slug}{delimiter}{suffix}" if suffix else slug
 
     @staticmethod
-    def generate_incremental_slug(slug: str, existing_slugs: set, delimiter: str = '-') -> str:
+    def generate_incremental_slug(
+        slug: str, existing_slugs: set, delimiter: str = "-"
+    ) -> str:
         """
         Generates an incremental slug for uniqueness.
 
@@ -146,7 +149,7 @@ class Slug:
         return new_slug
 
     @staticmethod
-    def is_valid_slug(slug: str, delimiter: str = '-') -> bool:
+    def is_valid_slug(slug: str, delimiter: str = "-") -> bool:
         """
         Validates if a string is a valid slug.
 
@@ -157,7 +160,9 @@ class Slug:
         Returns:
             bool: True if the string is a valid slug, False otherwise.
         """
-        pattern = re.compile(f"^[a-z0-9]+(?:{re.escape(delimiter)}[a-z0-9]+)*$")
+        pattern = re.compile(
+            f"^[a-z0-9]+(?:{re.escape(delimiter)}[a-z0-9]+)*$"
+        )
         return bool(pattern.match(slug))
 
     @staticmethod
@@ -171,10 +176,12 @@ class Slug:
         Returns:
             str: The normalized text.
         """
-        return unicodedata.normalize('NFKD', text)
+        return unicodedata.normalize("NFKD", text)
 
     @staticmethod
-    def remove_stop_words(text: str, stop_words: set, delimiter: str = ' ') -> str:
+    def remove_stop_words(
+        text: str, stop_words: set, delimiter: str = " "
+    ) -> str:
         """
         Remove stop words from a string.
 
@@ -187,11 +194,13 @@ class Slug:
             str: The text with stop words removed.
         """
         words = text.split(delimiter)
-        filtered_words = [word for word in words if word.lower() not in stop_words]
-        return ' '.join(filtered_words)
+        filtered_words = [
+            word for word in words if word.lower() not in stop_words
+        ]
+        return " ".join(filtered_words)
 
     @staticmethod
-    def limit_word_count(text: str, limit: int, delimiter: str = ' ') -> str:
+    def limit_word_count(text: str, limit: int, delimiter: str = " ") -> str:
         """
         Limit the number of words in a string.
 
@@ -204,11 +213,11 @@ class Slug:
             str: The limited text.
         """
         words = text.split(delimiter)[:limit]
-        return ' '.join(words)
+        return " ".join(words)
 
     @staticmethod
     def replace_with_delimiter(
-        text: str, chars: str, delimiter: str = '-'
+        text: str, chars: str, delimiter: str = "-"
     ) -> str:
         """
         Replace specific characters in a string with a delimiter.
@@ -221,19 +230,23 @@ class Slug:
         Returns:
             str: The processed text.
         """
-        return re.sub(f'[{re.escape(chars)}]', delimiter, text)
+        return re.sub(f"[{re.escape(chars)}]", delimiter, text)
 
 
 # Example usage
 title = "This is a Test -- Slug with extra features! ÄÖÜ"
-custom_mappings = {'Ä': 'Ae', 'Ö': 'Oe', 'Ü': 'Ue'}
-slug = Slug.generate_slug(title, custom_replacements=custom_mappings, max_length=30)
+custom_mappings = {"Ä": "Ae", "Ö": "Oe", "Ü": "Ue"}
+slug = Slug.generate_slug(
+    title, custom_replacements=custom_mappings, max_length=30
+)
 print(slug)  # Output: 'this-is-a-test-slug-with-e'
 
 basic_slug = Slug.generate_slug("Example Title")
 prefixed_slug = Slug.add_prefix(basic_slug, "blog")
 suffixed_slug = Slug.add_suffix(basic_slug, "2021")
-incremental_slug = Slug.generate_incremental_slug(basic_slug, {"example-title", "example-title-1"})
+incremental_slug = Slug.generate_incremental_slug(
+    basic_slug, {"example-title", "example-title-1"}
+)
 is_valid = Slug.is_valid_slug(basic_slug)
 
 print("Basic Slug:", basic_slug)
@@ -245,9 +258,11 @@ print("Is Valid Slug:", is_valid)
 # Example usage
 text = "This is an example slug with Unicode characters: ÄÖÜ and stop words."
 normalized_text = Slug.normalize_unicode(text)
-clean_text = Slug.remove_stop_words(normalized_text, {'is', 'an', 'and', 'with'})
+clean_text = Slug.remove_stop_words(
+    normalized_text, {"is", "an", "and", "with"}
+)
 limited_text = Slug.limit_word_count(clean_text, 5)
-custom_delimiter_text = Slug.replace_with_delimiter(limited_text, 'ÄÖÜ', '-')
+custom_delimiter_text = Slug.replace_with_delimiter(limited_text, "ÄÖÜ", "-")
 slug = Slug.generate_slug(custom_delimiter_text)
 
 print("Normalized Text:", normalized_text)
@@ -257,35 +272,29 @@ print("Custom Delimiter Text:", custom_delimiter_text)
 print("Slug:", slug)
 
 
-    # Static Methods
+# Static Methods
 
-    # @staticmethod
-    # def create_slug(value, allow_unicode=False):
-    #     """"""
-    #     value = str(value)
-    #     if allow_unicode:
-    #         value = unicodedata.normalize('NFKC', value)
-    #     else:
-    #         value = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore').decode('ascii')
-    #     value = re.sub(r'[^\w\s-]', '', value.lower())
-    #     return re.sub(r'[-\s]+', '-', value).strip('-_')
+# @staticmethod
+# def create_slug(value, allow_unicode=False):
+#     """"""
+#     value = str(value)
+#     if allow_unicode:
+#         value = unicodedata.normalize('NFKC', value)
+#     else:
+#         value = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore').decode('ascii')
+#     value = re.sub(r'[^\w\s-]', '', value.lower())
+#     return re.sub(r'[-\s]+', '-', value).strip('-_')
 
-    # @staticmethod
-    # def create_slug_snake(value, allow_unicode=False):
-    #     """"""
-    #     value = str(value)
-    #     if allow_unicode:
-    #         value = unicodedata.normalize('NFKC', value)
-    #     else:
-    #         value = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore').decode('ascii')
-    #     value = re.sub(r'[^\w\s-]', '', value.lower())
-    #     return re.sub(r'[-\s]+', '_', value).strip('-_')
-
-
-
-
-
-
+# @staticmethod
+# def create_slug_snake(value, allow_unicode=False):
+#     """"""
+#     value = str(value)
+#     if allow_unicode:
+#         value = unicodedata.normalize('NFKC', value)
+#     else:
+#         value = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore').decode('ascii')
+#     value = re.sub(r'[^\w\s-]', '', value.lower())
+#     return re.sub(r'[-\s]+', '_', value).strip('-_')
 
 
 # def slugify(value, allow_unicode=False):
@@ -303,4 +312,3 @@ print("Slug:", slug)
 #         value = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore').decode('ascii')
 #     value = re.sub(r'[^\w\s-]', '', value.lower())
 #     return re.sub(r'[-\s]+', '-', value).strip('-_')
-

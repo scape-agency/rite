@@ -9,11 +9,6 @@
 Provides UUID Class
 ===================
 
-Todo:
------
-
-Links:
-------
 
 """
 
@@ -33,6 +28,7 @@ import uuid
 # =============================================================================
 # Classes
 # =============================================================================
+
 
 class UUID(object):
     """
@@ -170,6 +166,7 @@ class UUID(object):
 # Functions
 # =============================================================================
 
+
 def test():
     """
     Test Function
@@ -181,7 +178,7 @@ def test():
     hex_uuid = UUID.create_hex_uuid()
     is_valid = UUID.validate_uuid(uuid_string)
     namespace_uuid = uuid.NAMESPACE_DNS
-    name_based_uuid = UUID.from_name(namespace_uuid, 'example.com')
+    name_based_uuid = UUID.from_name(namespace_uuid, "example.com")
     version = UUID.get_version(name_based_uuid)
     is_random = UUID.is_random_uuid(name_based_uuid)
     formatted_str = UUID.formatted_string(name_based_uuid)
@@ -200,8 +197,9 @@ def test():
 # Main
 # =============================================================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     """Main"""
     import doctest
+
     doctest.testmod()
     test()

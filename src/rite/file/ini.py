@@ -35,6 +35,7 @@ from typing import Any, Dict, List, Optional
 # Classes
 # =============================================================================
 
+
 class INIHandler(object):
     """
     A class for handling INI configuration files.
@@ -89,12 +90,14 @@ class INIHandler(object):
             config (configparser.ConfigParser): The ConfigParser object to save.
             file_path (str): Path to the INI file where the data will be saved.
         """
-        with open(file_path, 'w', encoding='utf-8') as file:
+        with open(file_path, "w", encoding="utf-8") as file:
             config.write(file)
 
     @staticmethod
     def update_ini(
-        config: configparser.ConfigParser, section: str, updates: Dict[str, Any]
+        config: configparser.ConfigParser,
+        section: str,
+        updates: Dict[str, Any],
     ):
         """
         Updates a section in the ConfigParser object.
@@ -109,13 +112,12 @@ class INIHandler(object):
         for key, value in updates.items():
             config.set(section, key, str(value))
 
-
     @staticmethod
     def get_value(
         config: configparser.ConfigParser,
         section: str,
         key: str,
-        fallback: Optional[Any] = None
+        fallback: Optional[Any] = None,
     ) -> Any:
         """
         Gets a value from a section in the ConfigParser object.
@@ -180,7 +182,9 @@ class INIHandler(object):
         return config.sections()
 
     @staticmethod
-    def list_keys(config: configparser.ConfigParser, section: str) -> List[str]:
+    def list_keys(
+        config: configparser.ConfigParser, section: str
+    ) -> List[str]:
         """
         Lists all keys in a specific section.
 
@@ -197,7 +201,8 @@ class INIHandler(object):
 
     @staticmethod
     def has_key(
-        config: configparser.ConfigParser, section: str, key: str) -> bool:
+        config: configparser.ConfigParser, section: str, key: str
+    ) -> bool:
         """
         Checks if a specific key exists in a section.
 
@@ -213,8 +218,7 @@ class INIHandler(object):
 
     @staticmethod
     def remove_key(
-        config: configparser.ConfigParser,
-        section: str, key: str
+        config: configparser.ConfigParser, section: str, key: str
     ) -> bool:
         """
         Removes a specific key from a section.
@@ -238,68 +242,70 @@ class INIHandler(object):
 # Functions
 # =============================================================================
 
+
 def test():
     """
     Test Function
     """
 
     # Example usage
-    config = INIHandler.load_ini('config.ini')
+    config = INIHandler.load_ini("config.ini")
 
     # Update configuration
     INIHandler.update_ini(
-        config, 'section1', {'key1': 'value1', 'key2': 'value2'}
+        config, "section1", {"key1": "value1", "key2": "value2"}
     )
 
     # Save configuration
-    INIHandler.save_ini(config, 'config_updated.ini')
+    INIHandler.save_ini(config, "config_updated.ini")
 
     # Example usage
-    config = INIHandler.load_ini('config.ini')
+    config = INIHandler.load_ini("config.ini")
 
     # Get value with a fallback
     value = INIHandler.get_value(
-        config, 'section1', 'key1', fallback='default'
+        config, "section1", "key1", fallback="default"
     )
 
     # Add a new section
-    added = INIHandler.add_section(config, 'new_section')
+    added = INIHandler.add_section(config, "new_section")
 
     # Remove a section
-    removed = INIHandler.remove_section(config, 'section_to_remove')
+    removed = INIHandler.remove_section(config, "section_to_remove")
 
     # Save configuration
-    INIHandler.save_ini(config, 'config_updated.ini')
+    INIHandler.save_ini(config, "config_updated.ini")
 
     # Example usage
-    config = INIHandler.load_ini('config.ini')
+    config = INIHandler.load_ini("config.ini")
 
     # List all sections
     sections = INIHandler.list_sections(config)
     print(sections)
 
     # List all keys in a section
-    keys = INIHandler.list_keys(config, 'section1')
+    keys = INIHandler.list_keys(config, "section1")
     print(keys)
 
     # Check if a specific key exists
-    exists = INIHandler.has_key(config, 'section1', 'key1')
+    exists = INIHandler.has_key(config, "section1", "key1")
     print(exists)
 
     # Remove a specific key
-    removed = INIHandler.remove_key(config, 'section1', 'key1')
+    removed = INIHandler.remove_key(config, "section1", "key1")
     print(removed)
 
     # Save configuration
-    INIHandler.save_ini(config, 'config_updated.ini')
+    INIHandler.save_ini(config, "config_updated.ini")
 
 
 # =============================================================================
 # Main
 # =============================================================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     """Main"""
     import doctest
+
     doctest.testmod()
     test()

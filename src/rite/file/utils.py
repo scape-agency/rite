@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """Provides File Utils."""
+import ntpath
 import os
 import pathlib
 import shutil
-import ntpath
 from collections import defaultdict
 
 

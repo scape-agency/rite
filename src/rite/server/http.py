@@ -24,14 +24,12 @@ Links:
 # Import
 # =============================================================================
 
-# Import | Standard Library
-from typing import Dict, List, Union
 import logging
 import urllib.parse
-from http.server import (
-    HTTPServer,
-    BaseHTTPRequestHandler,
-)
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
+# Import | Standard Library
+from typing import Dict, List, Union
 
 # Import | Libraries
 
@@ -41,6 +39,7 @@ from http.server import (
 # =============================================================================
 # Classes
 # =============================================================================
+
 
 class MyHTTPRequestHandler(BaseHTTPRequestHandler):
     """
@@ -74,12 +73,12 @@ class MyHTTPRequestHandler(BaseHTTPRequestHandler):
             f"GET request,\nPath: {path}\nQuery: {query}\nHeaders:\n{self.headers}"
         )
 
-        if path == '/':
+        if path == "/":
             self._send_response(
-                200, "<h1>Welcome to the Python HTTP Server</h1>", 'text/html'
+                200, "<h1>Welcome to the Python HTTP Server</h1>", "text/html"
             )
-        elif path == '/info':
-            self._send_response(200, str(query), 'text/plain')
+        elif path == "/info":
+            self._send_response(200, str(query), "text/plain")
         else:
             self._handle_404()
 
@@ -90,16 +89,16 @@ class MyHTTPRequestHandler(BaseHTTPRequestHandler):
         Returns:
             None
         """
-        content_length = int(self.headers['Content-Length'])
+        content_length = int(self.headers["Content-Length"])
         post_data = urllib.parse.parse_qs(
-            self.rfile.read(content_length).decode('utf-8')
+            self.rfile.read(content_length).decode("utf-8")
         )
 
         logging.info(
             f"POST request,\nPath: {self.path}\nHeaders:\n{self.headers}\nBody:\n{post_data}\n"
         )
 
-        self._send_response(200, "<h1>POST request received</h1>", 'text/html')
+        self._send_response(200, "<h1>POST request received</h1>", "text/html")
 
     def _send_response(self, status_code, content, content_type):
         """
@@ -114,10 +113,10 @@ class MyHTTPRequestHandler(BaseHTTPRequestHandler):
             None
         """
         self.send_response(status_code)
-        self.send_header('Content-type', content_type)
+        self.send_header("Content-type", content_type)
         self.end_headers()
         if isinstance(content, str):
-            content = content.encode('utf-8')
+            content = content.encode("utf-8")
         self.wfile.write(content)
 
     def _handle_404(self):
@@ -127,13 +126,13 @@ class MyHTTPRequestHandler(BaseHTTPRequestHandler):
         Returns:
             None
         """
-        self._send_response(404, "<h1>404 Not Found</h1>", 'text/html')
+        self._send_response(404, "<h1>404 Not Found</h1>", "text/html")
 
     @staticmethod
     def run(
-        server_class = HTTPServer,
-        handler_class = BaseHTTPRequestHandler,
-        port = 8000
+        server_class=HTTPServer,
+        handler_class=BaseHTTPRequestHandler,
+        port=8000,
     ):
         """
         Static method to run the HTTP server.
@@ -148,7 +147,7 @@ class MyHTTPRequestHandler(BaseHTTPRequestHandler):
             None
         """
         logging.basicConfig(level=logging.INFO)
-        server_address = ('', port)
+        server_address = ("", port)
         httpd = server_class(server_address, handler_class)
         logging.info(f"Starting httpd server on port {port}")
         try:
@@ -163,24 +162,23 @@ class MyHTTPRequestHandler(BaseHTTPRequestHandler):
 # Functions
 # =============================================================================
 
+
 def test():
     """
     Test Function
     """
 
     # Running the server
-    MyHTTPRequestHandler.run(
-        handler_class = MyHTTPRequestHandler,
-        port = 8000
-    )
+    MyHTTPRequestHandler.run(handler_class=MyHTTPRequestHandler, port=8000)
 
 
 # =============================================================================
 # Main
 # =============================================================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     """Main"""
     import doctest
+
     doctest.testmod()
     test()
