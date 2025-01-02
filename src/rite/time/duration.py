@@ -92,7 +92,16 @@ class Duration:
         total_seconds = self.timedelta.total_seconds()
         hours, remainder = divmod(total_seconds, 3600)
         minutes, seconds = divmod(remainder, 60)
-        return f"{int(hours)}h {int(minutes)}m {int(seconds)}s"
+
+        parts = []
+        if hours:
+            parts.append(f"{int(hours)}h")
+        if minutes:
+            parts.append(f"{int(minutes)}m")
+        if seconds:
+            parts.append(f"{int(seconds)}s")
+
+        return " ".join(parts) if parts else "0s"
 
     @staticmethod
     def from_days(days: Union[int, float]) -> "Duration":
@@ -109,6 +118,8 @@ class Duration:
         Duration
             A new `Duration` object.
         """
+        if days < 0:
+            raise ValueError("Days cannot be negative.")
         return Duration(seconds=days * 86400)
 
     def to_days(self) -> float:
