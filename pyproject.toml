@@ -77,10 +77,10 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 rite = "rite.__main__:main"         # Entry point for the package
-test = "pytest --cov=rite tests/"         # Run tests with coverage
-lint = "flake8 src/sense/core/:main"            # Run linter on source files
-format = "black src/sense/core/:main"           # Format source files
-type-check = "mypy src/sense/core/:main"        # Type-check source files
+test = "pytest --cov=rite tests/:main"         # Run tests with coverage
+lint = "flake8 src/rite/:main"            # Run linter on source files
+format = "black src/rite/:main"           # Format source files
+type-check = "mypy src/rite/:main"        # Type-check source files
 
 
 # =============================================================================
