@@ -8,7 +8,7 @@
 [tool.poetry]
 name = "rite"
 version = "0.0.1"
-description = "utilities."
+description = "Python Utility Package"
 authors = ["Scape Agency <info@scape.agency>"]
 license = "MIT License"
 readme = "README.md"
