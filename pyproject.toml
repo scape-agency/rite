@@ -7,7 +7,7 @@
 
 [tool.poetry]
 name = "rite"
-version = "0.0.2"
+version = "0.0.3"
 description = "Python Utility Package"
 authors = ["Scape Agency <info@scape.agency>"]
 license = "MIT License"
@@ -28,7 +28,7 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 include = [
-    "src/**",
+    "src/rite/**",
     "README.md",
     "LICENSE",
     "docs/**",  # Include documentation in the package
@@ -76,11 +76,11 @@ build-backend = "poetry.core.masonry.api"
 # =============================================================================
 
 [tool.poetry.scripts]
-rite = "rite.__main__:main"         # Entry point for the package
-test = "pytest --cov=rite tests/:main"         # Run tests with coverage
-lint = "flake8 src/rite/:main"            # Run linter on source files
-format = "black src/rite/:main"           # Format source files
-type-check = "mypy src/rite/:main"        # Type-check source files
+rite = "rite.__main__:main"               # Entry point for the package
+# test = "pytest --cov=rite tests/:main"    # Run tests with coverage
+# lint = "flake8 src/rite/:main"            # Run linter on source files
+# format = "black src/rite/:main"           # Format source files
+# type-check = "mypy src/rite/:main"        # Type-check source files
 
 
 # =============================================================================
