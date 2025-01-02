@@ -47,7 +47,7 @@ if __name__ == "__main__":
     print()
     print("rite is set!")
     print()
-    print("tite: {}".format(rite.__version__))
+    print("rite: {}".format(rite.__version__))
     print(
         "Python: {} ({})".format(
             platform.python_version(), platform.python_implementation()
