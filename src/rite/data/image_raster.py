@@ -21,17 +21,12 @@ Todo:
 
 
 # Import | Standard Library
-from io import StringIO
-from io import BytesIO
-
+from io import BytesIO, StringIO
 
 # Import | Libraries
 from PIL import Image
 
-
 # Import | Local Modules
-
-
 
 
 class ImageRaster(object):
@@ -54,11 +49,11 @@ class ImageRaster(object):
 
     def __init__(
         self,
-        image_data =    None,
-        resolution =    (512, 512),
-        mode =          "RGBA",
-        background =    (0, 0, 0, 0),
-        ):
+        image_data=None,
+        resolution=(512, 512),
+        mode="RGBA",
+        background=(0, 0, 0, 0),
+    ):
         """Constructor of the object."""
 
         # Construct | image_data parameter
@@ -81,8 +76,9 @@ class ImageRaster(object):
     def __str__(self):
         """"""
         return """Image with Size: {0}, {1}
-        """.format(self.resolution[0], self.resolution[1])
-
+        """.format(
+            self.resolution[0], self.resolution[1]
+        )
 
     # Methods | image_data parameter
 
@@ -100,7 +96,6 @@ class ImageRaster(object):
     def image_data(self):
         """Deleter decorator method for image_data parameter."""
         del self._image_data
-
 
     # Methods | resolution parameter
 
@@ -120,7 +115,6 @@ class ImageRaster(object):
         """Deleter decorator method for resolution parameter."""
         del self._resolution
 
-
     # Methods | mode parameter
 
     @property
@@ -138,7 +132,6 @@ class ImageRaster(object):
     def mode(self):
         """Deleter decorator method for mode parameter."""
         del self._mode
-
 
     # Methods | background parameter
 
@@ -158,23 +151,25 @@ class ImageRaster(object):
         """Deleter decorator method for background parameter."""
         del self._background
 
-
     # Methods | operations
 
     def new(self):
         """"""
-        image_new =  Image.new(self.mode, self.resolution, self.background)
+        image_new = Image.new(self.mode, self.resolution, self.background)
         self.image_data = image_new
 
-    def add_layer(self, layer, offset=(0,0)):
+    def add_layer(self, layer, offset=(0, 0)):
         """"""
         # image = Image.open(self.image_data)
         # image.paste(layer, offset, mask=layer)
         # image.save(self.image_data)
-                    # image_new.paste(image_data)
+        # image_new.paste(image_data)
 
         # self.image_data.paste(layer, offset, mask=layer)
-        self.image_data.paste(layer, offset,)
+        self.image_data.paste(
+            layer,
+            offset,
+        )
 
     def show(self):
         """"""
@@ -185,4 +180,3 @@ class ImageRaster(object):
         """"""
         # image = Image.open(self.image_data)
         self.image_data.save(path)
-
