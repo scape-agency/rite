@@ -1,6 +1,6 @@
 <header>
 <p align="center">
-    <img src=".github/images/rite_logo.png" width="20%" height="20%" alt="rite Logo">
+    <img src="res/logo/rite_logo.png" width="20%" height="20%" alt="rite Logo">
 </p>
 
 <h3 align='center'>Python Utility Package</h3>
