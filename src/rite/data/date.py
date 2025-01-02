@@ -41,7 +41,6 @@ class Date:
         test method
     """
 
-
     # Static Methods
 
     @staticmethod
@@ -49,8 +48,8 @@ class Date:
         date_dict = {}
         date_today = date.today()
         date_default = str(date_today)
-        date_dict['date_year'] = date_today.year
-        date_dict['date_default'] = date_default
-        date_dict['date_us_simple'] = date_default.replace("-","/")
+        date_dict["date_year"] = date_today.year
+        date_dict["date_default"] = date_default
+        date_dict["date_us_simple"] = date_default.replace("-", "/")
         # print(date_dict)
-        return(date_dict)
+        return date_dict
