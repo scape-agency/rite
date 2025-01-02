@@ -33,13 +33,13 @@ Links:
 # Information
 # =============================================================================
 
-__author__ =        "Lars van Vianen"
-__copyright__ =     "Copyright 2022, Scape Agency"
-__credits__ =       [
-                        "Lars van Vianen",
-                    ]
-__license__ =       "MIT License"
-__version__ =       "0.0.1"
-__maintainer__ =    "Scape Agency"
-__email__ =         "info@scape.agency"
-__status__ =        "Alpha"
+__author__ = "Lars van Vianen"
+__copyright__ = "Copyright 2022, Scape Agency"
+__credits__ = [
+    "Lars van Vianen",
+]
+__license__ = "MIT License"
+__version__ = "0.0.3"
+__maintainer__ = "Scape Agency"
+__email__ = "info@scape.agency"
+__status__ = "Alpha"
