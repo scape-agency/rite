@@ -7,14 +7,11 @@
 
 <br/>
 
-
 ---
 
 **rite** is a Python Utility Package.
 
-
 ---
-
 
 **rite** is an open-source project by [Scape Agency](https://www.scape.agency "Scape Agency website").
 
