@@ -48,6 +48,7 @@ python = ">=3.10,<4.0"
 # Development Dependencies
 # =============================================================================
 
+pytz = "^2024.2"
 [tool.poetry.dev-dependencies]
 pytest = "^8.3.4"           # Framework for testing
 pytest-cov = "^6.0.0"       # Code coverage for tests
