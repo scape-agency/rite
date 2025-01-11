@@ -42,19 +42,19 @@ packages = [{ include = "rite", from = "src" }]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<4.0"
+pytz = "^2024.2"
 
 
 # =============================================================================
 # Development Dependencies
 # =============================================================================
 
-pytz = "^2024.2"
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 pytest = "^8.3.4"           # Framework for testing
 pytest-cov = "^6.0.0"       # Code coverage for tests
 black = "^24.8.0"           # Code formatter
 flake8 = "^7.1.0"           # Linter for code quality
-mypy = "^1.14.0"            # Static type checker
+mypy = "^1.14.1"            # Static type checker
 sphinx = "^8.0.2"           # Documentation generator
 isort = "^5.10.1"           # Import sorter
 tox = "^4.4.6"              # Testing multiple environments
@@ -66,8 +66,6 @@ pre-commit = "^4.0.1"       # Pre-commit hooks for linting and formatting
 # =============================================================================
 
 [build-system]
-# requires = ["setuptools>=42", "wheel"]   # PEP 508 specifications.
-# build-backend = "setuptools.build_meta"
 requires = ["poetry-core>=1.5.0"]
 build-backend = "poetry.core.masonry.api"
 
