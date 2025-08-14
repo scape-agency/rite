@@ -6,7 +6,7 @@
 # =============================================================================
 
 """
-Provides Case Class
+Provides Case Module
 ===================
 
 Todo:
@@ -21,6 +21,10 @@ Links:
 # =============================================================================
 # Import
 # =============================================================================
+
+# Import | Future
+from __future__ import annotations
+
 
 # Import | Standard Library
 import os
@@ -66,7 +70,8 @@ class Folder:
         """
         List all files in the directory.
 
-        Returns:
+        Returns
+        -------
         list: A list of filenames in the directory.
 
         Raises:
@@ -132,7 +137,8 @@ class Folder:
         """
         Calculates and returns the total size of the folder in bytes.
 
-        Returns:
+        Returns
+        -------
         int: The total size of the folder in bytes.
         """
         total_size = 0

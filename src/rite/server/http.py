@@ -17,6 +17,10 @@ HTTP Server Module
 # Import
 # =============================================================================
 
+# Import | Future
+from __future__ import annotations
+
+
 import logging
 import urllib.parse
 from http.server import BaseHTTPRequestHandler, HTTPServer
@@ -41,10 +45,12 @@ class HTTPServer(BaseHTTPRequestHandler):
 
     A simple HTTP server handler class that responds to GET and POST requests.
 
-    Attributes:
+    Attributes
+    ----------
         None
 
-    Methods:
+    Methods
+    -------
         do_GET(): Handle GET requests.
         do_POST(): Handle POST requests.
         _send_response(status_code, content, content_type): Helper method to
@@ -58,7 +64,8 @@ class HTTPServer(BaseHTTPRequestHandler):
         """
         Handle GET requests. Parses the request path and query parameters.
 
-        Returns:
+        Returns
+        -------
             None
         """
         parsed_path = urllib.parse.urlparse(self.path)
@@ -82,7 +89,8 @@ class HTTPServer(BaseHTTPRequestHandler):
         """
         Handle POST requests. Parses the posted data.
 
-        Returns:
+        Returns
+        -------
             None
         """
         content_length = int(self.headers["Content-Length"])
@@ -109,7 +117,8 @@ class HTTPServer(BaseHTTPRequestHandler):
             content (str): Response content.
             content_type (str): MIME type of the response content.
 
-        Returns:
+        Returns
+        -------
             None
         """
         self.send_response(status_code)
@@ -123,7 +132,8 @@ class HTTPServer(BaseHTTPRequestHandler):
         """
         Helper method to handle 404 Not Found responses.
 
-        Returns:
+        Returns
+        -------
             None
         """
         self._send_response(404, "<h1>404 Not Found</h1>", "text/html")
@@ -143,7 +153,8 @@ class HTTPServer(BaseHTTPRequestHandler):
             class.
             port (int): Port number to run the server on.
 
-        Returns:
+        Returns
+        -------
             None
         """
         logging.basicConfig(level=logging.INFO)

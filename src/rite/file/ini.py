@@ -6,7 +6,7 @@
 # =============================================================================
 
 """
-Provides INIHandler Class
+Provides INIHandler Module
 ==========================
 
 Todo:
@@ -21,6 +21,10 @@ Links:
 # =============================================================================
 # Import
 # =============================================================================
+
+# Import | Future
+from __future__ import annotations
+
 
 # Import | Standard Library
 import configparser
@@ -41,7 +45,8 @@ class INIHandler(object):
     A class for handling INI configuration files.
 
 
-    Methods:
+    Methods
+    -------
     --------
     load_ini(file_path: str) -> configparser.ConfigParser:
         Loads an INI configuration file.
@@ -74,7 +79,8 @@ class INIHandler(object):
         Parameters:
             file_path (str): Path to the INI file.
 
-        Returns:
+        Returns
+        -------
             configparser.ConfigParser: The parsed INI file.
         """
         config = configparser.ConfigParser()
@@ -129,7 +135,8 @@ class INIHandler(object):
             fallback (Optional[Any]): The default value to return if the key
             is not found.
 
-        Returns:
+        Returns
+        -------
             Any: The value from the specified section and key, or the fallback
             value.
         """
@@ -144,7 +151,8 @@ class INIHandler(object):
             config (configparser.ConfigParser): The ConfigParser object.
             section (str): The section to add.
 
-        Returns:
+        Returns
+        -------
             bool: True if the section was added, False if the section already
             exists.
         """
@@ -162,7 +170,8 @@ class INIHandler(object):
             config (configparser.ConfigParser): The ConfigParser object.
             section (str): The section to remove.
 
-        Returns:
+        Returns
+        -------
             bool: True if the section was removed, False if the section does
             not exist.
         """
@@ -176,7 +185,8 @@ class INIHandler(object):
         Parameters:
             config (configparser.ConfigParser): The ConfigParser object.
 
-        Returns:
+        Returns
+        -------
             List[str]: A list of section names.
         """
         return config.sections()
@@ -192,7 +202,8 @@ class INIHandler(object):
             config (configparser.ConfigParser): The ConfigParser object.
             section (str): The section to list keys from.
 
-        Returns:
+        Returns
+        -------
             List[str]: A list of key names in the section.
         """
         if config.has_section(section):
@@ -211,7 +222,8 @@ class INIHandler(object):
             section (str): The section to check.
             key (str): The key to check for.
 
-        Returns:
+        Returns
+        -------
             bool: True if the key exists in the section, False otherwise.
         """
         return config.has_option(section, key)
@@ -228,7 +240,8 @@ class INIHandler(object):
             section (str): The section to remove the key from.
             key (str): The key to remove.
 
-        Returns:
+        Returns
+        -------
             bool: True if the key was removed, False if the key or section
             does not exist.
         """

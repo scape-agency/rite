@@ -6,7 +6,7 @@
 # =============================================================================
 
 """
-Provides Case Class
+Provides Case Module
 ===================
 
 Todo:
@@ -21,6 +21,10 @@ Links:
 # =============================================================================
 # Import
 # =============================================================================
+
+# Import | Future
+from __future__ import annotations
+
 
 # Import | Standard Library
 import random
@@ -50,7 +54,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text converted to camel case.
         """
         words = text.split()
@@ -67,7 +72,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text converted to snake case.
         """
         words = text.split()
@@ -83,7 +89,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text converted to kebab case.
         """
         words = text.split()
@@ -99,7 +106,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text converted to spinal case.
         """
         words = text.split()
@@ -114,7 +122,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text converted to title case.
         """
         return text.title()
@@ -128,7 +137,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text converted to upper case.
         """
         return text.upper()
@@ -142,7 +152,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text converted to lower case.
         """
         return text.lower()
@@ -156,7 +167,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text converted to sentence case.
         """
         sentences = text.split(". ")
@@ -173,7 +185,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text converted to constant case.
         """
         words = text.split()
@@ -190,7 +203,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text converted to pascal case.
         """
         words = text.split()
@@ -206,7 +220,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text converted to dot case.
         """
         words = text.split()
@@ -222,7 +237,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text converted to path case.
         """
         words = text.split()
@@ -238,7 +254,8 @@ class Case(object):
         Parameters:
         text (str): The text to reverse.
 
-        Returns:
+        Returns
+        -------
         str: The reversed text.
         """
         return text[::-1]
@@ -252,7 +269,8 @@ class Case(object):
         Parameters:
         text (str): The text whose case is to be swapped.
 
-        Returns:
+        Returns
+        -------
         str: The text with swapped case.
         """
         return text.swapcase()
@@ -266,7 +284,8 @@ class Case(object):
         Parameters:
         text (str): The text to randomize case.
 
-        Returns:
+        Returns
+        -------
         str: The text with randomized case.
         """
         return "".join(
@@ -282,7 +301,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert to slug case.
 
-        Returns:
+        Returns
+        -------
         str: The text in slug case.
         """
         words = text.split()
@@ -297,7 +317,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text in 'Mocking Spongebob' case.
         """
         return "".join(
@@ -314,7 +335,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text with uppercase vowels.
         """
         vowels = "aeiou"
@@ -331,7 +353,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text with uppercase consonants.
         """
         vowels = "aeiou"
@@ -349,7 +372,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text in leet speak.
         """
         leet_dict = {
@@ -374,7 +398,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text with the first letter of each word in uppercase.
         """
         return " ".join(
@@ -391,7 +416,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text with each word reversed.
         """
         return " ".join(word[::-1] for word in text.split())
@@ -406,7 +432,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text with alternating uppercase and lowercase letters.
         """
         return "".join(
@@ -424,7 +451,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text in NATO phonetic alphabet.
         """
         nato_dict = {
@@ -467,7 +495,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text in binary form.
         """
         return " ".join(format(ord(char), "08b") for char in text)
@@ -481,7 +510,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text in hexadecimal form.
         """
         return " ".join(format(ord(char), "x") for char in text)
@@ -495,7 +525,8 @@ class Case(object):
         Parameters:
         text (str): The text to flip.
 
-        Returns:
+        Returns
+        -------
         str: The flipped text.
         """
         flip_dict = {
@@ -605,7 +636,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text with words replaced by emojis.
         """
         emoji_dict = {
@@ -627,7 +659,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text with Zalgo effect.
         """
         zalgo_chars = [chr(i) for i in range(0x0300, 0x036F)]
@@ -643,7 +676,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text with inverted case.
         """
         return "".join(
@@ -660,7 +694,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text with symbolic color codes.
         """
         colors = ["🟥", "🟧", "🟨", "🟩", "🟦", "🟪"]
@@ -677,7 +712,8 @@ class Case(object):
         Parameters:
         text (str): The phrase to convert.
 
-        Returns:
+        Returns
+        -------
         str: The acronym of the phrase.
         """
         return "".join(word[0].upper() for word in text.split() if word)
@@ -692,7 +728,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text in Spongebob Meme case.
         """
         return "".join(
@@ -709,7 +746,8 @@ class Case(object):
         Parameters:
         text (str): The sentence to reverse.
 
-        Returns:
+        Returns
+        -------
         str: The sentence with reversed word order.
         """
         return " ".join(reversed(text.split()))
@@ -723,7 +761,8 @@ class Case(object):
         Parameters:
         text (str): The text to translate.
 
-        Returns:
+        Returns
+        -------
         str: The text in Pig Latin.
         """
 
@@ -743,7 +782,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text with each word reversed.
         """
         return " ".join(word[::-1] for word in text.split())
@@ -757,7 +797,8 @@ class Case(object):
         Parameters:
         text (str): The text to shuffle.
 
-        Returns:
+        Returns
+        -------
         str: The text with letters in each word shuffled.
         """
 
@@ -777,7 +818,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text with all vowels removed.
         """
         vowels = "aeiouAEIOU"
@@ -792,7 +834,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: A string formed by the first letter of each word.
         """
         return "".join(word[0] for word in text.split() if word)
@@ -807,7 +850,8 @@ class Case(object):
         Parameters:
         text (str): The text to scramble.
 
-        Returns:
+        Returns
+        -------
         str: The text with middle letters of each word scrambled.
         """
 
@@ -829,7 +873,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: A string of ASCII values for each character.
         """
         return " ".join(str(ord(char)) for char in text)
@@ -843,7 +888,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text with each letter repeated based on its position.
         """
         return " ".join(
@@ -860,7 +906,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text with numeric words converted to numbers.
         """
         num_dict = {
@@ -886,7 +933,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text with vowels in each word reversed.
         """
         vowels = "aeiouAEIOU"
@@ -908,7 +956,8 @@ class Case(object):
         Parameters:
         text (str): The text to process.
 
-        Returns:
+        Returns
+        -------
         str: A string of all vowels concatenated.
         """
         vowels = "aeiouAEIOU"
@@ -924,7 +973,8 @@ class Case(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text in a diagonal representation.
         """
         return "\n".join(" " * i + char for i, char in enumerate(text))
@@ -938,7 +988,8 @@ class Case(object):
         Parameters:
         text (str): The text to transcribe.
 
-        Returns:
+        Returns
+        -------
         str: The text transcribed into simulated Braille.
         """
         # Placeholder implementation; real Braille transcription is more complex
@@ -953,7 +1004,8 @@ class Case(object):
         Parameters:
         text (str): The text to check.
 
-        Returns:
+        Returns
+        -------
         bool: True if the text is a palindrome, False otherwise.
         """
         cleaned_text = "".join(char.lower() for char in text if char.isalnum())
@@ -969,7 +1021,8 @@ class Case(object):
         text1 (str): The first text to interleave.
         text2 (str): The second text to interleave.
 
-        Returns:
+        Returns
+        -------
         str: The interleaved text.
         """
         words1 = text1.split()
@@ -987,7 +1040,8 @@ class Case(object):
         Parameters:
         text (str): The text to process.
 
-        Returns:
+        Returns
+        -------
         str: The text with every alternate character deleted.
         """
         return text[::2]
@@ -1001,7 +1055,8 @@ class Case(object):
         Parameters:
         text (str): The word to convert.
 
-        Returns:
+        Returns
+        -------
         str: The word converted into a numeronym.
         """
         if len(text) <= 3:
@@ -1017,7 +1072,8 @@ class Case(object):
         Parameters:
         text (str): The text to count words in.
 
-        Returns:
+        Returns
+        -------
         int: The number of words in the text.
         """
         return len(text.split())
@@ -1031,7 +1087,8 @@ class Case(object):
         Parameters:
         text (str): The text to reverse word order.
 
-        Returns:
+        Returns
+        -------
         str: The text with reversed word order.
         """
         return " ".join(reversed(text.split()))
@@ -1045,7 +1102,8 @@ class Case(object):
         Parameters:
         text (str): The text to process.
 
-        Returns:
+        Returns
+        -------
         str: A string with each letter replaced by its alphabet position.
         """
         return " ".join(
@@ -1062,7 +1120,8 @@ class Case(object):
         Parameters:
         text (str): The text to process.
 
-        Returns:
+        Returns
+        -------
         str: The text with every second word doubled.
         """
         words = text.split()
@@ -1080,7 +1139,8 @@ class Case(object):
         Parameters:
         text (str): The text to search.
 
-        Returns:
+        Returns
+        -------
         str: The longest word in the text.
         """
         return max(text.split(), key=len)
@@ -1094,7 +1154,8 @@ class Case(object):
         Parameters:
         text (str): The text to analyze.
 
-        Returns:
+        Returns
+        -------
         dict: A dictionary with the frequency count of each character.
         """
         return dict(Counter(text))
@@ -1108,7 +1169,8 @@ class Case(object):
         Parameters:
         text (str): The text to reverse.
 
-        Returns:
+        Returns
+        -------
         str: The text with each word reversed individually.
         """
         return " ".join(word[::-1] for word in text.split())
@@ -1122,7 +1184,8 @@ class Case(object):
         Parameters:
         text (str): The text to process.
 
-        Returns:
+        Returns
+        -------
         str: The text with numbers replaced by words.
         """
         num_to_word_dict = {
@@ -1150,7 +1213,8 @@ class Case(object):
         Parameters:
         text (str): The text to abbreviate.
 
-        Returns:
+        Returns
+        -------
         str: The abbreviation of the text.
         """
         return "".join(
@@ -1166,7 +1230,8 @@ class Case(object):
         Parameters:
         text (str): The text to shuffle.
 
-        Returns:
+        Returns
+        -------
         str: The text with shuffled sentences.
         """
         sentences = text.split(". ")
@@ -1182,7 +1247,8 @@ class Case(object):
         Parameters:
         text (str): The text to mirror.
 
-        Returns:
+        Returns
+        -------
         str: The mirrored text.
         """
         return text + " " + text[::-1]
@@ -1196,7 +1262,8 @@ class Case(object):
         Parameters:
         text (str): The text to process.
 
-        Returns:
+        Returns
+        -------
         str: The text with random spaces inserted.
         """
         return " ".join(" ".join(char) for char in text)

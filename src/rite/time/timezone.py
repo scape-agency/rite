@@ -47,12 +47,14 @@ class Timezone:
 
     Provides utilities for timezone management and conversion.
 
-    Attributes:
+    Attributes
+    ----------
     -----------
     timezone : pytz.timezone
         The timezone object representing the current timezone.
 
-    Methods:
+    Methods
+    -------
     --------
     convert(dt: datetime, target_timezone: str) -> datetime:
         Converts a datetime object to a target timezone.
@@ -101,7 +103,8 @@ class Timezone:
         target_timezone : str
             The name of the target timezone.
 
-        Returns:
+        Returns
+        -------
         --------
         datetime
             A new datetime object in the target timezone.
@@ -118,7 +121,8 @@ class Timezone:
         """
         Returns the current time in the handler's timezone.
 
-        Returns:
+        Returns
+        -------
         --------
         datetime
             The current datetime in the handler's timezone.
@@ -130,7 +134,8 @@ class Timezone:
         """
         Returns a list of all available timezones.
 
-        Returns:
+        Returns
+        -------
         --------
         List[str]
             A list of timezone names supported by `pytz`.
@@ -141,7 +146,8 @@ class Timezone:
         """
         Returns a string representation of the handler's timezone.
 
-        Returns:
+        Returns
+        -------
         --------
         str
             The name of the current timezone.
@@ -158,7 +164,8 @@ class Timezone:
         abbreviation : str
             The timezone abbreviation (e.g., "PST", "EST").
 
-        Returns:
+        Returns
+        -------
         --------
         str
             The full timezone name.

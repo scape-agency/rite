@@ -6,7 +6,7 @@
 # =============================================================================
 
 """
-Provides Cipher Class
+Provides Cipher Module
 =====================
 
 This class includes methods for encoding and decoding text using various
@@ -17,8 +17,9 @@ Todo:
 - Add more cipher methods.
 - Implement error handling for edge cases.
 
-Links:
-- [Caesar Cipher](https://en.wikipedia.org/wiki/Caesar_cipher)
+References
+----------
+-[Caesar Cipher](https://en.wikipedia.org/wiki/Caesar_cipher)
 - [Baconian Cipher](https://en.wikipedia.org/wiki/Bacon%27s_cipher)
 
 """
@@ -27,6 +28,10 @@ Links:
 # =============================================================================
 # Import
 # =============================================================================
+
+# Import | Future
+from __future__ import annotations
+
 
 # Import | Standard Library
 import random
@@ -61,7 +66,8 @@ class Cipher(object):
         text (str): The text to encode.
         shift (int): The shift for the Caesar cipher.
 
-        Returns:
+        Returns
+        -------
         str: The encoded text.
         """
         encoded_text = []
@@ -84,7 +90,8 @@ class Cipher(object):
         encoded_text (str): The text to decode.
         shift (int): The shift used in the Caesar cipher.
 
-        Returns:
+        Returns
+        -------
         str: The decoded text.
         """
         return Cipher.to_caesar_cipher(encoded_text, -shift)
@@ -98,7 +105,8 @@ class Cipher(object):
         Parameters:
         text (str): The text to encode.
 
-        Returns:
+        Returns
+        -------
         str: The encoded text using the Baconian cipher.
         """
         bacon_dict = {
@@ -142,7 +150,8 @@ class Cipher(object):
         Parameters:
         encoded_text (str): The text to decode.
 
-        Returns:
+        Returns
+        -------
         str: The decoded text from the Baconian cipher.
         """
         bacon_dict = {
@@ -165,7 +174,8 @@ class Cipher(object):
         text (str): The text to encode.
         key (str): The keyword used for encoding.
 
-        Returns:
+        Returns
+        -------
         str: The encoded text.
         """
         key = key.lower()
@@ -192,7 +202,8 @@ class Cipher(object):
         encoded_text (str): The text to decode.
         key (str): The keyword used for encoding.
 
-        Returns:
+        Returns
+        -------
         str: The decoded text.
         """
         key = key.lower()
@@ -220,7 +231,8 @@ class Cipher(object):
         Parameters:
         text (str): The text to encode or decode.
 
-        Returns:
+        Returns
+        -------
         str: The encoded or decoded text.
         """
         return text.translate(
@@ -238,7 +250,8 @@ class Cipher(object):
         Parameters:
         text (str): The text to encode or decode.
 
-        Returns:
+        Returns
+        -------
         str: The encoded or decoded text.
         """
         return text.translate(
@@ -256,7 +269,8 @@ class Cipher(object):
         Parameters:
         text (str): The text to encode.
 
-        Returns:
+        Returns
+        -------
         str: The binary encoded text.
         """
         return " ".join(format(ord(char), "08b") for char in text)
@@ -269,7 +283,8 @@ class Cipher(object):
         Parameters:
         binary_text (str): The binary text to decode.
 
-        Returns:
+        Returns
+        -------
         str: The decoded text.
         """
         return "".join(chr(int(binary, 2)) for binary in binary_text.split())
@@ -283,7 +298,8 @@ class Cipher(object):
         text (str): The text to encode.
         num_rails (int): The number of rails.
 
-        Returns:
+        Returns
+        -------
         str: The encoded text.
         """
         fence = [[] for _ in range(num_rails)]
@@ -308,7 +324,8 @@ class Cipher(object):
         encoded_text (str): The text to decode.
         num_rails (int): The number of rails.
 
-        Returns:
+        Returns
+        -------
         str: The decoded text.
         """
         fence = [[] for _ in range(num_rails)]
@@ -348,7 +365,8 @@ class Cipher(object):
         text (str): The text to encode or decode.
         key (str): The key for the XOR cipher.
 
-        Returns:
+        Returns
+        -------
         str: The encoded or decoded text.
         """
         return "".join(
@@ -363,7 +381,8 @@ class Cipher(object):
         Parameters:
         text (str): The text to reverse.
 
-        Returns:
+        Returns
+        -------
         str: The reversed text.
         """
         return text[::-1]
@@ -377,7 +396,8 @@ class Cipher(object):
         text (str): The text to encode.
         key (int): The number of columns.
 
-        Returns:
+        Returns
+        -------
         str: The encoded text.
         """
         return "".join(text[i::key] for i in range(key))
@@ -391,7 +411,8 @@ class Cipher(object):
         encoded_text (str): The text to decode.
         key (int): The number of columns.
 
-        Returns:
+        Returns
+        -------
         str: The decoded text.
         """
         num_rows = len(encoded_text) // key
@@ -460,7 +481,8 @@ class Cipher(object):
         text (str): The text to encode.
         key (str): The key for the Playfair cipher.
 
-        Returns:
+        Returns
+        -------
         str: The encoded text.
         """
 
@@ -499,7 +521,8 @@ class Cipher(object):
         encoded_text (str): The text to decode.
         key (str): The key for the Playfair cipher.
 
-        Returns:
+        Returns
+        -------
         str: The decoded text.
         """
         square = Cipher.create_playfair_square(key)
@@ -521,7 +544,8 @@ class Cipher(object):
         text (str): The text to encode.
         diameter (int): The diameter (number of characters per turn) of the Scytale.
 
-        Returns:
+        Returns
+        -------
         str: The encoded text.
         """
         if diameter <= 0:
@@ -546,7 +570,8 @@ class Cipher(object):
         encoded_text (str): The text to decode.
         diameter (int): The diameter used in the Scytale cipher.
 
-        Returns:
+        Returns
+        -------
         str: The decoded text.
         """
         if diameter <= 0:
@@ -569,7 +594,8 @@ class Cipher(object):
         text (str): The text to encode.
         key (str): The key for the Autokey cipher.
 
-        Returns:
+        Returns
+        -------
         str: The encoded text.
         """
 
@@ -596,7 +622,8 @@ class Cipher(object):
         encoded_text (str): The text to decode.
         key (str): The key for the Autokey cipher.
 
-        Returns:
+        Returns
+        -------
         str: The decoded text.
         """
 
@@ -658,7 +685,8 @@ class Cipher(object):
         key1 (str): The first key for the Four-Square cipher.
         key2 (str): The second key for the Four-Square cipher.
 
-        Returns:
+        Returns
+        -------
         str: The encoded text.
         """
         square1 = Cipher.generate_square(key1)
@@ -693,7 +721,8 @@ class Cipher(object):
         key1 (str): The first key used in the Four-Square cipher.
         key2 (str): The second key used in the Four-Square cipher.
 
-        Returns:
+        Returns
+        -------
         str: The decoded text.
         """
         square1 = Cipher.generate_square(key1)

@@ -6,7 +6,7 @@
 # =============================================================================
 
 """
-Provides Slug Class
+Provides Slug Module
 ===================
 
 Todo:
@@ -21,6 +21,10 @@ Links:
 # =============================================================================
 # Import
 # =============================================================================
+
+# Import | Future
+from __future__ import annotations
+
 
 # Import | Standard Library
 import re
@@ -44,7 +48,8 @@ class Slug:
     A class to generate URL-friendly slugs from strings with additional
     customization.
 
-    Methods:
+    Methods
+    -------
     --------
     generate_slug(text: str, delimiter: str = '-', max_length: int = None,
         lowercase: bool = True, custom_replacements: dict = None) -> str:
@@ -70,7 +75,8 @@ class Slug:
             custom_replacements (dict): Custom replacements for specific
             characters.
 
-        Returns:
+        Returns
+        -------
             str: A URL-friendly slug.
         """
         # Apply custom replacements if provided
@@ -106,7 +112,8 @@ class Slug:
             prefix (str): The prefix to add.
             delimiter (str): The delimiter used in the slug.
 
-        Returns:
+        Returns
+        -------
             str: The slug with the prefix added.
         """
         return f"{prefix}{delimiter}{slug}" if prefix else slug
@@ -121,7 +128,8 @@ class Slug:
             suffix (str): The suffix to add.
             delimiter (str): The delimiter used in the slug.
 
-        Returns:
+        Returns
+        -------
             str: The slug with the suffix added.
         """
         return f"{slug}{delimiter}{suffix}" if suffix else slug
@@ -138,7 +146,8 @@ class Slug:
             existing_slugs (set): A set of existing slugs to check against.
             delimiter (str): The delimiter used in the slug.
 
-        Returns:
+        Returns
+        -------
             str: A unique slug with an incremental number added if needed.
         """
         new_slug = slug
@@ -157,7 +166,8 @@ class Slug:
             slug (str): The string to validate as a slug.
             delimiter (str): The delimiter used in the slug.
 
-        Returns:
+        Returns
+        -------
             bool: True if the string is a valid slug, False otherwise.
         """
         pattern = re.compile(
@@ -173,7 +183,8 @@ class Slug:
         Parameters:
             text (str): The text to normalize.
 
-        Returns:
+        Returns
+        -------
             str: The normalized text.
         """
         return unicodedata.normalize("NFKD", text)
@@ -190,7 +201,8 @@ class Slug:
             stop_words (set): A set of stop words to remove.
             delimiter (str): The delimiter used to separate words.
 
-        Returns:
+        Returns
+        -------
             str: The text with stop words removed.
         """
         words = text.split(delimiter)
@@ -209,7 +221,8 @@ class Slug:
             limit (int): The maximum number of words.
             delimiter (str): The delimiter used to separate words.
 
-        Returns:
+        Returns
+        -------
             str: The limited text.
         """
         words = text.split(delimiter)[:limit]
@@ -227,7 +240,8 @@ class Slug:
             chars (str): A string of characters to replace.
             delimiter (str): The delimiter to use as replacement.
 
-        Returns:
+        Returns
+        -------
             str: The processed text.
         """
         return re.sub(f"[{re.escape(chars)}]", delimiter, text)

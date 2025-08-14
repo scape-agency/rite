@@ -46,6 +46,7 @@ Example:
 
 """
 
+
 # =============================================================================
 # Imports
 # =============================================================================
@@ -66,12 +67,14 @@ class SingletonMeta(type):
     A metaclass for implementing the Singleton pattern. This ensures that only
     one instance of a class exists throughout the application lifecycle.
 
-    Attributes:
+    Attributes
+    ----------
     -----------
     _instances : Dict[type, Any]
         A dictionary that maps classes to their single instances.
 
-    Methods:
+    Methods
+    -------
     --------
     __call__(*args, **kwargs):
         Overrides the `__call__` method to control instance creation.
@@ -89,7 +92,8 @@ class SingletonMeta(type):
         *args, **kwargs:
             Arguments passed to the class constructor.
 
-        Returns:
+        Returns
+        -------
         --------
         Any:
             The single instance of the class.

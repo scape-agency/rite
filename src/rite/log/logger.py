@@ -54,7 +54,8 @@ class Logger:
     logging module, providing an easy interface to integrate logging into
     applications.
 
-    Attributes:
+    Attributes
+    ----------
     -----------
     logger : logging.Logger
         The underlying logger instance from Python's logging module.

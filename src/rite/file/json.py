@@ -6,7 +6,7 @@
 # =============================================================================
 
 """
-Provides JSONHandler Class
+Provides JSONHandler Module
 ==========================
 
 Todo:
@@ -21,6 +21,10 @@ Links:
 # =============================================================================
 # Import
 # =============================================================================
+
+# Import | Future
+from __future__ import annotations
+
 
 import csv
 import json
@@ -44,7 +48,8 @@ class JSONHandler(object):
     """
     A class for handling JSON data operations.
 
-    Methods:
+    Methods
+    -------
     --------
     read_json(file_path: str) -> Any:
         Reads JSON data from a file and returns it.
@@ -62,7 +67,8 @@ class JSONHandler(object):
         Parameters:
             file_path (str): The path to the JSON file.
 
-        Returns:
+        Returns
+        -------
             Any: The data read from the JSON file.
         """
         try:
@@ -113,7 +119,8 @@ class JSONHandler(object):
         Parameters:
             data (str): The JSON string to validate.
 
-        Returns:
+        Returns
+        -------
             bool: True if the string is valid JSON, False otherwise.
         """
         try:
@@ -141,7 +148,8 @@ class JSONHandler(object):
             json1 (Dict): The first JSON object.
             json2 (Dict): The second JSON object.
 
-        Returns:
+        Returns
+        -------
             Dict: Merged JSON object.
         """
         merged = {**json1, **json2}
@@ -156,7 +164,8 @@ class JSONHandler(object):
             data (Dict): The JSON data to search in.
             key (str): The key to search for.
 
-        Returns:
+        Returns
+        -------
             Any: The value of the found key or None.
         """
         if key in data:
@@ -176,7 +185,8 @@ class JSONHandler(object):
         Parameters:
             json_data (Dict): The JSON data to convert.
 
-        Returns:
+        Returns
+        -------
             str: The converted data in XML format.
         """
         return xmltodict.unparse(json_data)
@@ -189,7 +199,8 @@ class JSONHandler(object):
         Parameters:
             xml_data (str): The XML data to convert.
 
-        Returns:
+        Returns
+        -------
             Dict: The converted data in JSON format.
         """
         return xmltodict.parse(xml_data)
@@ -204,7 +215,8 @@ class JSONHandler(object):
             filter_func (Callable): A function that takes a dictionary and
             returns a boolean.
 
-        Returns:
+        Returns
+        -------
             Dict: Filtered JSON data.
         """
         return {k: v for k, v in data.items() if filter_func({k: v})}
@@ -218,7 +230,8 @@ class JSONHandler(object):
             data (Dict): The original JSON data.
             updates (Dict): A dictionary with updates.
 
-        Returns:
+        Returns
+        -------
             Dict: Updated JSON data.
         """
         data.update(updates)
@@ -234,7 +247,8 @@ class JSONHandler(object):
             parent_key (str): The base key string.
             sep (str): Separator for nested keys.
 
-        Returns:
+        Returns
+        -------
             Dict: The flattened JSON object.
         """
         items = []
@@ -257,7 +271,8 @@ class JSONHandler(object):
             json1 (Dict): The first JSON object.
             json2 (Dict): The second JSON object.
 
-        Returns:
+        Returns
+        -------
             Dict: The deeply merged JSON object.
         """
         for key, value in json2.items():
@@ -278,7 +293,8 @@ class JSONHandler(object):
         Parameters:
             json_data (Dict): The JSON data to convert.
 
-        Returns:
+        Returns
+        -------
             str: The converted data in YAML format.
         """
         return yaml.dump(json_data)
@@ -291,7 +307,8 @@ class JSONHandler(object):
         Parameters:
             yaml_data (str): The YAML data to convert.
 
-        Returns:
+        Returns
+        -------
             Dict: The converted data in JSON format.
         """
         return yaml.safe_load(yaml_data)
@@ -306,7 +323,8 @@ class JSONHandler(object):
             by_key (bool): Sort by keys if True, else by values.
             reverse (bool): Sort in reverse order if True.
 
-        Returns:
+        Returns
+        -------
             Dict: The sorted JSON object.
         """
         return dict(
@@ -326,7 +344,8 @@ class JSONHandler(object):
             json1 (Dict): The first JSON object.
             json2 (Dict): The second JSON object.
 
-        Returns:
+        Returns
+        -------
             Dict: A dictionary showing differences.
         """
         diff = {}
@@ -348,7 +367,8 @@ class JSONHandler(object):
         Parameters:
             data (Dict): The JSON data.
 
-        Returns:
+        Returns
+        -------
             List[str]: A list of all keys in the JSON object.
         """
         keys = []
@@ -383,7 +403,8 @@ class JSONHandler(object):
         Parameters:
             csv_file (str): The path to the CSV file to read.
 
-        Returns:
+        Returns
+        -------
             List[Dict]: The converted data in JSON format.
         """
         with open(csv_file, "r", encoding="utf-8") as file:
@@ -398,7 +419,8 @@ class JSONHandler(object):
             json_data (Dict): The JSON data.
             path (str): The path to extract data from (e.g., 'key1/key2').
 
-        Returns:
+        Returns
+        -------
             Any: The extracted data.
         """
         elements = path.split("/")
@@ -417,7 +439,8 @@ class JSONHandler(object):
             json_data (Any): The JSON data to indent.
             indent (int): The number of spaces to use for indentation.
 
-        Returns:
+        Returns
+        -------
             str: Indented JSON string.
         """
         return json.dumps(json_data, indent=indent)
@@ -430,7 +453,8 @@ class JSONHandler(object):
         Parameters:
             json_data (Any): The JSON data to compress.
 
-        Returns:
+        Returns
+        -------
             str: Compressed JSON string.
         """
         return json.dumps(json_data, separators=(",", ":"))
@@ -446,7 +470,8 @@ class JSONHandler(object):
             json_data (Any): The JSON data.
             transform_func (Callable): The function to apply to each key.
 
-        Returns:
+        Returns
+        -------
             Any: The JSON data with transformed keys.
         """
         if isinstance(json_data, dict):
@@ -473,7 +498,8 @@ class JSONHandler(object):
             json_data (Any): The JSON data.
             path (str): The path to check (e.g., 'key1/key2').
 
-        Returns:
+        Returns
+        -------
             bool: True if the path exists, False otherwise.
         """
         elements = path.split("/")
@@ -494,7 +520,8 @@ class JSONHandler(object):
             path (str): The path to the value to update (e.g., 'key1/key2').
             value (Any): The new value to set.
 
-        Returns:
+        Returns
+        -------
             Any: The updated JSON data.
         """
         elements = path.split("/")

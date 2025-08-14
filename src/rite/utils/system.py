@@ -62,7 +62,8 @@ class System:
         """
         Determines the operating system type.
 
-        Returns:
+        Returns
+        -------
         --------
         str:
             A string representing the operating system type.

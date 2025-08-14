@@ -23,6 +23,7 @@ Features:
 - Retries failed operations with configurable retry limits and exponential backoff.
 """
 
+
 # =============================================================================
 # Imports
 # =============================================================================
@@ -44,7 +45,8 @@ class ErrorHandler:
     A class to handle and log errors in the system. It provides methods for
     logging errors, raising alerts, and retrying operations.
 
-    Attributes:
+    Attributes
+    ----------
     -----------
     log_file : Optional[str]
         The path to the log file for error logging.
@@ -106,7 +108,8 @@ class ErrorHandler:
         backoff : float, optional
             The initial backoff time in seconds between retries (default: 1.0).
 
-        Returns:
+        Returns
+        -------
         --------
         bool:
             True if the operation succeeded, False if all retries failed.

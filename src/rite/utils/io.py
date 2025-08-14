@@ -38,6 +38,7 @@ Usage:
     IOOperations.write_file("example.txt", "Hello, World!")
 """
 
+
 # =============================================================================
 # Imports
 # =============================================================================
@@ -71,7 +72,8 @@ class IOOperations:
 
     A utility class for performing common file input/output operations.
 
-    Methods:
+    Methods
+    -------
     --------
     read_file(file_path: str, encoding: str = "utf-8") -> str:
         Reads the content of a file with the specified encoding.
@@ -95,7 +97,8 @@ class IOOperations:
         encoding : str, optional
             The encoding to use for reading the file (default: "utf-8").
 
-        Returns:
+        Returns
+        -------
         --------
         str:
             The content of the file.
@@ -158,7 +161,8 @@ class IOOperations:
         file_path : str
             The path to the file.
 
-        Returns:
+        Returns
+        -------
         --------
         bool:
             True if the file exists, False otherwise.

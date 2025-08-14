@@ -6,7 +6,7 @@
 # =============================================================================
 
 """
-Provides Morse Class
+Provides Morse Module
 ====================
 
 Todo:
@@ -21,6 +21,10 @@ Links:
 # =============================================================================
 # Import
 # =============================================================================
+
+# Import | Future
+from __future__ import annotations
+
 
 # Import | Standard Library
 import random
@@ -51,7 +55,8 @@ class Morse(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text in Morse code.
         """
         morse_dict = {
@@ -94,7 +99,8 @@ class Morse(object):
         Parameters:
         text (str): The Morse code to decode.
 
-        Returns:
+        Returns
+        -------
         str: The decoded text.
         """
         morse_dict = {
@@ -137,7 +143,8 @@ class Morse(object):
         Parameters:
         text (str): The text to convert.
 
-        Returns:
+        Returns
+        -------
         str: The text with each word converted to Morse code.
         """
         morse_dict = {

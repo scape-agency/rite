@@ -24,6 +24,10 @@ Links:
 # Import
 # =============================================================================
 
+# Import | Future
+from __future__ import annotations
+
+
 import logging
 import sqlite3
 
@@ -49,10 +53,12 @@ class SQLiteServer:
     databases, including methods for executing queries, handling transactions,
     and performing basic CRUD operations.
 
-    Attributes:
+    Attributes
+    ----------
         db_path (str): Path to the SQLite3 database file.
 
-    Methods:
+    Methods
+    -------
         execute_query(query, params): Executes a SQL query with parameters.
         fetch_all(query, params): Fetches all rows from a SQL query.
         fetch_one(query, params): Fetches the first row from a SQL query.
@@ -84,7 +90,8 @@ class SQLiteServer:
             params (Tuple): Parameters for the SQL query.
             commit (bool): Specifies whether to commit the transaction.
 
-        Returns:
+        Returns
+        -------
             Any: Query result for 'SELECT' or None for other queries.
 
         Raises:

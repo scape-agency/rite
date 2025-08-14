@@ -27,6 +27,10 @@ Dependencies:
 # Import
 # =============================================================================
 
+# Import | Future
+from __future__ import annotations
+
+
 # Import | Standard Library
 from datetime import datetime
 from typing import Optional
@@ -48,14 +52,16 @@ class Timestamp:
     Represents a specific point in time with utilities for formatting,
     manipulation, and conversion.
 
-    Attributes:
+    Attributes
+    ----------
     -----------
     datetime : datetime
         The datetime object representing the timestamp.
     timezone : Timezone
         The `Timezone` object for handling timezone-specific operations.
 
-    Methods:
+    Methods
+    -------
     --------
     to_unix() -> int:
         Converts the timestamp to UNIX format.
@@ -101,7 +107,8 @@ class Timestamp:
         """
         Returns the ISO 8601 string representation of the timestamp.
 
-        Returns:
+        Returns
+        -------
         --------
         str:
             ISO 8601 formatted string of the timestamp.
@@ -112,7 +119,8 @@ class Timestamp:
         """
         Converts the timestamp to an ISO 8601 formatted string.
 
-        Returns:
+        Returns
+        -------
         --------
         str:
             ISO 8601 formatted string of the timestamp.
@@ -123,7 +131,8 @@ class Timestamp:
         """
         Converts the timestamp to UNIX format.
 
-        Returns:
+        Returns
+        -------
         --------
         int
             The UNIX timestamp (seconds since the epoch).
@@ -145,7 +154,8 @@ class Timestamp:
         tz : Optional[str]
             The timezone for the new `Timestamp` object (default: "UTC").
 
-        Returns:
+        Returns
+        -------
         --------
         Timestamp
             A new `Timestamp` object.
@@ -183,7 +193,8 @@ class Timestamp:
         tz : Optional[str]
             The timezone for the new `Timestamp` object (default: "UTC").
 
-        Returns:
+        Returns
+        -------
         --------
         Timestamp
             A new `Timestamp` object.
@@ -204,7 +215,8 @@ class Timestamp:
         duration : Duration
             The duration to add.
 
-        Returns:
+        Returns
+        -------
         --------
         Timestamp
             The updated `Timestamp` object.
@@ -224,7 +236,8 @@ class Timestamp:
         duration : Duration
             The duration to subtract.
 
-        Returns:
+        Returns
+        -------
         --------
         Timestamp
             The updated `Timestamp` object.
@@ -244,7 +257,8 @@ class Timestamp:
         duration : Duration
             The duration to add.
 
-        Returns:
+        Returns
+        -------
         --------
         Timestamp
             A new `Timestamp` object with the updated datetime.
@@ -264,7 +278,8 @@ class Timestamp:
         duration : Duration
             The duration to subtract.
 
-        Returns:
+        Returns
+        -------
         --------
         Timestamp
             A new `Timestamp` object with the updated datetime.
@@ -285,7 +300,8 @@ class Timestamp:
         other : Timestamp
             The other `Timestamp` object to compare.
 
-        Returns:
+        Returns
+        -------
         --------
         Duration
             The difference between the two timestamps as a `Duration` object.
@@ -304,7 +320,8 @@ class Timestamp:
         target_timezone : str
             The name of the target timezone.
 
-        Returns:
+        Returns
+        -------
         --------
         Timestamp
             A new `Timestamp` object in the target timezone.

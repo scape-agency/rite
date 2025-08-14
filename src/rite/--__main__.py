@@ -22,6 +22,10 @@ Links:
 # Import
 # =============================================================================
 
+# Import | Future
+from __future__ import annotations
+
+
 # Import | Futures
 from __future__ import print_function
 

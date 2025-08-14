@@ -25,6 +25,10 @@ Dependencies:
 # Import
 # =============================================================================
 
+# Import | Future
+from __future__ import annotations
+
+
 from datetime import timedelta
 
 # Import | Standard Library
@@ -48,12 +52,14 @@ class Duration:
     Represents a time interval with utilities for formatting, manipulation,
     and conversion.
 
-    Attributes:
+    Attributes
+    ----------
     -----------
     td : timedelta
         The `timedelta` object representing the duration.
 
-    Methods:
+    Methods
+    -------
     --------
     __str__() -> str:
         Returns a human-readable string representation of the duration.
@@ -84,7 +90,8 @@ class Duration:
         """
         Returns a human-readable string representation of the duration.
 
-        Returns:
+        Returns
+        -------
         --------
         str
             A string in the format "{hours}h {minutes}m {seconds}s".
@@ -113,7 +120,8 @@ class Duration:
         days : Union[int, float]
             The number of days.
 
-        Returns:
+        Returns
+        -------
         --------
         Duration
             A new `Duration` object.
@@ -126,7 +134,8 @@ class Duration:
         """
         Converts the duration to days.
 
-        Returns:
+        Returns
+        -------
         --------
         float
             The total duration in days.
@@ -142,7 +151,8 @@ class Duration:
         other : Duration
             The `Duration` object to add.
 
-        Returns:
+        Returns
+        -------
         --------
         Duration
             The updated `Duration` object.
@@ -159,7 +169,8 @@ class Duration:
         other : Duration
             The `Duration` object to subtract.
 
-        Returns:
+        Returns
+        -------
         --------
         Duration
             The updated `Duration` object.
@@ -171,7 +182,8 @@ class Duration:
         """
         Returns the total duration in seconds.
 
-        Returns:
+        Returns
+        -------
         --------
         float
             The total duration in seconds.

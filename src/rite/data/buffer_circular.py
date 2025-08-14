@@ -56,7 +56,8 @@ class CircularBuffer:
 
     A fixed-size buffer that overwrites the oldest data when full.
 
-    Attributes:
+    Attributes
+    ----------
     -----------
     size : int
         The maximum number of elements the buffer can hold.
@@ -67,7 +68,8 @@ class CircularBuffer:
     full : bool
         Indicates if the buffer has reached its maximum capacity.
 
-    Methods:
+    Methods
+    -------
     --------
     append(value: Any) -> None:
         Adds a value to the buffer, overwriting the oldest element if full.
@@ -99,7 +101,8 @@ class CircularBuffer:
         """
         Returns a string representation of the CircularBuffer.
 
-        Returns:
+        Returns
+        -------
         --------
         str:
             A string describing the buffer contents and state.
@@ -131,7 +134,8 @@ class CircularBuffer:
         """
         Retrieves all elements in the buffer in the correct order.
 
-        Returns:
+        Returns
+        -------
         --------
         List[Optional[Any]]:
             A list of elements in the buffer, ordered from the oldest to the
@@ -145,7 +149,8 @@ class CircularBuffer:
         """
         Checks if the buffer is empty.
 
-        Returns:
+        Returns
+        -------
         --------
         bool:
             True if the buffer is empty, False otherwise.
@@ -156,7 +161,8 @@ class CircularBuffer:
         """
         Checks if the buffer is full.
 
-        Returns:
+        Returns
+        -------
         --------
         bool:
             True if the buffer is full, False otherwise.

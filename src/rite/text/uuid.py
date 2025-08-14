@@ -6,7 +6,7 @@
 # =============================================================================
 
 """
-Provides UUID Class
+Provides UUID Module
 ===================
 
 
@@ -16,6 +16,10 @@ Provides UUID Class
 # =============================================================================
 # Import
 # =============================================================================
+
+# Import | Future
+from __future__ import annotations
+
 
 # Import | Standard Library
 import uuid
@@ -65,7 +69,8 @@ class UUID(object):
         """
         Generates a random UUID (UUID4).
 
-        Returns:
+        Returns
+        -------
             uuid.UUID: A randomly generated UUID.
         """
         return uuid.uuid4()
@@ -75,7 +80,8 @@ class UUID(object):
         """
         Generates a random UUID and returns it as a string in standard form.
 
-        Returns:
+        Returns
+        -------
             str: UUID as a string in standard form.
         """
         return str(uuid.uuid4())
@@ -86,7 +92,8 @@ class UUID(object):
         Generates a random UUID and returns it as a 32-character hexadecimal
         string.
 
-        Returns:
+        Returns
+        -------
             str: UUID as a 32-character hexadecimal string.
         """
         return uuid.uuid4().hex
@@ -99,7 +106,8 @@ class UUID(object):
         Parameters:
             uuid_string (str): The UUID string to validate.
 
-        Returns:
+        Returns
+        -------
             bool: True if valid, False otherwise.
         """
         try:
@@ -117,7 +125,8 @@ class UUID(object):
             namespace (uuid.UUID): The namespace UUID.
             name (str): The name from which to generate the UUID.
 
-        Returns:
+        Returns
+        -------
             uuid.UUID: A UUID generated from the namespace and name.
         """
         return uuid.uuid5(namespace, name)
@@ -130,7 +139,8 @@ class UUID(object):
         Parameters:
             uuid_obj (uuid.UUID): The UUID object.
 
-        Returns:
+        Returns
+        -------
             int: The version number of the UUID.
         """
         return uuid_obj.version
@@ -143,7 +153,8 @@ class UUID(object):
         Parameters:
             uuid_obj (uuid.UUID): The UUID object.
 
-        Returns:
+        Returns
+        -------
             bool: True if the UUID is a random UUID, False otherwise.
         """
         return uuid_obj.version == 4
@@ -156,7 +167,8 @@ class UUID(object):
         Parameters:
             uuid_obj (uuid.UUID): The UUID object.
 
-        Returns:
+        Returns
+        -------
             str: A formatted string representation of the UUID.
         """
         return f"UUID: {str(uuid_obj)}, Version: {uuid_obj.version}, Variant: {uuid_obj.variant}"
