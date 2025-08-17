@@ -17,6 +17,9 @@ managing and converting between timezones.
 # Imports
 # =============================================================================
 
+# Import | Future
+from __future__ import annotations
+
 # Import | Standard Library
 from datetime import datetime
 

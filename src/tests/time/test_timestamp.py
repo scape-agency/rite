@@ -20,6 +20,9 @@ timezone adjustments, and duration operations.
 # Imports
 # =============================================================================
 
+# Import | Future
+from __future__ import annotations
+
 # Import | Standard Library
 from datetime import datetime, timedelta
 from unittest.mock import patch
