@@ -21,6 +21,8 @@ and provides a way to retrieve all items in a nested, flattened order.
 # Imports
 # =============================================================================
 
+# Import | Future
+from __future__ import annotations
 
 # Import | Standard Library
 from collections import defaultdict
