@@ -9,11 +9,7 @@
 Provides Slug Module
 ===================
 
-Todo:
------
 
-Links:
-------
 
 """
 
@@ -24,7 +20,6 @@ Links:
 
 # Import | Future
 from __future__ import annotations
-
 
 # Import | Standard Library
 import re
@@ -136,7 +131,9 @@ class Slug:
 
     @staticmethod
     def generate_incremental_slug(
-        slug: str, existing_slugs: set, delimiter: str = "-"
+        slug: str,
+        existing_slugs: set,
+        delimiter: str = "-",
     ) -> str:
         """
         Generates an incremental slug for uniqueness.
@@ -158,7 +155,10 @@ class Slug:
         return new_slug
 
     @staticmethod
-    def is_valid_slug(slug: str, delimiter: str = "-") -> bool:
+    def is_valid_slug(
+        slug: str,
+        delimiter: str = "-",
+    ) -> bool:
         """
         Validates if a string is a valid slug.
 

@@ -6,9 +6,11 @@
 # =============================================================================
 
 """
-HTTP Server Module
-==================
+Rite - HTTP Server Module
+=========================
 
+This module provides a simple HTTP server implementation using Python's
+built-in http.server library.
 
 """
 
@@ -19,7 +21,6 @@ HTTP Server Module
 
 # Import | Future
 from __future__ import annotations
-
 
 import logging
 import urllib.parse

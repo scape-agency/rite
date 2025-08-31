@@ -9,11 +9,7 @@
 Provides JSONHandler Module
 ==========================
 
-Todo:
------
 
-Links:
-------
 
 """
 
@@ -24,7 +20,6 @@ Links:
 
 # Import | Future
 from __future__ import annotations
-
 
 import csv
 import json

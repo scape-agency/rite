@@ -9,11 +9,7 @@
 Provides a rite entry point
 ===========================
 
-Todo:
------
 
-Links:
-------
 
 """
 
@@ -22,15 +18,13 @@ Links:
 # Imports
 # =============================================================================
 
-# Import | Future
-from __future__ import annotations
-
-
 # Import | Futures
-from __future__ import print_function
+# Import | Future
+from __future__ import annotations, print_function
 
 # Import | Standard Library
 import platform
+
 try:
     import pkg_resources
 except ImportError:

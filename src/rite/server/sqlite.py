@@ -11,11 +11,7 @@ Provides a Basic HTTP Server
 
 ...
 
-Todo:
------
 
-Links:
-------
 
 """
 
@@ -26,7 +22,6 @@ Links:
 
 # Import | Future
 from __future__ import annotations
-
 
 import logging
 import sqlite3

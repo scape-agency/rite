@@ -6,4 +6,4 @@ from .cipher import Cipher
 from .morse import Morse
 from .slug import Slug
 from .url import URL
-from .uuid import UUID
+from .uuid.uuid import UUID

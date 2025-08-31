@@ -20,7 +20,6 @@ Module
 # Import | Future
 from __future__ import annotations
 
-
 # Import | Standard Library
 import time
 
@@ -47,4 +46,3 @@ def debounce(wait_time):
         return wrapped
 
     return decorator
-

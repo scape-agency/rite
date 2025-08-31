@@ -6,13 +6,13 @@
 # =============================================================================
 
 """
-Provides Rite package information
-=================================
+Rite - Function Module
+======================
 
-
+This module provides utilities for function management and manipulation
+within the Rite application.
 
 """
-
 
 # =============================================================================
 # Imports
@@ -22,23 +22,10 @@ Provides Rite package information
 from __future__ import annotations
 
 # Import | Standard Library
-
-# Import | Libraries
-
-# Import | Local Modules
-
+from typing import List
 
 # =============================================================================
-# Information
+# Exports
 # =============================================================================
 
-__author__ = "Lars van Vianen"
-__copyright__ = "Copyright 2022, Scape Agency"
-__credits__ = [
-    "Lars van Vianen",
-]
-__license__ = "MIT License"
-__version__ = "0.0.4"
-__maintainer__ = "Scape Agency"
-__email__ = "info@scape.agency"
-__status__ = "Alpha"
+__all__: List[str] = []
