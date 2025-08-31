@@ -3,7 +3,16 @@ import unicodedata
 
 
 def sanitize_name(name) -> str:
-    """ """
+    """
+    Sanitize a string by normalizing it and replacing non-alphanumeric
+    characters.
+
+    Args:
+        name: The input string to sanitize.
+
+    Returns:
+        A sanitized version of the input string.
+    """
 
     # Normalize to ASCII
     name: str = (
