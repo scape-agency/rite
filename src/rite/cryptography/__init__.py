@@ -6,11 +6,10 @@
 # =============================================================================
 
 """
-Rite - File Module
-==================
+Rite - Cryptography Module
+==========================
 
-This module provides utilities for file handling and manipulation within the
-Rite application.
+This module provides cryptographic utilities for the Rite application.
 
 """
 
