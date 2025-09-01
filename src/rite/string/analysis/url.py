@@ -8,15 +8,7 @@
 """
 Provides File Utils
 
-...
 
-Examples:
-    ...
-
-Attributes:
-    ...
-
-Todo:
 
 """
 
