@@ -8,15 +8,7 @@
 """
 Provides Pixel Class
 
-...
 
-Examples:
-    ...
-
-Attributes:
-    ...
-
-Todo:
 
 """
 
@@ -31,7 +23,7 @@ Todo:
 
 
 # Import | Local Modules
-from .colour import Colour
+from .color.colour import Colour
 
 # from .geometry.point import Point
 
