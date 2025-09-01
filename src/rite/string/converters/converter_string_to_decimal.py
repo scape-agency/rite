@@ -1,5 +1,38 @@
+# -*- coding: utf-8 -*-
+
+
+# =============================================================================
+# Docstring
+# =============================================================================
+
+"""
+Rite - String - String to Decimal Converter Module
+==================================================
+
+Provides functionality to convert strings to decimal values.
+
+"""
+
+
+# =============================================================================
+# Imports
+# =============================================================================
+
+# Import | Future
+from __future__ import annotations
+
+# Import | Standard Library
 from decimal import Decimal, InvalidOperation
-from typing import Any, Dict, Optional, Tuple
+from typing import List, Optional
+
+# Import | Libraries
+
+# Import | Local Modules
+
+
+# =============================================================================
+# Functions
+# =============================================================================
 
 
 def convert_string_to_decimal(
@@ -7,6 +40,9 @@ def convert_string_to_decimal(
     length: int = 3,
 ) -> Optional[Decimal]:
     """
+    String to Decimal Converter
+    ===========================
+
     Convert a string to a Decimal, quantized to `length` decimal places.
 
     Args:
@@ -35,3 +71,12 @@ def convert_string_to_decimal(
 
     except (InvalidOperation, ValueError):
         return None
+
+
+# =============================================================================
+# Exports
+# =============================================================================
+
+__all__: List[str] = [
+    "convert_string_to_decimal",
+]

@@ -1,55 +1,110 @@
+# -*- coding: utf-8 -*-
+
+
+# =============================================================================
+# Docstring
+# =============================================================================
+
+"""
+Rite - String - String to Datetime Converter Module
+===================================================
+
+Provides functionality to convert strings to datetime values.
+
+"""
+
+
+# =============================================================================
+# Imports
+# =============================================================================
+
+# Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
 from datetime import datetime, timezone
-from typing import Any, Dict, Optional, Tuple
+from typing import List, Optional
 
-from django.utils.dateparse import parse_datetime
-from django.utils.timezone import get_current_timezone, is_naive, make_aware
+# Import | Libraries
+
+# Import | Local Modules
 
 
-def convert_string_to_datetime(value: Optional[str]) -> Optional[datetime]:
+# =============================================================================
+# Functions
+# =============================================================================
+
+
+def convert_string_to_datetime(
+    value: Optional[str],
+) -> Optional[datetime]:
     """
-    Convert a string to a timezone-aware datetime object.
+    String to Datetime Converter
+    ============================
 
-    Parse a timestamp like '2024-12-11 11:42:34.049271+00' or ISO-ish strings.
-    Returns None on blank/invalid.
+    Convert a string to a timezone-aware datetime object (UTC).
 
-    Supports ISO 8601 format, optionally naive or UTC.
+    Parses a timestamp like '2024-12-11 11:42:34.049271+00' or ISO-ish strings.
+    Returns None on blank or invalid input.
+
+    Supports ISO 8601 format with optional timezone.
+    Naive datetimes are converted to UTC.
+
+    Args:
+        value: The string to convert.
 
     Returns:
-        datetime object or None
+        A timezone-aware datetime object in UTC, or None.
     """
-    if not value or value.strip() == "":
+    if not value:
         return None
 
-    dt = parse_datetime(value)
-    if not dt:
+    s = str(value).strip()
+    if not s or s.lower() in {"none", "null"}:
         return None
 
-    if is_naive(dt):
-        # Use current timezone, or utc fallback
-        tz = get_current_timezone()
-        return make_aware(dt, timezone=tz)
-    return dt
+    # Normalize space→T so fromisoformat() accepts it with offset
+    s = s.replace(" ", "T", 1) if " " in s and "T" not in s else s
+
+    try:
+        dt = datetime.fromisoformat(s)
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(timezone.utc)
+    except ValueError:
+        return None
 
 
-# from datetime import datetime
-# from typing import Any, Dict, Optional, Tuple
+# =============================================================================
+# Exports
+# =============================================================================
+
+__all__: List[str] = [
+    "convert_string_to_datetime",
+]
 
 
 # def convert_string_to_datetime(value: Optional[str]) -> Optional[datetime]:
 #     """
+#     Convert a string to a timezone-aware datetime object.
+
 #     Parse a timestamp like '2024-12-11 11:42:34.049271+00' or ISO-ish strings.
 #     Returns None on blank/invalid.
+
+#     Supports ISO 8601 format, optionally naive or UTC.
+
+#     Returns:
+#         datetime object or None
 #     """
-#     if not value:
+#     if not value or value.strip() == "":
 #         return None
-#     s = str(value).strip()
-#     if not s or s.lower() in {"none", "null"}:
+
+#     dt = parse_datetime(value)
+#     if not dt:
 #         return None
-#     # Normalize space→T so fromisoformat() accepts it with offset
-#     s = s.replace(" ", "T", 1) if " " in s and "T" not in s else s
-#     try:
-#         return datetime.fromisoformat(s)
-#     except ValueError:
-#         return None
+
+#     if is_naive(dt):
+#         # Use current timezone, or utc fallback
+#         tz = get_current_timezone()
+#         return make_aware(dt, timezone=tz)
+#     return dt

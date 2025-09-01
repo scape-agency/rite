@@ -6,10 +6,10 @@
 # =============================================================================
 
 """
-Rite - String - String to Boolean Converter Module
-==================================================
+Rite - String - String to Binary Converter Module
+=================================================
 
-Provides functionality to convert strings to boolean values.
+Provides functionality to convert strings to binary values.
 
 """
 
@@ -22,7 +22,7 @@ Provides functionality to convert strings to boolean values.
 from __future__ import annotations
 
 # Import | Standard Library
-from typing import List, Optional
+from typing import List
 
 # Import | Libraries
 
@@ -34,45 +34,22 @@ from typing import List, Optional
 # =============================================================================
 
 
-def convert_string_to_bool(val: str) -> Optional[bool]:
+def convert_string_to_binary(text: str) -> str:
     """
-    String to Boolean Converter
-    ===========================
+    String to Binary Converter
+    ==========================
 
-    Convert a string representation of a boolean value to a boolean.
+    Convert the text to binary form.
+    Example: 'AB' -> '01000001 01000010'
 
+    Parameters:
+    text (str): The text to convert.
+
+    Returns
+    -------
+    str: The text in binary form.
     """
-
-    if val is None:
-        return None
-
-    v: str = val.strip().lower()
-
-    if v in {
-        "t",
-        "true",
-        "1",
-        "yes",
-        "y",
-        "ja",
-        "oui",
-        "si",
-    }:
-        return True
-
-    if v in {
-        "f",
-        "false",
-        "0",
-        "no",
-        "n",
-        "nee",
-        "nein",
-        "non",
-    }:
-        return False
-
-    return None
+    return " ".join(format(ord(char), "08b") for char in text)
 
 
 # =============================================================================
@@ -80,5 +57,5 @@ def convert_string_to_bool(val: str) -> Optional[bool]:
 # =============================================================================
 
 __all__: List[str] = [
-    "convert_string_to_bool",
+    "convert_string_to_binary",
 ]
