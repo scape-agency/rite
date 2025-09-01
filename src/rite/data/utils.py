@@ -8,15 +8,7 @@
 """
 Provides Data utils
 
-...
 
-Examples:
-    ...
-
-Attributes:
-    ...
-
-Todo:
 
 """
 
