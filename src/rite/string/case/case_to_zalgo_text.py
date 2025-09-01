@@ -1,4 +1,4 @@
-from random import random
+import random
 
 
 def to_zalgo_text_case(text: str) -> str:

@@ -8,16 +8,6 @@
 """
 Provides JSON stuff
 
-...
-
-Examples:
-    ...
-
-Attributes:
-    ...
-
-Todo:
-
 """
 
 
@@ -29,7 +19,6 @@ import json
 
 # Import | Libraries
 import geojson
-
 
 # Import | Local Modules
 # […]
