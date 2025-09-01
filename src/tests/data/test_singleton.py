@@ -36,7 +36,7 @@ import threading
 
 import pytest
 
-from rite.data.singleton import SingletonMeta
+from rite.structures.structure_singleton import SingletonMeta
 
 # =============================================================================
 # Test Classes
