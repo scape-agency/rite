@@ -6,8 +6,8 @@
 # =============================================================================
 
 """
-Sturnus Base - UUID Utils
-===================
+Rite - UUID Module
+==================
 
 
 """
@@ -17,12 +17,11 @@ Sturnus Base - UUID Utils
 # Imports
 # =============================================================================
 
-# from typing import Any, Dict, List, Union
-import json
+# Import | Future
+from __future__ import annotations
 
 # Import | Standard Library
-from typing import List
-from uuid import UUID
+import uuid
 
 # Import | Libraries
 
@@ -34,38 +33,19 @@ from uuid import UUID
 # =============================================================================
 
 
-def is_valid_uuid(
-    uuid_to_test,
-    version=4,
-) -> bool:
+def validate_uuid(uuid_string):
     """
-    Check if uuid_to_test is a valid UUID.
+    Validates whether a given string is a valid UUID.
 
-    Parameters
-    ----------
-    uuid_to_test : str
-    version : {1, 2, 3, 4}
+    Parameters:
+        uuid_string (str): The UUID string to validate.
 
-     Returns
+    Returns
     -------
-    `True` if uuid_to_test is a valid UUID, otherwise `False`.
-
-     Examples
-    --------
-    >>> is_valid_uuid('c9bf9e57-1685-4c89-bafb-ff5af830be8a')
-    True
-    >>> is_valid_uuid('c9bf9e58')
-    False
+        bool: True if valid, False otherwise.
     """
-
     try:
-        uuid_obj = UUID(
-            uuid_to_test,
-            version=version,
-        )
+        uuid_obj = uuid.UUID(uuid_string)
+        return str(uuid_obj) == uuid_string
     except ValueError:
         return False
-
-    answer = str(uuid_obj) == uuid_to_test
-
-    return answer
