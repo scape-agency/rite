@@ -1,22 +1,12 @@
-import gzip
-import logging
 import os
-import re
-import sys
 import tempfile
-import traceback
-from datetime import datetime
-from functools import wraps
 from getpass import getpass
-from shlex import quote
-from shutil import copyfileobj
-
-from django.core.mail import EmailMultiAlternatives
-from django.db import connection
-from django.http import HttpRequest
-from django.utils import timezone
 
 from . import settings
+
+
+class DecryptionError(Exception):
+    pass
 
 
 def unencrypt_file(

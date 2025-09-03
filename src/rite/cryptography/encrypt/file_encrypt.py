@@ -4,6 +4,10 @@ import tempfile
 from . import settings
 
 
+class EncryptionError(Exception):
+    pass
+
+
 def encrypt_file(
     inputfile,
     filename,
