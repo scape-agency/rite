@@ -6,13 +6,13 @@
 # =============================================================================
 
 """
-Rite - String Converters Module
-===============================
+Rite - String - String to Float Converter Module
+==============================================
 
-This module provides utilities for converting strings between
-different formats.
+Provides functionality to convert strings to float values.
 
 """
+
 
 # =============================================================================
 # Imports
@@ -22,25 +22,39 @@ different formats.
 from __future__ import annotations
 
 # Import | Standard Library
-from typing import List
+from typing import List, Optional
+
+# Import | Libraries
 
 # Import | Local Modules
-from .converter_string_to_binary import convert_string_to_binary
-from .converter_string_to_bool import convert_string_to_bool
-from .converter_string_to_datetime import convert_string_to_datetime
-from .converter_string_to_decimal import convert_string_to_decimal
-from .converter_string_to_float import convert_string_to_float
-from .converter_string_to_int import convert_string_to_int
+
+
+# =============================================================================
+# Functions
+# =============================================================================
+
+
+def convert_string_to_float(val: str) -> Optional[float]:
+    """
+    Convert a string representation of a float value to a float.
+    """
+
+    val = (val or "").strip()
+
+    if val == "":
+        return None
+
+    try:
+        return float(val)
+
+    except ValueError:
+        return None
+
 
 # =============================================================================
 # Exports
 # =============================================================================
 
 __all__: List[str] = [
-    "convert_string_to_binary",
-    "convert_string_to_bool",
-    "convert_string_to_datetime",
-    "convert_string_to_decimal",
     "convert_string_to_float",
-    "convert_string_to_int",
 ]
