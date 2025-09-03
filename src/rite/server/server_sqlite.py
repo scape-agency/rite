@@ -6,12 +6,11 @@
 # =============================================================================
 
 """
-Provides a Basic HTTP Server
+Rite - SQLite Server Module
 ============================
 
-...
-
-
+This module provides a simple SQLite server implementation using Python's
+built-in sqlite3 library.
 
 """
 
@@ -27,7 +26,7 @@ import logging
 import sqlite3
 
 # Import | Standard Library
-from typing import Any, Dict, List, Tuple, Union
+from typing import Any, List, Tuple
 
 # Import | Libraries
 
@@ -105,30 +104,97 @@ class SQLiteServer:
                         else None
                     )
         except sqlite3.Error as e:
-            logging.error(f"SQLite error: {e}")
+            logging.error("SQLite error: %s", e)
             raise
 
     def execute_query(self, query: str, params: Tuple = ()):
+        """
+        Executes a SQL query with parameters.
+
+        Parameters:
+            query (str): SQL query to execute.
+            params (Tuple): Parameters for the SQL query.
+
+        Returns
+        -------
+            None
+        """
         self._execute(query, params, commit=True)
 
     def fetch_all(self, query: str, params: Tuple = ()) -> List[Tuple]:
+        """
+        Fetches all rows from a SQL query.
+
+        Parameters:
+            query (str): SQL query to execute.
+            params (Tuple): Parameters for the SQL query.
+
+        Returns
+        -------
+            List[Tuple]: List of rows returned by the query.
+        """
         return self._execute(query, params)
 
     def fetch_one(self, query: str, params: Tuple = ()) -> Tuple:
+        """
+        Fetches the first row from a SQL query.
+
+        Parameters:
+            query (str): SQL query to execute.
+            params (Tuple): Parameters for the SQL query.
+
+        Returns
+        -------
+            Tuple: The first row returned by the query.
+        """
         return self._execute(query, params)[0]
 
     def insert(self, table: str, data_dict: dict):
+        """
+        Inserts a new row into a table.
+
+        Parameters:
+            table (str): Name of the table to insert data into.
+            data_dict (dict): Dictionary containing column names and values.
+
+        Returns
+        -------
+            None
+        """
         columns = ", ".join(data_dict.keys())
         placeholders = ":" + ", :".join(data_dict.keys())
         query = f"INSERT INTO {table} ({columns}) VALUES ({placeholders})"
         self._execute(query, data_dict, commit=True)
 
     def update(self, table: str, data_dict: dict, condition: str):
+        """
+        Updates rows in a table.
+
+        Parameters:
+            table (str): Name of the table to update.
+            data_dict (dict): Dictionary containing column names and values.
+            condition (str): SQL condition for the update.
+
+        Returns
+        -------
+            None
+        """
         assignments = ", ".join([f"{k} = :{k}" for k in data_dict.keys()])
         query = f"UPDATE {table} SET {assignments} WHERE {condition}"
         self._execute(query, data_dict, commit=True)
 
     def delete(self, table: str, condition: str):
+        """
+        Deletes rows from a table.
+
+        Parameters:
+            table (str): Name of the table to delete from.
+            condition (str): SQL condition for the deletion.
+
+        Returns
+        -------
+            None
+        """
         query = f"DELETE FROM {table} WHERE {condition}"
         self._execute(query, commit=True)
 
@@ -150,8 +216,17 @@ class SQLiteServer:
                 conn.commit()
             except sqlite3.Error as e:
                 conn.rollback()
-                logging.error(f"Transaction failed: {e}")
+                logging.error("Transaction failed: %s", e)
                 raise
+
+
+# =============================================================================
+# Exports
+# =============================================================================
+
+__all__: List[str] = [
+    "SQLiteServer",
+]
 
 
 # =============================================================================
@@ -185,7 +260,7 @@ def test():
 # =============================================================================
 
 if __name__ == "__main__":
-    """Main"""
+
     import doctest
 
     doctest.testmod()

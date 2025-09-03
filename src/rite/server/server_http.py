@@ -6,9 +6,11 @@
 # =============================================================================
 
 """
-HTTP Server Module
-==================
+Rite - HTTP Server Module
+=========================
 
+This module provides a simple HTTP server implementation using Python's
+built-in http.server library.
 
 """
 
@@ -20,13 +22,12 @@ HTTP Server Module
 # Import | Future
 from __future__ import annotations
 
-
 import logging
 import urllib.parse
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 # Import | Standard Library
-from typing import Dict, List, Union
+from typing import List
 
 # Import | Libraries
 
@@ -38,7 +39,7 @@ from typing import Dict, List, Union
 # =============================================================================
 
 
-class HTTPServer(BaseHTTPRequestHandler):
+class BaseHTTPServer(BaseHTTPRequestHandler):
     """
     HTTP Server Class
     =================
@@ -51,8 +52,8 @@ class HTTPServer(BaseHTTPRequestHandler):
 
     Methods
     -------
-        do_GET(): Handle GET requests.
-        do_POST(): Handle POST requests.
+        do_get(): Handle GET requests.
+        do_post(): Handle POST requests.
         _send_response(status_code, content, content_type): Helper method to
         send HTTP responses.
         _handle_404(): Helper method to handle 404 Not Found responses.
@@ -60,7 +61,7 @@ class HTTPServer(BaseHTTPRequestHandler):
         server.
     """
 
-    def do_GET(self):
+    def do_get(self):
         """
         Handle GET requests. Parses the request path and query parameters.
 
@@ -73,7 +74,10 @@ class HTTPServer(BaseHTTPRequestHandler):
         query = urllib.parse.parse_qs(parsed_path.query)
 
         logging.info(
-            f"GET request,\nPath: {path}\nQuery: {query}\nHeaders:\n{self.headers}"
+            "GET request,\nPath: %s\nQuery: %s\nHeaders:\n%s",
+            path,
+            query,
+            self.headers,
         )
 
         if path == "/":
@@ -85,7 +89,7 @@ class HTTPServer(BaseHTTPRequestHandler):
         else:
             self._handle_404()
 
-    def do_POST(self):
+    def do_post(self):
         """
         Handle POST requests. Parses the posted data.
 
@@ -99,7 +103,10 @@ class HTTPServer(BaseHTTPRequestHandler):
         )
 
         logging.info(
-            f"POST request,\nPath: {self.path}\nHeaders:\n{self.headers}\nBody:\n{post_data}\n"
+            "POST request,\nPath: %s\nHeaders:\n%s\nBody:\n%s\n",
+            self.path,
+            self.headers,
+            post_data,
         )
 
         self._send_response(
@@ -160,13 +167,22 @@ class HTTPServer(BaseHTTPRequestHandler):
         logging.basicConfig(level=logging.INFO)
         server_address = ("", port)
         httpd = server_class(server_address, handler_class)
-        logging.info(f"Starting httpd server on port {port}")
+        logging.info("Starting httpd server on port %d", port)
         try:
             httpd.serve_forever()
         except KeyboardInterrupt:
             pass
         httpd.server_close()
         logging.info("Stopping httpd server")
+
+
+# =============================================================================
+# Exports
+# =============================================================================
+
+__all__: List[str] = [
+    "BaseHTTPServer",
+]
 
 
 # =============================================================================
@@ -180,7 +196,7 @@ def test():
     """
 
     # Running the server
-    HTTPServer.run(handler_class=HTTPServer, port=8000)
+    BaseHTTPServer.run(handler_class=HTTPServer, port=8000)
 
 
 # =============================================================================
@@ -188,7 +204,7 @@ def test():
 # =============================================================================
 
 if __name__ == "__main__":
-    """Main"""
+
     import doctest
 
     doctest.testmod()
