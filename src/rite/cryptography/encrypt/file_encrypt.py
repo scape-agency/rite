@@ -1,7 +1,42 @@
+# -*- coding: utf-8 -*-
+
+
+# =============================================================================
+# Docstring
+# =============================================================================
+
+"""
+Rite - Cryptography - Encryption - File Encryption Module
+=========================================================
+
+Provides functionality to encrypt files using GPG.
+
+"""
+
+
+# =============================================================================
+# Imports
+# =============================================================================
+
+# Import | Future
+from __future__ import annotations
+
 import os
 import tempfile
 
+# Import | Standard Library
+from typing import List
+
 from . import settings
+
+# Import | Libraries
+
+# Import | Local Modules
+
+
+# =============================================================================
+# Functions
+# =============================================================================
 
 
 class EncryptionError(Exception):

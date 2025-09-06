@@ -6,10 +6,19 @@
 # =============================================================================
 
 """
-Rite - Cryptography - Autokey Cipher Module
-===========================================
+Rite - Cryptography - Cipher - Autokey Cipher Module
+====================================================
 
 Provides functionality to encode and decode text using the Autokey cipher.
+
+The Autokey cipher is a polyalphabetic substitution cipher that extends the key
+with the plaintext itself during encoding, and with the decoded text during
+decoding.
+
+References
+----------
+- https://en.wikipedia.org/wiki/Autokey_cipher
+- https://www.dcode.fr/autokey-cipher
 
 """
 
@@ -34,38 +43,58 @@ from typing import List
 # =============================================================================
 
 
+def _shift_char(c: str, k: str, decode: bool = False) -> str:
+    """
+    Shift character `c` by character `k` using Caesar logic.
+    Preserves case of `c`.
+
+    Args:
+        c: Character to shift.
+        k: Key character to use for shift.
+        decode: Whether to decode (subtract shift) instead of encode (add shift).
+
+    Returns:
+        Shifted character.
+    """
+    base = ord("A") if c.isupper() else ord("a")
+    offset_c = ord(c) - base
+    offset_k = ord(k.lower()) - ord("a")
+    if decode:
+        shifted = (offset_c - offset_k) % 26
+    else:
+        shifted = (offset_c + offset_k) % 26
+    return chr(base + shifted)
+
+
+# =============================================================================
+
+
 def encode_autokey_cipher(
     text: str,
     key: str,
 ) -> str:
     """
-    Encodes text using the Autokey cipher.
+    Encode text using the Autokey cipher.
 
-    Parameters:
-    text (str): The text to encode.
-    key (str): The key for the Autokey cipher.
+    Args:
+        text: The plaintext to encode.
+        key: The cipher key (only letters are used).
 
-    Returns
-    -------
-    str: The encoded text.
+    Returns:
+        Encoded ciphertext.
     """
+    key_stream = (key + text).replace(" ", "")
+    result = []
+    key_index = 0
 
-    def char_shift(c, k):
-        """
-        Shifts a character 'c' by the value of the key character 'k'.
-        """
-        return chr(((ord(c) - 97 + (ord(k) - 97)) % 26) + 97)
-
-    key = key.lower() + text.lower()
-    encoded_text = ""
-
-    for i, char in enumerate(text.lower()):
+    for char in text:
         if char.isalpha():
-            encoded_text += char_shift(char, key[i])
+            result.append(_shift_char(char, key_stream[key_index]))
+            key_index += 1
         else:
-            encoded_text += char
+            result.append(char)
 
-    return encoded_text
+    return "".join(result)
 
 
 # =============================================================================
@@ -76,34 +105,29 @@ def decode_autokey_cipher(
     key: str,
 ) -> str:
     """
-    Decodes text from the Autokey cipher.
+    Decode text using the Autokey cipher.
 
-    Parameters:
-    encoded_text (str): The text to decode.
-    key (str): The key for the Autokey cipher.
+    Args:
+        encoded_text: The ciphertext to decode.
+        key: The original cipher key.
 
-    Returns
-    -------
-    str: The decoded text.
+    Returns:
+        Decoded plaintext.
     """
+    key_stream = key
+    result = []
 
-    def char_shift(c, k):
-        return chr(((ord(c) - 97 - (ord(k) - 97)) % 26) + 97)
-
-    key = key.lower()
-    decoded_text = ""
-    key_index = 0
-
-    for char in encoded_text.lower():
+    for char in encoded_text:
         if char.isalpha():
-            decoded_char = char_shift(char, key[key_index])
-            decoded_text += decoded_char
-            key += decoded_char  # Append the decoded char to the key
-            key_index += 1
+            decoded_char = _shift_char(
+                char, key_stream[len(result)], decode=True
+            )
+            result.append(decoded_char)
+            key_stream += decoded_char  # extend key with decoded text
         else:
-            decoded_text += char
+            result.append(char)
 
-    return decoded_text
+    return "".join(result)
 
 
 # =============================================================================

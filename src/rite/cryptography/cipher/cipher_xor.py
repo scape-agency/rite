@@ -6,10 +6,18 @@
 # =============================================================================
 
 """
-Rite - Cryptography - XOR Cipher Module
-===========================================
+Rite - Cryptography - Cipher - XOR Cipher Module
+================================================
 
 Provides functionality to encode and decode text using the XOR cipher.
+
+The XOR cipher is a symmetric key encryption technique that uses the XOR
+(bitwise exclusive OR) operation between the plaintext and a repeating key.
+
+References
+----------
+- https://en.wikipedia.org/wiki/XOR_cipher
+- https://www.dcode.fr/xor-cipher
 
 """
 
@@ -39,18 +47,20 @@ def encode_xor_cipher(
     key: str,
 ) -> str:
     """
-    Encodes and decodes text using the XOR cipher with a key.
+    Encode or decode text using the XOR cipher.
 
-    Parameters:
-    text (str): The text to encode or decode.
-    key (str): The key for the XOR cipher.
+    Since XOR is symmetric, this function performs both encryption and decryption.
 
-    Returns
-    -------
-    str: The encoded or decoded text.
+    Args:
+        text: The plaintext or ciphertext string.
+        key: The encryption key.
+
+    Returns:
+        A string with the result of XOR encryption/decryption.
+        Note: Non-printable characters may be present in the result.
     """
     return "".join(
-        chr(ord(c) ^ ord(key[i % len(key)])) for i, c in enumerate(text)
+        chr(ord(char) ^ ord(key[i % len(key)])) for i, char in enumerate(text)
     )
 
 
@@ -59,15 +69,16 @@ def decode_xor_cipher(
     key: str,
 ) -> str:
     """
-    Decodes text using the XOR cipher with a key.
+    Decode XOR-encoded text using the same key.
 
-    Parameters:
-    text (str): The text to decode.
-    key (str): The key for the XOR cipher.
+    This function is equivalent to encode_xor_cipher().
 
-    Returns
-    -------
-    str: The decoded text.
+    Args:
+        text: The XOR-encoded string.
+        key: The encryption key used for encoding.
+
+    Returns:
+        The decoded plaintext string.
     """
     return encode_xor_cipher(text, key)
 

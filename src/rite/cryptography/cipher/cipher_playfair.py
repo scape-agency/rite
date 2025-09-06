@@ -6,10 +6,17 @@
 # =============================================================================
 
 """
-Rite - Cryptography - Playfair Cipher Module
-===========================================
+Rite - Cryptography - Cipher - Playfair Cipher Module
+=====================================================
 
 Provides functionality to encode and decode text using the Playfair cipher.
+
+This classical digraph cipher uses a 5x5 matrix to substitute pairs of letters.
+
+References
+----------
+- https://en.wikipedia.org/wiki/Playfair_cipher
+- https://www.dcode.fr/playfair-cipher
 
 """
 
@@ -22,7 +29,7 @@ Provides functionality to encode and decode text using the Playfair cipher.
 from __future__ import annotations
 
 # Import | Standard Library
-from typing import List
+from typing import List, Tuple
 
 # Import | Libraries
 
@@ -34,49 +41,111 @@ from typing import List
 # =============================================================================
 
 
-def create_playfair_square(key: str):
+def create_playfair_square(key: str) -> List[List[str]]:
     """
-    Create a Playfair square with a given key.
+    Create a 5x5 Playfair square using the given key.
+
+    J is omitted (merged with I), and duplicates are removed in order.
+
+    Args:
+        key: The keyword to use for square generation.
+
+    Returns:
+        A 5x5 list of characters.
     """
-    alphabet = (
-        "ABCDEFGHIKLMNOPQRSTUVWXYZ"  # J is omitted in traditional Playfair
-    )
-    key = "".join(dict.fromkeys(key.upper()))
-    # key = "".join(sorted(set(key.upper()), key=lambda x: key.index(x)))
-    key += "".join([c for c in alphabet if c not in key])
-    return [key[i : i + 5] for i in range(0, 25, 5)]
+    alphabet = "ABCDEFGHIKLMNOPQRSTUVWXYZ"
+    seen = set()
+    ordered_chars = []
+
+    for char in key.upper().replace("J", "I") + alphabet:
+        if char not in seen and char in alphabet:
+            seen.add(char)
+            ordered_chars.append(char)
+
+    return [ordered_chars[i : i + 5] for i in range(0, 25, 5)]
+
+
+def find_position(
+    letter: str,
+    square: List[List[str]],
+) -> Tuple[int, int]:
+    """
+    Find (row, col) of a letter in the Playfair square.
+
+    Args:
+        letter: The letter to locate.
+        square: The 5x5 matrix.
+
+    Returns:
+        Tuple of (row_index, col_index)
+    """
+    for row_idx, row in enumerate(square):
+        if letter in row:
+            return row_idx, row.index(letter)
+    raise ValueError(f"Letter '{letter}' not found in square.")
 
 
 # =============================================================================
 
 
-def playfair_cipher_pair(pair, square, mode="encode"):
+def playfair_cipher_pair(
+    pair: str,
+    square: List[List[str]],
+    mode: str = "encode",
+) -> str:
     """
-    Cipher a pair of letters using the Playfair square.
+    Encode or decode a digraph using the Playfair cipher.
+
+    Args:
+        pair: Two-letter string.
+        square: The Playfair square.
+        mode: 'encode' or 'decode'.
+
+    Returns:
+        Encoded or decoded two-letter string.
     """
+    a, b = pair
+    r1, c1 = find_position(a, square)
+    r2, c2 = find_position(b, square)
 
-    def find_position(c):
-        for row in square:
-            if c in row:
-                return square.index(row), row.index(c)
+    if r1 == r2:
+        shift = 1 if mode == "encode" else -1
+        return square[r1][(c1 + shift) % 5] + square[r2][(c2 + shift) % 5]
+    elif c1 == c2:
+        shift = 1 if mode == "encode" else -1
+        return square[(r1 + shift) % 5][c1] + square[(r2 + shift) % 5][c2]
+    else:
+        return square[r1][c2] + square[r2][c1]
 
-    pos1 = find_position(pair[0])
-    pos2 = find_position(pair[1])
 
-    if pos1[0] == pos2[0]:  # Same row
-        col_shift = 1 if mode == "encode" else -1
-        return (
-            square[pos1[0]][(pos1[1] + col_shift) % 5]
-            + square[pos2[0]][(pos2[1] + col_shift) % 5]
-        )
-    elif pos1[1] == pos2[1]:  # Same column
-        row_shift = 1 if mode == "encode" else -1
-        return (
-            square[(pos1[0] + row_shift) % 5][pos1[1]]
-            + square[(pos2[0] + row_shift) % 5][pos2[1]]
-        )
-    else:  # Rectangle
-        return square[pos1[0]][pos2[1]] + square[pos2[0]][pos1[1]]
+def prepare_text(text: str) -> str:
+    """
+    Prepare text for Playfair encoding.
+
+    Replaces J with I, removes non-alphabetic characters, inserts 'X' between
+    duplicate letters, and pads the end if necessary.
+
+    Args:
+        text: Raw input text.
+
+    Returns:
+        Cleaned and paired text ready for encoding.
+    """
+    text = "".join(filter(str.isalpha, text.upper())).replace("J", "I")
+    result = []
+    i = 0
+    while i < len(text):
+        a = text[i]
+        b = text[i + 1] if i + 1 < len(text) else "X"
+        if a == b:
+            result.append(a + "X")
+            i += 1
+        else:
+            result.append(a + b)
+            i += 2
+    if len(result[-1]) == 1:
+        result[-1] += "X"
+    return "".join(result)
 
 
 # =============================================================================
@@ -84,42 +153,21 @@ def playfair_cipher_pair(pair, square, mode="encode"):
 
 def encode_playfair_cipher(text: str, key: str) -> str:
     """
-    Encodes text using the Playfair cipher.
+    Encode plaintext using the Playfair cipher.
 
-    Parameters:
-    text (str): The text to encode.
-    key (str): The key for the Playfair cipher.
+    Args:
+        text: Input plaintext.
+        key: Cipher key for generating the Playfair square.
 
-    Returns
-    -------
-    str: The encoded text.
+    Returns:
+        Encoded ciphertext.
     """
-
-    def prepare_text(text):
-        text = text.upper().replace("J", "I")
-        prepared_text = ""
-        i = 0
-        while i < len(text):
-            if i + 1 < len(text) and text[i] != text[i + 1]:
-                prepared_text += text[i : i + 2]
-                i += 2
-            else:
-                prepared_text += text[i] + "X"
-                i += 1
-        if len(prepared_text) % 2 != 0:
-            prepared_text += "X"
-        return prepared_text
-
     square = create_playfair_square(key)
-    prepared_text = prepare_text(text)
-    encoded_text = ""
-
-    for i in range(0, len(prepared_text), 2):
-        encoded_text += playfair_cipher_pair(
-            prepared_text[i : i + 2], square, "encode"
-        )
-
-    return encoded_text
+    prepared = prepare_text(text)
+    return "".join(
+        playfair_cipher_pair(prepared[i : i + 2], square, mode="encode")
+        for i in range(0, len(prepared), 2)
+    )
 
 
 # =============================================================================
@@ -127,25 +175,23 @@ def encode_playfair_cipher(text: str, key: str) -> str:
 
 def decode_playfair_cipher(encoded_text: str, key: str) -> str:
     """
-    Decodes text from the Playfair cipher.
+    Decode Playfair-encoded ciphertext.
 
-    Parameters:
-    encoded_text (str): The text to decode.
-    key (str): The key for the Playfair cipher.
+    Args:
+        encoded_text: The encoded string.
+        key: Cipher key used during encoding.
 
-    Returns
-    -------
-    str: The decoded text.
+    Returns:
+        Decoded plaintext (not automatically de-padded).
     """
+    encoded_text = "".join(filter(str.isalpha, encoded_text.upper())).replace(
+        "J", "I"
+    )
     square = create_playfair_square(key)
-    decoded_text = ""
-
-    for i in range(0, len(encoded_text), 2):
-        decoded_text += playfair_cipher_pair(
-            encoded_text[i : i + 2], square, "decode"
-        )
-
-    return decoded_text
+    return "".join(
+        playfair_cipher_pair(encoded_text[i : i + 2], square, mode="decode")
+        for i in range(0, len(encoded_text), 2)
+    )
 
 
 # =============================================================================
@@ -153,6 +199,8 @@ def decode_playfair_cipher(encoded_text: str, key: str) -> str:
 # =============================================================================
 
 __all__: List[str] = [
-    "decode_playfair_cipher",
+    "create_playfair_square",
+    "prepare_text",
     "encode_playfair_cipher",
+    "decode_playfair_cipher",
 ]

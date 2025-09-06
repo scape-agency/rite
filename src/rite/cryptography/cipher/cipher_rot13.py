@@ -6,10 +6,18 @@
 # =============================================================================
 
 """
-Rite - Cryptography - Rot13 Cipher Module
-=========================================
+Rite - Cryptography - Cipher - Rot13 Cipher Module
+==================================================
 
 Provides functionality to encode and decode text using the Rot13 cipher.
+
+The Rot13 cipher shifts each letter 13 places in the alphabet and is symmetric
+(i.e., encoding and decoding are the same operation).
+
+References
+----------
+- https://en.wikipedia.org/wiki/ROT13
+- https://www.dcode.fr/rot-13-cipher
 
 """
 
@@ -28,6 +36,16 @@ from typing import List
 
 # Import | Local Modules
 
+# =============================================================================
+# Internal Constants
+# =============================================================================
+
+# Translation table for ROT13 (built once)
+_ROT13_TRANS = str.maketrans(
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+    "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm",
+)
+
 
 # =============================================================================
 # Functions
@@ -36,36 +54,30 @@ from typing import List
 
 def encode_rot13_cipher(text: str) -> str:
     """
-    Encodes and decodes text using the Rot13 cipher (reversible).
+    Encode or decode text using the Rot13 cipher.
 
-    Parameters:
-    text (str): The text to encode or decode.
+    Since Rot13 is symmetric, this function is used for both encoding and decoding.
 
-    Returns
-    -------
-    str: The encoded or decoded text.
+    Args:
+        text: The input text to encode or decode.
+
+    Returns:
+        The transformed text.
     """
-    return text.translate(
-        str.maketrans(
-            "ABCDEFGHIJKLMabcdefghijklmNOPQRSTUVWXYZnopqrstuvwxyz",
-            "NOPQRSTUVWXYZnopqrstuvwxyzABCDEFGHIJKLMabcdefghijklm",
-        )
-    )
-
-
-# =============================================================================
+    return text.translate(_ROT13_TRANS)
 
 
 def decode_rot13_cipher(text: str) -> str:
     """
-    Decodes text using the Rot13 cipher.
+    Decode text using the Rot13 cipher.
 
-    Parameters:
-    text (str): The text to decode.
+    This is functionally identical to encoding, as Rot13 is symmetric.
 
-    Returns
-    -------
-    str: The decoded text.
+    Args:
+        text: The Rot13-encoded text.
+
+    Returns:
+        The decoded text.
     """
     return encode_rot13_cipher(text)
 

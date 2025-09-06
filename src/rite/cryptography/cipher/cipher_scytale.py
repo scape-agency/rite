@@ -6,10 +6,16 @@
 # =============================================================================
 
 """
-Rite - Cryptography - Scytale Cipher Module
-===========================================
+Rite - Cryptography - Cipher - Scytale Cipher Module
+====================================================
 
-Provides functionality to encode and decode text using the Scytale cipher.
+The Scytale cipher wraps text around a rod (cylinder) of fixed diameter,
+writing along its length and reading across its circumference.
+
+References
+----------
+- https://en.wikipedia.org/wiki/Scytale
+- https://www.dcode.fr/scytale-cipher
 
 """
 
@@ -34,55 +40,66 @@ from typing import List
 # =============================================================================
 
 
-def encode_scytale_cipher(text: str, diameter: int) -> str:
+def encode_scytale_cipher(
+    text: str,
+    diameter: int,
+) -> str:
     """
-    Encodes text using the Scytale cipher.
+    Encode a string using the Scytale cipher.
 
-    Parameters:
-    text (str): The text to encode.
-    diameter (int): The diameter (number of characters per turn) of the Scytale.
+    Args:
+        text: The input plaintext.
+        diameter: Number of columns (characters per wrap-around).
 
-    Returns
-    -------
-    str: The encoded text.
+    Returns:
+        Encoded ciphertext.
     """
-    if diameter <= 0:
-        return text
+    if diameter < 1:
+        raise ValueError("Diameter must be a positive integer")
 
-    padded_text = text + " " * ((diameter - len(text) % diameter) % diameter)
-    encoded_text = [""] * diameter
+    # Pad to full block
+    remainder = len(text) % diameter
+    if remainder != 0:
+        text += " " * (diameter - remainder)
 
-    for i, char in enumerate(padded_text):
-        encoded_text[i % diameter] += char
+    rows = len(text) // diameter
+    encoded = []
 
-    return "".join(encoded_text)
+    for col in range(diameter):
+        for row in range(rows):
+            idx = row * diameter + col
+            encoded.append(text[idx])
+
+    return "".join(encoded)
 
 
-# =============================================================================
-
-
-def decode_scytale_cipher(encoded_text: str, diameter: int) -> str:
+def decode_scytale_cipher(
+    encoded_text: str,
+    diameter: int,
+) -> str:
     """
-    Decodes text from the Scytale cipher.
+    Decode a Scytale-encoded string.
 
-    Parameters:
-    encoded_text (str): The text to decode.
-    diameter (int): The diameter used in the Scytale cipher.
+    Args:
+        encoded_text: The ciphertext to decode.
+        diameter: Number of columns used during encoding.
 
-    Returns
-    -------
-    str: The decoded text.
+    Returns:
+        Decoded plaintext string.
     """
-    if diameter <= 0:
-        return encoded_text
+    if diameter < 1:
+        raise ValueError("Diameter must be a positive integer")
 
-    num_columns = len(encoded_text) // diameter
-    decoded_text = [""] * num_columns
+    rows = len(encoded_text) // diameter
+    decoded = [""] * (rows * diameter)
 
-    for i, char in enumerate(encoded_text):
-        decoded_text[i // diameter] += char
+    idx = 0
+    for col in range(diameter):
+        for row in range(rows):
+            decoded[row * diameter + col] = encoded_text[idx]
+            idx += 1
 
-    return "".join(decoded_text).rstrip()
+    return "".join(decoded).rstrip()
 
 
 # =============================================================================

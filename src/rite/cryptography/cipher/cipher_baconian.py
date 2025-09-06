@@ -6,10 +6,18 @@
 # =============================================================================
 
 """
-Rite - Cryptography - Baconian Cipher Module
-============================================
+Rite - Cryptography - Cipher - Baconian Cipher Module
+=====================================================
 
 Provides functionality to encode and decode text using the Baconian cipher.
+
+The Baconian cipher encodes each letter of the alphabet using a unique
+5-letter combination of 'a' and 'b'. It is a classical steganographic cipher.
+
+References
+----------
+- https://en.wikipedia.org/wiki/Bacon%27s_cipher
+- https://www.dcode.fr/bacon-cipher
 
 """
 
@@ -32,7 +40,7 @@ from typing import List
 # Constants
 # =============================================================================
 
-BACON_DICT = {
+_BACON_DICT = {
     "a": "aaaaa",
     "b": "aaaab",
     "c": "aaaba",
@@ -61,6 +69,9 @@ BACON_DICT = {
     "z": "bbaab",
 }
 
+# Inverted for decoding
+_REVERSE_BACON_DICT = {v: k for k, v in _BACON_DICT.items()}
+
 # =============================================================================
 # Functions
 # =============================================================================
@@ -70,19 +81,19 @@ def encode_baconian_cipher(
     text: str,
 ) -> str:
     """
-    Encodes text using the Baconian cipher. Non-alphabetic characters are
-    ignored.
+    Encode plaintext using the Baconian cipher.
 
-    Parameters:
-    text (str): The text to encode.
+    Non-alphabetic characters are ignored. All letters are converted
+    to lowercase.
 
-    Returns
-    -------
-    str: The encoded text using the Baconian cipher.
+    Args:
+        text: Input text to encode.
+
+    Returns:
+        A string of 'a' and 'b' representing the encoded text.
     """
-
     return "".join(
-        BACON_DICT.get(char.lower(), "") for char in text if char.isalpha()
+        _BACON_DICT[char.lower()] for char in text if char.isalpha()
     )
 
 
@@ -91,26 +102,20 @@ def encode_baconian_cipher(
 
 def decode_baconian_cipher(encoded_text: str) -> str:
     """
-    Decodes text from the Baconian cipher. Assumes the text contains
-    only 'a' and 'b'.
+    Decode Baconian-encoded text (a/b) back into plaintext.
 
-    Parameters:
-    encoded_text (str): The text to decode.
+    Ignores incomplete final segments and assumes input is clean (only 'a' and 'b').
 
-    Returns
-    -------
-    str: The decoded text from the Baconian cipher.
+    Args:
+        encoded_text: A string of 'a' and 'b' characters, in chunks of 5.
+
+    Returns:
+        Decoded plaintext.
     """
-    bacon_dict = {
-        v: k
-        for k, v in encode_baconian_cipher(
-            "abcdefghijklmnopqrstuvwxyz"
-        ).split()
-    }
-
     return "".join(
-        bacon_dict.get(encoded_text[i : i + 5], "")
+        _REVERSE_BACON_DICT.get(encoded_text[i : i + 5], "?")
         for i in range(0, len(encoded_text), 5)
+        if len(encoded_text[i : i + 5]) == 5
     )
 
 

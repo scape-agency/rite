@@ -6,10 +6,18 @@
 # =============================================================================
 
 """
-Rite - Cryptography - Atbash Cipher Module
-===========================================
+Rite - Cryptography - Cipher - Atbash Cipher Module
+===================================================
 
 Provides functionality to encode and decode text using the Atbash cipher.
+
+The Atbash cipher is a classical substitution cipher that reverses the
+alphabet (A ↔ Z, B ↔ Y, ..., a ↔ z).
+
+References
+----------
+- https://en.wikipedia.org/wiki/Atbash
+- https://www.dcode.fr/atbash-cipher
 
 """
 
@@ -30,6 +38,16 @@ from typing import List
 
 
 # =============================================================================
+# Constants
+# =============================================================================
+
+_ATBASH_TRANS = str.maketrans(
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+    "ZYXWVUTSRQPONMLKJIHGFEDCBAzyxwvutsrqponmlkjihgfedcba",
+)
+
+
+# =============================================================================
 # Functions
 # =============================================================================
 
@@ -38,38 +56,42 @@ def encode_atbash_cipher(
     text: str,
 ) -> str:
     """
-    Encodes and decodes text using the Atbash cipher (reversible).
+    Encode (or decode) text using the Atbash cipher.
 
-    Parameters:
-    text (str): The text to encode or decode.
+    Since Atbash is symmetric, the same function can be used for encoding and decoding.
 
-    Returns
-    -------
-    str: The encoded or decoded text.
+    Args:
+        text: Input string to encode or decode.
+
+    Returns:
+        The Atbash-encoded/decoded string.
     """
-    return text.translate(
-        str.maketrans(
-            "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
-            "ZYXWVUTSRQPONMLKJIHGFEDCBAzyxwvutsrqponmlkjihgfedcba",
-        )
-    )
+    return text.translate(_ATBASH_TRANS)
 
 
 def decode_atbash_cipher(
     text: str,
 ) -> str:
     """
-    Decodes text using the Atbash cipher (reversible).
+    Decode text using the Atbash cipher.
 
-    Parameters:
-    text (str): The text to decode.
+    This is functionally identical to encoding, since Atbash is symmetric.
 
-    Returns
-    -------
-    str: The decoded text.
+    Args:
+        text: The Atbash-encoded string.
+
+    Returns:
+        The decoded string (same as encoding).
     """
     return encode_atbash_cipher(text)
 
+
+# =============================================================================
+# Aliases
+# =============================================================================
+
+encode = encode_atbash_cipher
+decode = decode_atbash_cipher
 
 # =============================================================================
 # Exports
@@ -78,4 +100,6 @@ def decode_atbash_cipher(
 __all__: List[str] = [
     "encode_atbash_cipher",
     "decode_atbash_cipher",
+    "encode",
+    "decode",
 ]

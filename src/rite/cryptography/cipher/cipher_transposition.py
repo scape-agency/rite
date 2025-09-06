@@ -6,11 +6,19 @@
 # =============================================================================
 
 """
-Rite - Cryptography - Transposition Cipher Module
-=================================================
+Rite - Cryptography - Cipher - Transposition Cipher Module
+==========================================================
 
-Provides functionality to encode and decode text using the Transposition
-cipher.
+Provides functionality to encode and decode text using a columnar
+transposition cipher.
+
+The transposition cipher rearranges the characters of the plaintext
+based on a fixed number of columns (key).
+
+References
+----------
+- https://en.wikipedia.org/wiki/Transposition_cipher
+- https://www.dcode.fr/transposition-cipher
 
 """
 
@@ -35,54 +43,66 @@ from typing import List
 # =============================================================================
 
 
-def encode_transposition_cipher(
-    text: str,
-    key: int,
-) -> str:
+def encode_transposition_cipher(text: str, key: int) -> str:
     """
-    Encodes text using a simple columnar transposition cipher.
+    Encode text using a simple columnar transposition cipher.
 
-    Parameters:
-    text (str): The text to encode.
-    key (int): The number of columns.
+    Args:
+        text: The plaintext to encode.
+        key: The number of columns (i.e., transposition key).
 
-    Returns
-    -------
-    str: The encoded text.
+    Returns:
+        The encoded (scrambled) text.
     """
+    if key < 1:
+        raise ValueError("Key must be a positive integer.")
+
+    # Pad text to ensure even columns
+    remainder = len(text) % key
+    if remainder:
+        text += " " * (key - remainder)
+
     return "".join(text[i::key] for i in range(key))
 
 
 def decode_transposition_cipher(
-    encoded_text: str,
-    key: int,
+    encoded_text: str, key: int, strip_padding: bool = True
 ) -> str:
     """
-    Decodes text from a simple columnar transposition cipher.
+    Decode text from a simple columnar transposition cipher.
 
-    Parameters:
-    encoded_text (str): The text to decode.
-    key (int): The number of columns.
+    Args:
+        encoded_text: The transposed text to decode.
+        key: The number of columns used in encoding.
+        strip_padding: Whether to strip trailing padding spaces (default: True).
 
-    Returns
-    -------
-    str: The decoded text.
+    Returns:
+        The decoded (original) text.
     """
-    num_rows = len(encoded_text) // key
-    remainder = len(encoded_text) % key
-    text = [""] * num_rows
+    if key < 1:
+        raise ValueError("Key must be a positive integer.")
 
-    for col in range(key):
-        start_index = (num_rows + 1) * min(col, remainder) + num_rows * max(
-            0, col - remainder
-        )
-        end_index = start_index + (
-            num_rows + 1 if col < remainder else num_rows
-        )
-        for row, char in enumerate(encoded_text[start_index:end_index]):
-            text[row] += char
+    full_rows = len(encoded_text) // key
+    extra_chars = len(encoded_text) % key
 
-    return "".join(text)
+    col_lengths = [
+        full_rows + 1 if i < extra_chars else full_rows for i in range(key)
+    ]
+
+    columns = []
+    index = 0
+    for length in col_lengths:
+        columns.append(encoded_text[index : index + length])
+        index += length
+
+    result = []
+    for row in range(max(col_lengths)):
+        for col in columns:
+            if row < len(col):
+                result.append(col[row])
+
+    decoded = "".join(result)
+    return decoded.rstrip() if strip_padding else decoded
 
 
 # =============================================================================

@@ -6,10 +6,29 @@
 # =============================================================================
 
 """
-Rite - Cipher Cryptography Module
-=================================
+Rite - Cryptography - Cipher Module
+===================================
 
-This module provides cryptographic utilities for the Rite application.
+This module serves as the central import hub for all classical ciphers
+implemented in the Rite cryptography toolkit. It exposes both encode and
+decode functions for a variety of historical and educational ciphers.
+
+Available ciphers:
+    - Atbash
+    - Autokey
+    - Baconian
+    - Caesar
+    - Four-Square
+    - Playfair
+    - Rail Fence
+    - Rot13
+    - Scytale
+    - Transposition
+    - Vigenère
+    - XOR
+
+References:
+    - https://en.wikipedia.org/wiki/Classical_cipher
 
 """
 
@@ -78,3 +97,34 @@ __all__: List[str] = [
     "decode_xor_cipher",
     "encode_xor_cipher",
 ]
+
+
+# from . import (
+#     atbash,
+#     autokey,
+#     baconian,
+#     caesar,
+#     four_square,
+#     playfair,
+#     rail_fence,
+#     rot13,
+#     scytale,
+#     transposition,
+#     vigenere,
+#     xor,
+# )
+
+# __all__ += [
+#     "atbash",
+#     "autokey",
+#     "baconian",
+#     "caesar",
+#     "four_square",
+#     "playfair",
+#     "rail_fence",
+#     "rot13",
+#     "scytale",
+#     "transposition",
+#     "vigenere",
+#     "xor",
+# ]

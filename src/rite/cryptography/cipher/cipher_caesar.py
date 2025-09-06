@@ -6,10 +6,18 @@
 # =============================================================================
 
 """
-Rite - Cryptography - Caesar Cipher Module
-==========================================
+Rite - Cryptography - Cipher - Caesar Cipher Module
+===================================================
 
 Provides functionality to encode and decode text using the Caesar cipher.
+
+The Caesar cipher is a substitution cipher that shifts characters by a
+fixed offset.
+
+References
+----------
+- https://en.wikipedia.org/wiki/Caesar_cipher
+- https://www.dcode.fr/caesar-cipher
 
 """
 
@@ -39,27 +47,26 @@ def encode_caesar_cipher(
     shift: int,
 ) -> str:
     """
-    Encodes the text using a Caesar cipher with a given shift.
-    Only alphabetic characters are shifted, others remain unchanged.
+    Encode text using the Caesar cipher.
 
-    Parameters:
-    text (str): The text to encode.
-    shift (int): The shift for the Caesar cipher.
+    Only alphabetic characters are shifted. Case is preserved. Other characters remain unchanged.
 
-    Returns
-    -------
-    str: The encoded text.
+    Args:
+        text: The plaintext string to encode.
+        shift: The number of positions to shift (can be positive or negative).
+
+    Returns:
+        Encoded ciphertext string.
     """
-    encoded_text = []
+    result = []
     for char in text:
         if char.isalpha():
-            start = 65 if char.isupper() else 97
-            encoded_text.append(
-                chr((ord(char) - start + shift) % 26 + start),
-            )
+            base = ord("A") if char.isupper() else ord("a")
+            shifted = chr((ord(char) - base + shift) % 26 + base)
+            result.append(shifted)
         else:
-            encoded_text.append(char)
-    return "".join(encoded_text)
+            result.append(char)
+    return "".join(result)
 
 
 # =============================================================================
@@ -70,18 +77,15 @@ def decode_caesar_cipher(
     shift: int,
 ) -> str:
     """
-    Decodes the text from a Caesar cipher with a given shift.
+    Decode Caesar cipher text by reversing the shift.
 
-    Parameters:
-    encoded_text (str): The text to decode.
-    shift (int): The shift used in the Caesar cipher.
+    Args:
+        encoded_text: The ciphertext to decode.
+        shift: The original shift used during encoding.
 
-    Returns
-    -------
-    str: The decoded text.
-
+    Returns:
+        Decoded plaintext string.
     """
-
     return encode_caesar_cipher(encoded_text, -shift)
 
 
