@@ -6,8 +6,8 @@
 # =============================================================================
 
 """
-Singleton
-=========
+Singleton Module
+================
 
 This module provides a metaclass `SingletonMeta` for implementing the Singleton
 design pattern. Classes using this metaclass ensure that only one instance of
@@ -72,15 +72,14 @@ class SingletonMeta(type):
 
     Attributes
     ----------
-    -----------
     _instances : Dict[type, Any]
         A dictionary that maps classes to their single instances.
 
     Methods
     -------
-    --------
     __call__(*args, **kwargs):
         Overrides the `__call__` method to control instance creation.
+
     """
 
     _instances: Dict[type, Any] = {}
@@ -97,9 +96,9 @@ class SingletonMeta(type):
 
         Returns
         -------
-        --------
         Any:
             The single instance of the class.
+
         """
         if cls not in cls._instances:
             instance = super().__call__(*args, **kwargs)
