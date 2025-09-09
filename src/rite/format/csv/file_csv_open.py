@@ -38,9 +38,20 @@ def open_csv(path_or_resource):
     """
     Open a CSV file for reading.
     """
+
     if hasattr(path_or_resource, "open"):
-        return path_or_resource.open("r", newline="", encoding="utf-8")
-    return open(path_or_resource, "r", newline="", encoding="utf-8")
+        return path_or_resource.open(
+            "r",
+            newline="",
+            encoding="utf-8",
+        )
+
+    return open(
+        path_or_resource,
+        "r",
+        newline="",
+        encoding="utf-8",
+    )
 
 
 # =============================================================================
