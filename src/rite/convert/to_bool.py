@@ -6,9 +6,11 @@
 # =============================================================================
 
 """
-Starling PolyPlan -
-==========================================
+Rite - Utilities - Convert to Boolean
+=====================================
 
+This module provides a utility function for converting various types of
+values to boolean.
 
 """
 
@@ -20,7 +22,6 @@ Starling PolyPlan -
 from __future__ import annotations
 
 # Import | Standard Library
-import re
 from typing import Any, List, Optional
 
 # Import | Libraries

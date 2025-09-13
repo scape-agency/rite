@@ -6,7 +6,7 @@
 # =============================================================================
 
 """
-Starling PolyPlan -
+ -
 ==========================================
 
 
@@ -20,8 +20,7 @@ Starling PolyPlan -
 from __future__ import annotations
 
 # Import | Standard Library
-import re
-from typing import Any, List, Optional
+from typing import List, Optional
 
 # Import | Libraries
 
@@ -45,7 +44,10 @@ def clamp(
     if val is None:
         return None
 
-    return max(lo, min(hi, val))
+    return max(
+        lo,
+        min(hi, val),
+    )
 
 
 # =============================================================================
