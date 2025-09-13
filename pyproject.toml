@@ -7,7 +7,7 @@
 
 [tool.poetry]
 name = "rite"
-version = "0.0.10"
+version = "0.0.11"
 description = "Python Utility Package"
 authors = ["Scape Agency <info@scape.agency>"]
 license = "MIT License"
@@ -15,9 +15,7 @@ readme = "README.md"
 homepage = "https://www.pyrites.dev"
 repository = "https://github.com/scape-agency/rite"
 documentation = "https://github.com/scape-agency/rite/docs"
-keywords = [
-    "rite",
-]
+keywords = ["rite"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -31,7 +29,7 @@ include = [
     "src/rite/**",
     "README.md",
     "LICENSE",
-    "docs/**",  # Include documentation in the package
+    "docs/**",     # Include documentation in the package
 ]
 packages = [{ include = "rite", from = "src" }]
 
@@ -42,7 +40,6 @@ packages = [{ include = "rite", from = "src" }]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<4.0"
-pytz = "^2024.2"
 
 
 # =============================================================================
@@ -50,15 +47,15 @@ pytz = "^2024.2"
 # =============================================================================
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^8.3.4"           # Framework for testing
-pytest-cov = "^6.0.0"       # Code coverage for tests
-black = "^24.8.0"           # Code formatter
-flake8 = "^7.1.0"           # Linter for code quality
-mypy = "^1.14.1"            # Static type checker
-sphinx = "^8.0.2"           # Documentation generator
-isort = "^5.10.1"           # Import sorter
-tox = "^4.4.6"              # Testing multiple environments
-pre-commit = "^4.0.1"       # Pre-commit hooks for linting and formatting
+pytest = "^8.3.4"     # Framework for testing
+pytest-cov = "^6.0.0" # Code coverage for tests
+black = "^24.8.0"     # Code formatter
+flake8 = "^7.1.0"     # Linter for code quality
+mypy = "^1.14.1"      # Static type checker
+sphinx = "^8.0.2"     # Documentation generator
+isort = "^5.10.1"     # Import sorter
+tox = "^4.4.6"        # Testing multiple environments
+pre-commit = "^4.0.1" # Pre-commit hooks for linting and formatting
 
 
 # =============================================================================
@@ -75,7 +72,7 @@ build-backend = "poetry.core.masonry.api"
 # =============================================================================
 
 [tool.poetry.scripts]
-rite = "rite.__main__:main"               # Entry point for the package
+rite = "rite.__main__:main" # Entry point for the package
 # test = "pytest --cov=rite tests/:main"    # Run tests with coverage
 # lint = "flake8 src/rite/:main"            # Run linter on source files
 # format = "black src/rite/:main"           # Format source files
