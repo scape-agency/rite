@@ -171,7 +171,7 @@ class BaseHTTPServer(BaseHTTPRequestHandler):
         try:
             httpd.serve_forever()
         except KeyboardInterrupt:
-            pass
+            pass  # pylint: disable=unnecessary-pass
         httpd.server_close()
         logging.info("Stopping httpd server")
 

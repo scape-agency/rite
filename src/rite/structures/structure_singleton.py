@@ -29,7 +29,7 @@ To use the Singleton pattern, define your class with `SingletonMeta` as its
 metaclass:
 
     class MySingleton(metaclass=SingletonMeta):
-        pass
+        pass  # pylint: disable=unnecessary-pass
 
 Example:
 --------

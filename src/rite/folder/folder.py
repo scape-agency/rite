@@ -262,7 +262,7 @@ def create_dir(dir_path, mode=777):
         except OSError as err:
             return err
     else:
-        pass
+        pass  # pylint: disable=unnecessary-pass
 
 
 def path_leaf(path):

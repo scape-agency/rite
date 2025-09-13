@@ -47,15 +47,15 @@ class File(object):
 
     def read_file(self):
         # Read contents of the file
-        pass
+        pass  # pylint: disable=unnecessary-pass
 
     def write_file(self, content, mode="w"):
         # Write content to the file
-        pass
+        pass  # pylint: disable=unnecessary-pass
 
     def convert_file_format(self, new_format):
         # Convert file to a new format
-        pass
+        pass  # pylint: disable=unnecessary-pass
 
     def copy_file(src, dst):
         """ """
