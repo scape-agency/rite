@@ -50,7 +50,7 @@ python = ">=3.10,<4.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^8.3.4"           # Framework for testing
-pytest-cov = "^6.0.0"       # Code coverage for tests
+pytest-cov = "^7.0.0"       # Code coverage for tests
 black = "^25.1.0"           # Code formatter
 flake8 = "^7.1.0"           # Linter for code quality
 mypy = "^1.14.0"            # Static type checker
