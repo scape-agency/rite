@@ -72,7 +72,7 @@ class SingletonMeta(type):
 
     Attributes
     ----------
-    _instances : Dict[type, Any]
+    _instances : dict[type, Any]
         A dictionary that maps classes to their single instances.
 
     Methods
@@ -82,7 +82,7 @@ class SingletonMeta(type):
 
     """
 
-    _instances: Dict[type, Any] = {}
+    _instances: dict[type, Any] = {}
 
     def __call__(cls, *args, **kwargs) -> Any:
         """

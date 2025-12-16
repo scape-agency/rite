@@ -106,7 +106,7 @@ def decode_scytale_cipher(
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "decode_scytale_cipher",
     "encode_scytale_cipher",
 ]

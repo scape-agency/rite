@@ -3,7 +3,7 @@ from typing import Any, Dict, Union
 from xml.etree.ElementTree import Element
 
 
-def etree_to_dict(t: Element) -> Dict[str, Any]:
+def etree_to_dict(t: Element) -> dict[str, Any]:
     """
     Convert an XML ElementTree node into a nested Python dictionary.
 
@@ -11,9 +11,9 @@ def etree_to_dict(t: Element) -> Dict[str, Any]:
         t (Element): The root XML element to convert.
 
     Returns:
-        Dict[str, Any]: A dictionary representation of the XML element.
+        dict[str, Any]: A dictionary representation of the XML element.
     """
-    tag_dict: Dict[str, Union[dict, str, None]] = {
+    tag_dict: dict[str, Union[dict, str, None]] = {
         t.tag: {} if t.attrib else None
     }
     children = list(t)

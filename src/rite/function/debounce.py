@@ -6,9 +6,8 @@
 # =============================================================================
 
 """
-Module
-===================
-
+Debounce Function Module
+This module provides a decorator to debounce function calls.
 
 """
 

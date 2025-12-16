@@ -97,7 +97,7 @@ decode = decode_atbash_cipher
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "encode_atbash_cipher",
     "decode_atbash_cipher",
     "encode",

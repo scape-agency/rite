@@ -87,7 +87,7 @@ def decode_xor_cipher(
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "decode_xor_cipher",
     "encode_xor_cipher",
 ]

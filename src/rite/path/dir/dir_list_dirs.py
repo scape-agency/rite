@@ -6,7 +6,7 @@ def list_dirs(
     rootdir: str | Path,
     pattern: Optional[str] = None,
     recursive: bool = False,
-) -> List[Path]:
+) -> list[Path]:
     """
     Lists all subdirectories inside a given directory.
 
@@ -16,7 +16,7 @@ def list_dirs(
         recursive (bool): If True, searches recursively through all subfolders.
 
     Returns:
-        List[Path]: A list of Path objects representing found directories.
+        list[Path]: A list of Path objects representing found directories.
     """
 
     root_path = Path(rootdir)

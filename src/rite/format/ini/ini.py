@@ -47,7 +47,7 @@ class INIHandler(object):
         Loads an INI configuration file.
     save_ini(config: configparser.ConfigParser, file_path: str):
         Saves a ConfigParser object to an INI file.
-    update_ini(config: configparser.ConfigParser, section: str, updates: Dict[str, Any]):
+    update_ini(config: configparser.ConfigParser, section: str, updates: dict[str, Any]):
         Updates a section in the ConfigParser object.
     get_value(config: configparser.ConfigParser, section: str, key: str, fallback: Optional[Any] = None) -> Any:
         Gets a value from a section in the ConfigParser object.
@@ -55,9 +55,9 @@ class INIHandler(object):
         Adds a new section to the ConfigParser object.
     remove_section(config: configparser.ConfigParser, section: str):
         Removes a section from the ConfigParser object.
-    list_sections(config: configparser.ConfigParser) -> List[str]:
+    list_sections(config: configparser.ConfigParser) -> list[str]:
         Lists all sections in the configuration.
-    list_keys(config: configparser.ConfigParser, section: str) -> List[str]:
+    list_keys(config: configparser.ConfigParser, section: str) -> list[str]:
         Lists all keys in a specific section.
     has_key(config: configparser.ConfigParser, section: str, key: str) -> bool:
         Checks if a specific key exists in a section.
@@ -98,7 +98,7 @@ class INIHandler(object):
     def update_ini(
         config: configparser.ConfigParser,
         section: str,
-        updates: Dict[str, Any],
+        updates: dict[str, Any],
     ):
         """
         Updates a section in the ConfigParser object.
@@ -106,7 +106,7 @@ class INIHandler(object):
         Parameters:
             config (configparser.ConfigParser): The ConfigParser object.
             section (str): The section in the INI file to update.
-            updates (Dict[str, Any]): A dictionary containing the updates.
+            updates (dict[str, Any]): A dictionary containing the updates.
         """
         if not config.has_section(section):
             config.add_section(section)
@@ -173,7 +173,7 @@ class INIHandler(object):
         return config.remove_section(section)
 
     @staticmethod
-    def list_sections(config: configparser.ConfigParser) -> List[str]:
+    def list_sections(config: configparser.ConfigParser) -> list[str]:
         """
         Lists all sections in the configuration.
 
@@ -182,14 +182,14 @@ class INIHandler(object):
 
         Returns
         -------
-            List[str]: A list of section names.
+            list[str]: A list of section names.
         """
         return config.sections()
 
     @staticmethod
     def list_keys(
         config: configparser.ConfigParser, section: str
-    ) -> List[str]:
+    ) -> list[str]:
         """
         Lists all keys in a specific section.
 
@@ -199,7 +199,7 @@ class INIHandler(object):
 
         Returns
         -------
-            List[str]: A list of key names in the section.
+            list[str]: A list of key names in the section.
         """
         if config.has_section(section):
             return list(config[section])

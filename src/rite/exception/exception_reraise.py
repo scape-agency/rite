@@ -45,7 +45,7 @@ E = TypeVar("E", bound=BaseException)
 
 
 def reraise(
-    tp: Type[E],
+    tp: type[E],
     value: Optional[E] = None,
     tb: Optional[TracebackType] = None,
 ) -> None:
@@ -54,7 +54,7 @@ def reraise(
     value and traceback.
 
     Args:
-        tp (Type[E]): The exception type to be raised.
+        tp (type[E]): The exception type to be raised.
         value (Optional[E]): The exception instance (if not provided, a new
             instance of `tp` is created).
         tb (Optional[TracebackType]): The traceback to be attached to the
@@ -90,6 +90,6 @@ def reraise(
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "reraise",
 ]

@@ -41,7 +41,7 @@ from typing import List, Tuple
 # =============================================================================
 
 
-def generate_square(key: str) -> List[List[str]]:
+def generate_square(key: str) -> list[list[str]]:
     """
     Generate a 5x5 matrix for the Four-Square cipher using a key.
 
@@ -66,8 +66,8 @@ def generate_square(key: str) -> List[List[str]]:
 
 def find_position(
     letter: str,
-    square: List[List[str]],
-) -> Tuple[int, int]:
+    square: list[list[str]],
+) -> tuple[int, int]:
     """
     Find the (row, col) position of a letter in a 5x5 matrix.
 
@@ -86,10 +86,10 @@ def find_position(
 
 def four_square_cipher_pair(
     pair: str,
-    square_tl: List[List[str]],
-    square_tr: List[List[str]],
-    square_bl: List[List[str]],
-    square_br: List[List[str]],
+    square_tl: list[list[str]],
+    square_tr: list[list[str]],
+    square_bl: list[list[str]],
+    square_br: list[list[str]],
     mode: str = "encode",
 ) -> str:
     """
@@ -211,7 +211,7 @@ def decode_four_square_cipher(
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "four_square_cipher_pair",
     "encode_four_square_cipher",
     "decode_four_square_cipher",

@@ -86,7 +86,7 @@ def decode_rot13_cipher(text: str) -> str:
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "decode_rot13_cipher",
     "encode_rot13_cipher",
 ]

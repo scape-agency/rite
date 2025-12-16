@@ -36,7 +36,7 @@ from xml.etree.ElementTree import Element
 # =============================================================================
 
 
-def convert_etree_to_dict(t: Element) -> Dict[str, Any]:
+def convert_etree_to_dict(t: Element) -> dict[str, Any]:
     """
     ElementTree to Dictionary Converter
     ===================================
@@ -55,7 +55,7 @@ def convert_etree_to_dict(t: Element) -> Dict[str, Any]:
     Returns:
         A dictionary representation of the XML element.
     """
-    result: Dict[str, Any] = {t.tag: {} if t.attrib else None}
+    result: dict[str, Any] = {t.tag: {} if t.attrib else None}
 
     children = list(t)
     if children:
@@ -87,6 +87,6 @@ def convert_etree_to_dict(t: Element) -> Dict[str, Any]:
 # Module Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "convert_etree_to_dict",
 ]

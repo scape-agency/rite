@@ -65,4 +65,4 @@ def load_class(path: str) -> type:
     return cls
 
 
-__all__: List[str] = ["load_class", "ClassImportError"]
+__all__: list[str] = ["load_class", "ClassImportError"]

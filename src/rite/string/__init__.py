@@ -31,7 +31,7 @@ from typing import List
 # Exports
 # =============================================================================
 
-__all__: List[str] = []
+__all__: list[str] = []
 
 
 # from .case import Case

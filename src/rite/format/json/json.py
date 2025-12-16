@@ -355,7 +355,7 @@ class JSONHandler(object):
         return diff
 
     @staticmethod
-    def extract_keys(data: Dict) -> List[str]:
+    def extract_keys(data: Dict) -> list[str]:
         """
         Extract all keys from a JSON object.
 
@@ -364,7 +364,7 @@ class JSONHandler(object):
 
         Returns
         -------
-            List[str]: A list of all keys in the JSON object.
+            list[str]: A list of all keys in the JSON object.
         """
         keys = []
         for key, value in data.items():
@@ -374,12 +374,12 @@ class JSONHandler(object):
         return keys
 
     @staticmethod
-    def json_to_csv(json_data: List[Dict], csv_file: str):
+    def json_to_csv(json_data: list[Dict], csv_file: str):
         """
         Convert JSON data to CSV format.
 
         Parameters:
-            json_data (List[Dict]): The JSON data to convert.
+            json_data (list[Dict]): The JSON data to convert.
             csv_file (str): The path to the CSV file to create.
 
         Note: Only works with flat JSON structures.
@@ -391,7 +391,7 @@ class JSONHandler(object):
                 writer.writerow(row)
 
     @staticmethod
-    def csv_to_json(csv_file: str) -> List[Dict]:
+    def csv_to_json(csv_file: str) -> list[Dict]:
         """
         Convert CSV data to JSON format.
 
@@ -400,7 +400,7 @@ class JSONHandler(object):
 
         Returns
         -------
-            List[Dict]: The converted data in JSON format.
+            list[Dict]: The converted data in JSON format.
         """
         with open(csv_file, "r", encoding="utf-8") as file:
             return list(csv.DictReader(file))

@@ -108,7 +108,7 @@ def decode_vigenere_cipher(encoded_text: str, key: str) -> str:
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "decode_vigenere_cipher",
     "encode_vigenere_cipher",
 ]

@@ -49,9 +49,9 @@ class NestedSetStructure:
         """
         Initialize the nested set structure.
         """
-        self._root_elements: List[Any] = []
-        self._children: Dict[Any, List[Any]] = defaultdict(list)
-        self._parent: Dict[Any, Optional[Any]] = {}
+        self._root_elements: list[Any] = []
+        self._children: dict[Any, list[Any]] = defaultdict(list)
+        self._parent: dict[Any, Optional[Any]] = {}
 
     def __contains__(self, item: Any) -> bool:
         """
@@ -91,7 +91,7 @@ class NestedSetStructure:
 
         self._children[item] = self._children.get(item, [])
 
-    def children(self, item: Any) -> List[Any]:
+    def children(self, item: Any) -> list[Any]:
         """
         Return the children of the given item.
         If the item has no children, returns an empty list.
@@ -115,19 +115,19 @@ class NestedSetStructure:
                 return existing
         return item
 
-    def nested_items(self) -> List[Any]:
+    def nested_items(self) -> list[Any]:
         """
         Return a nested, flattened list of items (including children)
         in insertion order. Maintains hierarchy order.
         """
-        items: List[Any] = []
+        items: list[Any] = []
         self._add_nested_items(self._root_elements, items)
         return items
 
     def _add_nested_items(
         self,
-        items: List[Any],
-        nested: List[Any],
+        items: list[Any],
+        nested: list[Any],
     ) -> None:
         """
         Recursively add items and their children to the nested list.
@@ -143,6 +143,6 @@ class NestedSetStructure:
 # Module Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "NestedSetStructure",
 ]

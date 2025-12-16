@@ -109,7 +109,7 @@ def decode_transposition_cipher(
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "decode_transposition_cipher",
     "encode_transposition_cipher",
 ]

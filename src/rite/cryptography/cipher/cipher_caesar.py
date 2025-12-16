@@ -93,7 +93,7 @@ def decode_caesar_cipher(
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "decode_caesar_cipher",
     "encode_caesar_cipher",
 ]

@@ -79,7 +79,7 @@ def convert_string_to_datetime(
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "convert_string_to_datetime",
 ]
 

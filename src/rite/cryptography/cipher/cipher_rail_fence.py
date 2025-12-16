@@ -57,7 +57,7 @@ def encode_rail_fence_cipher(text: str, num_rails: int) -> str:
         return text  # Nothing to encode
 
     # Create empty rails
-    fence: List[List[str]] = [[] for _ in range(num_rails)]
+    fence: list[list[str]] = [[] for _ in range(num_rails)]
     rail = 0
     direction = 1
 
@@ -101,7 +101,7 @@ def decode_rail_fence_cipher(encoded_text: str, num_rails: int) -> str:
             direction *= -1
 
     # Step 2: fill rails with corresponding characters
-    fence: List[List[str]] = []
+    fence: list[list[str]] = []
     index = 0
     for length in rail_lengths:
         fence.append(list(encoded_text[index : index + length]))
@@ -124,7 +124,7 @@ def decode_rail_fence_cipher(encoded_text: str, num_rails: int) -> str:
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "decode_rail_fence_cipher",
     "encode_rail_fence_cipher",
 ]

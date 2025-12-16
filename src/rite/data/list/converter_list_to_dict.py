@@ -51,6 +51,6 @@ def convert_list_to_dict(lst):
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "convert_list_to_dict",
 ]

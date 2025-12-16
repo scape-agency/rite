@@ -41,7 +41,7 @@ from typing import List, Tuple
 # =============================================================================
 
 
-def create_playfair_square(key: str) -> List[List[str]]:
+def create_playfair_square(key: str) -> list[list[str]]:
     """
     Create a 5x5 Playfair square using the given key.
 
@@ -67,8 +67,8 @@ def create_playfair_square(key: str) -> List[List[str]]:
 
 def find_position(
     letter: str,
-    square: List[List[str]],
-) -> Tuple[int, int]:
+    square: list[list[str]],
+) -> tuple[int, int]:
     """
     Find (row, col) of a letter in the Playfair square.
 
@@ -90,7 +90,7 @@ def find_position(
 
 def playfair_cipher_pair(
     pair: str,
-    square: List[List[str]],
+    square: list[list[str]],
     mode: str = "encode",
 ) -> str:
     """
@@ -198,7 +198,7 @@ def decode_playfair_cipher(encoded_text: str, key: str) -> str:
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "create_playfair_square",
     "prepare_text",
     "encode_playfair_cipher",

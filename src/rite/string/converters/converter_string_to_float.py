@@ -55,6 +55,6 @@ def convert_string_to_float(val: str) -> Optional[float]:
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "convert_string_to_float",
 ]

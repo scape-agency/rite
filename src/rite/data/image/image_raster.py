@@ -5,20 +5,7 @@
 # Docstring
 # =============================================================================
 
-"""
-Provides Raster Image Class
-
-...
-
-Examples:
-    ...
-
-Attributes:
-    ...
-
-Todo:
-
-"""
+""" """
 
 
 # Import | Futures
@@ -34,20 +21,7 @@ from PIL import Image
 
 
 class ImageRaster(object):
-    """
-    A class used to represent a Raster Image.
-
-    ...
-
-    Attributes
-    ----------
-
-
-    Methods
-    -------
-    test()
-        test method
-    """
+    """ """
 
     # Magic Methods
 

@@ -134,7 +134,7 @@ def decode_autokey_cipher(
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "decode_autokey_cipher",
     "encode_autokey_cipher",
 ]

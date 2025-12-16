@@ -70,7 +70,7 @@ from .cipher_xor import decode_xor_cipher, encode_xor_cipher
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "decode_atbash_cipher",
     "encode_atbash_cipher",
     "decode_autokey_cipher",

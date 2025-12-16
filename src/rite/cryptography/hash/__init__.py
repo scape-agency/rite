@@ -31,7 +31,7 @@ from .hash_sha512 import sha512_hash
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "sha256_hash",
     "sha512_hash",
 ]

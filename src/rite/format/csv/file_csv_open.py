@@ -58,6 +58,6 @@ def open_csv(path_or_resource):
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "open_csv",
 ]

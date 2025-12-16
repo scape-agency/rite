@@ -87,7 +87,7 @@ class Timezone:
         return datetime.now(self.timezone)
 
     @staticmethod
-    def list_timezones() -> List[str]:
+    def list_timezones() -> list[str]:
         """
         List all available timezones (may vary by platform).
         """
@@ -127,7 +127,7 @@ class Timezone:
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "Timezone",
 ]
 

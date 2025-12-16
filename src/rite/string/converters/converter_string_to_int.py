@@ -55,6 +55,6 @@ def convert_string_to_int(val: str) -> Optional[int]:
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "convert_string_to_int",
 ]

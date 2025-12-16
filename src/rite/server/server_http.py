@@ -180,7 +180,7 @@ class BaseHTTPServer(BaseHTTPRequestHandler):
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "BaseHTTPServer",
 ]
 

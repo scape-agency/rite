@@ -68,6 +68,6 @@ def file_size_to_string(
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "file_size_to_string",
 ]

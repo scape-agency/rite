@@ -31,4 +31,4 @@ from .server_sqlite import SQLiteServer
 # Exports
 # =============================================================================
 
-__all__: List[str] = []
+__all__: list[str] = []

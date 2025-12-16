@@ -93,7 +93,7 @@ def encode_baconian_cipher(
         A string of 'a' and 'b' representing the encoded text.
     """
     return "".join(
-        _BACON_DICT[char.lower()] for char in text if char.isalpha()
+        _BACON_dict[char.lower()] for char in text if char.isalpha()
     )
 
 
@@ -123,7 +123,7 @@ def decode_baconian_cipher(encoded_text: str) -> str:
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "decode_baconian_cipher",
     "encode_baconian_cipher",
 ]

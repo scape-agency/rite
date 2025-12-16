@@ -36,7 +36,7 @@ from .converter_string_to_int import convert_string_to_int
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "convert_string_to_binary",
     "convert_string_to_bool",
     "convert_string_to_datetime",

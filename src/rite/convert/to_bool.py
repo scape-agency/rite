@@ -22,7 +22,7 @@ values to boolean.
 from __future__ import annotations
 
 # Import | Standard Library
-from typing import Any, List, Optional
+from typing import Any, Optional
 
 # Import | Libraries
 
@@ -70,6 +70,6 @@ def to_bool(x: Any) -> Optional[bool]:
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "to_bool",
 ]

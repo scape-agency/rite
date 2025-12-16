@@ -26,7 +26,7 @@ import logging
 import sqlite3
 
 # Import | Standard Library
-from typing import Any, List, Tuple
+from typing import Any, Tuple
 
 # Import | Libraries
 
@@ -121,7 +121,7 @@ class SQLiteServer:
         """
         self._execute(query, params, commit=True)
 
-    def fetch_all(self, query: str, params: Tuple = ()) -> List[Tuple]:
+    def fetch_all(self, query: str, params: Tuple = ()) -> list[Tuple]:
         """
         Fetches all rows from a SQL query.
 
@@ -131,7 +131,7 @@ class SQLiteServer:
 
         Returns
         -------
-            List[Tuple]: List of rows returned by the query.
+            list[Tuple]: List of rows returned by the query.
         """
         return self._execute(query, params)
 
@@ -198,12 +198,12 @@ class SQLiteServer:
         query = f"DELETE FROM {table} WHERE {condition}"
         self._execute(query, commit=True)
 
-    def transaction(self, queries: List[Tuple[str, Tuple]]):
+    def transaction(self, queries: list[tuple[str, Tuple]]):
         """
         Executes a series of queries in a single transaction.
 
         Parameters:
-            queries (List[Tuple[str, Tuple]]): A list of queries and their parameters.
+            queries (list[tuple[str, Tuple]]): A list of queries and their parameters.
 
         Raises:
             sqlite3.Error: If an error occurs during the transaction.
@@ -224,7 +224,7 @@ class SQLiteServer:
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "SQLiteServer",
 ]
 

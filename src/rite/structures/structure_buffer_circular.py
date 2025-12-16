@@ -46,7 +46,7 @@ Usage:
 from __future__ import annotations
 
 # Import | Standard Library
-from typing import Any, List, Optional
+from typing import Any, Optional
 
 # Import | Libraries
 
@@ -70,7 +70,7 @@ class CircularBuffer:
     -----------
     size : int
         The maximum number of elements the buffer can hold.
-    buffer : List[Optional[Any]]
+    buffer : list[Optional[Any]]
         The internal list storing buffer elements.
     index : int
         The current index for the next write operation.
@@ -82,7 +82,7 @@ class CircularBuffer:
     --------
     append(value: Any) -> None:
         Adds a value to the buffer, overwriting the oldest element if full.
-    get_all() -> List[Optional[Any]]:
+    get_all() -> list[Optional[Any]]:
         Retrieves all elements in the buffer in the correct order.
     is_empty() -> bool:
         Checks if the buffer is empty.
@@ -102,7 +102,7 @@ class CircularBuffer:
         if size <= 0:
             raise ValueError("Buffer size must be a positive integer.")
         self.size = size
-        self.buffer: List[Optional[Any]] = [None] * size
+        self.buffer: list[Optional[Any]] = [None] * size
         self.index = 0
         self.full = False
 
@@ -139,14 +139,14 @@ class CircularBuffer:
         # Mark the buffer as full if we've looped back to the start
         self.full = self.full or self.index == 0
 
-    def get_all(self) -> List[Optional[Any]]:
+    def get_all(self) -> list[Optional[Any]]:
         """
         Retrieves all elements in the buffer in the correct order.
 
         Returns
         -------
         --------
-        List[Optional[Any]]:
+        list[Optional[Any]]:
             A list of elements in the buffer, ordered from the oldest to the
             newest.
         """

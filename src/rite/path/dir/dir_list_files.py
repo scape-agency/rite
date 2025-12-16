@@ -6,8 +6,8 @@ def list_files(
     rootdir: str | Path,
     pattern: Optional[str] = None,
     recursive: bool = False,
-    extensions: Optional[List[str]] = None,
-) -> List[Path]:
+    extensions: Optional[list[str]] = None,
+) -> list[Path]:
     """
     List all files in the given directory.
 
@@ -15,10 +15,10 @@ def list_files(
         rootdir (str | Path): The directory to search in.
         pattern (Optional[str]): Optional glob pattern (e.g., '*.txt' or 'data_*').
         recursive (bool): If True, searches recursively through subdirectories.
-        extensions (Optional[List[str]]): Optional list of file extensions to include (e.g., ['.py', '.txt']).
+        extensions (Optional[list[str]]): Optional list of file extensions to include (e.g., ['.py', '.txt']).
 
     Returns:
-        List[Path]: A list of Path objects for the matching files.
+        list[Path]: A list of Path objects for the matching files.
 
     Raises:
         FileNotFoundError: If the specified directory does not exist.

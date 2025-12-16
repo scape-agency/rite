@@ -87,7 +87,7 @@ def create_directory(
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "create_directory",
 ]
 
