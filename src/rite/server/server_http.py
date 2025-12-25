@@ -27,7 +27,6 @@ import urllib.parse
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 # Import | Standard Library
-from typing import List
 
 # Import | Libraries
 
@@ -147,9 +146,9 @@ class BaseHTTPServer(BaseHTTPRequestHandler):
 
     @staticmethod
     def run(
-        server_class=HTTPServer,
-        handler_class=BaseHTTPRequestHandler,
-        port=8000,
+        server_class: type[HTTPServer] = HTTPServer,
+        handler_class: type[BaseHTTPRequestHandler] | None = None,
+        port: int = 8000,
     ):
         """
         Static method to run the HTTP server.
@@ -164,6 +163,8 @@ class BaseHTTPServer(BaseHTTPRequestHandler):
         -------
             None
         """
+        if handler_class is None:
+            handler_class = BaseHTTPServer
         logging.basicConfig(level=logging.INFO)
         server_address = ("", port)
         httpd = server_class(server_address, handler_class)
@@ -196,7 +197,7 @@ def test():
     """
 
     # Running the server
-    BaseHTTPServer.run(handler_class=HTTPServer, port=8000)
+    BaseHTTPServer.run(handler_class=BaseHTTPServer, port=8000)
 
 
 # =============================================================================

@@ -26,7 +26,7 @@ import logging
 import sqlite3
 
 # Import | Standard Library
-from typing import Any, Tuple
+from typing import Any, Sequence, Tuple
 
 # Import | Libraries
 
@@ -74,7 +74,10 @@ class SQLiteServer:
         logging.basicConfig(level=logging.INFO)
 
     def _execute(
-        self, query: str, params: Tuple = (), commit: bool = False
+        self,
+        query: str,
+        params: Sequence[Any] | dict[str, Any] | Tuple[Any, ...] = (),
+        commit: bool = False,
     ) -> Any:
         """
         Private method to execute a SQL query.
@@ -135,7 +138,11 @@ class SQLiteServer:
         """
         return self._execute(query, params)
 
-    def fetch_one(self, query: str, params: Tuple = ()) -> Tuple:
+    def fetch_one(
+        self,
+        query: str,
+        params: Sequence[Any] | dict[str, Any] | Tuple[Any, ...] = (),
+    ) -> Tuple:
         """
         Fetches the first row from a SQL query.
 
