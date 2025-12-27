@@ -34,10 +34,6 @@ Examples
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
-
-# Import | Libraries
-
 # Import | Local Modules
 from .units_length import (
     units_feet_to_meters,

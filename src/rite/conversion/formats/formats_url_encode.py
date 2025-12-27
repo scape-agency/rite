@@ -28,18 +28,12 @@ from __future__ import annotations
 # Import | Standard Library
 from urllib.parse import quote_plus
 
-# Import | Libraries
-
-# Import | Local Modules
-
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def formats_url_encode(
-    s: str, safe: str = "", encoding: str = "utf-8"
-) -> str:
+def formats_url_encode(s: str, safe: str = "", encoding: str = "utf-8") -> str:
     """
     Encode string for use in URLs.
 

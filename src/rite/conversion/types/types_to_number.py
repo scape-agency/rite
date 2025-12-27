@@ -6,11 +6,17 @@
 Number Conversion
 =================
 
-Parse a number from strings including those with units or suffixes like
-'20 m', '45.5 %', '100/ha'.
+Parse numbers from strings including those with units or suffixes.
+
+Examples
+--------
+>>> from rite.conversion.types import types_to_number
+>>> types_to_number("45.5 %")
+45.5
+>>> types_to_number("20 m")
+20.0
 
 """
-
 
 # =============================================================================
 # Imports
@@ -28,49 +34,55 @@ from typing import Any
 # =============================================================================
 
 _number_pat = re.compile(
-    r"^\s*([-+]?\d*\.?\d+)\s*(?:[a-zA-Z%/]*?)\s*$",
+    r"^\s*([-+]?\d*\.?\d+(?:[eE][-+]?\d+)?)\s*[a-zA-Z%/]*?\s*$",
 )
-
 
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def to_number(x: Any) -> float | None:
+def types_to_number(x: Any, default: float | None = None) -> float | None:
     """
-    Parse a number from messy strings like '20 m', '45.5 %', '100/ha'.
+    Parse a number from strings like '20 m', '45.5 %', '100/ha'.
 
     Args:
-        x: Value to convert (number, string, or None)
+        x: Value to convert (number, string, or None).
+        default: Default value if parsing fails.
 
     Returns:
-        Float representation or None if parsing fails
+        Float representation or default/None if parsing fails.
 
-    Example:
-        >>> to_number("45.5 %")
+    Examples:
+        >>> types_to_number("45.5 %")
         45.5
-        >>> to_number(100)
+        >>> types_to_number(100)
         100.0
-        >>> to_number("invalid")
-        None
-    """
+        >>> types_to_number("1.5e3")
+        1500.0
+        >>> types_to_number("invalid")
 
+        >>> types_to_number("invalid", 0.0)
+        0.0
+        >>> types_to_number("20 meters")
+        20.0
+    """
     if x is None:
-        return None
+        return default
 
     if isinstance(x, (int, float)):
         return float(x)
 
-    m = _number_pat.match(str(x))
+    if isinstance(x, str):
+        match = _number_pat.match(x)
+        if match:
+            return float(match.group(1))
 
-    return float(m.group(1)) if m else None
+    return default
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "to_number",
-]
+__all__: list[str] = ["types_to_number"]

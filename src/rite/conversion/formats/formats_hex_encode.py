@@ -25,20 +25,12 @@ Examples
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
-
-# Import | Libraries
-
-# Import | Local Modules
-
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def formats_hex_encode(
-    data: bytes | str, encoding: str = "utf-8"
-) -> str:
+def formats_hex_encode(data: bytes | str, encoding: str = "utf-8") -> str:
     """
     Encode bytes to hexadecimal string.
 

@@ -28,18 +28,12 @@ from __future__ import annotations
 # Import | Standard Library
 import base64
 
-# Import | Libraries
-
-# Import | Local Modules
-
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def formats_base64_encode(
-    data: bytes | str, encoding: str = "utf-8"
-) -> str:
+def formats_base64_encode(data: bytes | str, encoding: str = "utf-8") -> str:
     """
     Encode bytes to base64 string.
 

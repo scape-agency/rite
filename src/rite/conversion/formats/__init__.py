@@ -34,10 +34,6 @@ Examples
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
-
-# Import | Libraries
-
 # Import | Local Modules
 from .formats_base64_decode import formats_base64_decode
 from .formats_base64_encode import formats_base64_encode

@@ -25,12 +25,6 @@ Examples
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
-
-# Import | Libraries
-
-# Import | Local Modules
-
 # =============================================================================
 # Functions
 # =============================================================================
@@ -136,9 +130,7 @@ def units_fahrenheit_to_kelvin(fahrenheit: float) -> float:
         >>> units_fahrenheit_to_kelvin(212)
         373.15
     """
-    return units_celsius_to_kelvin(
-        units_fahrenheit_to_celsius(fahrenheit)
-    )
+    return units_celsius_to_kelvin(units_fahrenheit_to_celsius(fahrenheit))
 
 
 def units_kelvin_to_fahrenheit(kelvin: float) -> float:

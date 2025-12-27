@@ -8,21 +8,17 @@ Boolean Conversion
 
 Convert values to boolean representation.
 
-This function converts various types of values to boolean, including strings
-like "yes", "no", "true", "false", numbers, etc.
-
-Example:
-    >>> to_bool("yes")
-    True
-    >>> to_bool("no")
-    False
-    >>> to_bool(1)
-    True
-    >>> to_bool(0)
-    False
+Examples
+--------
+>>> from rite.conversion.types import types_to_bool
+>>> types_to_bool("yes")
+True
+>>> types_to_bool("no")
+False
+>>> types_to_bool(1)
+True
 
 """
-
 
 # =============================================================================
 # Imports
@@ -41,57 +37,63 @@ from typing import Any
 TRUTHY = {"true", "t", "yes", "y", "1", "on"}
 FALSY = {"false", "f", "no", "n", "0", "off", ""}
 
-
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def to_bool(x: Any) -> bool | None:
+def types_to_bool(x: Any, default: bool | None = None) -> bool | None:
     """
     Convert a value to a boolean.
 
     Args:
-        x: Value to convert (string, number, bool, or None)
+        x: Value to convert (string, number, bool, or None).
+        default: Default value if conversion fails.
 
     Returns:
-        Boolean representation or None if conversion fails
+        Boolean representation or default/None if conversion fails.
 
-    Example:
-        >>> to_bool("yes")
+    Examples:
+        >>> types_to_bool("yes")
         True
-        >>> to_bool(0)
+        >>> types_to_bool("no")
         False
-        >>> to_bool(None)
-        None
-    """
-    # Handle None
-    if x is None:
-        return None
+        >>> types_to_bool(1)
+        True
+        >>> types_to_bool(0)
+        False
+        >>> types_to_bool(None)
 
-    # Handle booleans
+        >>> types_to_bool(None, False)
+        False
+        >>> types_to_bool("invalid")
+
+        >>> types_to_bool("invalid", True)
+        True
+    """
+    if x is None:
+        return default
+
     if isinstance(x, bool):
         return x
 
-    # Handle numbers
     if isinstance(x, (int, float)):
-        return bool(int(x))
+        return bool(x)
 
-    # Handle strings
-    s = str(x).strip().lower()
-    if s in TRUTHY:
-        return True
-    if s in FALSY:
-        return False
+    if isinstance(x, str):
+        normalized = x.strip().lower()
 
-    # Let validators raise if required
-    return None
+        if normalized in TRUTHY:
+            return True
+
+        if normalized in FALSY:
+            return False
+
+    return default
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "to_bool",
-]
+__all__: list[str] = ["types_to_bool", "TRUTHY", "FALSY"]

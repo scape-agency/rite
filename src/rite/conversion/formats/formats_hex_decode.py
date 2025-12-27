@@ -24,20 +24,12 @@ b'hello'
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
-
-# Import | Libraries
-
-# Import | Local Modules
-
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def formats_hex_decode(
-    s: str, default: bytes | None = None
-) -> bytes | None:
+def formats_hex_decode(s: str, default: bytes | None = None) -> bytes | None:
     """
     Decode hexadecimal string to bytes.
 

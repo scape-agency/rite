@@ -6,10 +6,17 @@
 Bytes Conversion Module
 =======================
 
-Provides utilities for converting various types to bytes.
+Convert various types to bytes representation.
+
+Examples
+--------
+>>> from rite.conversion.types import types_to_bytes
+>>> types_to_bytes("hello")
+b'hello'
+>>> types_to_bytes(42)
+b'42'
 
 """
-
 
 # =============================================================================
 # Imports
@@ -22,16 +29,23 @@ from __future__ import annotations
 import os
 from typing import Any
 
-# Import | Local Modules
-# Import | Local
-from .is_protected_type import is_protected_type
+# =============================================================================
+# Constants
+# =============================================================================
+
+PROTECTED_TYPES = (
+    type(None),
+    int,
+    float,
+    bool,
+)
 
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def to_bytes(
+def types_to_bytes(
     content: Any,
     *,
     encoding: str = "utf-8",
@@ -42,75 +56,67 @@ def to_bytes(
     Convert content to a byte representation.
 
     Args:
-    ----
         content: Content to convert to bytes.
         encoding: Character encoding to use.
         errors: Error handling scheme.
         strings_only: If True, leave protected types unconverted.
 
     Returns:
-    -------
-        bytes | bytearray | Any: Byte representation or original if protected.
+        Byte representation or original if protected.
 
-    Example:
-    -------
-        >>> to_bytes("hello")
+    Examples:
+        >>> types_to_bytes("hello")
         b'hello'
-        >>> to_bytes(42, strings_only=True)
+        >>> types_to_bytes(42, strings_only=True)
         42
-        >>> to_bytes(42, strings_only=False)
+        >>> types_to_bytes(42, strings_only=False)
         b'42'
+        >>> types_to_bytes(b"bytes")
+        b'bytes'
 
     Notes:
-    -----
         Behavior:
         - bytes/bytearray: returned as-is
         - memoryview: converted to bytes
         - objects with __bytes__: bytes(obj)
-        - os.PathLike: os.fspath(obj) encoded with encoding
+        - os.PathLike: os.fspath(obj) encoded
         - str: encoded with encoding/errors
-        - everything else: str(obj).encode(encoding, errors)
+        - everything else: str(obj).encode()
 
-        If strings_only=True, protected types (None, numbers, dates, etc.)
+        If strings_only=True, protected types (None, numbers)
         are returned unmodified.
-
     """
     # Fast paths
     if isinstance(content, (bytes, bytearray)):
         return content
+
+    # Protected types
+    if strings_only and isinstance(content, PROTECTED_TYPES):
+        return content
+
+    # Memory view
     if isinstance(content, memoryview):
         return bytes(content)
 
-    if strings_only and is_protected_type(content):
-        return content
+    # Objects with __bytes__
+    if hasattr(content, "__bytes__"):
+        return bytes(content)
 
-    # Respect custom binary conversion if provided
-    to_b = getattr(content, "__bytes__", None)
-    if callable(to_b):
-        return to_b()
+    # Path-like objects
+    if isinstance(content, os.PathLike):
+        path_str = os.fspath(content)
+        return path_str.encode(encoding, errors)
 
-    # Paths: handle before str() to avoid repr-like encodings
-    try:
-        fspath = os.fspath(content)
-        if isinstance(fspath, bytes):
-            return fspath
-        if isinstance(fspath, str):
-            return fspath.encode(encoding, errors)
-    except TypeError:
-        # not PathLike; continue
-        pass
-
-    # Strings & general objects
+    # Strings
     if isinstance(content, str):
         return content.encode(encoding, errors)
 
+    # Everything else
     return str(content).encode(encoding, errors)
 
 
 # =============================================================================
-# Module Exports
+# Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "to_bytes",
-]
+__all__: list[str] = ["types_to_bytes", "PROTECTED_TYPES"]

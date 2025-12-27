@@ -29,18 +29,12 @@ from __future__ import annotations
 import json
 from typing import Any
 
-# Import | Libraries
-
-# Import | Local Modules
-
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def formats_json_decode(
-    s: str | bytes, default: Any = None
-) -> Any:
+def formats_json_decode(s: str | bytes, default: Any = None) -> Any:
     """
     Convert JSON string to Python object.
 
