@@ -27,8 +27,18 @@ from rite.reflection.attributes.attributes_del_attr import (
 
 
 def test_attributes_del_attr() -> None:
-    """Test attributes_del_attr() function."""
-    # TODO: Implement test
-    # result = attributes_del_attr(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    """Test attributes_del_attr() with various objects."""
+
+    class TestClass:
+        def __init__(self) -> None:
+            self.value = 42
+            self.name = "test"
+
+    obj = TestClass()
+    assert hasattr(obj, "value")
+    attributes_del_attr(obj, "value")
+    assert not hasattr(obj, "value")
+
+    assert hasattr(obj, "name")
+    attributes_del_attr(obj, "name")
+    assert not hasattr(obj, "name")

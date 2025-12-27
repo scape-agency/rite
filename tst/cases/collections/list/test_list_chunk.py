@@ -26,9 +26,18 @@ from rite.collections.list.list_chunk import (
 # =============================================================================
 
 
-def test_list_chunk() -> None:
-    """Test list_chunk() function."""
-    # TODO: Implement test
-    # result = list_chunk(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "items,size,expected",
+    [
+        ([1, 2, 3, 4, 5], 2, [[1, 2], [3, 4], [5]]),
+        ([1, 2, 3, 4, 5, 6], 3, [[1, 2, 3], [4, 5, 6]]),
+        ([], 2, []),
+        ([1], 2, [[1]]),
+        ([1, 2], 1, [[1], [2]]),
+    ],
+)
+def test_list_chunk(
+    items: list[int], size: int, expected: list[list[int]]
+) -> None:
+    """Test list_chunk() with various inputs."""
+    assert list_chunk(items, size) == expected

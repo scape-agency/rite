@@ -26,9 +26,16 @@ from rite.collections.list.list_flatten import (
 # =============================================================================
 
 
-def test_list_flatten() -> None:
-    """Test list_flatten() function."""
-    # TODO: Implement test
-    # result = list_flatten(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "items,expected",
+    [
+        ([[1, 2], [3, 4], [5]], [1, 2, 3, 4, 5]),
+        ([[1, [2, 3]], [4, 5]], [1, 2, 3, 4, 5]),
+        ([], []),
+        ([[1]], [1]),
+        ([[], [2, 3], []], [2, 3]),
+    ],
+)
+def test_list_flatten(items: list[list[int]], expected: list[int]) -> None:
+    """Test list_flatten() with various inputs."""
+    assert list_flatten(items) == expected

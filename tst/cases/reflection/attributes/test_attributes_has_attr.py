@@ -27,8 +27,14 @@ from rite.reflection.attributes.attributes_has_attr import (
 
 
 def test_attributes_has_attr() -> None:
-    """Test attributes_has_attr() function."""
-    # TODO: Implement test
-    # result = attributes_has_attr(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    """Test attributes_has_attr() with various objects."""
+
+    class TestClass:
+        def __init__(self) -> None:
+            self.value = 42
+
+    obj = TestClass()
+    assert attributes_has_attr(obj, "value") is True
+    assert attributes_has_attr(obj, "missing") is False
+    assert attributes_has_attr("hello", "upper") is True
+    assert attributes_has_attr("hello", "missing_method") is False

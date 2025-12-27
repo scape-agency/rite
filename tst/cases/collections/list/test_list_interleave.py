@@ -27,8 +27,17 @@ from rite.collections.list.list_interleave import (
 
 
 def test_list_interleave() -> None:
-    """Test list_interleave() function."""
-    # TODO: Implement test
-    # result = list_interleave(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    """Test list_interleave() with various inputs."""
+    assert list_interleave([1, 2, 3], ["a", "b", "c"]) == [
+        1,
+        "a",
+        2,
+        "b",
+        3,
+        "c",
+    ]
+    assert list_interleave([1, 2], ["a", "b"]) == [1, "a", 2, "b"]
+    assert list_interleave([1], [2], [3]) == [1, 2, 3]
+    assert list_interleave([], []) == []
+    # Note: zip stops at shortest list, so [1, 2, 3] with ["a"] gives [1, "a"]
+    assert list_interleave([1, 2, 3], ["a"]) == [1, "a"]

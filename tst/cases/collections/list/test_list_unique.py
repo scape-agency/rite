@@ -26,9 +26,16 @@ from rite.collections.list.list_unique import (
 # =============================================================================
 
 
-def test_list_unique() -> None:
-    """Test list_unique() function."""
-    # TODO: Implement test
-    # result = list_unique(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "items,expected",
+    [
+        ([1, 2, 2, 3, 3, 3], [1, 2, 3]),
+        (["a", "b", "a", "c"], ["a", "b", "c"]),
+        ([], []),
+        ([1], [1]),
+        ([1, 1, 1], [1]),
+    ],
+)
+def test_list_unique(items: list, expected: list) -> None:
+    """Test list_unique() with various inputs."""
+    assert list_unique(items) == expected
