@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -22,7 +19,6 @@ Best-effort magic-number based MIME type detection.
 from __future__ import annotations
 
 # Import | Standard Library
-from typing import Optional
 
 BytesLike = bytes | bytearray | memoryview
 
@@ -31,7 +27,7 @@ def mimetype_sniff(
     buf: BytesLike,
     *,
     max_probe: int = 512,
-) -> Optional[str]:
+) -> str | None:
     """
     Best-effort MIME sniffing from magic numbers.
     Returns None if no known signature is found.

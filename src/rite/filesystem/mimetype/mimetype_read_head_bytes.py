@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -24,20 +21,19 @@ from __future__ import annotations
 # Import | Standard Library
 import io
 import os
-from typing import Optional, Union
 
 # =============================================================================
 # Types
 # =============================================================================
 
-BytesLike = Union[bytes, bytearray, memoryview]
+BytesLike = bytes | bytearray | memoryview
 
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def read_head_bytes(obj: object, n: int = 8192) -> Optional[bytes]:
+def read_head_bytes(obj: object, n: int = 8192) -> bytes | None:
     """
     Return up to the first `n` bytes from `obj` without consuming it,
     or None if that can't be done safely.

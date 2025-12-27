@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 
 # =============================================================================
@@ -24,16 +23,8 @@ allowed types, which is useful for validating uploaded files.
 # Import | Future
 from __future__ import annotations
 
-import mimetypes
-
-# Import | Libraries
-from django.utils.translation import gettext_lazy
-
 # Import | Standard Library
-
-
-# Import | Local Modules
-
+import mimetypes
 
 # =============================================================================
 # Functions
@@ -59,9 +50,7 @@ def mimetype_verify(filename: str, allowed_types: list) -> bool:
     if not isinstance(allowed_types, list) or not all(
         isinstance(item, str) for item in allowed_types
     ):
-        raise ValueError(
-            gettext_lazy("'allowed_types' must be a list of strings.")
-        )
+        raise ValueError("'allowed_types' must be a list of strings.")
 
     mime_type, _ = mimetypes.guess_type(filename)
     return mime_type in allowed_types

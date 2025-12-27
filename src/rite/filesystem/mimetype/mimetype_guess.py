@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -28,44 +25,14 @@ Returns a lowercase MIME string like "image/png", or `None` when unknown.
 # Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
 import mimetypes
 import os
-from typing import Optional
 from urllib.parse import urlsplit
 
 # Import | Local Modules
+from .mimetype_read_head_bytes import read_head_bytes
 from .mimetype_sniff import mimetype_sniff
-
-
-def read_head_bytes(obj: object, n: int) -> bytes:
-    """Read up to *n* bytes from a variety of inputs non-destructively.
-
-    Supports bytes-like objects and file-like objects. For streams, the
-    original position is restored when possible.
-    """
-
-    if isinstance(obj, (bytes, bytearray, memoryview)):
-        return bytes(obj[:n])
-
-    # File-like objects with ``read`` (optionally ``tell``/``seek``)
-    if hasattr(obj, "read"):
-        stream = obj  # type: ignore[assignment]
-        try:
-            current_position = stream.tell()
-        except (AttributeError, OSError):  # pragma: no cover - very uncommon
-            current_position = None
-
-        data = stream.read(n)
-
-        if current_position is not None:
-            try:
-                stream.seek(current_position)
-            except (AttributeError, OSError):  # pragma: no cover
-                pass
-
-        return data or b""
-
-    return b""
 
 
 def mimetype_guess(
@@ -73,7 +40,7 @@ def mimetype_guess(
     *,
     prefer_sniff: bool = False,
     max_bytes: int = 8192,
-) -> Optional[str]:
+) -> str | None:
     """
     Best-effort MIME detection for:
       - UploadedFile-like objects (uses `.content_type` if present)
@@ -98,7 +65,7 @@ def mimetype_guess(
     if content_type:
         return str(content_type).lower()
 
-    def _from_name(candidate_object: object) -> Optional[str]:
+    def _from_name(candidate_object: object) -> str | None:
         # Accept:
         #  - UploadedFile-ish: has `.name`
         #  - plain strings / URLs
@@ -120,8 +87,8 @@ def mimetype_guess(
         mime, _enc = mimetypes.guess_type(path)
         return mime.lower() if mime else None
 
-    def _from_bytes(candidate_object: object) -> Optional[str]:
-        head = read_head_bytes(candidate_object, n=max_bytes)
+    def _from_bytes(candidate_object: object) -> str | None:
+        head = read_head_bytes(candidate_object, n=max_bytes) or b""
         if not head:
             return None
         sniffed = mimetype_sniff(head)

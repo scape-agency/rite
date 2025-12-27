@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 """File extension helpers for the filesystem package."""
 

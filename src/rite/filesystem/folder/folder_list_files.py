@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -24,6 +21,11 @@ from __future__ import annotations
 # Import | Standard Library
 from pathlib import Path
 from typing import Iterator
+
+# Import | Libraries
+
+# Import | Local Modules
+
 
 # =============================================================================
 # Functions

@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -15,38 +12,22 @@
 # Import | Future
 from __future__ import annotations
 
-from typing import Any, Iterable, Optional
+from typing import Any, Iterable
 
 # Import | Local Modules
 from .mimetype_guess import mimetype_guess
+from .mimetype_match import mimetype_match
 
 
 class MimeValidationError(ValueError):
     """Raised when a value does not satisfy MIME type constraints."""
 
 
-def mimetype_match(mime: str, pattern: str) -> bool:
-    """Return True if *mime* matches a simple MIME ``pattern``.
-
-    The pattern may contain wildcards in the subtype, such as ``"image/*"``.
-    """
-
-    try:
-        mime_type, mime_subtype = mime.split("/", 1)
-        pattern_type, pattern_subtype = pattern.split("/", 1)
-    except ValueError:
-        return mime == pattern
-
-    type_matches = pattern_type in {"*", mime_type}
-    subtype_matches = pattern_subtype in {"*", mime_subtype}
-    return type_matches and subtype_matches
-
-
 def validate_mimetype(
     input_object: Any,
     *,
-    allowed: Optional[Iterable[str]] = None,
-    forbidden: Optional[Iterable[str]] = None,
+    allowed: Iterable[str] | None = None,
+    forbidden: Iterable[str] | None = None,
 ) -> str:
     """
     Validate MIME type of ``input_object`` without any Django dependency.

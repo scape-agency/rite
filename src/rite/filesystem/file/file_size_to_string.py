@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -22,7 +19,7 @@ Provides functionality to convert file sizes to human-readable strings.
 from __future__ import annotations
 
 # Import | Standard Library
-from typing import BinaryIO, Protocol, Union
+from typing import BinaryIO, Protocol
 
 # Import | Local Modules
 # Implement local bytes-to-string conversion to avoid external dependency.
@@ -70,7 +67,7 @@ class _SizedStream(Protocol):
 
 
 def file_size_to_string(
-    filehandle: Union[BinaryIO, _SizedStream],
+    filehandle: BinaryIO | _SizedStream,
 ) -> str:
     """Return the size of a file in a human-readable string.
 

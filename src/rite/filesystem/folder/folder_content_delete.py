@@ -1,5 +1,35 @@
+# =============================================================================
+# Docstring
+# =============================================================================
+
+"""
+Folder Content Delete Module
+============================
+
+Deletes all files and subdirectories inside a given folder.
+
+"""
+
+
+# =============================================================================
+# Imports
+# =============================================================================
+
+# Import | Future
+from __future__ import annotations
+
+# Import | Standard Library
 import shutil
 from pathlib import Path
+
+# Import | Libraries
+
+# Import | Local Modules
+
+
+# =============================================================================
+# Functions
+# =============================================================================
 
 
 def delete_contents(

@@ -1,10 +1,39 @@
+# =============================================================================
+# Docstring
+# =============================================================================
+
+"""
+Folder List Folders Module
+==========================
+
+Lists all subdirectories inside a given directory.
+
+"""
+
+
+# =============================================================================
+# Imports
+# =============================================================================
+
+# Import | Future
+from __future__ import annotations
+
+# Import | Standard Library
 from pathlib import Path
-from typing import Optional
+
+# Import | Libraries
+
+# Import | Local Modules
+
+
+# =============================================================================
+# Functions
+# =============================================================================
 
 
 def list_folders(
     rootdir: str | Path,
-    pattern: Optional[str] = None,
+    pattern: str | None = None,
     recursive: bool = False,
 ) -> list[Path]:
     """
@@ -12,7 +41,7 @@ def list_folders(
 
     Args:
         rootdir (str | Path): The directory to search.
-        pattern (Optional[str]): Optional glob pattern to filter directories (e.g., 'data*').
+        pattern (str | None): Optional glob pattern to filter directories (e.g., 'data*').
         recursive (bool): If True, searches recursively through all subfolders.
 
     Returns:

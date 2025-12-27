@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 """Path helpers for filesystem package."""
 

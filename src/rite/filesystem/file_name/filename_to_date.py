@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Optional
 
 from rite.filesystem.file_name.filename_to_datestring import (
     filename_to_datestring,
@@ -10,7 +9,7 @@ from rite.filesystem.file_name.filename_to_datestring import (
 
 def filename_to_date(
     filename: str, date_format: str = "%Y-%m-%d-%H%M%S"
-) -> Optional[datetime]:
+) -> datetime | None:
     """Extract a ``datetime`` from a filename using an embedded date segment.
 
     Args:

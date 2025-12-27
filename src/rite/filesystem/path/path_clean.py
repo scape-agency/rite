@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -20,6 +17,13 @@ Provides path normalization and cleaning utilities.
 
 # Import | Future
 from __future__ import annotations
+
+# Import | Standard Library
+
+# Import | Libraries
+
+# Import | Local Modules
+
 
 # =============================================================================
 # Functions

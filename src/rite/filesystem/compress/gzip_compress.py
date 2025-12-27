@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -29,7 +26,7 @@ from typing import BinaryIO
 
 # Import | Local Modules
 from ..file.file_spooled import create_spooled_temporary_file
-from .file_gzip_settings import settings
+from .gzip_settings import settings
 
 # =============================================================================
 # Functions

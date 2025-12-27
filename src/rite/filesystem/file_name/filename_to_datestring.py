@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -23,7 +20,6 @@ from __future__ import annotations
 
 # Import | Standard Library
 import re
-from typing import Optional
 
 
 def date_format_to_regex(date_format: str) -> re.Pattern[str]:
@@ -58,7 +54,7 @@ def date_format_to_regex(date_format: str) -> re.Pattern[str]:
 def filename_to_datestring(
     filename: str,
     date_format: str = "%Y-%m-%d-%H%M%S",
-) -> Optional[str]:
+) -> str | None:
     """
     Extract the date string from a filename using the given format.
 
