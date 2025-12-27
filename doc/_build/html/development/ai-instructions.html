@@ -1,0 +1,600 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Instructions for Rite &mdash; rite 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=c72a147a" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            rite
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">AI Instructions for Rite</a><ul>
+<li><a class="reference internal" href="#project-overview">Project Overview</a></li>
+<li><a class="reference internal" href="#core-principles">Core Principles</a></li>
+<li><a class="reference internal" href="#file-structure-template">File Structure Template</a></li>
+<li><a class="reference internal" href="#module-organization">Module Organization</a></li>
+<li><a class="reference internal" href="#naming-conventions">Naming Conventions</a><ul>
+<li><a class="reference internal" href="#module-files">Module Files</a></li>
+<li><a class="reference internal" href="#code-elements">Code Elements</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type-hints">Type Hints</a></li>
+<li><a class="reference internal" href="#import-organization">Import Organization</a></li>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+<li><a class="reference internal" href="#testing">Testing</a><ul>
+<li><a class="reference internal" href="#test-structure">Test Structure</a></li>
+<li><a class="reference internal" href="#test-markers">Test Markers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#code-quality-standards">Code Quality Standards</a><ul>
+<li><a class="reference internal" href="#formatting">Formatting</a></li>
+<li><a class="reference internal" href="#linting">Linting</a></li>
+<li><a class="reference internal" href="#type-checking">Type Checking</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ai-agent-guidelines">AI Agent Guidelines</a><ul>
+<li><a class="reference internal" href="#when-creating-new-files">When Creating New Files:</a></li>
+<li><a class="reference internal" href="#when-modifying-files">When Modifying Files:</a></li>
+<li><a class="reference internal" href="#when-writing-tests">When Writing Tests:</a></li>
+<li><a class="reference internal" href="#quality-checklist">Quality Checklist:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#common-commands">Common Commands</a></li>
+<li><a class="reference internal" href="#configuration-files">Configuration Files</a></li>
+<li><a class="reference internal" href="#common-patterns">Common Patterns</a><ul>
+<li><a class="reference internal" href="#error-handling">Error Handling</a></li>
+<li><a class="reference internal" href="#file-operations">File Operations</a></li>
+<li><a class="reference internal" href="#id1">Type Checking</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#what-not-to-do">What NOT to Do</a><ul>
+<li><a class="reference internal" href="#never-use">❌ Never Use:</a></li>
+<li><a class="reference internal" href="#never-import">❌ Never Import:</a></li>
+<li><a class="reference internal" href="#only-use">✅ Only Use:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#remember">Remember</a></li>
+<li><a class="reference internal" href="#see-also">See Also</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">rite</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">AI Instructions for Rite</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/scape-agency/rite/blob/main/doc/development/ai-instructions.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ai-instructions-for-rite">
+<h1>AI Instructions for Rite<a class="headerlink" href="#ai-instructions-for-rite" title="Link to this heading"></a></h1>
+<p>This guide provides comprehensive instructions for AI agents and GitHub Copilot when working on the Rite project.</p>
+<section id="project-overview">
+<h2>Project Overview<a class="headerlink" href="#project-overview" title="Link to this heading"></a></h2>
+<p><strong>Rite</strong> is a modern Python utility library with:</p>
+<ul class="simple">
+<li><p><strong>Target</strong>: Python 3.10, 3.11, 3.12</p></li>
+<li><p><strong>Dependencies</strong>: Zero external runtime dependencies</p></li>
+<li><p><strong>License</strong>: MIT</p></li>
+<li><p><strong>Repository</strong>: https://github.com/scape-agency/rite</p></li>
+</ul>
+</section>
+<section id="core-principles">
+<h2>Core Principles<a class="headerlink" href="#core-principles" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Consistency</strong>: All code follows the same structure</p></li>
+<li><p><strong>Modern Python</strong>: Python 3.10+ syntax only</p></li>
+<li><p><strong>Type Safety</strong>: Comprehensive type hints</p></li>
+<li><p><strong>Zero Dependencies</strong>: No external packages in src/</p></li>
+<li><p><strong>Modularity</strong>: Clear module organization with prefixes</p></li>
+</ol>
+</section>
+<section id="file-structure-template">
+<h2>File Structure Template<a class="headerlink" href="#file-structure-template" title="Link to this heading"></a></h2>
+<p>Every Python file MUST follow this exact structure:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># =============================================================================</span>
+<span class="c1"># Docstring</span>
+<span class="c1"># =============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Module Name</span>
+<span class="sd">===========</span>
+
+<span class="sd">Brief description.</span>
+
+<span class="sd">Examples</span>
+<span class="sd">--------</span>
+<span class="sd">&gt;&gt;&gt; from rite.module import function</span>
+<span class="sd">&gt;&gt;&gt; function(arg)</span>
+<span class="sd">&#39;result&#39;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># =============================================================================</span>
+<span class="c1"># Imports</span>
+<span class="c1"># =============================================================================</span>
+
+<span class="c1"># Import | Future</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="c1"># Import | Standard Library</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+
+<span class="c1"># Import | Libraries</span>
+<span class="c1"># (No external libraries in src/)</span>
+
+<span class="c1"># Import | Local Modules</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rite.other_module</span><span class="w"> </span><span class="kn">import</span> <span class="n">helper</span>
+
+<span class="c1"># =============================================================================</span>
+<span class="c1"># Functions/Classes</span>
+<span class="c1"># =============================================================================</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Brief description.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        param: Parameter description.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Return value description.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; function_name(&quot;test&quot;)</span>
+<span class="sd">        &#39;result&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="c1"># =============================================================================</span>
+<span class="c1"># Exports</span>
+<span class="c1"># =============================================================================</span>
+
+<span class="n">__all__</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;function_name&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="module-organization">
+<h2>Module Organization<a class="headerlink" href="#module-organization" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>src/rite/
+├── crypto/          # Cryptographic utilities
+│   ├── uuid/       # UUID operations (uuid_* files)
+│   ├── hash/       # Hashing functions (hash_* files)
+│   └── cipher/     # Cipher implementations (cipher_* files)
+├── filesystem/     # File system operations
+│   ├── file/       # File operations (file_* files)
+│   ├── folder/     # Directory operations (folder_* files)
+│   └── path/       # Path utilities (path_* files)
+├── text/           # Text processing
+│   ├── slug/       # Slug generation (slug_* files)
+│   ├── case/       # Case conversion (case_* files)
+│   └── sanitize/   # Text sanitization (sanitize_* files)
+├── collections/    # Collection utilities
+├── conversion/     # Type conversions
+├── numeric/        # Numeric utilities
+└── temporal/       # Date/time utilities
+</pre></div>
+</div>
+</section>
+<section id="naming-conventions">
+<h2>Naming Conventions<a class="headerlink" href="#naming-conventions" title="Link to this heading"></a></h2>
+<section id="module-files">
+<h3>Module Files<a class="headerlink" href="#module-files" title="Link to this heading"></a></h3>
+<p>Use module-specific prefixes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">crypto/uuid/uuid_hex.py</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">crypto/hash/hash_sha256.py</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filesystem/file/file_copy.py</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text/slug/slug_is_valid.py</span></code></p></li>
+</ul>
+</section>
+<section id="code-elements">
+<h3>Code Elements<a class="headerlink" href="#code-elements" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Functions/Variables</strong>: <code class="docutils literal notranslate"><span class="pre">snake_case</span></code></p></li>
+<li><p><strong>Classes</strong>: <code class="docutils literal notranslate"><span class="pre">PascalCase</span></code></p></li>
+<li><p><strong>Constants</strong>: <code class="docutils literal notranslate"><span class="pre">UPPER_CASE</span></code></p></li>
+<li><p><strong>Private</strong>: <code class="docutils literal notranslate"><span class="pre">_leading_underscore</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="type-hints">
+<h2>Type Hints<a class="headerlink" href="#type-hints" title="Link to this heading"></a></h2>
+<p>Always use Python 3.10+ type hint syntax:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ✅ Correct (Python 3.10+)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_items</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
+    <span class="k">pass</span>
+
+<span class="c1"># ❌ Incorrect (Old style)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</section>
+<section id="import-organization">
+<h2>Import Organization<a class="headerlink" href="#import-organization" title="Link to this heading"></a></h2>
+<p>Four sections in exact order:</p>
+<ol class="arabic simple">
+<li><p><strong>Future</strong>: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">annotations</span></code></p></li>
+<li><p><strong>Standard Library</strong>: Alphabetical</p></li>
+<li><p><strong>Libraries</strong>: External packages (none in src/)</p></li>
+<li><p><strong>Local Modules</strong>: From rite package</p></li>
+</ol>
+<p>Use custom headers:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import | Future</span>
+<span class="c1"># Import | Standard Library</span>
+<span class="c1"># Import | Libraries</span>
+<span class="c1"># Import | Local Modules</span>
+</pre></div>
+</div>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h2>
+<p>Use Google-style docstrings:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Brief one-line description.</span>
+
+<span class="sd">    Longer description if needed.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        param1: Description of param1.</span>
+<span class="sd">        param2: Description of param2. Defaults to 0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Description of return value.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: When param1 is empty.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; function(&quot;test&quot;, 5)</span>
+<span class="sd">        True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Link to this heading"></a></h2>
+<section id="test-structure">
+<h3>Test Structure<a class="headerlink" href="#test-structure" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># =============================================================================</span>
+<span class="c1"># Test: Module Name</span>
+<span class="c1"># =============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;Tests for rite.module.function.&quot;&quot;&quot;</span>
+
+<span class="c1"># Import | Future</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="c1"># Import | Standard Library</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+
+<span class="c1"># Import | Local Modules</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rite.module</span><span class="w"> </span><span class="kn">import</span> <span class="n">function</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">TestFunction</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Tests for function.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_basic_usage</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test basic functionality.&quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="s2">&quot;expected&quot;</span>
+
+    <span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
+        <span class="s2">&quot;input_val,expected&quot;</span><span class="p">,</span>
+        <span class="p">[</span>
+            <span class="p">(</span><span class="s2">&quot;test1&quot;</span><span class="p">,</span> <span class="s2">&quot;result1&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;test2&quot;</span><span class="p">,</span> <span class="s2">&quot;result2&quot;</span><span class="p">),</span>
+        <span class="p">],</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_multiple_cases</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">input_val</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">expected</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test multiple parameter combinations.&quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="n">function</span><span class="p">(</span><span class="n">input_val</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
+</pre></div>
+</div>
+</section>
+<section id="test-markers">
+<h3>Test Markers<a class="headerlink" href="#test-markers" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;pytest.mark.unit</span></code> - Unit tests</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;pytest.mark.integration</span></code> - Integration tests</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;pytest.mark.slow</span></code> - Slow tests</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;pytest.mark.security</span></code> - Security tests</p></li>
+</ul>
+</section>
+</section>
+<section id="code-quality-standards">
+<h2>Code Quality Standards<a class="headerlink" href="#code-quality-standards" title="Link to this heading"></a></h2>
+<section id="formatting">
+<h3>Formatting<a class="headerlink" href="#formatting" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Black</strong>: 79 character line length</p></li>
+<li><p><strong>isort</strong>: Black-compatible profile</p></li>
+<li><p><strong>No trailing whitespace</strong></p></li>
+<li><p><strong>LF line endings</strong></p></li>
+<li><p><strong>Final newline in every file</strong></p></li>
+</ul>
+</section>
+<section id="linting">
+<h3>Linting<a class="headerlink" href="#linting" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Flake8</strong>: Max line length 79, max complexity 15</p></li>
+<li><p><strong>Pylint</strong>: Score target 10.0</p></li>
+<li><p><strong>No unused imports</strong></p></li>
+<li><p><strong>No commented-out code</strong></p></li>
+</ul>
+</section>
+<section id="type-checking">
+<h3>Type Checking<a class="headerlink" href="#type-checking" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Mypy</strong>: Strict optional, warn on redundant casts</p></li>
+<li><p><strong>All functions</strong>: Return type hints required</p></li>
+<li><p><strong>All parameters</strong>: Type hints required</p></li>
+</ul>
+</section>
+</section>
+<section id="ai-agent-guidelines">
+<h2>AI Agent Guidelines<a class="headerlink" href="#ai-agent-guidelines" title="Link to this heading"></a></h2>
+<section id="when-creating-new-files">
+<h3>When Creating New Files:<a class="headerlink" href="#when-creating-new-files" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Use the correct module prefix</p></li>
+<li><p>Follow the four-section template exactly</p></li>
+<li><p>Add comprehensive docstrings with examples</p></li>
+<li><p>Include type hints for everything</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">__all__</span></code> exports</p></li>
+<li><p>Create corresponding test file</p></li>
+</ol>
+</section>
+<section id="when-modifying-files">
+<h3>When Modifying Files:<a class="headerlink" href="#when-modifying-files" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Maintain the four-section structure</p></li>
+<li><p>Preserve import organization</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">__all__</span></code> if adding exports</p></li>
+<li><p>Keep docstrings up to date</p></li>
+<li><p>Don’t break existing type hints</p></li>
+</ol>
+</section>
+<section id="when-writing-tests">
+<h3>When Writing Tests:<a class="headerlink" href="#when-writing-tests" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Create test file in <code class="docutils literal notranslate"><span class="pre">tst/</span></code> mirroring <code class="docutils literal notranslate"><span class="pre">src/</span></code> structure</p></li>
+<li><p>Use descriptive test names</p></li>
+<li><p>Include parametrized tests for multiple cases</p></li>
+<li><p>Test edge cases and error conditions</p></li>
+<li><p>Aim for &gt;80% coverage</p></li>
+</ol>
+</section>
+<section id="quality-checklist">
+<h3>Quality Checklist:<a class="headerlink" href="#quality-checklist" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>[ ] Python 3.10+ syntax used</p></li>
+<li><p>[ ] <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">annotations</span></code> present</p></li>
+<li><p>[ ] Four-section structure followed</p></li>
+<li><p>[ ] Correct module prefix in filename</p></li>
+<li><p>[ ] Type hints on all functions/methods</p></li>
+<li><p>[ ] Google-style docstrings with examples</p></li>
+<li><p>[ ] <code class="docutils literal notranslate"><span class="pre">__all__</span></code> defined</p></li>
+<li><p>[ ] No external dependencies in src/</p></li>
+<li><p>[ ] Tests created/updated</p></li>
+<li><p>[ ] Line length ≤ 79 characters</p></li>
+</ul>
+</section>
+</section>
+<section id="common-commands">
+<h2>Common Commands<a class="headerlink" href="#common-commands" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Format code</span>
+make<span class="w"> </span>format
+
+<span class="c1"># Check quality</span>
+make<span class="w"> </span>check
+
+<span class="c1"># Run tests</span>
+make<span class="w"> </span><span class="nb">test</span>
+
+<span class="c1"># All at once</span>
+make<span class="w"> </span>all
+</pre></div>
+</div>
+</section>
+<section id="configuration-files">
+<h2>Configuration Files<a class="headerlink" href="#configuration-files" title="Link to this heading"></a></h2>
+<p>All tools have dedicated configuration files:</p>
+<ul class="simple">
+<li><p><strong>Black</strong>: <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> [tool.black]</p></li>
+<li><p><strong>isort</strong>: <code class="docutils literal notranslate"><span class="pre">.isort.cfg</span></code></p></li>
+<li><p><strong>Flake8</strong>: <code class="docutils literal notranslate"><span class="pre">.flake8</span></code></p></li>
+<li><p><strong>Pylint</strong>: <code class="docutils literal notranslate"><span class="pre">.pylintrc</span></code></p></li>
+<li><p><strong>Mypy</strong>: <code class="docutils literal notranslate"><span class="pre">mypy.ini</span></code></p></li>
+<li><p><strong>Pytest</strong>: <code class="docutils literal notranslate"><span class="pre">pytest.ini</span></code></p></li>
+<li><p><strong>Coverage</strong>: <code class="docutils literal notranslate"><span class="pre">.coveragerc</span></code></p></li>
+</ul>
+</section>
+<section id="common-patterns">
+<h2>Common Patterns<a class="headerlink" href="#common-patterns" title="Link to this heading"></a></h2>
+<section id="error-handling">
+<h3>Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">safe_operation</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return result or None on failure.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">risky_operation</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</section>
+<section id="file-operations">
+<h3>File Operations<a class="headerlink" href="#file-operations" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">read_config</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read configuration file.&quot;&quot;&quot;</span>
+    <span class="n">config_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">config_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Config not found: </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">config_path</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h3>Type Checking<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeVar</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">first_or_default</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">T</span><span class="p">],</span> <span class="n">default</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return first item or default value.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">items</span> <span class="k">else</span> <span class="n">default</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="what-not-to-do">
+<h2>What NOT to Do<a class="headerlink" href="#what-not-to-do" title="Link to this heading"></a></h2>
+<section id="never-use">
+<h3>❌ Never Use:<a class="headerlink" href="#never-use" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Python 2 compatibility code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">-*-</span> <span class="pre">coding:</span> <span class="pre">utf-8</span> <span class="pre">-*-</span></code> declarations</p></li>
+<li><p>External dependencies in src/</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Optional[X]</span></code> instead of <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">|</span> <span class="pre">None</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Union[X,</span> <span class="pre">Y]</span></code> instead of <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">|</span> <span class="pre">Y</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Dict</span></code>, <code class="docutils literal notranslate"><span class="pre">List</span></code>, <code class="docutils literal notranslate"><span class="pre">Tuple</span></code> from typing module</p></li>
+<li><p>Commented-out code</p></li>
+<li><p>TODO comments without issues</p></li>
+</ul>
+</section>
+<section id="never-import">
+<h3>❌ Never Import:<a class="headerlink" href="#never-import" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Don&#39;t use in src/</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span>
+</pre></div>
+</div>
+</section>
+<section id="only-use">
+<h3>✅ Only Use:<a class="headerlink" href="#only-use" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Standard library only in src/</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">TypeVar</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="remember">
+<h2>Remember<a class="headerlink" href="#remember" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Modern Python only</strong> (3.10+)</p></li>
+<li><p><strong>Zero runtime dependencies</strong></p></li>
+<li><p><strong>Consistent structure everywhere</strong></p></li>
+<li><p><strong>Type hints always</strong></p></li>
+<li><p><strong>Test everything</strong></p></li>
+<li><p><strong>Document thoroughly</strong></p></li>
+</ul>
+<p>When in doubt, look at existing files in the codebase as examples.</p>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="code-style.html"><span class="std std-doc">Code Style Guide</span></a></p></li>
+<li><p><a class="reference internal" href="setup.html"><span class="std std-doc">Development Setup</span></a></p></li>
+<li><p><a class="reference internal" href="testing.html"><span class="std std-doc">Testing Guide</span></a></p></li>
+<li><p><a class="reference internal" href="configuration.html"><span class="std std-doc">Configuration Guide</span></a></p></li>
+<li><p><a class="reference internal" href="../contributing.html"><span class="std std-doc">Contributing Guide</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2025, Scape Agency BV.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

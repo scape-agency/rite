@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rite Documentation &mdash; rite 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c72a147a" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            rite
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Rite Documentation</a><ul>
+<li><a class="reference internal" href="#features">Features</a></li>
+<li><a class="reference internal" href="#quick-links">Quick Links</a><ul>
+<li><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li><a class="reference internal" href="#api-reference">API Reference</a></li>
+<li><a class="reference internal" href="#for-contributors">For Contributors</a></li>
+<li><a class="reference internal" href="#for-ai-agents">For AI Agents</a></li>
+<li><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-overview">Module Overview</a><ul>
+<li><a class="reference internal" href="#cryptography-rite-crypto">Cryptography (<code class="docutils literal notranslate"><span class="pre">rite.crypto</span></code>)</a></li>
+<li><a class="reference internal" href="#filesystem-rite-filesystem">Filesystem (<code class="docutils literal notranslate"><span class="pre">rite.filesystem</span></code>)</a></li>
+<li><a class="reference internal" href="#text-processing-rite-text">Text Processing (<code class="docutils literal notranslate"><span class="pre">rite.text</span></code>)</a></li>
+<li><a class="reference internal" href="#collections-rite-collections">Collections (<code class="docutils literal notranslate"><span class="pre">rite.collections</span></code>)</a></li>
+<li><a class="reference internal" href="#conversions-rite-conversion">Conversions (<code class="docutils literal notranslate"><span class="pre">rite.conversion</span></code>)</a></li>
+<li><a class="reference internal" href="#numeric-rite-numeric">Numeric (<code class="docutils literal notranslate"><span class="pre">rite.numeric</span></code>)</a></li>
+<li><a class="reference internal" href="#temporal-rite-temporal">Temporal (<code class="docutils literal notranslate"><span class="pre">rite.temporal</span></code>)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#basic-usage">Basic Usage</a></li>
+<li><a class="reference internal" href="#about-scape-agency">About Scape Agency</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">rite</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Rite Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/scape-agency/rite/blob/main/doc/index.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rite-documentation">
+<h1>Rite Documentation<a class="headerlink" href="#rite-documentation" title="Link to this heading"></a></h1>
+<p>Welcome to the <strong>Rite</strong> documentation! Rite is a modern Python utility library providing a comprehensive collection of utilities for cryptography, filesystem operations, text processing, collections, conversions, and more.</p>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Zero Dependencies</strong>: No external runtime dependencies</p></li>
+<li><p><strong>Type Safe</strong>: Comprehensive type hints with Python 3.10+ syntax</p></li>
+<li><p><strong>Well Tested</strong>: &gt;80% code coverage</p></li>
+<li><p><strong>Modern Python</strong>: Python 3.10, 3.11, 3.12 support</p></li>
+<li><p><strong>Modular</strong>: Clear module organization with consistent structure</p></li>
+<li><p><strong>Documented</strong>: Extensive documentation and examples</p></li>
+</ul>
+</section>
+<section id="quick-links">
+<h2>Quick Links<a class="headerlink" href="#quick-links" title="Link to this heading"></a></h2>
+<section id="getting-started">
+<h3>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="installation.html"><span class="std std-doc">Installation</span></a> - Install Rite in your project</p></li>
+<li><p><a class="reference internal" href="getting-started.html"><span class="std std-doc">Getting Started</span></a> - Quick introduction and basic usage</p></li>
+<li><p><a class="reference internal" href="examples.html"><span class="std std-doc">Examples</span></a> - Practical usage examples</p></li>
+<li><p><a class="reference internal" href="quick_start.html"><span class="std std-doc">Quick Start</span></a> - Jump right in</p></li>
+</ul>
+</section>
+<section id="api-reference">
+<h3>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="api/index.html"><span class="std std-doc">API Overview</span></a> - Complete API documentation</p></li>
+<li><p><a class="reference internal" href="api/text.html"><span class="std std-doc">Text Module</span></a> - Text processing (92+ functions)</p></li>
+<li><p><a class="reference internal" href="api/crypto.html"><span class="std std-doc">Crypto Module</span></a> - Cryptography and hashing</p></li>
+<li><p><a class="reference internal" href="api/filesystem.html"><span class="std std-doc">Filesystem Module</span></a> - File operations</p></li>
+<li><p><a class="reference internal" href="api/temporal.html"><span class="std std-doc">Temporal Module</span></a> - Date/time utilities</p></li>
+<li><p><a class="reference internal" href="api/index.html"><span class="std std-doc">All Modules</span></a> - Browse all 13 modules</p></li>
+</ul>
+</section>
+<section id="for-contributors">
+<h3>For Contributors<a class="headerlink" href="#for-contributors" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="contributing.html"><span class="std std-doc">Contributing</span></a> - How to contribute to Rite</p></li>
+<li><p><a class="reference internal" href="development/setup.html"><span class="std std-doc">Development Setup</span></a> - Set up your development environment</p></li>
+<li><p><a class="reference internal" href="development/code-style.html"><span class="std std-doc">Code Style</span></a> - Code style guidelines</p></li>
+<li><p><a class="reference internal" href="development/testing.html"><span class="std std-doc">Testing</span></a> - Testing practices</p></li>
+<li><p><a class="reference internal" href="development/configuration.html"><span class="std std-doc">Configuration</span></a> - Configuration reference</p></li>
+</ul>
+</section>
+<section id="for-ai-agents">
+<h3>For AI Agents<a class="headerlink" href="#for-ai-agents" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="development/ai-instructions.html"><span class="std std-doc">AI Instructions</span></a> - Guidelines for AI agents and GitHub Copilot</p></li>
+</ul>
+</section>
+<section id="reference">
+<h3>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><span class="xref myst">Changelog</span> - Version history</p></li>
+<li><p><a class="reference internal" href="#../ARCHITECTURE.txt"><span class="xref myst">Architecture</span></a> - System architecture</p></li>
+</ul>
+</section>
+</section>
+<section id="module-overview">
+<h2>Module Overview<a class="headerlink" href="#module-overview" title="Link to this heading"></a></h2>
+<section id="cryptography-rite-crypto">
+<h3>Cryptography (<code class="docutils literal notranslate"><span class="pre">rite.crypto</span></code>)<a class="headerlink" href="#cryptography-rite-crypto" title="Link to this heading"></a></h3>
+<p>UUID generation, hashing (SHA-256, MD5, BLAKE2), HMAC, and cryptographic utilities.</p>
+</section>
+<section id="filesystem-rite-filesystem">
+<h3>Filesystem (<code class="docutils literal notranslate"><span class="pre">rite.filesystem</span></code>)<a class="headerlink" href="#filesystem-rite-filesystem" title="Link to this heading"></a></h3>
+<p>File and directory operations, path utilities, safe file handling.</p>
+</section>
+<section id="text-processing-rite-text">
+<h3>Text Processing (<code class="docutils literal notranslate"><span class="pre">rite.text</span></code>)<a class="headerlink" href="#text-processing-rite-text" title="Link to this heading"></a></h3>
+<p>Slug generation, case conversion, text sanitization, text analysis.</p>
+</section>
+<section id="collections-rite-collections">
+<h3>Collections (<code class="docutils literal notranslate"><span class="pre">rite.collections</span></code>)<a class="headerlink" href="#collections-rite-collections" title="Link to this heading"></a></h3>
+<p>List and dictionary utilities, data structures, iteration helpers.</p>
+</section>
+<section id="conversions-rite-conversion">
+<h3>Conversions (<code class="docutils literal notranslate"><span class="pre">rite.conversion</span></code>)<a class="headerlink" href="#conversions-rite-conversion" title="Link to this heading"></a></h3>
+<p>Type conversions, data format transformations (JSON, CSV, etc.).</p>
+</section>
+<section id="numeric-rite-numeric">
+<h3>Numeric (<code class="docutils literal notranslate"><span class="pre">rite.numeric</span></code>)<a class="headerlink" href="#numeric-rite-numeric" title="Link to this heading"></a></h3>
+<p>Mathematical utilities, statistics, number operations.</p>
+</section>
+<section id="temporal-rite-temporal">
+<h3>Temporal (<code class="docutils literal notranslate"><span class="pre">rite.temporal</span></code>)<a class="headerlink" href="#temporal-rite-temporal" title="Link to this heading"></a></h3>
+<p>Date and time utilities, timestamp operations, formatting.</p>
+</section>
+</section>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Python 3.10 or higher</p></li>
+<li><p>No external dependencies</p></li>
+</ul>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using pip</span>
+pip<span class="w"> </span>install<span class="w"> </span>rite
+
+<span class="c1"># Using Poetry</span>
+poetry<span class="w"> </span>add<span class="w"> </span>rite
+
+<span class="c1"># From source</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/scape-agency/rite.git
+<span class="nb">cd</span><span class="w"> </span>rite
+poetry<span class="w"> </span>install
+</pre></div>
+</div>
+</section>
+<section id="basic-usage">
+<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cryptography</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rite.crypto.uuid</span><span class="w"> </span><span class="kn">import</span> <span class="n">uuid_hex</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rite.crypto.hash</span><span class="w"> </span><span class="kn">import</span> <span class="n">hash_sha256</span>
+
+<span class="n">user_id</span> <span class="o">=</span> <span class="n">uuid_hex</span><span class="p">()</span>
+<span class="n">password_hash</span> <span class="o">=</span> <span class="n">hash_sha256</span><span class="p">(</span><span class="s2">&quot;secure_password&quot;</span><span class="p">)</span>
+
+<span class="c1"># Filesystem</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rite.filesystem.file</span><span class="w"> </span><span class="kn">import</span> <span class="n">file_copy</span><span class="p">,</span> <span class="n">file_exists</span>
+
+<span class="k">if</span> <span class="n">file_exists</span><span class="p">(</span><span class="s2">&quot;config.json&quot;</span><span class="p">):</span>
+    <span class="n">file_copy</span><span class="p">(</span><span class="s2">&quot;config.json&quot;</span><span class="p">,</span> <span class="s2">&quot;config.backup.json&quot;</span><span class="p">)</span>
+
+<span class="c1"># Text Processing</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rite.text.slug</span><span class="w"> </span><span class="kn">import</span> <span class="n">slug_generate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rite.text.case</span><span class="w"> </span><span class="kn">import</span> <span class="n">case_to_snake</span>
+
+<span class="n">slug</span> <span class="o">=</span> <span class="n">slug_generate</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>  <span class="c1"># &#39;hello-world&#39;</span>
+<span class="n">snake</span> <span class="o">=</span> <span class="n">case_to_snake</span><span class="p">(</span><span class="s2">&quot;helloWorld&quot;</span><span class="p">)</span>  <span class="c1"># &#39;hello_world&#39;</span>
+
+<span class="c1"># Collections</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rite.collections.list</span><span class="w"> </span><span class="kn">import</span> <span class="n">list_unique</span><span class="p">,</span> <span class="n">list_flatten</span>
+
+<span class="n">unique</span> <span class="o">=</span> <span class="n">list_unique</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>  <span class="c1"># [1, 2, 3]</span>
+<span class="n">flat</span> <span class="o">=</span> <span class="n">list_flatten</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>  <span class="c1"># [1, 2, 3, 4]</span>
+</pre></div>
+</div>
+</section>
+<section id="about-scape-agency">
+<h2>About Scape Agency<a class="headerlink" href="#about-scape-agency" title="Link to this heading"></a></h2>
+<p><strong>rite</strong> is an open-source project by <a class="reference external" href="https://www.scape.agency">Scape Agency</a>.</p>
+<p>Scape Agency is a spatial innovation collective that dreams, discovers and designs the everyday of tomorrow. We blend design thinking with emerging technologies to create a brighter perspective for people and planet. Our products and services naturalise technology in liveable and sustainable –scapes that spark the imagination and inspire future generations.</p>
+<ul class="simple">
+<li><p>Website: <a class="reference external" href="https://www.scape.agency">scape.agency</a></p></li>
+<li><p>GitHub: <a class="reference external" href="https://github.com/scape-agency">github.com/scape-agency</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2025, Scape Agency BV.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

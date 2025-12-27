@@ -1,0 +1,757 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usage Examples &mdash; rite 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c72a147a" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            rite
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Usage Examples</a><ul>
+<li><a class="reference internal" href="#cryptography">Cryptography</a><ul>
+<li><a class="reference internal" href="#uuid-operations">UUID Operations</a></li>
+<li><a class="reference internal" href="#hashing">Hashing</a></li>
+<li><a class="reference internal" href="#hmac">HMAC</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#filesystem-operations">Filesystem Operations</a><ul>
+<li><a class="reference internal" href="#file-operations">File Operations</a></li>
+<li><a class="reference internal" href="#directory-operations">Directory Operations</a></li>
+<li><a class="reference internal" href="#path-utilities">Path Utilities</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#text-processing">Text Processing</a><ul>
+<li><a class="reference internal" href="#slug-generation">Slug Generation</a></li>
+<li><a class="reference internal" href="#case-conversion">Case Conversion</a></li>
+<li><a class="reference internal" href="#text-sanitization">Text Sanitization</a></li>
+<li><a class="reference internal" href="#text-analysis">Text Analysis</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#collections">Collections</a><ul>
+<li><a class="reference internal" href="#list-operations">List Operations</a></li>
+<li><a class="reference internal" href="#dictionary-operations">Dictionary Operations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#conversions">Conversions</a><ul>
+<li><a class="reference internal" href="#type-conversions">Type Conversions</a></li>
+<li><a class="reference internal" href="#data-format-conversions">Data Format Conversions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#numeric-operations">Numeric Operations</a><ul>
+<li><a class="reference internal" href="#math-utilities">Math Utilities</a></li>
+<li><a class="reference internal" href="#statistics">Statistics</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#temporal-operations">Temporal Operations</a><ul>
+<li><a class="reference internal" href="#date-time-utilities">Date/Time Utilities</a></li>
+<li><a class="reference internal" href="#timestamp-operations">Timestamp Operations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#complete-example-data-processing-pipeline">Complete Example: Data Processing Pipeline</a></li>
+<li><a class="reference internal" href="#see-also">See Also</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">rite</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Usage Examples</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/scape-agency/rite/blob/main/doc/examples.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="usage-examples">
+<h1>Usage Examples<a class="headerlink" href="#usage-examples" title="Link to this heading"></a></h1>
+<p>This guide provides practical examples for common use cases across all Rite modules.</p>
+<section id="cryptography">
+<h2>Cryptography<a class="headerlink" href="#cryptography" title="Link to this heading"></a></h2>
+<section id="uuid-operations">
+<h3>UUID Operations<a class="headerlink" href="#uuid-operations" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.crypto.uuid</span><span class="w"> </span><span class="kn">import</span> <span class="n">uuid_hex</span><span class="p">,</span> <span class="n">uuid_int</span><span class="p">,</span> <span class="n">uuid_base64</span>
+
+<span class="c1"># Generate hexadecimal UUID</span>
+<span class="n">hex_id</span> <span class="o">=</span> <span class="n">uuid_hex</span><span class="p">()</span>
+<span class="c1"># &#39;550e8400e29b41d4a716446655440000&#39;</span>
+
+<span class="c1"># Generate integer UUID</span>
+<span class="n">int_id</span> <span class="o">=</span> <span class="n">uuid_int</span><span class="p">()</span>
+<span class="c1"># 113059749145936325402354257176981405696</span>
+
+<span class="c1"># Generate base64 UUID</span>
+<span class="n">b64_id</span> <span class="o">=</span> <span class="n">uuid_base64</span><span class="p">()</span>
+<span class="c1"># &#39;VQ6EAOKbQdSnFkRmVUQAAA&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="hashing">
+<h3>Hashing<a class="headerlink" href="#hashing" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.crypto.hash</span><span class="w"> </span><span class="kn">import</span> <span class="n">hash_sha256</span><span class="p">,</span> <span class="n">hash_md5</span><span class="p">,</span> <span class="n">hash_blake2b</span>
+
+<span class="c1"># SHA-256 hash</span>
+<span class="n">sha_hash</span> <span class="o">=</span> <span class="n">hash_sha256</span><span class="p">(</span><span class="s2">&quot;password123&quot;</span><span class="p">)</span>
+<span class="c1"># &#39;ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f&#39;</span>
+
+<span class="c1"># MD5 hash</span>
+<span class="n">md5_hash</span> <span class="o">=</span> <span class="n">hash_md5</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+<span class="c1"># &#39;8d777f385d3dfec8815d20f7496026dc&#39;</span>
+
+<span class="c1"># BLAKE2b hash (faster than SHA-256)</span>
+<span class="n">blake_hash</span> <span class="o">=</span> <span class="n">hash_blake2b</span><span class="p">(</span><span class="s2">&quot;secure_data&quot;</span><span class="p">)</span>
+<span class="c1"># &#39;7a42b...&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="hmac">
+<h3>HMAC<a class="headerlink" href="#hmac" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.crypto.hmac</span><span class="w"> </span><span class="kn">import</span> <span class="n">hmac_sha256</span><span class="p">,</span> <span class="n">hmac_sha512</span>
+
+<span class="c1"># Generate HMAC with secret key</span>
+<span class="n">signature</span> <span class="o">=</span> <span class="n">hmac_sha256</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span> <span class="s2">&quot;secret_key&quot;</span><span class="p">)</span>
+<span class="c1"># &#39;a6c8f...&#39;</span>
+
+<span class="c1"># Stronger HMAC</span>
+<span class="n">strong_sig</span> <span class="o">=</span> <span class="n">hmac_sha512</span><span class="p">(</span><span class="s2">&quot;critical_data&quot;</span><span class="p">,</span> <span class="s2">&quot;strong_secret&quot;</span><span class="p">)</span>
+<span class="c1"># &#39;b8d9e...&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="filesystem-operations">
+<h2>Filesystem Operations<a class="headerlink" href="#filesystem-operations" title="Link to this heading"></a></h2>
+<section id="file-operations">
+<h3>File Operations<a class="headerlink" href="#file-operations" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.filesystem.file</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">file_copy</span><span class="p">,</span>
+    <span class="n">file_move</span><span class="p">,</span>
+    <span class="n">file_delete</span><span class="p">,</span>
+    <span class="n">file_exists</span><span class="p">,</span>
+    <span class="n">file_read</span><span class="p">,</span>
+    <span class="n">file_write</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1"># Check if file exists</span>
+<span class="k">if</span> <span class="n">file_exists</span><span class="p">(</span><span class="s2">&quot;config.json&quot;</span><span class="p">):</span>
+    <span class="c1"># Read file</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">file_read</span><span class="p">(</span><span class="s2">&quot;config.json&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Copy file</span>
+    <span class="n">file_copy</span><span class="p">(</span><span class="s2">&quot;config.json&quot;</span><span class="p">,</span> <span class="s2">&quot;config.backup.json&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Move file</span>
+    <span class="n">file_move</span><span class="p">(</span><span class="s2">&quot;old_location.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;new_location.txt&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Write file</span>
+    <span class="n">file_write</span><span class="p">(</span><span class="s2">&quot;output.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Delete file</span>
+    <span class="n">file_delete</span><span class="p">(</span><span class="s2">&quot;temp.txt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="directory-operations">
+<h3>Directory Operations<a class="headerlink" href="#directory-operations" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.filesystem.folder</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">folder_create</span><span class="p">,</span>
+    <span class="n">folder_delete</span><span class="p">,</span>
+    <span class="n">folder_list_files</span><span class="p">,</span>
+    <span class="n">folder_list_dirs</span><span class="p">,</span>
+    <span class="n">folder_size</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Create directory</span>
+<span class="n">folder_create</span><span class="p">(</span><span class="s2">&quot;data/processed&quot;</span><span class="p">)</span>
+
+<span class="c1"># List files in directory</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">folder_list_files</span><span class="p">(</span><span class="s2">&quot;data/&quot;</span><span class="p">)</span>
+<span class="c1"># [&#39;file1.txt&#39;, &#39;file2.txt&#39;]</span>
+
+<span class="c1"># List subdirectories</span>
+<span class="n">dirs</span> <span class="o">=</span> <span class="n">folder_list_dirs</span><span class="p">(</span><span class="s2">&quot;src/&quot;</span><span class="p">)</span>
+<span class="c1"># [&#39;crypto&#39;, &#39;filesystem&#39;, &#39;text&#39;]</span>
+
+<span class="c1"># Get directory size</span>
+<span class="n">size</span> <span class="o">=</span> <span class="n">folder_size</span><span class="p">(</span><span class="s2">&quot;data/&quot;</span><span class="p">)</span>
+<span class="c1"># 1048576  # bytes</span>
+
+<span class="c1"># Delete directory</span>
+<span class="n">folder_delete</span><span class="p">(</span><span class="s2">&quot;temp/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="path-utilities">
+<h3>Path Utilities<a class="headerlink" href="#path-utilities" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.filesystem.path</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">path_join</span><span class="p">,</span>
+    <span class="n">path_absolute</span><span class="p">,</span>
+    <span class="n">path_normalize</span><span class="p">,</span>
+    <span class="n">path_extension</span><span class="p">,</span>
+    <span class="n">path_basename</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Join paths</span>
+<span class="n">full_path</span> <span class="o">=</span> <span class="n">path_join</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;processed&quot;</span><span class="p">,</span> <span class="s2">&quot;file.txt&quot;</span><span class="p">)</span>
+<span class="c1"># &#39;data/processed/file.txt&#39;</span>
+
+<span class="c1"># Get absolute path</span>
+<span class="n">abs_path</span> <span class="o">=</span> <span class="n">path_absolute</span><span class="p">(</span><span class="s2">&quot;../data/file.txt&quot;</span><span class="p">)</span>
+<span class="c1"># &#39;/home/user/project/data/file.txt&#39;</span>
+
+<span class="c1"># Normalize path</span>
+<span class="n">clean_path</span> <span class="o">=</span> <span class="n">path_normalize</span><span class="p">(</span><span class="s2">&quot;data/../data/./file.txt&quot;</span><span class="p">)</span>
+<span class="c1"># &#39;data/file.txt&#39;</span>
+
+<span class="c1"># Get file extension</span>
+<span class="n">ext</span> <span class="o">=</span> <span class="n">path_extension</span><span class="p">(</span><span class="s2">&quot;document.pdf&quot;</span><span class="p">)</span>
+<span class="c1"># &#39;.pdf&#39;</span>
+
+<span class="c1"># Get basename</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">path_basename</span><span class="p">(</span><span class="s2">&quot;/path/to/file.txt&quot;</span><span class="p">)</span>
+<span class="c1"># &#39;file.txt&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="text-processing">
+<h2>Text Processing<a class="headerlink" href="#text-processing" title="Link to this heading"></a></h2>
+<section id="slug-generation">
+<h3>Slug Generation<a class="headerlink" href="#slug-generation" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.text.slug</span><span class="w"> </span><span class="kn">import</span> <span class="n">slug_generate</span><span class="p">,</span> <span class="n">slug_is_valid</span><span class="p">,</span> <span class="n">slug_normalize</span>
+
+<span class="c1"># Generate slug</span>
+<span class="n">slug</span> <span class="o">=</span> <span class="n">slug_generate</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
+<span class="c1"># &#39;hello-world&#39;</span>
+
+<span class="c1"># With special characters</span>
+<span class="n">slug</span> <span class="o">=</span> <span class="n">slug_generate</span><span class="p">(</span><span class="s2">&quot;Café &amp; Restaurant&quot;</span><span class="p">)</span>
+<span class="c1"># &#39;cafe-restaurant&#39;</span>
+
+<span class="c1"># Validate slug</span>
+<span class="n">is_valid</span> <span class="o">=</span> <span class="n">slug_is_valid</span><span class="p">(</span><span class="s2">&quot;hello-world&quot;</span><span class="p">)</span>
+<span class="c1"># True</span>
+
+<span class="n">is_valid</span> <span class="o">=</span> <span class="n">slug_is_valid</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
+<span class="c1"># False</span>
+
+<span class="c1"># Normalize existing slug</span>
+<span class="n">normalized</span> <span class="o">=</span> <span class="n">slug_normalize</span><span class="p">(</span><span class="s2">&quot;HELLO___WORLD&quot;</span><span class="p">)</span>
+<span class="c1"># &#39;hello-world&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="case-conversion">
+<h3>Case Conversion<a class="headerlink" href="#case-conversion" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.text.case</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">case_to_snake</span><span class="p">,</span>
+    <span class="n">case_to_camel</span><span class="p">,</span>
+    <span class="n">case_to_pascal</span><span class="p">,</span>
+    <span class="n">case_to_kebab</span><span class="p">,</span>
+    <span class="n">case_to_title</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;helloWorld&quot;</span>
+
+<span class="c1"># Snake case</span>
+<span class="n">snake</span> <span class="o">=</span> <span class="n">case_to_snake</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="c1"># &#39;hello_world&#39;</span>
+
+<span class="c1"># Camel case</span>
+<span class="n">camel</span> <span class="o">=</span> <span class="n">case_to_camel</span><span class="p">(</span><span class="s2">&quot;hello_world&quot;</span><span class="p">)</span>
+<span class="c1"># &#39;helloWorld&#39;</span>
+
+<span class="c1"># Pascal case</span>
+<span class="n">pascal</span> <span class="o">=</span> <span class="n">case_to_pascal</span><span class="p">(</span><span class="s2">&quot;hello_world&quot;</span><span class="p">)</span>
+<span class="c1"># &#39;HelloWorld&#39;</span>
+
+<span class="c1"># Kebab case</span>
+<span class="n">kebab</span> <span class="o">=</span> <span class="n">case_to_kebab</span><span class="p">(</span><span class="s2">&quot;helloWorld&quot;</span><span class="p">)</span>
+<span class="c1"># &#39;hello-world&#39;</span>
+
+<span class="c1"># Title case</span>
+<span class="n">title</span> <span class="o">=</span> <span class="n">case_to_title</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+<span class="c1"># &#39;Hello World&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="text-sanitization">
+<h3>Text Sanitization<a class="headerlink" href="#text-sanitization" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.text.sanitize</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">sanitize_html</span><span class="p">,</span>
+    <span class="n">sanitize_sql</span><span class="p">,</span>
+    <span class="n">sanitize_filename</span><span class="p">,</span>
+    <span class="n">sanitize_email</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Remove HTML tags</span>
+<span class="n">clean</span> <span class="o">=</span> <span class="n">sanitize_html</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;Hello &lt;b&gt;World&lt;/b&gt;&lt;/p&gt;&quot;</span><span class="p">)</span>
+<span class="c1"># &#39;Hello World&#39;</span>
+
+<span class="c1"># Escape SQL</span>
+<span class="n">safe_sql</span> <span class="o">=</span> <span class="n">sanitize_sql</span><span class="p">(</span><span class="s2">&quot;&#39;; DROP TABLE users; --&quot;</span><span class="p">)</span>
+<span class="c1"># &#39;\&#39;; DROP TABLE users; --&#39;</span>
+
+<span class="c1"># Clean filename</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="n">sanitize_filename</span><span class="p">(</span><span class="s2">&quot;file: name?.txt&quot;</span><span class="p">)</span>
+<span class="c1"># &#39;file_name.txt&#39;</span>
+
+<span class="c1"># Validate and clean email</span>
+<span class="n">email</span> <span class="o">=</span> <span class="n">sanitize_email</span><span class="p">(</span><span class="s2">&quot;  User@Example.COM  &quot;</span><span class="p">)</span>
+<span class="c1"># &#39;user@example.com&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="text-analysis">
+<h3>Text Analysis<a class="headerlink" href="#text-analysis" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.text.analysis</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">word_count</span><span class="p">,</span>
+    <span class="n">char_frequency</span><span class="p">,</span>
+    <span class="n">longest_word</span><span class="p">,</span>
+    <span class="n">shortest_word</span><span class="p">,</span>
+    <span class="n">average_word_length</span><span class="p">,</span>
+    <span class="n">is_palindrome</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;The quick brown fox jumps over the lazy dog&quot;</span>
+
+<span class="c1"># Word count</span>
+<span class="n">count</span> <span class="o">=</span> <span class="n">word_count</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="c1"># 9</span>
+
+<span class="c1"># Character frequency</span>
+<span class="n">freq</span> <span class="o">=</span> <span class="n">char_frequency</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="c1"># {&#39;t&#39;: 2, &#39;h&#39;: 2, &#39;e&#39;: 3, ...}</span>
+
+<span class="c1"># Longest word</span>
+<span class="n">longest</span> <span class="o">=</span> <span class="n">longest_word</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="c1"># &#39;quick&#39;</span>
+
+<span class="c1"># Shortest word</span>
+<span class="n">shortest</span> <span class="o">=</span> <span class="n">shortest_word</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="c1"># &#39;the&#39;</span>
+
+<span class="c1"># Average word length</span>
+<span class="n">avg</span> <span class="o">=</span> <span class="n">average_word_length</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="c1"># 3.88...</span>
+
+<span class="c1"># Check palindrome</span>
+<span class="n">is_pal</span> <span class="o">=</span> <span class="n">is_palindrome</span><span class="p">(</span><span class="s2">&quot;racecar&quot;</span><span class="p">)</span>
+<span class="c1"># True</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="collections">
+<h2>Collections<a class="headerlink" href="#collections" title="Link to this heading"></a></h2>
+<section id="list-operations">
+<h3>List Operations<a class="headerlink" href="#list-operations" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.collections.list</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">list_unique</span><span class="p">,</span>
+    <span class="n">list_flatten</span><span class="p">,</span>
+    <span class="n">list_chunk</span><span class="p">,</span>
+    <span class="n">list_group_by</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Remove duplicates</span>
+<span class="n">unique</span> <span class="o">=</span> <span class="n">list_unique</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="c1"># [1, 2, 3]</span>
+
+<span class="c1"># Flatten nested lists</span>
+<span class="n">flat</span> <span class="o">=</span> <span class="n">list_flatten</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">]])</span>
+<span class="c1"># [1, 2, 3, 4, 5]</span>
+
+<span class="c1"># Chunk list</span>
+<span class="n">chunks</span> <span class="o">=</span> <span class="n">list_chunk</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># [[1, 2], [3, 4], [5]]</span>
+
+<span class="c1"># Group by key</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;fruit&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;apple&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;fruit&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;banana&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vegetable&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;carrot&quot;</span><span class="p">},</span>
+<span class="p">]</span>
+<span class="n">grouped</span> <span class="o">=</span> <span class="n">list_group_by</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s2">&quot;type&quot;</span><span class="p">)</span>
+<span class="c1"># {</span>
+<span class="c1">#     &#39;fruit&#39;: [{&#39;type&#39;: &#39;fruit&#39;, &#39;name&#39;: &#39;apple&#39;}, ...],</span>
+<span class="c1">#     &#39;vegetable&#39;: [{&#39;type&#39;: &#39;vegetable&#39;, &#39;name&#39;: &#39;carrot&#39;}]</span>
+<span class="c1"># }</span>
+</pre></div>
+</div>
+</section>
+<section id="dictionary-operations">
+<h3>Dictionary Operations<a class="headerlink" href="#dictionary-operations" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.collections.dict</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">dict_merge</span><span class="p">,</span>
+    <span class="n">dict_filter</span><span class="p">,</span>
+    <span class="n">dict_invert</span><span class="p">,</span>
+    <span class="n">dict_deep_get</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Merge dictionaries</span>
+<span class="n">merged</span> <span class="o">=</span> <span class="n">dict_merge</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
+<span class="p">)</span>
+<span class="c1"># {&#39;a&#39;: 1, &#39;b&#39;: 3, &#39;c&#39;: 4}</span>
+
+<span class="c1"># Filter dictionary</span>
+<span class="n">filtered</span> <span class="o">=</span> <span class="n">dict_filter</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+    <span class="k">lambda</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="mi">1</span>
+<span class="p">)</span>
+<span class="c1"># {&#39;b&#39;: 2, &#39;c&#39;: 3}</span>
+
+<span class="c1"># Invert dictionary</span>
+<span class="n">inverted</span> <span class="o">=</span> <span class="n">dict_invert</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+<span class="c1"># {1: &#39;a&#39;, 2: &#39;b&#39;}</span>
+
+<span class="c1"># Deep get with nested keys</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;profile&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;John&quot;</span><span class="p">}}}</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">dict_deep_get</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;profile&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">])</span>
+<span class="c1"># &#39;John&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="conversions">
+<h2>Conversions<a class="headerlink" href="#conversions" title="Link to this heading"></a></h2>
+<section id="type-conversions">
+<h3>Type Conversions<a class="headerlink" href="#type-conversions" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.conversion.types</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">to_int</span><span class="p">,</span>
+    <span class="n">to_float</span><span class="p">,</span>
+    <span class="n">to_bool</span><span class="p">,</span>
+    <span class="n">to_string</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Safe integer conversion</span>
+<span class="n">num</span> <span class="o">=</span> <span class="n">to_int</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># 123</span>
+
+<span class="n">invalid</span> <span class="o">=</span> <span class="n">to_int</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># 0</span>
+
+<span class="c1"># Float conversion</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">to_float</span><span class="p">(</span><span class="s2">&quot;3.14&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="c1"># 3.14</span>
+
+<span class="c1"># Boolean conversion</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="n">to_bool</span><span class="p">(</span><span class="s2">&quot;true&quot;</span><span class="p">)</span>  <span class="c1"># or &quot;1&quot;, &quot;yes&quot;, &quot;on&quot;</span>
+<span class="c1"># True</span>
+
+<span class="n">flag</span> <span class="o">=</span> <span class="n">to_bool</span><span class="p">(</span><span class="s2">&quot;false&quot;</span><span class="p">)</span>  <span class="c1"># or &quot;0&quot;, &quot;no&quot;, &quot;off&quot;</span>
+<span class="c1"># False</span>
+
+<span class="c1"># String conversion</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">to_string</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="c1"># &#39;123&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="data-format-conversions">
+<h3>Data Format Conversions<a class="headerlink" href="#data-format-conversions" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.conversion.format</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">json_to_dict</span><span class="p">,</span>
+    <span class="n">dict_to_json</span><span class="p">,</span>
+    <span class="n">csv_to_list</span><span class="p">,</span>
+    <span class="n">list_to_csv</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># JSON to dictionary</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">json_to_dict</span><span class="p">(</span><span class="s1">&#39;{&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30}&#39;</span><span class="p">)</span>
+<span class="c1"># {&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 30}</span>
+
+<span class="c1"># Dictionary to JSON</span>
+<span class="n">json_str</span> <span class="o">=</span> <span class="n">dict_to_json</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">})</span>
+<span class="c1"># &#39;{&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30}&#39;</span>
+
+<span class="c1"># CSV to list</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="n">csv_to_list</span><span class="p">(</span><span class="s2">&quot;name,age</span><span class="se">\n</span><span class="s2">John,30</span><span class="se">\n</span><span class="s2">Jane,25&quot;</span><span class="p">)</span>
+<span class="c1"># [[&#39;name&#39;, &#39;age&#39;], [&#39;John&#39;, &#39;30&#39;], [&#39;Jane&#39;, &#39;25&#39;]]</span>
+
+<span class="c1"># List to CSV</span>
+<span class="n">csv_str</span> <span class="o">=</span> <span class="n">list_to_csv</span><span class="p">([[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">]])</span>
+<span class="c1"># &#39;name,age\nJohn,30&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="numeric-operations">
+<h2>Numeric Operations<a class="headerlink" href="#numeric-operations" title="Link to this heading"></a></h2>
+<section id="math-utilities">
+<h3>Math Utilities<a class="headerlink" href="#math-utilities" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.numeric.math</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">clamp</span><span class="p">,</span>
+    <span class="n">round_to</span><span class="p">,</span>
+    <span class="n">is_even</span><span class="p">,</span>
+    <span class="n">is_odd</span><span class="p">,</span>
+    <span class="n">percentage</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Clamp value within range</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">clamp</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">min_val</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_val</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1"># 10</span>
+
+<span class="c1"># Round to specific decimal places</span>
+<span class="n">rounded</span> <span class="o">=</span> <span class="n">round_to</span><span class="p">(</span><span class="mf">3.14159</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># 3.14</span>
+
+<span class="c1"># Check even/odd</span>
+<span class="n">is_even</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># True</span>
+<span class="n">is_odd</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>   <span class="c1"># False</span>
+
+<span class="c1"># Calculate percentage</span>
+<span class="n">pct</span> <span class="o">=</span> <span class="n">percentage</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="c1"># 25.0</span>
+</pre></div>
+</div>
+</section>
+<section id="statistics">
+<h3>Statistics<a class="headerlink" href="#statistics" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.numeric.stats</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">mean</span><span class="p">,</span>
+    <span class="n">median</span><span class="p">,</span>
+    <span class="n">mode</span><span class="p">,</span>
+    <span class="n">std_dev</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="c1"># Mean (average)</span>
+<span class="n">avg</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="c1"># 3.0</span>
+
+<span class="c1"># Median (middle value)</span>
+<span class="n">mid</span> <span class="o">=</span> <span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="c1"># 3</span>
+
+<span class="c1"># Mode (most common)</span>
+<span class="n">common</span> <span class="o">=</span> <span class="n">mode</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="c1"># 3</span>
+
+<span class="c1"># Standard deviation</span>
+<span class="n">std</span> <span class="o">=</span> <span class="n">std_dev</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="c1"># 1.41...</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="temporal-operations">
+<h2>Temporal Operations<a class="headerlink" href="#temporal-operations" title="Link to this heading"></a></h2>
+<section id="date-time-utilities">
+<h3>Date/Time Utilities<a class="headerlink" href="#date-time-utilities" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.temporal.datetime</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">now</span><span class="p">,</span>
+    <span class="n">today</span><span class="p">,</span>
+    <span class="n">format_datetime</span><span class="p">,</span>
+    <span class="n">parse_datetime</span><span class="p">,</span>
+    <span class="n">add_days</span><span class="p">,</span>
+    <span class="n">diff_days</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Current datetime</span>
+<span class="n">current</span> <span class="o">=</span> <span class="n">now</span><span class="p">()</span>
+<span class="c1"># datetime(2024, 1, 15, 10, 30, 0)</span>
+
+<span class="c1"># Today&#39;s date</span>
+<span class="n">date</span> <span class="o">=</span> <span class="n">today</span><span class="p">()</span>
+<span class="c1"># date(2024, 1, 15)</span>
+
+<span class="c1"># Format datetime</span>
+<span class="n">formatted</span> <span class="o">=</span> <span class="n">format_datetime</span><span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M&quot;</span><span class="p">)</span>
+<span class="c1"># &#39;2024-01-15 10:30&#39;</span>
+
+<span class="c1"># Parse datetime</span>
+<span class="n">parsed</span> <span class="o">=</span> <span class="n">parse_datetime</span><span class="p">(</span><span class="s2">&quot;2024-01-15&quot;</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># datetime(2024, 1, 15, 0, 0, 0)</span>
+
+<span class="c1"># Add days</span>
+<span class="n">future</span> <span class="o">=</span> <span class="n">add_days</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="c1"># date(2024, 1, 22)</span>
+
+<span class="c1"># Calculate difference</span>
+<span class="n">days</span> <span class="o">=</span> <span class="n">diff_days</span><span class="p">(</span><span class="n">date1</span><span class="p">,</span> <span class="n">date2</span><span class="p">)</span>
+<span class="c1"># 7</span>
+</pre></div>
+</div>
+</section>
+<section id="timestamp-operations">
+<h3>Timestamp Operations<a class="headerlink" href="#timestamp-operations" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.temporal.timestamp</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">unix_timestamp</span><span class="p">,</span>
+    <span class="n">from_timestamp</span><span class="p">,</span>
+    <span class="n">timestamp_to_iso</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Get Unix timestamp</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">unix_timestamp</span><span class="p">()</span>
+<span class="c1"># 1705316400</span>
+
+<span class="c1"># Convert from timestamp</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">from_timestamp</span><span class="p">(</span><span class="mi">1705316400</span><span class="p">)</span>
+<span class="c1"># datetime(2024, 1, 15, 10, 0, 0)</span>
+
+<span class="c1"># Timestamp to ISO format</span>
+<span class="n">iso</span> <span class="o">=</span> <span class="n">timestamp_to_iso</span><span class="p">(</span><span class="mi">1705316400</span><span class="p">)</span>
+<span class="c1"># &#39;2024-01-15T10:00:00Z&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="complete-example-data-processing-pipeline">
+<h2>Complete Example: Data Processing Pipeline<a class="headerlink" href="#complete-example-data-processing-pipeline" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.filesystem.file</span><span class="w"> </span><span class="kn">import</span> <span class="n">file_read</span><span class="p">,</span> <span class="n">file_write</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rite.conversion.format</span><span class="w"> </span><span class="kn">import</span> <span class="n">json_to_dict</span><span class="p">,</span> <span class="n">dict_to_json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rite.text.case</span><span class="w"> </span><span class="kn">import</span> <span class="n">case_to_snake</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rite.collections.dict</span><span class="w"> </span><span class="kn">import</span> <span class="n">dict_filter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rite.crypto.hash</span><span class="w"> </span><span class="kn">import</span> <span class="n">hash_sha256</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">process_user_data</span><span class="p">(</span><span class="n">input_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">output_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Complete data processing pipeline.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        input_file: Input JSON file path.</span>
+<span class="sd">        output_file: Output JSON file path.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Read input file</span>
+    <span class="n">raw_data</span> <span class="o">=</span> <span class="n">file_read</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
+    
+    <span class="c1"># Parse JSON</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">json_to_dict</span><span class="p">(</span><span class="n">raw_data</span><span class="p">)</span>
+    
+    <span class="c1"># Process each user</span>
+    <span class="n">processed_users</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;users&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+        <span class="c1"># Normalize keys to snake_case</span>
+        <span class="n">normalized</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">case_to_snake</span><span class="p">(</span><span class="n">k</span><span class="p">):</span> <span class="n">v</span> 
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">user</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+        
+        <span class="c1"># Filter out empty values</span>
+        <span class="n">cleaned</span> <span class="o">=</span> <span class="n">dict_filter</span><span class="p">(</span>
+            <span class="n">normalized</span><span class="p">,</span>
+            <span class="k">lambda</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">v</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">)</span>
+        
+        <span class="c1"># Add ID hash</span>
+        <span class="n">cleaned</span><span class="p">[</span><span class="s2">&quot;id_hash&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hash_sha256</span><span class="p">(</span>
+            <span class="nb">str</span><span class="p">(</span><span class="n">cleaned</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
+        <span class="p">)</span>
+        
+        <span class="n">processed_users</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cleaned</span><span class="p">)</span>
+    
+    <span class="c1"># Create output data</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;processed_at&quot;</span><span class="p">:</span> <span class="n">unix_timestamp</span><span class="p">(),</span>
+        <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">processed_users</span><span class="p">),</span>
+        <span class="s2">&quot;users&quot;</span><span class="p">:</span> <span class="n">processed_users</span>
+    <span class="p">}</span>
+    
+    <span class="c1"># Write to file</span>
+    <span class="n">json_output</span> <span class="o">=</span> <span class="n">dict_to_json</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">file_write</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="n">json_output</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processed </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">processed_users</span><span class="p">)</span><span class="si">}</span><span class="s2"> users&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Usage</span>
+<span class="n">process_user_data</span><span class="p">(</span><span class="s2">&quot;input.json&quot;</span><span class="p">,</span> <span class="s2">&quot;output.json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="getting-started.html"><span class="std std-doc">Getting Started Guide</span></a></p></li>
+<li><p><a class="reference internal" href="api/index.html"><span class="std std-doc">API Documentation</span></a></p></li>
+<li><p><a class="reference internal" href="contributing.html"><span class="std std-doc">Contributing Guide</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2025, Scape Agency BV.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

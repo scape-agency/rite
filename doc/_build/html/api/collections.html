@@ -1,0 +1,223 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collections Module &mdash; rite 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=c72a147a" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            rite
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Collections Module</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a><ul>
+<li><a class="reference internal" href="#cache">Cache</a></li>
+<li><a class="reference internal" href="#buffer">Buffer</a></li>
+<li><a class="reference internal" href="#dictionary-utilities">Dictionary Utilities</a></li>
+<li><a class="reference internal" href="#list-utilities">List Utilities</a></li>
+<li><a class="reference internal" href="#tree-structures">Tree Structures</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">rite</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Collections Module</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/scape-agency/rite/blob/main/doc/api/collections.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="collections-module">
+<h1>Collections Module<a class="headerlink" href="#collections-module" title="Link to this heading"></a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">rite.collections</span></code> module provides advanced data structures including caches, buffers, trees, and collection utilities.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>::: rite.collections
+options:
+show_root_heading: true
+show_source: false
+heading_level: 2</p>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<section id="cache">
+<h3>Cache<a class="headerlink" href="#cache" title="Link to this heading"></a></h3>
+<p>LRU, LFU, and TTL cache implementations.</p>
+<p>::: rite.collections.cache
+options:
+members:
+- lru_cache
+- lfu_cache
+- ttl_cache
+show_source: false
+heading_level: 3</p>
+</section>
+<section id="buffer">
+<h3>Buffer<a class="headerlink" href="#buffer" title="Link to this heading"></a></h3>
+<p>Circular and sliding window buffers.</p>
+<p>::: rite.collections.buffer
+options:
+members:
+- circular_buffer
+- bounded_buffer
+- ring_buffer
+- sliding_window
+show_source: false
+heading_level: 3</p>
+</section>
+<section id="dictionary-utilities">
+<h3>Dictionary Utilities<a class="headerlink" href="#dictionary-utilities" title="Link to this heading"></a></h3>
+<p>Deep operations on dictionaries.</p>
+<p>::: rite.collections.dict
+options:
+members:
+- dict_deep_get
+- dict_deep_set
+- dict_merge
+- dict_filter
+- dict_invert
+show_source: false
+heading_level: 3</p>
+</section>
+<section id="list-utilities">
+<h3>List Utilities<a class="headerlink" href="#list-utilities" title="Link to this heading"></a></h3>
+<p>Advanced list operations.</p>
+<p>::: rite.collections.list
+options:
+members:
+- list_chunk
+- list_flatten
+- list_group_by
+- list_interleave
+- list_partition
+- list_unique
+show_source: false
+heading_level: 3</p>
+</section>
+<section id="tree-structures">
+<h3>Tree Structures<a class="headerlink" href="#tree-structures" title="Link to this heading"></a></h3>
+<p>Tree and trie data structures.</p>
+<p>::: rite.collections.tree
+options:
+members:
+- TreeNode
+- BinaryTreeNode
+- Trie
+show_source: false
+heading_level: 3</p>
+</section>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.collections</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">lru_cache</span><span class="p">,</span>
+    <span class="n">circular_buffer</span><span class="p">,</span>
+    <span class="n">dict_deep_get</span><span class="p">,</span>
+    <span class="n">list_chunk</span>
+<span class="p">)</span>
+
+<span class="c1"># LRU Cache</span>
+<span class="n">cache</span> <span class="o">=</span> <span class="n">lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Circular Buffer</span>
+<span class="n">buffer</span> <span class="o">=</span> <span class="n">circular_buffer</span><span class="p">(</span><span class="n">capacity</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Deep dictionary access</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">}}}</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">dict_deep_get</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">])</span>  <span class="c1"># 42</span>
+
+<span class="c1"># Chunk list</span>
+<span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">chunks</span> <span class="o">=</span> <span class="n">list_chunk</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># [[1, 2], [3, 4], [5, 6]]</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2025, Scape Agency BV.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

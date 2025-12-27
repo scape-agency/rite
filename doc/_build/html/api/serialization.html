@@ -1,0 +1,241 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serialization Module &mdash; rite 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=c72a147a" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            rite
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Serialization Module</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a><ul>
+<li><a class="reference internal" href="#json">JSON</a></li>
+<li><a class="reference internal" href="#csv">CSV</a></li>
+<li><a class="reference internal" href="#toml">TOML</a></li>
+<li><a class="reference internal" href="#pickle">Pickle</a></li>
+<li><a class="reference internal" href="#ini">INI</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#json-operations">JSON Operations</a></li>
+<li><a class="reference internal" href="#csv-operations">CSV Operations</a></li>
+<li><a class="reference internal" href="#toml-operations-python-3-11">TOML Operations (Python 3.11+)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">rite</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Serialization Module</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/scape-agency/rite/blob/main/doc/api/serialization.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="serialization-module">
+<h1>Serialization Module<a class="headerlink" href="#serialization-module" title="Link to this heading"></a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">rite.serialization</span></code> module provides utilities for working with various data formats including JSON, CSV, TOML, Pickle, and INI files.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>::: rite.serialization
+options:
+show_root_heading: true
+show_source: false
+heading_level: 2</p>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<section id="json">
+<h3>JSON<a class="headerlink" href="#json" title="Link to this heading"></a></h3>
+<p>Parse and generate JSON data.</p>
+<p>::: rite.serialization.json
+options:
+members:
+- json_load
+- json_loads
+- json_dump
+- json_dumps
+- json_validate
+show_source: false
+heading_level: 3</p>
+</section>
+<section id="csv">
+<h3>CSV<a class="headerlink" href="#csv" title="Link to this heading"></a></h3>
+<p>Read and write CSV files.</p>
+<p>::: rite.serialization.csv
+options:
+members:
+- csv_read
+- csv_write
+- csv_detect_delimiter
+show_source: false
+heading_level: 3</p>
+</section>
+<section id="toml">
+<h3>TOML<a class="headerlink" href="#toml" title="Link to this heading"></a></h3>
+<p>Parse TOML configuration files (Python 3.11+).</p>
+<p>::: rite.serialization.toml
+options:
+members:
+- toml_load
+- toml_loads
+show_source: false
+heading_level: 3</p>
+</section>
+<section id="pickle">
+<h3>Pickle<a class="headerlink" href="#pickle" title="Link to this heading"></a></h3>
+<p>Serialize and deserialize Python objects.</p>
+<p>::: rite.serialization.pickle
+options:
+members:
+- pickle_dump
+- pickle_load
+- pickle_dumps
+- pickle_loads
+show_source: false
+heading_level: 3</p>
+</section>
+<section id="ini">
+<h3>INI<a class="headerlink" href="#ini" title="Link to this heading"></a></h3>
+<p>Read and write INI configuration files.</p>
+<p>::: rite.serialization.ini
+options:
+members:
+- ini_read
+- ini_write
+- ini_get
+- ini_set
+show_source: false
+heading_level: 3</p>
+</section>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<section id="json-operations">
+<h3>JSON Operations<a class="headerlink" href="#json-operations" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.serialization</span><span class="w"> </span><span class="kn">import</span> <span class="n">json_load</span><span class="p">,</span> <span class="n">json_dump</span><span class="p">,</span> <span class="n">json_validate</span>
+
+<span class="c1"># Load JSON from file</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">json_load</span><span class="p">(</span><span class="s2">&quot;config.json&quot;</span><span class="p">)</span>
+
+<span class="c1"># Save JSON to file</span>
+<span class="n">json_dump</span><span class="p">({</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">},</span> <span class="s2">&quot;output.json&quot;</span><span class="p">)</span>
+
+<span class="c1"># Validate JSON string</span>
+<span class="n">is_valid</span> <span class="o">=</span> <span class="n">json_validate</span><span class="p">(</span><span class="s1">&#39;{&quot;valid&quot;: true}&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="csv-operations">
+<h3>CSV Operations<a class="headerlink" href="#csv-operations" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.serialization</span><span class="w"> </span><span class="kn">import</span> <span class="n">csv_read</span><span class="p">,</span> <span class="n">csv_write</span>
+
+<span class="c1"># Read CSV file</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="n">csv_read</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Write CSV file</span>
+<span class="n">csv_write</span><span class="p">(</span><span class="s2">&quot;output.csv&quot;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="toml-operations-python-3-11">
+<h3>TOML Operations (Python 3.11+)<a class="headerlink" href="#toml-operations-python-3-11" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rite.serialization</span><span class="w"> </span><span class="kn">import</span> <span class="n">toml_load</span>
+
+<span class="c1"># Load TOML configuration</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">toml_load</span><span class="p">(</span><span class="s2">&quot;pyproject.toml&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2025, Scape Agency BV.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

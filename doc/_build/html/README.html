@@ -1,0 +1,424 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rite Documentation &mdash; rite 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c72a147a" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            rite
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Rite Documentation</a><ul>
+<li><a class="reference internal" href="#structure">Structure</a></li>
+<li><a class="reference internal" href="#building-documentation">Building Documentation</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#build-commands">Build Commands</a><ul>
+<li><a class="reference internal" href="#mkdocs-recommended-for-development">MkDocs (Recommended for development)</a></li>
+<li><a class="reference internal" href="#sphinx-for-api-documentation">Sphinx (For API documentation)</a></li>
+<li><a class="reference internal" href="#all-at-once">All at Once</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#documentation-style-guide">Documentation Style Guide</a><ul>
+<li><a class="reference internal" href="#writing-docstrings">Writing Docstrings</a></li>
+<li><a class="reference internal" href="#adding-new-pages">Adding New Pages</a></li>
+<li><a class="reference internal" href="#styling-guidelines">Styling Guidelines</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configuration-files">Configuration Files</a><ul>
+<li><a class="reference internal" href="#mkdocs-yml">mkdocs.yml</a></li>
+<li><a class="reference internal" href="#conf-py">conf.py</a></li>
+<li><a class="reference internal" href="#assets-style-extra-css">assets/style/extra.css</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#api-reference">API Reference</a></li>
+<li><a class="reference internal" href="#deployment">Deployment</a><ul>
+<li><a class="reference internal" href="#github-pages">GitHub Pages</a></li>
+<li><a class="reference internal" href="#custom-domain">Custom Domain</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#maintenance">Maintenance</a><ul>
+<li><a class="reference internal" href="#updating-docstrings">Updating Docstrings</a></li>
+<li><a class="reference internal" href="#adding-examples">Adding Examples</a></li>
+<li><a class="reference internal" href="#checking-links">Checking Links</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#build-errors">Build Errors</a></li>
+<li><a class="reference internal" href="#rendering-issues">Rendering Issues</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contributing">Contributing</a></li>
+<li><a class="reference internal" href="#resources">Resources</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">rite</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Rite Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/scape-agency/rite/blob/main/doc/README.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rite-documentation">
+<h1>Rite Documentation<a class="headerlink" href="#rite-documentation" title="Link to this heading"></a></h1>
+<p>This directory contains the source files for the Rite documentation, which integrates <strong>Sphinx</strong> for API reference and <strong>MkDocs</strong> with Material theme for the main documentation site.</p>
+<section id="structure">
+<h2>Structure<a class="headerlink" href="#structure" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>doc/
+├── _static/           # Sphinx static files (CSS, images)
+├── _templates/        # Sphinx custom templates
+├── api/              # API reference (MkDocs with mkdocstrings)
+├── assets/           # Site assets (images, fonts, styles)
+├── about/            # About pages
+├── development/      # Development guides
+├── legal/            # Legal documents
+├── resources/        # Additional resources
+├── conf.py           # Sphinx configuration
+└── index.md          # Documentation home page
+</pre></div>
+</div>
+</section>
+<section id="building-documentation">
+<h2>Building Documentation<a class="headerlink" href="#building-documentation" title="Link to this heading"></a></h2>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h3>
+<p>Install documentation dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using pip</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements-docs.txt
+
+<span class="c1"># Or using poetry</span>
+poetry<span class="w"> </span>add<span class="w"> </span>--group<span class="w"> </span>docs<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>mkdocs<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>mkdocs-material<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>mkdocstrings<span class="o">[</span>python<span class="o">]</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>pymdown-extensions
+</pre></div>
+</div>
+</section>
+<section id="build-commands">
+<h3>Build Commands<a class="headerlink" href="#build-commands" title="Link to this heading"></a></h3>
+<section id="mkdocs-recommended-for-development">
+<h4>MkDocs (Recommended for development)<a class="headerlink" href="#mkdocs-recommended-for-development" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build static site</span>
+mkdocs<span class="w"> </span>build
+
+<span class="c1"># Serve with live reload (default: http://127.0.0.1:8888)</span>
+mkdocs<span class="w"> </span>serve
+
+<span class="c1"># Using the build script</span>
+./bin/build-docs.sh<span class="w"> </span>mkdocs<span class="w"> </span>serve
+</pre></div>
+</div>
+</section>
+<section id="sphinx-for-api-documentation">
+<h4>Sphinx (For API documentation)<a class="headerlink" href="#sphinx-for-api-documentation" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build HTML documentation</span>
+<span class="nb">cd</span><span class="w"> </span>doc
+sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span>.<span class="w"> </span>_build/html
+
+<span class="c1"># Using the build script</span>
+./bin/build-docs.sh<span class="w"> </span>sphinx<span class="w"> </span>serve
+</pre></div>
+</div>
+</section>
+<section id="all-at-once">
+<h4>All at Once<a class="headerlink" href="#all-at-once" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate API docs and build everything</span>
+./bin/build-docs.sh<span class="w"> </span>all
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="documentation-style-guide">
+<h2>Documentation Style Guide<a class="headerlink" href="#documentation-style-guide" title="Link to this heading"></a></h2>
+<section id="writing-docstrings">
+<h3>Writing Docstrings<a class="headerlink" href="#writing-docstrings" title="Link to this heading"></a></h3>
+<p>All modules, classes, methods, and functions must have Google-style docstrings:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">example_function</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Brief one-line description.</span>
+
+<span class="sd">    Longer description if needed, explaining what the function does</span>
+<span class="sd">    in more detail.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        param1: Description of param1.</span>
+<span class="sd">        param2: Description of param2. Defaults to 0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Description of return value.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: When param1 is empty.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; example_function(&quot;test&quot;, 5)</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; example_function(&quot;&quot;, 10)</span>
+<span class="sd">        ValueError: param1 cannot be empty</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        Additional notes about usage or behavior.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="adding-new-pages">
+<h3>Adding New Pages<a class="headerlink" href="#adding-new-pages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Create a new <code class="docutils literal notranslate"><span class="pre">.md</span></code> file in the appropriate directory</p></li>
+<li><p>Add it to the navigation in <code class="docutils literal notranslate"><span class="pre">mkdocs.yml</span></code></p></li>
+<li><p>Use mkdocstrings syntax for API documentation:</p></li>
+</ol>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Module Name</span>
+
+Description of the module.
+
+::: rite.module.submodule
+    options:
+      show_source: false
+      heading_level: 2
+</pre></div>
+</div>
+</section>
+<section id="styling-guidelines">
+<h3>Styling Guidelines<a class="headerlink" href="#styling-guidelines" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Brand Colors</strong>: Defined in <code class="docutils literal notranslate"><span class="pre">assets/style/extra.css</span></code></p>
+<ul>
+<li><p>Primary: <code class="docutils literal notranslate"><span class="pre">rgb(0,</span> <span class="pre">0,</span> <span class="pre">15)</span></code> (near black)</p></li>
+<li><p>Accent: <code class="docutils literal notranslate"><span class="pre">#2196f3</span></code> (blue)</p></li>
+</ul>
+</li>
+<li><p><strong>Typography</strong>: Manrope font family</p></li>
+<li><p><strong>Code</strong>: Roboto Mono for code blocks</p></li>
+<li><p><strong>Line Length</strong>: 79 characters in code examples</p></li>
+</ul>
+</section>
+</section>
+<section id="configuration-files">
+<h2>Configuration Files<a class="headerlink" href="#configuration-files" title="Link to this heading"></a></h2>
+<section id="mkdocs-yml">
+<h3>mkdocs.yml<a class="headerlink" href="#mkdocs-yml" title="Link to this heading"></a></h3>
+<p>Main configuration for MkDocs:</p>
+<ul class="simple">
+<li><p>Site metadata</p></li>
+<li><p>Navigation structure</p></li>
+<li><p>Theme configuration</p></li>
+<li><p>Plugin settings</p></li>
+<li><p>Markdown extensions</p></li>
+</ul>
+</section>
+<section id="conf-py">
+<h3>conf.py<a class="headerlink" href="#conf-py" title="Link to this heading"></a></h3>
+<p>Sphinx configuration:</p>
+<ul class="simple">
+<li><p>Project information</p></li>
+<li><p>Extension settings</p></li>
+<li><p>HTML theme options</p></li>
+<li><p>API documentation settings</p></li>
+</ul>
+</section>
+<section id="assets-style-extra-css">
+<h3>assets/style/extra.css<a class="headerlink" href="#assets-style-extra-css" title="Link to this heading"></a></h3>
+<p>Custom CSS for MkDocs Material theme:</p>
+<ul class="simple">
+<li><p>Brand colors</p></li>
+<li><p>Typography</p></li>
+<li><p>Component styling</p></li>
+<li><p>Responsive design</p></li>
+</ul>
+</section>
+</section>
+<section id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h2>
+<p>API documentation is automatically generated from docstrings using <code class="docutils literal notranslate"><span class="pre">mkdocstrings</span></code>. The API pages in <code class="docutils literal notranslate"><span class="pre">api/</span></code> directory organize modules by category:</p>
+<ul class="simple">
+<li><p><strong>Core</strong>: Collections, Conversion, Text</p></li>
+<li><p><strong>System &amp; I/O</strong>: Filesystem, System, Net</p></li>
+<li><p><strong>Data</strong>: Serialization, Markup</p></li>
+<li><p><strong>Security</strong>: Crypto, Numeric, Temporal</p></li>
+<li><p><strong>Development</strong>: Diagnostics, Functional, Reflection</p></li>
+</ul>
+</section>
+<section id="deployment">
+<h2>Deployment<a class="headerlink" href="#deployment" title="Link to this heading"></a></h2>
+<section id="github-pages">
+<h3>GitHub Pages<a class="headerlink" href="#github-pages" title="Link to this heading"></a></h3>
+<p>Documentation is automatically deployed to GitHub Pages on push to the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Deploy manually</span>
+mkdocs<span class="w"> </span>gh-deploy
+</pre></div>
+</div>
+</section>
+<section id="custom-domain">
+<h3>Custom Domain<a class="headerlink" href="#custom-domain" title="Link to this heading"></a></h3>
+<p>The site is configured for <code class="docutils literal notranslate"><span class="pre">www.pyrites.dev</span></code> via the <code class="docutils literal notranslate"><span class="pre">CNAME</span></code> file.</p>
+</section>
+</section>
+<section id="maintenance">
+<h2>Maintenance<a class="headerlink" href="#maintenance" title="Link to this heading"></a></h2>
+<section id="updating-docstrings">
+<h3>Updating Docstrings<a class="headerlink" href="#updating-docstrings" title="Link to this heading"></a></h3>
+<p>When adding or modifying code:</p>
+<ol class="arabic simple">
+<li><p>Ensure all public APIs have complete docstrings</p></li>
+<li><p>Include examples in docstrings</p></li>
+<li><p>Add type hints for all parameters and returns</p></li>
+<li><p>Build docs locally to verify rendering</p></li>
+</ol>
+</section>
+<section id="adding-examples">
+<h3>Adding Examples<a class="headerlink" href="#adding-examples" title="Link to this heading"></a></h3>
+<p>Examples should be:</p>
+<ul class="simple">
+<li><p>Runnable code snippets</p></li>
+<li><p>Show common use cases</p></li>
+<li><p>Include expected output</p></li>
+<li><p>Cover edge cases</p></li>
+</ul>
+</section>
+<section id="checking-links">
+<h3>Checking Links<a class="headerlink" href="#checking-links" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check for broken links</span>
+mkdocs<span class="w"> </span>build<span class="w"> </span>--strict
+
+<span class="c1"># Validate internal links</span>
+find<span class="w"> </span>doc<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.md&quot;</span><span class="w"> </span>-exec<span class="w"> </span>grep<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;\[.*\](.*)&quot;</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="build-errors">
+<h3>Build Errors<a class="headerlink" href="#build-errors" title="Link to this heading"></a></h3>
+<p><strong>Import errors</strong>: Ensure source directory is in Python path:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PYTHONPATH</span><span class="si">}</span><span class="s2">:</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">/src&quot;</span>
+</pre></div>
+</div>
+<p><strong>Missing dependencies</strong>: Install all documentation dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements-docs.txt
+</pre></div>
+</div>
+<p><strong>Theme issues</strong>: Clear MkDocs cache:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm<span class="w"> </span>-rf<span class="w"> </span>~/.mkdocs/
+</pre></div>
+</div>
+</section>
+<section id="rendering-issues">
+<h3>Rendering Issues<a class="headerlink" href="#rendering-issues" title="Link to this heading"></a></h3>
+<p><strong>Code blocks not highlighted</strong>: Check language identifier in code fence</p>
+<p><strong>API not showing</strong>: Verify module path in mkdocstrings directive</p>
+<p><strong>Broken navigation</strong>: Validate YAML syntax in mkdocs.yml</p>
+</section>
+</section>
+<section id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Link to this heading"></a></h2>
+<p>When contributing documentation:</p>
+<ol class="arabic simple">
+<li><p>Follow the style guide</p></li>
+<li><p>Build locally before committing</p></li>
+<li><p>Check for typos and broken links</p></li>
+<li><p>Ensure examples are tested</p></li>
+<li><p>Update navigation if adding new pages</p></li>
+</ol>
+</section>
+<section id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.mkdocs.org/">MkDocs Documentation</a></p></li>
+<li><p><a class="reference external" href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a></p></li>
+<li><p><a class="reference external" href="https://mkdocstrings.github.io/">mkdocstrings</a></p></li>
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/">Sphinx Documentation</a></p></li>
+<li><p><a class="reference external" href="https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings">Google Style Docstrings</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2025, Scape Agency BV.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

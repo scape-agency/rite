@@ -1,0 +1,565 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Development Setup Guide &mdash; rite 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=c72a147a" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            rite
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Development Setup Guide</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#initial-setup">Initial Setup</a><ul>
+<li><a class="reference internal" href="#clone-repository">1. Clone Repository</a></li>
+<li><a class="reference internal" href="#install-poetry">2. Install Poetry</a></li>
+<li><a class="reference internal" href="#install-dependencies">3. Install Dependencies</a></li>
+<li><a class="reference internal" href="#set-up-pre-commit-hooks">4. Set Up Pre-commit Hooks</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#development-tools">Development Tools</a><ul>
+<li><a class="reference internal" href="#code-formatting">Code Formatting</a></li>
+<li><a class="reference internal" href="#linting">Linting</a></li>
+<li><a class="reference internal" href="#type-checking">Type Checking</a></li>
+<li><a class="reference internal" href="#security">Security</a></li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configuration-files">Configuration Files</a></li>
+<li><a class="reference internal" href="#ide-setup">IDE Setup</a><ul>
+<li><a class="reference internal" href="#vs-code-recommended">VS Code (Recommended)</a></li>
+<li><a class="reference internal" href="#dev-container">Dev Container</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#makefile-commands">Makefile Commands</a></li>
+<li><a class="reference internal" href="#verification">Verification</a></li>
+<li><a class="reference internal" href="#environment-variables">Environment Variables</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#poetry-installation-issues">Poetry Installation Issues</a></li>
+<li><a class="reference internal" href="#python-version-issues">Python Version Issues</a></li>
+<li><a class="reference internal" href="#pre-commit-hook-issues">Pre-commit Hook Issues</a></li>
+<li><a class="reference internal" href="#permission-issues">Permission Issues</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#workflows">Workflows</a><ul>
+<li><a class="reference internal" href="#daily-development">Daily Development</a></li>
+<li><a class="reference internal" href="#before-committing">Before Committing</a></li>
+<li><a class="reference internal" href="#multi-environment-testing">Multi-Environment Testing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#next-steps">Next Steps</a></li>
+<li><a class="reference internal" href="#resources">Resources</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">rite</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Development Setup Guide</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/scape-agency/rite/blob/main/doc/development/setup.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="development-setup-guide">
+<h1>Development Setup Guide<a class="headerlink" href="#development-setup-guide" title="Link to this heading"></a></h1>
+<p>This guide will help you set up your development environment for Rite.</p>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Python</strong>: 3.10, 3.11, or 3.12</p></li>
+<li><p><strong>Git</strong>: For version control</p></li>
+<li><p><strong>Poetry</strong>: 1.8.0 or higher (recommended)</p></li>
+<li><p><strong>Docker</strong>: Optional, for Dev Container</p></li>
+</ul>
+</section>
+<section id="initial-setup">
+<h2>Initial Setup<a class="headerlink" href="#initial-setup" title="Link to this heading"></a></h2>
+<section id="clone-repository">
+<h3>1. Clone Repository<a class="headerlink" href="#clone-repository" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/scape-agency/rite.git
+<span class="nb">cd</span><span class="w"> </span>rite
+</pre></div>
+</div>
+</section>
+<section id="install-poetry">
+<h3>2. Install Poetry<a class="headerlink" href="#install-poetry" title="Link to this heading"></a></h3>
+<p>If you don’t have Poetry installed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Linux, macOS, Windows (WSL)</span>
+curl<span class="w"> </span>-sSL<span class="w"> </span>https://install.python-poetry.org<span class="w"> </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>-
+
+<span class="c1"># Add to PATH</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.local/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+
+<span class="c1"># Verify installation</span>
+poetry<span class="w"> </span>--version
+</pre></div>
+</div>
+</section>
+<section id="install-dependencies">
+<h3>3. Install Dependencies<a class="headerlink" href="#install-dependencies" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install all dependencies including dev tools</span>
+poetry<span class="w"> </span>install<span class="w"> </span>--with<span class="w"> </span>dev
+
+<span class="c1"># Verify installation</span>
+poetry<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import rite; print(rite.__version__)&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="set-up-pre-commit-hooks">
+<h3>4. Set Up Pre-commit Hooks<a class="headerlink" href="#set-up-pre-commit-hooks" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install pre-commit hooks</span>
+poetry<span class="w"> </span>run<span class="w"> </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--install-hooks
+poetry<span class="w"> </span>run<span class="w"> </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--hook-type<span class="w"> </span>commit-msg
+
+<span class="c1"># Test hooks</span>
+poetry<span class="w"> </span>run<span class="w"> </span>pre-commit<span class="w"> </span>run<span class="w"> </span>--all-files
+</pre></div>
+</div>
+</section>
+</section>
+<section id="development-tools">
+<h2>Development Tools<a class="headerlink" href="#development-tools" title="Link to this heading"></a></h2>
+<p>All development tools are pre-configured:</p>
+<section id="code-formatting">
+<h3>Code Formatting<a class="headerlink" href="#code-formatting" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Black</strong>: Code formatter (79 char line length)</p></li>
+<li><p><strong>isort</strong>: Import sorter (Black-compatible)</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Format code</span>
+make<span class="w"> </span>format
+
+<span class="c1"># Check formatting</span>
+make<span class="w"> </span>format-check
+</pre></div>
+</div>
+</section>
+<section id="linting">
+<h3>Linting<a class="headerlink" href="#linting" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Flake8</strong>: PEP8 linting</p></li>
+<li><p><strong>Pylint</strong>: Static code analysis</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lint code</span>
+make<span class="w"> </span>lint
+
+<span class="c1"># Or individually</span>
+poetry<span class="w"> </span>run<span class="w"> </span>flake8<span class="w"> </span>src/
+poetry<span class="w"> </span>run<span class="w"> </span>pylint<span class="w"> </span>src/
+</pre></div>
+</div>
+</section>
+<section id="type-checking">
+<h3>Type Checking<a class="headerlink" href="#type-checking" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Mypy</strong>: Static type checker</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Type check</span>
+make<span class="w"> </span>type-check
+
+<span class="c1"># Or directly</span>
+poetry<span class="w"> </span>run<span class="w"> </span>mypy<span class="w"> </span>src/
+</pre></div>
+</div>
+</section>
+<section id="security">
+<h3>Security<a class="headerlink" href="#security" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Bandit</strong>: Security vulnerability scanner</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Security scan</span>
+make<span class="w"> </span>security
+
+<span class="c1"># Or directly</span>
+poetry<span class="w"> </span>run<span class="w"> </span>bandit<span class="w"> </span>-r<span class="w"> </span>src/<span class="w"> </span>-c<span class="w"> </span>pyproject.toml
+</pre></div>
+</div>
+</section>
+<section id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Pytest</strong>: Test framework</p></li>
+<li><p><strong>Coverage</strong>: Code coverage measurement</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run tests</span>
+make<span class="w"> </span><span class="nb">test</span>
+
+<span class="c1"># Run with coverage</span>
+make<span class="w"> </span>coverage
+
+<span class="c1"># Run specific test</span>
+poetry<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>tst/path/to/test.py
+
+<span class="c1"># Run with markers</span>
+poetry<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>-m<span class="w"> </span>unit
+poetry<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>-m<span class="w"> </span>integration
+</pre></div>
+</div>
+</section>
+</section>
+<section id="configuration-files">
+<h2>Configuration Files<a class="headerlink" href="#configuration-files" title="Link to this heading"></a></h2>
+<p>All tools have dedicated configuration files:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tool</p></th>
+<th class="head"><p>Config File</p></th>
+<th class="head"><p>Location</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Black</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[tool.black]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>isort</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.isort.cfg</span></code></p></td>
+<td><p>Root</p></td>
+</tr>
+<tr class="row-even"><td><p>Flake8</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.flake8</span></code></p></td>
+<td><p>Root</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pylint</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.pylintrc</span></code></p></td>
+<td><p>Root</p></td>
+</tr>
+<tr class="row-even"><td><p>Mypy</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mypy.ini</span></code></p></td>
+<td><p>Root</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pytest</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pytest.ini</span></code></p></td>
+<td><p>Root</p></td>
+</tr>
+<tr class="row-even"><td><p>Coverage</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.coveragerc</span></code></p></td>
+<td><p>Root</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tox</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tox.ini</span></code></p></td>
+<td><p>Root</p></td>
+</tr>
+<tr class="row-even"><td><p>Pre-commit</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code></p></td>
+<td><p>Root</p></td>
+</tr>
+<tr class="row-odd"><td><p>EditorConfig</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.editorconfig</span></code></p></td>
+<td><p>Root</p></td>
+</tr>
+</tbody>
+</table>
+<p>See <a class="reference internal" href="configuration.html"><span class="std std-doc">Configuration Philosophy</span></a> for details.</p>
+</section>
+<section id="ide-setup">
+<h2>IDE Setup<a class="headerlink" href="#ide-setup" title="Link to this heading"></a></h2>
+<section id="vs-code-recommended">
+<h3>VS Code (Recommended)<a class="headerlink" href="#vs-code-recommended" title="Link to this heading"></a></h3>
+<p>The repository includes comprehensive VS Code settings:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open in VS Code</span>
+code<span class="w"> </span>.
+</pre></div>
+</div>
+<p>Recommended extensions are automatically suggested:</p>
+<ul class="simple">
+<li><p>Python</p></li>
+<li><p>Pylance</p></li>
+<li><p>Black Formatter</p></li>
+<li><p>isort</p></li>
+<li><p>Flake8</p></li>
+<li><p>Pylint</p></li>
+<li><p>GitHub Copilot</p></li>
+<li><p>GitLens</p></li>
+<li><p>Coverage Gutters</p></li>
+</ul>
+<p>Settings are pre-configured in:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.vscode/settings.json</span></code> - IDE settings</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.vscode/launch.json</span></code> - Debug configurations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.vscode/tasks.json</span></code> - Task definitions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.vscode/snippets.code-snippets</span></code> - Code snippets</p></li>
+</ul>
+</section>
+<section id="dev-container">
+<h3>Dev Container<a class="headerlink" href="#dev-container" title="Link to this heading"></a></h3>
+<p>For a complete, containerized development environment:</p>
+<ol class="arabic simple">
+<li><p>Install Docker Desktop</p></li>
+<li><p>Install VS Code Dev Containers extension</p></li>
+<li><p>Open Command Palette: “Dev Containers: Reopen in Container”</p></li>
+<li><p>Wait for container to build (first time only)</p></li>
+</ol>
+<p>See <span class="xref myst">.devcontainer/README.md</span> for details.</p>
+</section>
+</section>
+<section id="makefile-commands">
+<h2>Makefile Commands<a class="headerlink" href="#makefile-commands" title="Link to this heading"></a></h2>
+<p>All common tasks are available via Make:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show all commands</span>
+make<span class="w"> </span><span class="nb">help</span>
+
+<span class="c1"># Development</span>
+make<span class="w"> </span>dev<span class="w">              </span><span class="c1"># Install dev dependencies</span>
+make<span class="w"> </span>verify<span class="w">           </span><span class="c1"># Verify tool installation</span>
+
+<span class="c1"># Code Quality</span>
+make<span class="w"> </span>format<span class="w">           </span><span class="c1"># Format code</span>
+make<span class="w"> </span>format-check<span class="w">     </span><span class="c1"># Check formatting</span>
+make<span class="w"> </span>lint<span class="w">             </span><span class="c1"># Lint code</span>
+make<span class="w"> </span>type-check<span class="w">       </span><span class="c1"># Type check</span>
+make<span class="w"> </span>security<span class="w">         </span><span class="c1"># Security scan</span>
+make<span class="w"> </span>check<span class="w">            </span><span class="c1"># Run all checks</span>
+
+<span class="c1"># Testing</span>
+make<span class="w"> </span><span class="nb">test</span><span class="w">             </span><span class="c1"># Run tests</span>
+make<span class="w"> </span>coverage<span class="w">         </span><span class="c1"># Run with coverage</span>
+make<span class="w"> </span>tox<span class="w">              </span><span class="c1"># Test multiple environments</span>
+
+<span class="c1"># Other</span>
+make<span class="w"> </span>clean<span class="w">            </span><span class="c1"># Clean build artifacts</span>
+make<span class="w"> </span>quick<span class="w">            </span><span class="c1"># Format and lint</span>
+make<span class="w"> </span>ci<span class="w">               </span><span class="c1"># Run all CI checks</span>
+make<span class="w"> </span>docs<span class="w">             </span><span class="c1"># Build documentation</span>
+make<span class="w"> </span>hooks-install<span class="w">    </span><span class="c1"># Install git hooks</span>
+make<span class="w"> </span>version<span class="w">          </span><span class="c1"># Show version</span>
+make<span class="w"> </span>docker-build<span class="w">     </span><span class="c1"># Build Docker image</span>
+</pre></div>
+</div>
+</section>
+<section id="verification">
+<h2>Verification<a class="headerlink" href="#verification" title="Link to this heading"></a></h2>
+<p>Verify your setup is correct:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run automated verification</span>
+poetry<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>bin/verify_tools.py
+
+<span class="c1"># Or manually check each tool</span>
+poetry<span class="w"> </span>run<span class="w"> </span>black<span class="w"> </span>--version
+poetry<span class="w"> </span>run<span class="w"> </span>isort<span class="w"> </span>--version
+poetry<span class="w"> </span>run<span class="w"> </span>flake8<span class="w"> </span>--version
+poetry<span class="w"> </span>run<span class="w"> </span>pylint<span class="w"> </span>--version
+poetry<span class="w"> </span>run<span class="w"> </span>mypy<span class="w"> </span>--version
+poetry<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>--version
+poetry<span class="w"> </span>run<span class="w"> </span>coverage<span class="w"> </span>--version
+</pre></div>
+</div>
+</section>
+<section id="environment-variables">
+<h2>Environment Variables<a class="headerlink" href="#environment-variables" title="Link to this heading"></a></h2>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">.env</span></code> file (optional):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copy example</span>
+cp<span class="w"> </span>.env.example<span class="w"> </span>.env
+
+<span class="c1"># Edit as needed</span>
+<span class="nv">PYTHONPATH</span><span class="o">=</span>src
+<span class="nv">RITE_ENV</span><span class="o">=</span>development
+<span class="nv">RITE_DEBUG</span><span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="poetry-installation-issues">
+<h3>Poetry Installation Issues<a class="headerlink" href="#poetry-installation-issues" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clear cache</span>
+poetry<span class="w"> </span>cache<span class="w"> </span>clear<span class="w"> </span>pypi<span class="w"> </span>--all
+
+<span class="c1"># Reinstall</span>
+poetry<span class="w"> </span>install<span class="w"> </span>--with<span class="w"> </span>dev<span class="w"> </span>--no-cache
+</pre></div>
+</div>
+</section>
+<section id="python-version-issues">
+<h3>Python Version Issues<a class="headerlink" href="#python-version-issues" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show Poetry&#39;s Python</span>
+poetry<span class="w"> </span>env<span class="w"> </span>info
+
+<span class="c1"># Use specific Python</span>
+poetry<span class="w"> </span>env<span class="w"> </span>use<span class="w"> </span>python3.10
+poetry<span class="w"> </span>env<span class="w"> </span>use<span class="w"> </span>python3.11
+poetry<span class="w"> </span>env<span class="w"> </span>use<span class="w"> </span>python3.12
+
+<span class="c1"># Remove and recreate</span>
+poetry<span class="w"> </span>env<span class="w"> </span>remove<span class="w"> </span>python
+poetry<span class="w"> </span>install<span class="w"> </span>--with<span class="w"> </span>dev
+</pre></div>
+</div>
+</section>
+<section id="pre-commit-hook-issues">
+<h3>Pre-commit Hook Issues<a class="headerlink" href="#pre-commit-hook-issues" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reinstall hooks</span>
+poetry<span class="w"> </span>run<span class="w"> </span>pre-commit<span class="w"> </span>uninstall
+poetry<span class="w"> </span>run<span class="w"> </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--install-hooks
+
+<span class="c1"># Update hooks</span>
+poetry<span class="w"> </span>run<span class="w"> </span>pre-commit<span class="w"> </span>autoupdate
+
+<span class="c1"># Clean and reinstall</span>
+poetry<span class="w"> </span>run<span class="w"> </span>pre-commit<span class="w"> </span>clean
+poetry<span class="w"> </span>run<span class="w"> </span>pre-commit<span class="w"> </span>install<span class="w"> </span>--install-hooks
+</pre></div>
+</div>
+</section>
+<section id="permission-issues">
+<h3>Permission Issues<a class="headerlink" href="#permission-issues" title="Link to this heading"></a></h3>
+<p>On Linux/macOS:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fix permissions</span>
+chmod<span class="w"> </span>+x<span class="w"> </span>bin/*.sh
+chmod<span class="w"> </span>+x<span class="w"> </span>bin/*.py
+</pre></div>
+</div>
+</section>
+</section>
+<section id="workflows">
+<h2>Workflows<a class="headerlink" href="#workflows" title="Link to this heading"></a></h2>
+<section id="daily-development">
+<h3>Daily Development<a class="headerlink" href="#daily-development" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Pull latest changes</span>
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>dev
+
+<span class="c1"># 2. Create feature branch</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feat/my-feature
+
+<span class="c1"># 3. Make changes and test</span>
+make<span class="w"> </span>quick<span class="w">          </span><span class="c1"># Format and lint</span>
+make<span class="w"> </span><span class="nb">test</span><span class="w">           </span><span class="c1"># Run tests</span>
+
+<span class="c1"># 4. Commit (pre-commit runs automatically)</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat(module): Add new feature&quot;</span>
+
+<span class="c1"># 5. Push and create PR</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feat/my-feature
+</pre></div>
+</div>
+</section>
+<section id="before-committing">
+<h3>Before Committing<a class="headerlink" href="#before-committing" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run all checks</span>
+make<span class="w"> </span>check
+
+<span class="c1"># Or individually</span>
+make<span class="w"> </span>format<span class="w">        </span><span class="c1"># Format code</span>
+make<span class="w"> </span>lint<span class="w">          </span><span class="c1"># Lint</span>
+make<span class="w"> </span>type-check<span class="w">    </span><span class="c1"># Type check</span>
+make<span class="w"> </span>security<span class="w">      </span><span class="c1"># Security scan</span>
+make<span class="w"> </span><span class="nb">test</span><span class="w">          </span><span class="c1"># Tests</span>
+</pre></div>
+</div>
+</section>
+<section id="multi-environment-testing">
+<h3>Multi-Environment Testing<a class="headerlink" href="#multi-environment-testing" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test on all Python versions</span>
+make<span class="w"> </span>tox
+
+<span class="c1"># Test specific environment</span>
+poetry<span class="w"> </span>run<span class="w"> </span>tox<span class="w"> </span>-e<span class="w"> </span>py310
+poetry<span class="w"> </span>run<span class="w"> </span>tox<span class="w"> </span>-e<span class="w"> </span>py311
+poetry<span class="w"> </span>run<span class="w"> </span>tox<span class="w"> </span>-e<span class="w"> </span>py312
+</pre></div>
+</div>
+</section>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Read <a class="reference internal" href="../contributing.html"><span class="std std-doc">Contributing Guide</span></a></p></li>
+<li><p>Review <a class="reference internal" href="code-style.html"><span class="std std-doc">Code Style Guidelines</span></a></p></li>
+<li><p>Check <a class="reference internal" href="ai-instructions.html"><span class="std std-doc">AI Instructions</span></a></p></li>
+<li><p>Explore <a class="reference internal" href="../api/index.html"><span class="std std-doc">API Reference</span></a></p></li>
+</ul>
+</section>
+<section id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://python-poetry.org/docs/">Poetry Documentation</a></p></li>
+<li><p><a class="reference external" href="https://pre-commit.com/">Pre-commit Documentation</a></p></li>
+<li><p><a class="reference external" href="https://docs.pytest.org/">Pytest Documentation</a></p></li>
+<li><p><a class="reference external" href="https://black.readthedocs.io/">Black Documentation</a></p></li>
+<li><p><a class="reference external" href="https://mypy.readthedocs.io/">Mypy Documentation</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2025, Scape Agency BV.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

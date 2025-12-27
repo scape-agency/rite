@@ -1,0 +1,275 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation Guide &mdash; rite 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c72a147a" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            rite
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Installation Guide</a><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#installation-methods">Installation Methods</a><ul>
+<li><a class="reference internal" href="#using-pip-recommended-for-users">Using pip (Recommended for Users)</a></li>
+<li><a class="reference internal" href="#using-poetry-recommended-for-development">Using Poetry (Recommended for Development)</a></li>
+<li><a class="reference internal" href="#from-source">From Source</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#verify-installation">Verify Installation</a></li>
+<li><a class="reference internal" href="#virtual-environment">Virtual Environment</a><ul>
+<li><a class="reference internal" href="#using-venv">Using venv</a></li>
+<li><a class="reference internal" href="#using-poetry">Using Poetry</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#docker">Docker</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#python-version-issues">Python Version Issues</a></li>
+<li><a class="reference internal" href="#permission-errors">Permission Errors</a></li>
+<li><a class="reference internal" href="#poetry-issues">Poetry Issues</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#next-steps">Next Steps</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">rite</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation Guide</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/scape-agency/rite/blob/main/doc/installation.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation-guide">
+<h1>Installation Guide<a class="headerlink" href="#installation-guide" title="Link to this heading"></a></h1>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Python</strong>: &gt;=3.12, &lt;4.0</p></li>
+<li><p><strong>Operating System</strong>: Linux, macOS, Windows</p></li>
+<li><p><strong>Package Manager</strong>: pip or Poetry (recommended)</p></li>
+</ul>
+</section>
+<section id="installation-methods">
+<h2>Installation Methods<a class="headerlink" href="#installation-methods" title="Link to this heading"></a></h2>
+<section id="using-pip-recommended-for-users">
+<h3>Using pip (Recommended for Users)<a class="headerlink" href="#using-pip-recommended-for-users" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install latest version</span>
+pip<span class="w"> </span>install<span class="w"> </span>rite
+
+<span class="c1"># Install specific version</span>
+pip<span class="w"> </span>install<span class="w"> </span><span class="nv">rite</span><span class="o">==</span><span class="m">1</span>.0.0
+
+<span class="c1"># Upgrade to latest version</span>
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>rite
+</pre></div>
+</div>
+</section>
+<section id="using-poetry-recommended-for-development">
+<h3>Using Poetry (Recommended for Development)<a class="headerlink" href="#using-poetry-recommended-for-development" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add to project</span>
+poetry<span class="w"> </span>add<span class="w"> </span>rite
+
+<span class="c1"># Add specific version</span>
+poetry<span class="w"> </span>add<span class="w"> </span>rite@1.0.0
+
+<span class="c1"># Add with development dependencies</span>
+poetry<span class="w"> </span>add<span class="w"> </span>rite<span class="w"> </span>--group<span class="w"> </span>dev
+</pre></div>
+</div>
+</section>
+<section id="from-source">
+<h3>From Source<a class="headerlink" href="#from-source" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clone the repository</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/scape-agency/rite.git
+<span class="nb">cd</span><span class="w"> </span>rite
+
+<span class="c1"># Install with Poetry</span>
+poetry<span class="w"> </span>install
+
+<span class="c1"># Or install with pip</span>
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+</section>
+<section id="verify-installation">
+<h2>Verify Installation<a class="headerlink" href="#verify-installation" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rite</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">rite</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or from command line:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import rite; print(rite.__version__)&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="virtual-environment">
+<h2>Virtual Environment<a class="headerlink" href="#virtual-environment" title="Link to this heading"></a></h2>
+<p>It’s recommended to use a virtual environment:</p>
+<section id="using-venv">
+<h3>Using venv<a class="headerlink" href="#using-venv" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create virtual environment</span>
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+
+<span class="c1"># Activate (Linux/macOS)</span>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+
+<span class="c1"># Activate (Windows)</span>
+.venv<span class="se">\\</span>Scripts<span class="se">\\</span>activate
+
+<span class="c1"># Install rite</span>
+pip<span class="w"> </span>install<span class="w"> </span>rite
+</pre></div>
+</div>
+</section>
+<section id="using-poetry">
+<h3>Using Poetry<a class="headerlink" href="#using-poetry" title="Link to this heading"></a></h3>
+<p>Poetry automatically creates and manages virtual environments:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>install
+poetry<span class="w"> </span>shell
+</pre></div>
+</div>
+</section>
+</section>
+<section id="docker">
+<h2>Docker<a class="headerlink" href="#docker" title="Link to this heading"></a></h2>
+<p>Use the provided Dev Container for a complete development environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open in VS Code with Dev Containers extension</span>
+<span class="c1"># Or build manually</span>
+<span class="nb">cd</span><span class="w"> </span>.devcontainer
+docker-compose<span class="w"> </span>build
+docker-compose<span class="w"> </span>up
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="#../../.devcontainer/README.md"><span class="xref myst">.devcontainer/README.md</span></a> for details.</p>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="python-version-issues">
+<h3>Python Version Issues<a class="headerlink" href="#python-version-issues" title="Link to this heading"></a></h3>
+<p>Ensure you have Python 3.10 or higher:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>--version
+</pre></div>
+</div>
+<p>If you have multiple Python versions:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3.10<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>rite
+<span class="c1"># or</span>
+python3.11<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>rite
+</pre></div>
+</div>
+</section>
+<section id="permission-errors">
+<h3>Permission Errors<a class="headerlink" href="#permission-errors" title="Link to this heading"></a></h3>
+<p>On Linux/macOS, you might need to use <code class="docutils literal notranslate"><span class="pre">--user</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>rite
+</pre></div>
+</div>
+<p>Or use a virtual environment (recommended).</p>
+</section>
+<section id="poetry-issues">
+<h3>Poetry Issues<a class="headerlink" href="#poetry-issues" title="Link to this heading"></a></h3>
+<p>If Poetry is not found:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install Poetry</span>
+curl<span class="w"> </span>-sSL<span class="w"> </span>https://install.python-poetry.org<span class="w"> </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>-
+
+<span class="c1"># Add to PATH</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.local/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="getting-started.html"><span class="std std-doc">Quick Start Guide</span></a></p></li>
+<li><p><a class="reference internal" href="#../api/index.md"><span class="xref myst">API Reference</span></a></p></li>
+<li><p><a class="reference internal" href="examples.html"><span class="std std-doc">Examples</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2025, Scape Agency BV.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

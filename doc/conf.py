@@ -35,6 +35,7 @@ version = "0.1.1"
 # =============================================================================
 
 extensions = [
+    "myst_parser",
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
     "sphinx.ext.napoleon",
