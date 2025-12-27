@@ -19,7 +19,7 @@ Provides functionality to convert file sizes to human-readable strings.
 from __future__ import annotations
 
 # Import | Standard Library
-from typing import BinaryIO, Protocol
+from typing import Any, BinaryIO, Protocol
 
 # Implement local bytes-to-string conversion to avoid external dependency.
 
@@ -56,9 +56,13 @@ class _SizedStream(Protocol):
 
     size: int
 
-    def tell(self, *args, **kwargs) -> int: ...
+    def tell(self, *args: Any, **kwargs: Any) -> int:
+        """Return the current position in the file."""
+        pass
 
-    def seek(self, *args, **kwargs) -> int: ...
+    def seek(self, *args: Any, **kwargs: Any) -> int:
+        """Seek to a position in the file."""
+        pass
 
 
 # =============================================================================
