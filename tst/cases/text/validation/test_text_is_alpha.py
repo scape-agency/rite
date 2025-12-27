@@ -26,9 +26,17 @@ from rite.text.validation.text_is_alpha import (
 # =============================================================================
 
 
-def test_text_is_alpha() -> None:
-    """Test text_is_alpha() function."""
-    # TODO: Implement test
-    # result = text_is_alpha(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "text,expected",
+    [
+        ("abc", True),         # All letters
+        ("ABC", True),         # Uppercase
+        ("abc123", False),     # Contains numbers
+        ("abc-def", False),    # Contains hyphen
+        ("", False),           # Empty
+        ("hello world", False), # Contains space
+    ],
+)
+def test_text_is_alpha(text: str, expected: bool) -> None:
+    """Test text_is_alpha() with various strings."""
+    assert text_is_alpha(text) == expected

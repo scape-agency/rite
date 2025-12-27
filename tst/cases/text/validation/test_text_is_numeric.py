@@ -26,9 +26,17 @@ from rite.text.validation.text_is_numeric import (
 # =============================================================================
 
 
-def test_text_is_numeric() -> None:
-    """Test text_is_numeric() function."""
-    # TODO: Implement test
-    # result = text_is_numeric(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "text,expected",
+    [
+        ("123", True),         # All digits
+        ("0", True),           # Zero
+        ("123abc", False),     # Contains letters
+        ("12.34", False),      # Contains decimal
+        ("", False),           # Empty
+        (" 123", False),       # Contains space
+    ],
+)
+def test_text_is_numeric(text: str, expected: bool) -> None:
+    """Test text_is_numeric() with various strings."""
+    assert text_is_numeric(text) == expected

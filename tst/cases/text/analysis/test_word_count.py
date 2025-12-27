@@ -31,10 +31,10 @@ def test_word_count() -> None:
     # Test basic count
     assert word_count("hello world") == 2
     assert word_count("one two three four five") == 5
-    
+
     # Test empty string
     assert word_count("") == 0
     assert word_count("   ") == 0
-    
+
     # Test single word
     assert word_count("hello") == 1

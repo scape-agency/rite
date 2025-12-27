@@ -26,9 +26,18 @@ from rite.text.search.text_starts_with import (
 # =============================================================================
 
 
-def test_text_starts_with() -> None:
-    """Test text_starts_with() function."""
-    # TODO: Implement test
-    # result = text_starts_with(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "text,prefix,expected",
+    [
+        ("hello world", "hello", True),
+        ("hello world", "world", False),
+        ("hello world", "", True),
+        ("hello world", "hello world", True),
+        ("hello", "HELLO", False),  # Case-sensitive
+    ],
+)
+def test_text_starts_with(
+    text: str, prefix: str, expected: bool
+) -> None:
+    """Test text_starts_with() with various inputs."""
+    assert text_starts_with(text, prefix) == expected

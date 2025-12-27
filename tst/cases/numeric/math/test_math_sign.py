@@ -26,9 +26,16 @@ from rite.numeric.math.math_sign import (
 # =============================================================================
 
 
-def test_math_sign() -> None:
-    """Test math_sign() function."""
-    # TODO: Implement test
-    # result = math_sign(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "value,expected",
+    [
+        (5, 1),       # Positive
+        (-5, -1),     # Negative
+        (0, 0),       # Zero
+        (3.14, 1),    # Positive float
+        (-3.14, -1),  # Negative float
+    ],
+)
+def test_math_sign(value: float, expected: int) -> None:
+    """Test math_sign() with various values."""
+    assert math_sign(value) == expected

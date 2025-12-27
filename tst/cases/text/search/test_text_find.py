@@ -26,9 +26,18 @@ from rite.text.search.text_find import (
 # =============================================================================
 
 
-def test_text_find() -> None:
-    """Test text_find() function."""
-    # TODO: Implement test
-    # result = text_find(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "text,substring,expected",
+    [
+        ("hello world", "world", 6),
+        ("hello world", "hello", 0),
+        ("hello world", "o", 4),
+        ("hello world", "foo", -1),
+        ("hello", "", 0),
+    ],
+)
+def test_text_find(
+    text: str, substring: str, expected: int
+) -> None:
+    """Test text_find() with various inputs."""
+    assert text_find(text, substring) == expected

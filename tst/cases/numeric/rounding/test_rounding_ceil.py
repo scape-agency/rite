@@ -31,10 +31,10 @@ def test_rounding_ceil() -> None:
     # Test positive rounding up
     assert rounding_ceil(3.1) == 4
     assert rounding_ceil(3.9) == 4
-    
+
     # Test negative rounding up
     assert rounding_ceil(-3.9) == -3
     assert rounding_ceil(-3.1) == -3
-    
+
     # Test integer
     assert rounding_ceil(4.0) == 4

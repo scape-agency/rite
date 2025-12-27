@@ -26,9 +26,18 @@ from rite.text.search.text_count import (
 # =============================================================================
 
 
-def test_text_count() -> None:
-    """Test text_count() function."""
-    # TODO: Implement test
-    # result = text_count(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "text,substring,expected",
+    [
+        ("hello world", "o", 2),
+        ("hello world", "l", 3),
+        ("hello world", "world", 1),
+        ("hello world", "foo", 0),
+        ("aaa", "a", 3),
+    ],
+)
+def test_text_count(
+    text: str, substring: str, expected: int
+) -> None:
+    """Test text_count() with various inputs."""
+    assert text_count(text, substring) == expected

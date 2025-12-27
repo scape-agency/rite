@@ -31,13 +31,13 @@ def test_longest_word() -> None:
     # Test basic longest
     assert longest_word("hello world") == "hello"
     assert longest_word("a bb ccc") == "ccc"
-    
+
     # Test single word
     assert longest_word("hello") == "hello"
-    
+
     # Test error on empty string
     with pytest.raises(ValueError, match="Text contains no words"):
         longest_word("")
-    
+
     with pytest.raises(ValueError, match="Text contains no words"):
         longest_word("   ")

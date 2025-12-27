@@ -31,16 +31,16 @@ def test_shortest_word() -> None:
     # Test basic shortest (both same length, returns first)
     assert shortest_word("hello world") == "hello"
     assert shortest_word("abc defgh") == "abc"
-    
+
     # Test different lengths
     assert shortest_word("a bb ccc") == "a"
-    
+
     # Test single word
     assert shortest_word("hello") == "hello"
-    
+
     # Test error on empty string
     with pytest.raises(ValueError, match="Text contains no words"):
         shortest_word("")
-    
+
     with pytest.raises(ValueError, match="Text contains no words"):
         shortest_word("   ")

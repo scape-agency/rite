@@ -26,9 +26,16 @@ from rite.numeric.math.math_abs import (
 # =============================================================================
 
 
-def test_math_abs() -> None:
-    """Test math_abs() function."""
-    # TODO: Implement test
-    # result = math_abs(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "value,expected",
+    [
+        (5, 5),  # Positive
+        (-5, 5),  # Negative
+        (0, 0),  # Zero
+        (3.14, 3.14),  # Positive float
+        (-3.14, 3.14),  # Negative float
+    ],
+)
+def test_math_abs(value: float, expected: float) -> None:
+    """Test math_abs() with various values."""
+    assert math_abs(value) == expected

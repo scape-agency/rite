@@ -26,9 +26,17 @@ from rite.temporal.calendar.calendar_is_leap_year import (
 # =============================================================================
 
 
-def test_calendar_is_leap_year() -> None:
-    """Test calendar_is_leap_year() function."""
-    # TODO: Implement test
-    # result = calendar_is_leap_year(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "year,expected",
+    [
+        (2024, True),  # Leap year (divisible by 4)
+        (2023, False),  # Not a leap year
+        (2000, True),  # Leap year (divisible by 400)
+        (1900, False),  # Not a leap year (divisible by 100 but not 400)
+        (2004, True),  # Leap year
+        (2100, False),  # Not a leap year
+    ],
+)
+def test_calendar_is_leap_year(year: int, expected: bool) -> None:
+    """Test calendar_is_leap_year() with multiple years."""
+    assert calendar_is_leap_year(year) == expected

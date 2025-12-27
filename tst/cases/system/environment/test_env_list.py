@@ -31,7 +31,7 @@ def test_env_list() -> None:
     # Test returns dict
     result = env_list()
     assert isinstance(result, dict)
-    
+
     # Test contains standard env vars
     assert len(result) > 0
     assert "PATH" in result or "Path" in result  # Cross-platform

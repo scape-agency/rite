@@ -31,13 +31,13 @@ def test_average_word_length() -> None:
     # Test basic average
     assert average_word_length("hello world") == 5.0
     assert average_word_length("a bb ccc") == 2.0
-    
+
     # Test single word
     assert average_word_length("hello") == 5.0
-    
+
     # Test error on empty string
     with pytest.raises(ValueError, match="Text contains no words"):
         average_word_length("")
-    
+
     with pytest.raises(ValueError, match="Text contains no words"):
         average_word_length("   ")

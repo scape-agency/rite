@@ -10,6 +10,8 @@
 
 <br/>
 
+---
+
 <div align="center">
   <a href="https://github.com/scape-agency/rite/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug_report.yml">Report a Bug</a>
   |
