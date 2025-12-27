@@ -3,13 +3,20 @@
 # =============================================================================
 
 """
-UUID Hexadecimal Generation
-===========================
+Random Hex String Generation
+=============================
 
-Generate random UUIDs as hexadecimal strings.
+Generate cryptographically secure random hex strings.
+
+Examples
+--------
+>>> from rite.crypto.random import random_hex
+>>> len(random_hex(16))
+32
+>>> len(random_hex(32))
+64
 
 """
-
 
 # =============================================================================
 # Imports
@@ -19,31 +26,36 @@ Generate random UUIDs as hexadecimal strings.
 from __future__ import annotations
 
 # Import | Standard Library
-import uuid
+import secrets
 
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def uuid_hex() -> str:
+def random_hex(nbytes: int = 32) -> str:
     """
-    Generate a random UUID and return it as a 32-character hexadecimal string.
+    Generate cryptographically secure random hex string.
+
+    Args:
+        nbytes: Number of random bytes (output is 2x this length).
 
     Returns:
-        UUID as a 32-character hexadecimal string (no hyphens)
+        Random hexadecimal string.
 
-    Example:
-        >>> len(uuid_hex())
+    Examples:
+        >>> len(random_hex())
+        64
+        >>> len(random_hex(16))
         32
+        >>> all(c in '0123456789abcdef' for c in random_hex(8))
+        True
     """
-    return uuid.uuid4().hex
+    return secrets.token_hex(nbytes)
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "uuid_hex",
-]
+__all__: list[str] = ["random_hex"]

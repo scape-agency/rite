@@ -3,13 +3,18 @@
 # =============================================================================
 
 """
-UUID Hexadecimal Generation
-===========================
+SHA-384 Hash
+============
 
-Generate random UUIDs as hexadecimal strings.
+Compute SHA-384 hash.
+
+Examples
+--------
+>>> from rite.crypto.hash import hash_sha384
+>>> len(hash_sha384("hello"))
+96
 
 """
-
 
 # =============================================================================
 # Imports
@@ -19,31 +24,38 @@ Generate random UUIDs as hexadecimal strings.
 from __future__ import annotations
 
 # Import | Standard Library
-import uuid
+import hashlib
 
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def uuid_hex() -> str:
+def hash_sha384(data: str | bytes, encoding: str = "utf-8") -> str:
     """
-    Generate a random UUID and return it as a 32-character hexadecimal string.
+    Compute SHA-384 hash of data.
+
+    Args:
+        data: String or bytes to hash.
+        encoding: Text encoding if data is string.
 
     Returns:
-        UUID as a 32-character hexadecimal string (no hyphens)
+        Hexadecimal SHA-384 hash string (96 characters).
 
-    Example:
-        >>> len(uuid_hex())
-        32
+    Examples:
+        >>> hash_sha384("hello")[:32]
+        '59e1748777448c69de6b800d7a33'
+        >>> len(hash_sha384("test"))
+        96
     """
-    return uuid.uuid4().hex
+    if isinstance(data, str):
+        data = data.encode(encoding)
+
+    return hashlib.sha384(data).hexdigest()
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "uuid_hex",
-]
+__all__: list[str] = ["hash_sha384"]

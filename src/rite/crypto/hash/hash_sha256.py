@@ -1,17 +1,22 @@
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
 
 """
-Rite - Cryptography - SHA256 Hash Module
-========================================
+SHA-256 Hash
+============
 
-Provides functionality to compute SHA256 hashes.
+Compute SHA-256 hash and HMAC.
+
+Examples
+--------
+>>> from rite.crypto.hash import hash_sha256
+>>> len(hash_sha256("hello"))
+64
+>>> hash_sha256_hmac("key", "message")[:16]
+'6e40a5e7a8b7'
 
 """
-
 
 # =============================================================================
 # Imports
@@ -24,35 +29,78 @@ from __future__ import annotations
 import hashlib
 import hmac
 
-# Import | Libraries
-
-# Import | Local Modules
-
-
-# =============================================================================
-# Constants
-# =============================================================================
-
-ASCII_NOT_CONFUSABLE = "ABCEFGHJKLMNPQRSTUWXYZ123456789"
-
-
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def sha256_hash(
-    key,
-    msg,
+def hash_sha256(data: str | bytes, encoding: str = "utf-8") -> str:
+    """
+    Compute SHA-256 hash of data.
+
+    Args:
+        data: String or bytes to hash.
+        encoding: Text encoding if data is string.
+
+    Returns:
+        Hexadecimal SHA-256 hash string (64 characters).
+
+    Examples:
+        >>> len(hash_sha256("hello"))
+        64
+        >>> hash_sha256(b"hello")[:16]
+        '2cf24dba5fb0a30e'
+    """
+    if isinstance(data, str):
+        data = data.encode(encoding)
+
+    return hashlib.sha256(data).hexdigest()
+
+
+def hash_sha256_hmac(
+    key: str | bytes,
+    msg: str | bytes,
+    encoding: str = "utf-8",
 ) -> str:
     """
-    SHA256 hexdigest of `msg` salted with `key`. UTF-8 Encoded.
+    Compute SHA-256 HMAC of message with key.
+
+    Args:
+        key: Secret key for HMAC.
+        msg: Message to authenticate.
+        encoding: Text encoding if inputs are strings.
+
+    Returns:
+        Hexadecimal HMAC-SHA-256 string.
+
+    Examples:
+        >>> hmac_result = hash_sha256_hmac("secret", "message")
+        >>> len(hmac_result)
+        64
     """
-    return hmac.new(
-        key=key.encode("utf-8") if isinstance(key, str) else key,
-        msg=msg.encode("utf-8") if isinstance(msg, str) else msg,
-        digestmod=hashlib.sha256,
-    ).hexdigest()
+    if isinstance(key, str):
+        key = key.encode(encoding)
+    if isinstance(msg, str):
+        msg = msg.encode(encoding)
+
+    return hmac.new(key=key, msg=msg, digestmod=hashlib.sha256).hexdigest()
+
+
+# Legacy alias for backward compatibility
+def sha256_hash(key: str | bytes, msg: str | bytes) -> str:
+    """
+    Legacy function: SHA256 HMAC (backward compatibility).
+
+    Use hash_sha256_hmac() instead.
+
+    Args:
+        key: Secret key.
+        msg: Message to authenticate.
+
+    Returns:
+        Hexadecimal HMAC-SHA-256 string.
+    """
+    return hash_sha256_hmac(key, msg)
 
 
 # =============================================================================
@@ -60,5 +108,7 @@ def sha256_hash(
 # =============================================================================
 
 __all__: list[str] = [
-    "sha256_hash",
+    "hash_sha256",
+    "hash_sha256_hmac",
+    "sha256_hash",  # Legacy
 ]

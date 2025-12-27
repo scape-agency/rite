@@ -3,13 +3,20 @@
 # =============================================================================
 
 """
-UUID Hexadecimal Generation
-===========================
+Random Bytes Generation
+=======================
 
-Generate random UUIDs as hexadecimal strings.
+Generate cryptographically secure random bytes.
+
+Examples
+--------
+>>> from rite.crypto.random import random_bytes
+>>> len(random_bytes(16))
+16
+>>> len(random_bytes(32))
+32
 
 """
-
 
 # =============================================================================
 # Imports
@@ -19,31 +26,36 @@ Generate random UUIDs as hexadecimal strings.
 from __future__ import annotations
 
 # Import | Standard Library
-import uuid
+import secrets
 
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def uuid_hex() -> str:
+def random_bytes(nbytes: int = 32) -> bytes:
     """
-    Generate a random UUID and return it as a 32-character hexadecimal string.
+    Generate cryptographically secure random bytes.
+
+    Args:
+        nbytes: Number of random bytes to generate.
 
     Returns:
-        UUID as a 32-character hexadecimal string (no hyphens)
+        Random bytes of specified length.
 
-    Example:
-        >>> len(uuid_hex())
+    Examples:
+        >>> len(random_bytes())
         32
+        >>> len(random_bytes(16))
+        16
+        >>> isinstance(random_bytes(8), bytes)
+        True
     """
-    return uuid.uuid4().hex
+    return secrets.token_bytes(nbytes)
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "uuid_hex",
-]
+__all__: list[str] = ["random_bytes"]
