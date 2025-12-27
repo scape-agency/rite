@@ -236,6 +236,6 @@ Except where otherwise noted, **rite** is licensed under the terms of the [MIT L
 ---
 
 <p align="center">
-    <b>Made with 🖤 by <a href="https://www.scape.agency" target="_blank">Scape Agency</a></b><br/>
+    <b>Made with ♥ by <a href="https://www.scape.agency" target="_blank">Scape Agency</a></b><br/>
     <sub>Copyright 2026 Scape Agency. All Rights Reserved</sub>
 </p>
