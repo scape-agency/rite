@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.0-beta.6](https://github.com/scape-agency/rite/compare/v0.2.0-beta.5...v0.2.0-beta.6) (2025-12-27)
+
+### ✨ Features
+
+* Implement collection dict and filesystem file tests ([b4ebeeb](https://github.com/scape-agency/rite/commit/b4ebeeb307d913ad25f68cd0c51fca69ea22fadc))
+* Implement crypto UUID tests ([e93759f](https://github.com/scape-agency/rite/commit/e93759face02d9c715aee318d55a1356ed124d89))
+* Implement text slug and manipulation tests ([42fc13a](https://github.com/scape-agency/rite/commit/42fc13af9c20b745f126799105141afc0c33e218))
+
 ## [0.2.0-beta.5](https://github.com/scape-agency/rite/compare/v0.2.0-beta.4...v0.2.0-beta.5) (2025-12-27)
 
 ### ✨ Features
