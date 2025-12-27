@@ -26,9 +26,16 @@ from rite.numeric.conversion.conversion_from_percentage import (
 # =============================================================================
 
 
-def test_conversion_from_percentage() -> None:
-    """Test conversion_from_percentage() function."""
-    # TODO: Implement test
-    # result = conversion_from_percentage(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "value,expected",
+    [
+        (25, 0.25),
+        (50, 0.5),
+        (100, 1.0),
+        (0, 0.0),
+        (75.5, 0.755),
+    ],
+)
+def test_conversion_from_percentage(value: float, expected: float) -> None:
+    """Test conversion_from_percentage() with various inputs."""
+    assert conversion_from_percentage(value) == expected

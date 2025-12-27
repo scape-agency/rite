@@ -26,9 +26,17 @@ from rite.serialization.json.json_validate import (
 # =============================================================================
 
 
-def test_json_validate() -> None:
-    """Test json_validate() function."""
-    # TODO: Implement test
-    # result = json_validate(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "json_str,expected",
+    [
+        ('{"key": "value"}', True),
+        ('[1, 2, 3]', True),
+        ('true', True),
+        ('null', True),
+        ('{invalid json}', False),
+        ('', False),
+    ],
+)
+def test_json_validate(json_str: str, expected: bool) -> None:
+    """Test json_validate() with various JSON strings."""
+    assert json_validate(json_str) == expected

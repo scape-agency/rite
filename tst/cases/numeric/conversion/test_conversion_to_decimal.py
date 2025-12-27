@@ -26,9 +26,20 @@ from rite.numeric.conversion.conversion_to_decimal import (
 # =============================================================================
 
 
-def test_conversion_to_decimal() -> None:
-    """Test conversion_to_decimal() function."""
-    # TODO: Implement test
-    # result = conversion_to_decimal(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "value,expected",
+    [
+        ("3.14", "3.14"),
+        (3, "3"),
+        (3.14, "3.14"),
+        ("0", "0"),
+        (0, "0"),
+    ],
+)
+def test_conversion_to_decimal(value, expected: str) -> None:
+    """Test conversion_to_decimal() with various inputs."""
+    # Import | Standard Library
+    from decimal import Decimal
+
+    result = conversion_to_decimal(value)
+    assert str(result) == expected

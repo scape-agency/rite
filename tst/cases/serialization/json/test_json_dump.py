@@ -26,9 +26,17 @@ from rite.serialization.json.json_dump import (
 # =============================================================================
 
 
-def test_json_dump() -> None:
+def test_json_dump(tmp_path) -> None:
     """Test json_dump() function."""
-    # TODO: Implement test
-    # result = json_dump(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    import json
+
+    # Create a temporary JSON file path
+    json_file = tmp_path / "output.json"
+
+    # Test dumping
+    test_data = {"key": "value", "number": 42}
+    json_dump(str(json_file), test_data)
+
+    # Verify the file was created and contains the correct data
+    loaded_data = json.loads(json_file.read_text())
+    assert loaded_data == test_data

@@ -26,9 +26,16 @@ from rite.serialization.json.json_load import (
 # =============================================================================
 
 
-def test_json_load() -> None:
+def test_json_load(tmp_path) -> None:
     """Test json_load() function."""
-    # TODO: Implement test
-    # result = json_load(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    import json
+    from pathlib import Path
+
+    # Create a temporary JSON file
+    json_file = tmp_path / "test.json"
+    test_data = {"key": "value", "number": 42}
+    json_file.write_text(json.dumps(test_data))
+
+    # Test loading
+    result = json_load(str(json_file))
+    assert result == test_data
