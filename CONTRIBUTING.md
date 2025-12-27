@@ -1,210 +1,377 @@
-# Contributing to rite
+# Contributing to Rite
 
-Thank you for your interest in contributing to **rite**! We welcome contributions from the community.
-
-## Table of Contents
-
-- [Code of Conduct](#code-of-conduct)
-- [Getting Started](#getting-started)
-- [Development Setup](#development-setup)
-- [Making Changes](#making-changes)
-- [Testing](#testing)
-- [Code Style](#code-style)
-- [Submitting Changes](#submitting-changes)
+Thank you for your interest in contributing to Rite! We welcome contributions from the community.
 
 ## Code of Conduct
 
-This project and everyone participating in it is governed by our Code of Conduct. By participating, you are expected to uphold this code.
+By participating in this project, you agree to abide by our [Code of Conduct](../.github/CODE_OF_CONDUCT.md).
 
 ## Getting Started
 
-1. Fork the repository on GitHub
-2. Clone your fork locally
-3. Set up the development environment
-4. Create a new branch for your feature or bugfix
-5. Make your changes
-6. Test your changes
-7. Submit a pull request
-
-## Development Setup
-
-### Prerequisites
-
-- Python 3.10 or higher
-- Poetry for dependency management
-- Git
-
-### Installation
+### 1. Fork and Clone
 
 ```bash
-# Clone your fork
+# Fork on GitHub
+# Then clone your fork
 git clone https://github.com/YOUR-USERNAME/rite.git
 cd rite
+```
 
-# Install Poetry if you haven't already
+### 2. Set Up Development Environment
+
+```bash
+# Install Poetry if needed
 curl -sSL https://install.python-poetry.org | python3 -
 
 # Install dependencies
-poetry install
+poetry install --with dev
 
-# Activate the virtual environment
-poetry shell
+# Install pre-commit hooks
+poetry run pre-commit install --install-hooks
+poetry run pre-commit install --hook-type commit-msg
 ```
 
-### Install Pre-commit Hooks
-
-We use pre-commit hooks to ensure code quality:
+### 3. Create a Branch
 
 ```bash
-poetry run pre-commit install
+git checkout -b feat/your-feature-name
+# or
+git checkout -b fix/your-bug-fix
 ```
 
-This will run code formatters and linters before each commit.
+## Development Workflow
 
-## Making Changes
+### Code Standards
 
-1. **Create a new branch**:
-   ```bash
-   git checkout -b feature/your-feature-name
-   # or
-   git checkout -b fix/your-bug-fix
-   ```
+Rite follows strict code quality standards:
 
-2. **Make your changes** following our [code style guidelines](#code-style)
+- **Python 3.10+** syntax only
+- **Zero runtime dependencies** in src/
+- **Type hints** on all functions
+- **Google-style docstrings**
+- **79 character line length**
+- **Modular file structure** with prefixes
 
-3. **Write tests** for your changes (see [Testing](#testing))
+See [AI Instructions](ai-instructions.md) for detailed guidelines.
 
-4. **Update documentation** if necessary
+### File Structure
 
-## Testing
+Every module file follows this template:
 
-We use pytest for testing. All tests should be placed in the `tst/` directory.
+```python
+# =============================================================================
+# Docstring
+# =============================================================================
+
+"""
+Module Name
+===========
+
+Brief description.
+
+Examples
+--------
+>>> from rite.module import function
+>>> function(arg)
+'result'
+"""
+
+# =============================================================================
+# Imports
+# =============================================================================
+
+# Import | Future
+from __future__ import annotations
+
+# Import | Standard Library
+import os
+from typing import Any
+
+# Import | Libraries
+# (No external libraries in src/)
+
+# Import | Local Modules
+from rite.other_module import helper
+
+# =============================================================================
+# Functions/Classes
+# =============================================================================
+
+def function_name(param: str) -> str:
+    """
+    Brief description.
+
+    Args:
+        param: Parameter description.
+
+    Returns:
+        Return value description.
+
+    Examples:
+        >>> function_name("test")
+        'result'
+    """
+    return result
+
+# =============================================================================
+# Exports
+# =============================================================================
+
+__all__: list[str] = ["function_name"]
+```
 
 ### Running Tests
 
 ```bash
 # Run all tests
-poetry run pytest
+make test
 
 # Run with coverage
-poetry run pytest --cov=rite --cov-report=term-missing
+make coverage
 
-# Run specific test file
-poetry run pytest tst/time/test_timestamp.py
+# Run specific tests
+poetry run pytest tst/path/to/test_file.py
 
-# Run tests matching a pattern
-poetry run pytest -k "test_timestamp"
+# Run tests in Docker
+make docker-test
 ```
 
-### Writing Tests
-
-- Place tests in appropriate subdirectories under `tst/`
-- Name test files with `test_` prefix (e.g., `test_feature.py`)
-- Name test functions with `test_` prefix (e.g., `test_function_behavior()`)
-- Use descriptive test names
-- Include docstrings explaining what the test validates
-- Use pytest fixtures for common setup
-
-Example:
-
-```python
-import pytest
-from rite.time.timestamp import get_timestamp
-
-def test_timestamp_returns_integer():
-    """Test that get_timestamp returns an integer value."""
-    result = get_timestamp()
-    assert isinstance(result, int)
-```
-
-## Code Style
-
-We follow PEP 8 style guidelines with some modifications:
-
-- **Line length**: 88 characters (Black default)
-- **Import sorting**: Use isort with Black profile
-- **Type hints**: Add type hints where possible
-- **Docstrings**: Use Google-style docstrings
-
-### Formatting Tools
-
-The following tools are run automatically via pre-commit hooks:
-
-- **Black**: Code formatter
-- **isort**: Import sorter
-- **flake8**: Linter
-- **mypy**: Type checker
-
-### Manual Formatting
+### Code Quality Checks
 
 ```bash
-# Format code with Black
-poetry run black src/
+# Format code
+make format
 
-# Sort imports
-poetry run isort src/
+# Check formatting
+make format-check
 
-# Run linter
-poetry run flake8 src/
+# Lint code
+make lint
 
 # Type check
-poetry run mypy src/rite
+make type-check
+
+# Security scan
+make security
+
+# Run all checks
+make check
 ```
 
-## Submitting Changes
+### Pre-commit Hooks
 
-1. **Commit your changes**:
-   ```bash
-   git add .
-   git commit -m "Brief description of changes"
-   ```
+Pre-commit hooks run automatically on commit:
 
-   Write clear, concise commit messages following conventional commits:
-   - `feat: Add new feature`
-   - `fix: Fix bug in module`
-   - `docs: Update documentation`
-   - `test: Add tests`
-   - `refactor: Refactor code`
-   - `style: Format code`
-   - `chore: Update dependencies`
+- File checks (trailing whitespace, EOF, merge conflicts)
+- Black formatting
+- isort import sorting
+- Flake8 linting
+- Mypy type checking
+- Bandit security scanning
+- pydocstyle docstring validation
 
-2. **Push to your fork**:
-   ```bash
-   git push origin feature/your-feature-name
-   ```
+To run manually:
 
-3. **Create a Pull Request**:
-   - Go to the original repository on GitHub
-   - Click "New Pull Request"
-   - Select your fork and branch
-   - Fill out the PR template with:
-     - Description of changes
-     - Related issue numbers (if any)
-     - Screenshots (if applicable)
-     - Testing steps
+```bash
+pre-commit run --all-files
+```
 
-4. **Wait for review**:
-   - Address any feedback from reviewers
-   - Make requested changes
-   - Push updates to your branch (PR will update automatically)
+## Commit Messages
 
-## Pull Request Guidelines
+We use [Conventional Commits](https://www.conventionalcommits.org/):
 
-- **One feature per PR**: Keep PRs focused on a single feature or fix
-- **Update tests**: Add or update tests for your changes
-- **Update docs**: Update documentation if you change functionality
-- **Pass CI checks**: Ensure all CI checks pass
-- **Keep commits clean**: Squash commits if necessary
-- **Follow style guide**: Ensure code follows our style guidelines
+```
+feat(crypto): Add new hash function
+fix(text): Fix slug validation bug
+docs(readme): Update installation instructions
+test(collections): Add cache tests
+refactor(filesystem): Simplify file operations
+style(all): Format with Black
+ci(github): Update workflow
+chore(deps): Update dependencies
+```
+
+Types:
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation
+- `style`: Formatting
+- `refactor`: Code restructuring
+- `perf`: Performance improvement
+- `test`: Tests
+- `build`: Build system
+- `ci`: CI/CD
+- `chore`: Maintenance
+
+Scopes (module names):
+- `crypto`, `filesystem`, `text`, `collections`, `conversion`, `numeric`, `temporal`, `core`, `tests`, `docs`, `ci`, `deps`, `config`
+
+## Pull Request Process
+
+### 1. Ensure Quality
+
+- All tests pass
+- Coverage maintained or improved
+- No linting errors
+- Type checking passes
+- Documentation updated
+
+### 2. Update Documentation
+
+- Add docstrings to new functions
+- Update relevant markdown files
+- Add examples if applicable
+- Update CHANGELOG.md
+
+### 3. Submit PR
+
+Use one of the PR templates:
+- [Feature PR Template](../.github/PULL_REQUEST_TEMPLATE/feature.md)
+- [Bugfix PR Template](../.github/PULL_REQUEST_TEMPLATE/bugfix.md)
+
+Fill in:
+- Clear description
+- Motivation and context
+- Testing performed
+- Breaking changes (if any)
+- Related issues
+
+### 4. Review Process
+
+- CI checks must pass
+- At least one maintainer approval required
+- Address review comments promptly
+- Keep PR focused and small when possible
+
+## Development Tips
+
+### Using Make Commands
+
+```bash
+make help              # Show all commands
+make dev               # Install dev dependencies
+make quick             # Format and lint
+make ci                # Run all CI checks
+make docker-dev        # Build dev container
+make hooks-install     # Install git hooks
+make version           # Show current version
+```
+
+### Using VS Code
+
+The repository includes VS Code configurations:
+
+- `.vscode/settings.json` - IDE settings
+- `.vscode/launch.json` - Debug configurations
+- `.vscode/tasks.json` - Task definitions
+- `.vscode/snippets.code-snippets` - Code snippets
+
+### Using Dev Container
+
+Open in VS Code with Dev Containers extension:
+
+1. Install Docker and VS Code Dev Containers extension
+2. Open folder in VS Code
+3. Command Palette: "Dev Containers: Reopen in Container"
+4. Environment is automatically set up
+
+See [.devcontainer/README.md](../../.devcontainer/README.md).
+
+## Adding New Modules
+
+### 1. Choose Location
+
+```
+src/rite/
+├── crypto/          # Cryptographic utilities
+├── filesystem/      # File system operations
+├── text/            # Text processing
+├── collections/     # Collection utilities
+├── conversion/      # Type conversions
+├── numeric/         # Numeric utilities
+└── temporal/        # Date/time utilities
+```
+
+### 2. Use Module Prefix
+
+Files should use module-specific prefixes:
+
+- `crypto/uuid/uuid_hex.py` (uuid_ prefix)
+- `crypto/hash/hash_sha256.py` (hash_ prefix)
+- `filesystem/file/file_copy.py` (file_ prefix)
+- `text/slug/slug_is_valid.py` (slug_ prefix)
+
+### 3. Create Test File
+
+Mirror structure in `tst/`:
+
+```
+tst/
+└── rite/
+    └── module/
+        └── test_function.py
+```
+
+### 4. Update __init__.py
+
+Add exports to module's `__init__.py`.
+
+### 5. Add Documentation
+
+- Comprehensive docstrings with examples
+- Update API reference if needed
+- Add usage examples
+
+## Reporting Issues
+
+### Bug Reports
+
+Use the [bug report template](../.github/ISSUE_TEMPLATE/bug_report.md):
+
+- Clear description
+- Steps to reproduce
+- Expected vs actual behavior
+- Python version and OS
+- Code sample (if applicable)
+
+### Feature Requests
+
+Use the [feature request template](../.github/ISSUE_TEMPLATE/feature_request.md):
+
+- Clear description
+- Use case and motivation
+- Proposed API (if applicable)
+- Alternatives considered
+
+## Release Process
+
+Releases are automated using semantic-release:
+
+1. Merge to `main` branch
+2. Semantic-release analyzes commits
+3. Version bumped automatically
+4. Changelog updated
+5. GitHub release created
+6. Published to PyPI
+
+## Community
+
+- **GitHub Discussions**: Ask questions, share ideas
+- **GitHub Issues**: Report bugs, request features
+- **Pull Requests**: Contribute code
+
+## Recognition
+
+Contributors are recognized in:
+- [AUTHORS.md](about/authors.md)
+- GitHub contributors page
+- Release notes
 
 ## Questions?
 
-If you have questions or need help:
+- Check existing documentation
+- Search GitHub issues
+- Ask in GitHub Discussions
+- Contact maintainers
 
-- Open an issue with the `question` label
-- Start a discussion in GitHub Discussions
-- Contact the maintainers at info@scape.agency
-
-## License
-
-By contributing, you agree that your contributions will be licensed under the MIT License.
+Thank you for contributing to Rite! 🎉
