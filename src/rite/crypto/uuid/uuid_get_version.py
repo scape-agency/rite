@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -21,7 +18,6 @@ Rite - UUID Module
 from __future__ import annotations
 
 # Import | Standard Library
-import uuid
 
 # Import | Libraries
 

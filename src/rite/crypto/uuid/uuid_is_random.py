@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -21,7 +18,6 @@ Rite - UUID Module
 from __future__ import annotations
 
 # Import | Standard Library
-import uuid
 
 # Import | Libraries
 
@@ -44,4 +40,5 @@ def is_random_uuid(uuid_obj):
     -------
         bool: True if the UUID is a random UUID, False otherwise.
     """
+
     return uuid_obj.version == 4

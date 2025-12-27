@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -62,8 +59,8 @@ from .cipher import (
 )
 
 # Import | Local - Hashing
-from .sha256 import sha256_hash
-from .sha512 import sha512_hash
+from .hash.hash_sha256 import sha256_hash
+from .hash.hash_sha512 import sha512_hash
 
 # =============================================================================
 # Exports

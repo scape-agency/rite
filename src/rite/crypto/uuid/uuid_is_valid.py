@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 
 # =============================================================================
@@ -6,9 +5,10 @@
 # =============================================================================
 
 """
-Rite - UUID Module
-==================
+UUID Validation
+===============
 
+Validate UUID strings.
 
 """
 
@@ -20,28 +20,8 @@ Rite - UUID Module
 # Import | Future
 from __future__ import annotations
 
-import json
-
-# Import | Standard Library
-import uuid
-
 # Import | Standard Library
 from uuid import UUID
-
-# Import | Libraries
-
-# Import | Local Modules
-
-
-# =============================================================================
-# Functions
-# =============================================================================
-
-
-# Import | Libraries
-
-# Import | Local Modules
-
 
 # =============================================================================
 # Functions
@@ -49,37 +29,37 @@ from uuid import UUID
 
 
 def is_valid_uuid(
-    uuid_to_test,
-    version=4,
+    uuid_to_test: str,
+    version: int = 4,
 ) -> bool:
     """
     Check if uuid_to_test is a valid UUID.
 
-    Parameters
-    ----------
-    uuid_to_test : str
-    version : {1, 2, 3, 4}
+    Args:
+        uuid_to_test: String to validate as UUID
+        version: UUID version to check (1, 2, 3, or 4)
 
-     Returns
-    -------
-    `True` if uuid_to_test is a valid UUID, otherwise `False`.
+    Returns:
+        True if valid UUID, False otherwise
 
-     Examples
-    --------
-    >>> is_valid_uuid('c9bf9e57-1685-4c89-bafb-ff5af830be8a')
-    True
-    >>> is_valid_uuid('c9bf9e58')
-    False
+    Example:
+        >>> is_valid_uuid('550e8400-e29b-41d4-a716-446655440000')
+        True
+        >>> is_valid_uuid('invalid')
+        False
     """
-
     try:
-        uuid_obj = UUID(
-            uuid_to_test,
-            version=version,
-        )
+        uuid_obj = UUID(uuid_to_test, version=version)
     except ValueError:
         return False
 
-    answer = str(uuid_obj) == uuid_to_test
+    return str(uuid_obj) == uuid_to_test
 
-    return answer
+
+# =============================================================================
+# Exports
+# =============================================================================
+
+__all__: list[str] = [
+    "is_valid_uuid",
+]
