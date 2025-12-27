@@ -25,7 +25,6 @@ from __future__ import annotations
 import tempfile
 from pathlib import Path
 from shutil import copyfileobj
-from typing import IO
 
 # Import | Local Modules
 from .file_spooled_settings import settings

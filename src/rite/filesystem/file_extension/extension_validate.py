@@ -34,7 +34,7 @@ from .extension_regex import EXTENSION_REGEX
 
 
 def extension_validate(
-    value: str | None,
+    extension: str | None,
     *,
     allowed: Iterable[str] | None = None,
     regex: re.Pattern[str] = EXTENSION_REGEX,
@@ -44,13 +44,13 @@ def extension_validate(
 
     Args:
     ----
-        value: Extension string to validate (should be normalized).
+        extension: Extension string to validate (should be normalized).
         allowed: Optional iterable of allowed extensions (case-insensitive).
         regex: Pattern to match valid extensions.
 
     Raises:
     ------
-        ValueError: If value is None/empty, doesn't match regex, or not allowed.
+        ValueError: If extension is None/empty, doesn't match regex, or not allowed.
 
     Example:
     -------
@@ -61,16 +61,16 @@ def extension_validate(
         ValueError: Extension 'exe' not allowed...
 
     """
-    if value is None:
+    if extension is None:
         raise ValueError("File extension is empty or None.")
 
     # Normalize: strip spaces, remove leading dots, lowercase
-    normalized_extension = str(value).strip().lstrip(".").lower()
+    normalized_extension = str(extension).strip().lstrip(".").lower()
     if not normalized_extension:
         raise ValueError("File extension is empty or None.")
 
     if not regex.match(normalized_extension):
-        raise ValueError(f"Invalid file extension: {value!r}")
+        raise ValueError(f"Invalid file extension: {extension!r}")
 
     if allowed is not None:
         allowed_normalized = {

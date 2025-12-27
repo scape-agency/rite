@@ -18,7 +18,7 @@ Canonical functions are organized by domain:
 - **File:** file_read_bytes, file_read_text, file_write_bytes, file_write_text,
   copy_file, copy_files, delete_file, move_file, rename_file,
   file_size_to_string, create_spooled_temporary_file
-- **Folder:** folder_ensure_exists, folder_list_files
+- **Folder:** folder_ensure_exists, folder_list_files, folder_size_to_string
 - **Extension:** extension_normalize, extension_validate, EXTENSION_REGEX
 - **Compress:** compress_file, uncompress_file
 
@@ -42,14 +42,9 @@ Example:
 # Import | Future
 from __future__ import annotations
 
-# Path operations
-from .path.path_clean import path_clean
-from .path.path_exists import path_exists
-from .path.path_is_dir import path_is_dir
-from .path.path_is_file import path_is_file
-from .path.path_leaf import path_leaf
-from .path.path_safe_join import path_safe_join
-from .path.path_secure import path_secure
+# Compression operations
+from .compress.file_gzip_compress import compress_file
+from .compress.file_gzip_uncompress import uncompress_file
 
 # File operations
 from .file.file_copy import copy_file
@@ -64,19 +59,24 @@ from .file.file_spooled import create_spooled_temporary_file
 from .file.file_write_bytes import file_write_bytes
 from .file.file_write_text import file_write_text
 
-# Folder operations
-from .folder.folder_ensure_exists import folder_ensure_exists
-from .folder.folder_list_files import folder_list_files
-
 # Extension operations
 from .file_extension.extension_normalize import extension_normalize
 from .file_extension.extension_regex import EXTENSION_REGEX
 from .file_extension.extension_validate import extension_validate
 
-# Compression operations
-from .compress.file_gzip_compress import compress_file
-from .compress.file_gzip_uncompress import uncompress_file
+# Folder operations
+from .folder.folder_ensure_exists import folder_ensure_exists
+from .folder.folder_list_files import folder_list_files
+from .folder.folder_size_to_string import folder_size_to_string
 
+# Path operations
+from .path.path_clean import path_clean
+from .path.path_exists import path_exists
+from .path.path_is_dir import path_is_dir
+from .path.path_is_file import path_is_file
+from .path.path_leaf import path_leaf
+from .path.path_safe_join import path_safe_join
+from .path.path_secure import path_secure
 
 # =============================================================================
 # Module Exports
@@ -106,6 +106,7 @@ __all__: list[str] = [
     # Folder operations
     "folder_ensure_exists",
     "folder_list_files",
+    "folder_size_to_string",
     # Extension operations
     "extension_normalize",
     "extension_validate",

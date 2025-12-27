@@ -23,6 +23,7 @@ from __future__ import annotations
 
 from .folder_ensure_exists import folder_ensure_exists
 from .folder_list_files import folder_list_files
+from .folder_size_to_string import folder_size_to_string
 
 # Import | Standard Library
 
@@ -37,4 +38,5 @@ from .folder_list_files import folder_list_files
 __all__: list[str] = [
     "folder_list_files",
     "folder_ensure_exists",
+    "folder_size_to_string",
 ]

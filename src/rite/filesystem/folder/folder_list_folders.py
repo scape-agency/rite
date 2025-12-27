@@ -2,7 +2,7 @@ from pathlib import Path
 from typing import Optional
 
 
-def list_dirs(
+def list_folders(
     rootdir: str | Path,
     pattern: Optional[str] = None,
     recursive: bool = False,
@@ -39,37 +39,10 @@ def list_dirs(
     return dirs
 
 
-# def list_dirs(rootdir):
-#     """List directories in DIR."""
-#     dirs = []
-#     for file in os.listdir(rootdir):
-#         d = os.path.join(rootdir, file)
-#         if os.path.isdir(d):
-#             dirs.append(file)
-#     return dirs
-
-
 # =============================================================================
 # Exports
 # =============================================================================
 
 __all__: list[str] = [
-    "list_dirs",
+    "list_folders",
 ]
-
-
-# =============================================================================
-# Example Usage
-# =============================================================================
-
-# List all subdirectories (non-recursive)
-example_dirs = list_dirs("data")
-print(example_dirs)
-
-# List recursively
-all_dirs = list_dirs("data", recursive=True)
-print(all_dirs)
-
-# List only directories starting with "test"
-filtered_dirs = list_dirs("data", pattern="test*")
-print(filtered_dirs)

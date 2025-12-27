@@ -30,17 +30,17 @@ from typing import Any
 # =============================================================================
 
 
-def path_safe_join(base: str, *paths: Any) -> str:
+def path_safe_join(base_directory_path: str, *path_components: Any) -> str:
     """
-    Safely join path components ensuring result stays under base.
+    Safely join path components ensuring result stays under the base directory.
 
     This function prevents directory traversal attacks by ensuring the
     resulting path never escapes the base directory.
 
     Args:
     ----
-        base: Base directory path.
-        *paths: Path components to join.
+        base_directory_path: Base directory path.
+        *path_components: Path components to join.
 
     Returns:
     -------
@@ -59,13 +59,18 @@ def path_safe_join(base: str, *paths: Any) -> str:
         ValueError: the joined path is located outside of the base path
 
     """
-    base_path = base.rstrip("/")
+    base_path = base_directory_path.rstrip("/")
     final_path = base_path + "/"
 
-    for path in paths:
-        _final_path = posixpath.normpath(posixpath.join(final_path, str(path)))
+    for path_component in path_components:
+        _final_path = posixpath.normpath(
+            posixpath.join(final_path, str(path_component)),
+        )
         # Preserve trailing slash if original path had one
-        if str(path).endswith("/") or _final_path + "/" == final_path:
+        if (
+            str(path_component).endswith("/")
+            or _final_path + "/" == final_path
+        ):
             _final_path += "/"
         final_path = _final_path
 

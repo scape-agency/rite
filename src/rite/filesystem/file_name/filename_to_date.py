@@ -3,7 +3,9 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Optional
 
-from .filename_to_datestring import filename_to_datestring
+from rite.filesystem.file_name.filename_to_datestring import (
+    filename_to_datestring,
+)
 
 
 def filename_to_date(

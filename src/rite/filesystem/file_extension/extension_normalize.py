@@ -27,7 +27,7 @@ from __future__ import annotations
 
 
 def extension_normalize(
-    value: str | None,
+    extension: str | None,
     *,
     leading_dot: bool = False,
 ) -> str | None:
@@ -38,7 +38,7 @@ def extension_normalize(
 
     Args:
     ----
-        value: Extension string (e.g. ".JPG", " pdf ", "tar.gz").
+        extension: Extension string (e.g. ".JPG", " pdf ", "tar.gz").
         leading_dot: If True, return with a leading ".".
 
     Returns:
@@ -55,10 +55,10 @@ def extension_normalize(
         None
 
     """
-    if value is None:
+    if extension is None:
         return None
 
-    normalized_value = str(value).strip().lstrip(".").lower()
+    normalized_value = str(extension).strip().lstrip(".").lower()
     if not normalized_value:
         return None
 

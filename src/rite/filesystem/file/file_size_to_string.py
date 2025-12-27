@@ -37,17 +37,17 @@ SIZE_UNITS: tuple[str, ...] = (
 )
 
 
-def _convert_bytes_to_string(value: int) -> str:
-    if value < 0:
+def _convert_bytes_to_string(byte_count: int) -> str:
+    if byte_count < 0:
         return "0 B"
-    idx = 0
-    size = float(value)
-    while size >= 1024 and idx < len(SIZE_UNITS) - 1:
-        size /= 1024
-        idx += 1
-    if idx == 0:
-        return f"{int(size)} {SIZE_UNITS[idx]}"
-    return f"{size:.2f} {SIZE_UNITS[idx]}"
+    unit_index = 0
+    size_in_units = float(byte_count)
+    while size_in_units >= 1024 and unit_index < len(SIZE_UNITS) - 1:
+        size_in_units /= 1024
+        unit_index += 1
+    if unit_index == 0:
+        return f"{int(size_in_units)} {SIZE_UNITS[unit_index]}"
+    return f"{size_in_units:.2f} {SIZE_UNITS[unit_index]}"
 
 
 # =============================================================================

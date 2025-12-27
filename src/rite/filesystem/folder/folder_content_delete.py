@@ -1,4 +1,3 @@
-import logging
 import shutil
 from pathlib import Path
 
@@ -44,34 +43,9 @@ def delete_contents(
                         print(f"🗑️ Deleted folder: {item}")
 
         except Exception as e:
-            logging.error(f"❌ Failed to delete {item}: {e}")
+            print(f"ailed to delete {item}. Reason: {e}")
+            raise
 
-
-# def delete_contents(self, folder):
-#     """
-#     Deletes all contents (files and subdirectories) within a specified
-#     folder.
-
-#     Parameters:
-#     folder (str): The path to the folder whose contents are to be deleted.
-
-#     Notes:
-#     This method removes both files and subdirectories within the specified
-#     folder. It handles symbolic links and regular files differently to
-#     ensure safe deletion.
-
-#     Raises:
-#     Exception: If an error occurs during the deletion process.
-#     """
-#     for filename in os.listdir(folder):
-#         file_path = os.path.join(folder, filename)
-#         try:
-#             if os.path.isfile(file_path) or os.path.islink(file_path):
-#                 os.unlink(file_path)
-#             elif os.path.isdir(file_path):
-#                 shutil.rmtree(file_path)
-#         except Exception as e:
-#             print(f"Failed to delete {file_path}. Reason: {e}")
 
 # =============================================================================
 # Exports
@@ -80,16 +54,3 @@ def delete_contents(
 __all__: list[str] = [
     "delete_contents",
 ]
-
-# =============================================================================
-# Example Usage
-# =============================================================================
-
-# Normal use
-delete_contents("output/images")
-
-# Dry run (just shows what would be deleted)
-delete_contents("output/images", dry_run=True)
-
-# Silent version (no console output)
-delete_contents("output/images", verbose=False)

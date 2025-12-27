@@ -22,10 +22,33 @@ Extracts date strings from filenames using pattern matching.
 from __future__ import annotations
 
 # Import | Standard Library
+import re
 from typing import Optional
 
-# Import | Local Modules
-from rite.time.date_format_to_regex import date_format_to_regex
+
+def date_format_to_regex(date_format: str) -> re.Pattern[str]:
+    """Convert a simple ``strftime`` format string to a compiled regex.
+
+    This is a lightweight implementation that supports the most common
+    directives used in filenames (``%Y``, ``%m``, ``%d``, ``%H``, ``%M``,
+    ``%S``). Other characters are treated literally.
+    """
+
+    mapping = {
+        "%Y": r"(?P<Y>\d{4})",
+        "%m": r"(?P<m>\d{2})",
+        "%d": r"(?P<d>\d{2})",
+        "%H": r"(?P<H>\d{2})",
+        "%M": r"(?P<M>\d{2})",
+        "%S": r"(?P<S>\d{2})",
+    }
+
+    pattern = re.escape(date_format)
+    for directive, replacement in mapping.items():
+        pattern = pattern.replace(re.escape(directive), replacement)
+
+    return re.compile(pattern)
+
 
 # =============================================================================
 # Functions
@@ -52,7 +75,9 @@ def filename_to_datestring(
     regex = date_format_to_regex(date_format)
     search = regex.search(filename)
     if search:
-        return search.groups()[0]
+        # Return the full matched substring so that it can be
+        # parsed directly with ``date_format``.
+        return search.group(0)
     return None
 
 

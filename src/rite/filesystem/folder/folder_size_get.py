@@ -22,11 +22,3 @@ def get_folder_size(folder_path: Path) -> int:
                 continue
 
     return total_size
-
-
-# Example usage:
-
-# from pathlib import Path
-
-# folder = Path("/path/to/your/folder")
-# print(f"Folder size: {get_folder_size(folder)} bytes")
