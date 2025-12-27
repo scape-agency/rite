@@ -7,7 +7,7 @@
 
 [tool.poetry]
 name = "rite"
-version = "0.2.0-beta.3"
+version = "0.2.0-beta.4"
 description = "Python Utility Package"
 authors = ["Scape Agency <info@scape.agency>"]
 license = "MIT License"

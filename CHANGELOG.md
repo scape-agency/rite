@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.0-beta.4](https://github.com/scape-agency/rite/compare/v0.2.0-beta.3...v0.2.0-beta.4) (2025-12-27)
+
+### ✨ Features
+
+* Implement system path and functional composition tests ([ceefef0](https://github.com/scape-agency/rite/commit/ceefef0002872831d74ea333cb75a811b00f4b0d))
+
 ## [0.2.0-beta.3](https://github.com/scape-agency/rite/compare/v0.2.0-beta.2...v0.2.0-beta.3) (2025-12-27)
 
 ### ✨ Features
