@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.0-beta.1](https://github.com/scape-agency/rite/compare/v0.1.3-beta.1...v0.2.0-beta.1) (2025-12-27)
+
+### ✨ Features
+
+* Implement conversion formats, filesystem path, text analysis, and platform tests ([912341e](https://github.com/scape-agency/rite/commit/912341ed49343510f17fa11f5388b08aad140f01))
+* Implement crypto hash tests ([c60099d](https://github.com/scape-agency/rite/commit/c60099db10ac738099703464a9a5a630b66346cf))
+* Implement crypto random and UUID tests ([d982a58](https://github.com/scape-agency/rite/commit/d982a58de5351a0bb4b995fbe4694e44f916d7a4))
+* Implement numeric rounding and system environment tests ([e65394b](https://github.com/scape-agency/rite/commit/e65394bc747e4bd9b2dad25119a385cbbb84f5eb))
+
+### 🐛 Bug Fixes
+
+* Logger clear_log and test fixes ([53681d3](https://github.com/scape-agency/rite/commit/53681d35b2a52d9bebda4f017ea18bbfe3730d85))
+
 ## [0.1.3-beta.1](https://github.com/scape-agency/rite/compare/v0.1.2...v0.1.3-beta.1) (2025-12-27)
 
 ### 🐛 Bug Fixes
