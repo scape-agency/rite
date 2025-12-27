@@ -6,19 +6,19 @@
 # =============================================================================
 
 """
-System Module
+Markup Module
 =============
 
-This module provides system-level operations similar to Python's
-subprocess, sys, and os modules.
+This module provides markup language handling similar to Python's
+html and xml modules.
 
 Functions will include:
-- Command execution
-- I/O operations
+- HTML cleaning and manipulation
 
 Example:
-    >>> from rite.system import run_command
-    >>> run_command("ls -la")
+    >>> from rite.markup import clean_html
+    >>> clean_html("<p>Hello</p>")
+    'Hello'
 
 """
 
@@ -31,12 +31,12 @@ Example:
 from __future__ import annotations
 
 # Import | Local
-from .run_command import run_command
+from .clean_html import clean_html
 
 # =============================================================================
 # Exports
 # =============================================================================
 
 __all__: list[str] = [
-    "run_command",
+    "clean_html",
 ]

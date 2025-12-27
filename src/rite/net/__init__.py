@@ -6,19 +6,19 @@
 # =============================================================================
 
 """
-System Module
-=============
+Network Module
+==============
 
-This module provides system-level operations similar to Python's
-subprocess, sys, and os modules.
+This module provides network utilities similar to Python's
+http.server and urllib modules.
 
 Functions will include:
-- Command execution
-- I/O operations
+- HTTP server utilities
+- SQLite server/utilities
 
 Example:
-    >>> from rite.system import run_command
-    >>> run_command("ls -la")
+    >>> from rite.net import http_server
+    >>> server = http_server(port=8000)
 
 """
 
@@ -31,12 +31,14 @@ Example:
 from __future__ import annotations
 
 # Import | Local
-from .run_command import run_command
+from .http_server import BaseHTTPServer
+from .sqlite_server import SQLiteServer
 
 # =============================================================================
 # Exports
 # =============================================================================
 
 __all__: list[str] = [
-    "run_command",
+    "BaseHTTPServer",
+    "SQLiteServer",
 ]

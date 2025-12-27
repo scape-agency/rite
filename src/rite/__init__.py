@@ -6,10 +6,27 @@
 # =============================================================================
 
 """
-Provides Rite package information
-=================================
+Rite - Python Utility Library
+==============================
 
+A pure Python utility library with stdlib-mirroring module structure.
 
+Modules:
+    text: Text and string processing
+    numeric: Numeric operations and conversions
+    temporal: Time and date operations
+    filesystem: File and path utilities
+    collections: Data structures and utilities
+    serialization: Data serialization formats
+    conversion: Type conversions
+    crypto: Cryptographic operations
+    net: Network utilities
+    markup: Markup language handling
+    system: System-level operations
+    diagnostics: Logging and error handling
+    functional: Functional programming utilities
+    identity: Unique identifier generation
+    reflection: Runtime introspection
 
 """
 
@@ -21,12 +38,24 @@ Provides Rite package information
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
-
-# Import | Libraries
-
 # Import | Local Modules
-
+from . import (
+    collections,
+    conversion,
+    crypto,
+    diagnostics,
+    filesystem,
+    functional,
+    identity,
+    markup,
+    net,
+    numeric,
+    reflection,
+    serialization,
+    system,
+    temporal,
+    text,
+)
 
 # =============================================================================
 # Information
@@ -42,3 +71,26 @@ __version__ = "0.0.13"
 __maintainer__ = "Scape Agency"
 __email__ = "info@scape.agency"
 __status__ = "Alpha"
+
+
+# =============================================================================
+# Exports
+# =============================================================================
+
+__all__: list[str] = [
+    "text",
+    "numeric",
+    "temporal",
+    "filesystem",
+    "collections",
+    "serialization",
+    "conversion",
+    "crypto",
+    "net",
+    "markup",
+    "system",
+    "diagnostics",
+    "functional",
+    "identity",
+    "reflection",
+]

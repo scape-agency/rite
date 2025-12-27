@@ -6,19 +6,22 @@
 # =============================================================================
 
 """
-System Module
-=============
+Functional Programming Module
+==============================
 
-This module provides system-level operations similar to Python's
-subprocess, sys, and os modules.
+This module provides functional programming utilities similar to
+Python's functools and operator modules.
 
 Functions will include:
-- Command execution
-- I/O operations
+- Function decorators
+- Debounce utilities
+- Other functional programming patterns
 
 Example:
-    >>> from rite.system import run_command
-    >>> run_command("ls -la")
+    >>> from rite.functional import debounce
+    >>> @debounce(0.5)
+    ... def my_function():
+    ...     pass
 
 """
 
@@ -31,12 +34,12 @@ Example:
 from __future__ import annotations
 
 # Import | Local
-from .run_command import run_command
+from .debounce import debounce
 
 # =============================================================================
 # Exports
 # =============================================================================
 
 __all__: list[str] = [
-    "run_command",
+    "debounce",
 ]

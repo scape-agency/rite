@@ -6,19 +6,19 @@
 # =============================================================================
 
 """
-System Module
-=============
+Reflection Module
+=================
 
-This module provides system-level operations similar to Python's
-subprocess, sys, and os modules.
+This module provides runtime introspection utilities similar to
+Python's importlib and inspect modules.
 
 Functions will include:
-- Command execution
-- I/O operations
+- Dynamic class loading
+- Module introspection
 
 Example:
-    >>> from rite.system import run_command
-    >>> run_command("ls -la")
+    >>> from rite.reflection import load_class
+    >>> MyClass = load_class("mymodule.MyClass")
 
 """
 
@@ -31,12 +31,13 @@ Example:
 from __future__ import annotations
 
 # Import | Local
-from .run_command import run_command
+from .load_class import ClassImportError, load_class
 
 # =============================================================================
 # Exports
 # =============================================================================
 
 __all__: list[str] = [
-    "run_command",
+    "load_class",
+    "ClassImportError",
 ]

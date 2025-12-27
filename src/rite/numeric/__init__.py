@@ -6,19 +6,21 @@
 # =============================================================================
 
 """
-System Module
-=============
+Numeric Processing Module
+==========================
 
-This module provides system-level operations similar to Python's
-subprocess, sys, and os modules.
+This module provides numeric operations and utilities similar to Python's
+math, decimal, and fractions modules.
 
 Functions will include:
-- Command execution
-- I/O operations
+- Value clamping utilities
+- Number format conversions (float to DMS, etc.)
+- Percentage and decimal formatting
 
 Example:
-    >>> from rite.system import run_command
-    >>> run_command("ls -la")
+    >>> from rite.numeric import clamp
+    >>> clamp(5, 0, 10)
+    5
 
 """
 
@@ -31,12 +33,18 @@ Example:
 from __future__ import annotations
 
 # Import | Local
-from .run_command import run_command
+from .clamp import clamp
+from .float_to_degree_minute import float_to_degree_minute
+from .float_to_degree_minute_second import float_to_degree_minute_second
+from .value_to_decimal import value_to_decimal
 
 # =============================================================================
 # Exports
 # =============================================================================
 
 __all__: list[str] = [
-    "run_command",
+    "clamp",
+    "float_to_degree_minute",
+    "float_to_degree_minute_second",
+    "value_to_decimal",
 ]

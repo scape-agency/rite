@@ -6,19 +6,21 @@
 # =============================================================================
 
 """
-System Module
-=============
+Temporal Processing Module
+===========================
 
-This module provides system-level operations similar to Python's
-subprocess, sys, and os modules.
+This module provides time and date operations similar to Python's
+datetime and time modules.
 
 Functions will include:
-- Command execution
-- I/O operations
+- Timestamp operations
+- Duration calculations
+- Timezone utilities
 
 Example:
-    >>> from rite.system import run_command
-    >>> run_command("ls -la")
+    >>> from rite.temporal import timestamp
+    >>> timestamp()
+    1234567890.123
 
 """
 
@@ -30,13 +32,18 @@ Example:
 # Import | Future
 from __future__ import annotations
 
+from .duration import Duration
+
 # Import | Local
-from .run_command import run_command
+from .timestamp import Timestamp
+from .timezone import Timezone
 
 # =============================================================================
 # Exports
 # =============================================================================
 
 __all__: list[str] = [
-    "run_command",
+    "Timestamp",
+    "Duration",
+    "Timezone",
 ]

@@ -6,19 +6,20 @@
 # =============================================================================
 
 """
-System Module
-=============
+Diagnostics Module
+==================
 
-This module provides system-level operations similar to Python's
-subprocess, sys, and os modules.
+This module provides error handling and logging utilities similar to
+Python's logging, warnings, and traceback modules.
 
 Functions will include:
-- Command execution
-- I/O operations
+- Logging utilities
+- Error handlers
+- Exception utilities
 
 Example:
-    >>> from rite.system import run_command
-    >>> run_command("ls -la")
+    >>> from rite.diagnostics import logger
+    >>> logger.info("Application started")
 
 """
 
@@ -30,13 +31,16 @@ Example:
 # Import | Future
 from __future__ import annotations
 
+from .error_handler import ErrorHandler
+
 # Import | Local
-from .run_command import run_command
+from .logger import Logger
 
 # =============================================================================
 # Exports
 # =============================================================================
 
 __all__: list[str] = [
-    "run_command",
+    "Logger",
+    "ErrorHandler",
 ]
