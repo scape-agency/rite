@@ -30,12 +30,15 @@ def test_unique_slug() -> None:
     """Test unique_slug() function."""
     # Unique slug (not in existing)
     assert unique_slug("hello-world", set()) == "hello-world"
-    
+
     # Slug exists once
     assert unique_slug("hello-world", {"hello-world"}) == "hello-world-1"
-    
+
     # Multiple conflicts
-    assert unique_slug("hello-world", {"hello-world", "hello-world-1"}) == "hello-world-2"
-    
+    assert (
+        unique_slug("hello-world", {"hello-world", "hello-world-1"})
+        == "hello-world-2"
+    )
+
     # With list input
     assert unique_slug("hello-world", ["hello-world"]) == "hello-world-1"

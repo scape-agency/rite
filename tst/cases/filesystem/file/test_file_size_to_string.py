@@ -13,11 +13,11 @@ Tests for rite.filesystem.file.file_size_to_string.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Standard Library
 from io import BytesIO
+
+# Import | Libraries
+import pytest
 
 # Import | Local Modules
 from rite.filesystem.file.file_size_to_string import (

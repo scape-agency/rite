@@ -30,9 +30,9 @@ def test_add_slug_prefix() -> None:
     """Test add_slug_prefix() function."""
     # Basic prefix
     assert add_slug_prefix("world", "hello") == "hello-world"
-    
+
     # With custom delimiter
     assert add_slug_prefix("world", "hello", delimiter="_") == "hello_world"
-    
+
     # With empty prefix
     assert add_slug_prefix("world", "") == "world"

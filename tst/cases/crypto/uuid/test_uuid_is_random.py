@@ -28,7 +28,17 @@ from rite.crypto.uuid.uuid_is_random import (
 
 def test_is_random_uuid() -> None:
     """Test is_random_uuid() function."""
-    # TODO: Implement test
-    # result = is_random_uuid(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Import | Standard Library
+    import uuid as stdlib_uuid
+
+    # Test UUID v4 (random)
+    uuid_v4 = stdlib_uuid.uuid4()
+    assert is_random_uuid(uuid_v4) is True
+
+    # Test UUID v5 (name-based)
+    uuid_v5 = stdlib_uuid.uuid5(stdlib_uuid.NAMESPACE_DNS, "example.com")
+    assert is_random_uuid(uuid_v5) is False
+
+    # Test UUID v3 (name-based)
+    uuid_v3 = stdlib_uuid.uuid3(stdlib_uuid.NAMESPACE_DNS, "example.com")
+    assert is_random_uuid(uuid_v3) is False

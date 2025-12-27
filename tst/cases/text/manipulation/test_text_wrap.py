@@ -31,11 +31,11 @@ def test_text_wrap() -> None:
     # Wrap short text
     result = text_wrap("Hello World", 5)
     assert result == ["Hello", "World"]
-    
+
     # Wrap longer text
     result = text_wrap("A long sentence", 10)
     assert result == ["A long", "sentence"]
-    
+
     # No wrap needed
     result = text_wrap("Hi", 10)
     assert result == ["Hi"]

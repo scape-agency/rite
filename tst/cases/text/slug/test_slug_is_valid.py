@@ -31,7 +31,7 @@ def test_is_valid_slug() -> None:
     # Valid slugs
     assert is_valid_slug("hello-world") is True
     assert is_valid_slug("test123") is True
-    
+
     # Invalid slugs
     assert is_valid_slug("Hello-World") is False  # uppercase
     assert is_valid_slug("-hello-world") is False  # starts with delimiter

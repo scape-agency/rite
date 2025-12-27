@@ -30,9 +30,9 @@ def test_text_pad_left() -> None:
     """Test text_pad_left() function."""
     # Pad with zeros
     assert text_pad_left("5", 3, "0") == "005"
-    
+
     # Pad with spaces
     assert text_pad_left("Hi", 5) == "   Hi"
-    
+
     # No padding needed
     assert text_pad_left("Hello", 3) == "Hello"
