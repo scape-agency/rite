@@ -66,13 +66,17 @@ class BoundedBuffer:
 
         valid_strategies = {"block", "drop_oldest", "drop_newest", "raise"}
         if overflow_strategy not in valid_strategies:
-            raise ValueError(
-                f"overflow_strategy must be one of {valid_strategies}"
-            )
+            raise ValueError("Invalid overflow_strategy")
 
+        self._capacity = maxsize
         self.maxsize = maxsize
         self.overflow_strategy = overflow_strategy
         self._buffer: deque[Any] = deque(maxlen=maxsize)
+
+    @property
+    def capacity(self) -> int:
+        """Return maximum number of elements the buffer can hold."""
+        return self._capacity
 
     def append(self, item: Any) -> bool:
         """
@@ -93,7 +97,7 @@ class BoundedBuffer:
         """
         if len(self._buffer) >= self.maxsize:
             if self.overflow_strategy == "raise":
-                raise BufferError("Buffer is full")
+                raise OverflowError("Buffer is full")
             elif self.overflow_strategy == "drop_newest":
                 return False
             # 'drop_oldest' and 'block' handled by deque
@@ -112,6 +116,16 @@ class BoundedBuffer:
         """
         for item in items:
             self.append(item)
+
+    def peek(self) -> Any | None:
+        """Return the oldest item without removing it."""
+        return self._buffer[0] if self._buffer else None
+
+    def get(self, index: int) -> Any | None:
+        """Return the item at a given index or None if out of bounds."""
+        if 0 <= index < len(self._buffer):
+            return list(self._buffer)[index]
+        return None
 
     def get_all(self) -> list[Any]:
         """
@@ -161,9 +175,9 @@ class BoundedBuffer:
     def __repr__(self) -> str:
         """Return string representation of buffer."""
         return (
-            f"BoundedBuffer(maxsize={self.maxsize}, "
+            f"BoundedBuffer(capacity={self.capacity}, "
             f"size={len(self._buffer)}, "
-            f"strategy='{self.overflow_strategy}')"
+            f"strategy={self.overflow_strategy})"
         )
 
 

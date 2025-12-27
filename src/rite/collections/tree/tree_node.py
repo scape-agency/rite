@@ -22,7 +22,7 @@ Generic tree node implementation with children and parent tracking.
 from __future__ import annotations
 
 # Import | Standard Library
-from typing import Any
+from typing import Any, Self
 
 # =============================================================================
 # Classes
@@ -48,7 +48,7 @@ class TreeNode:
     def __init__(
         self,
         value: Any,
-        children: list[TreeNode] | None = None,
+        children: list[Self] | None = None,
     ) -> None:
         """
         Initialize a tree node.
@@ -60,14 +60,14 @@ class TreeNode:
 
         """
         self.value = value
-        self.children: list[TreeNode] = children if children else []
-        self.parent: TreeNode | None = None
+        self.children: list[Self] = children if children else []
+        self.parent: Self | None = None
 
         # Set parent references for children
         for child in self.children:
             child.parent = self
 
-    def add_child(self, child: TreeNode) -> None:
+    def add_child(self, child: Self) -> None:
         """
         Add a child node.
 
@@ -79,7 +79,7 @@ class TreeNode:
         self.children.append(child)
         child.parent = self
 
-    def remove_child(self, child: TreeNode) -> bool:
+    def remove_child(self, child: Self) -> bool:
         """
         Remove a child node.
 
@@ -150,7 +150,7 @@ class TreeNode:
             return 0
         return 1 + max(child.get_height() for child in self.children)
 
-    def get_siblings(self) -> list[TreeNode]:
+    def get_siblings(self) -> list[Self]:
         """
         Get all sibling nodes (nodes with same parent).
 
@@ -163,7 +163,7 @@ class TreeNode:
             return []
         return [child for child in self.parent.children if child is not self]
 
-    def get_ancestors(self) -> list[TreeNode]:
+    def get_ancestors(self) -> list[Self]:
         """
         Get all ancestor nodes from parent to root.
 
@@ -179,7 +179,7 @@ class TreeNode:
             current = current.parent
         return ancestors
 
-    def traverse_preorder(self) -> list[TreeNode]:
+    def traverse_preorder(self) -> list[Self]:
         """
         Traverse tree in pre-order (root, then children).
 
@@ -188,12 +188,12 @@ class TreeNode:
             list[TreeNode]: Nodes in pre-order.
 
         """
-        result = [self]
+        result: list[Self] = [self]
         for child in self.children:
             result.extend(child.traverse_preorder())
         return result
 
-    def traverse_postorder(self) -> list[TreeNode]:
+    def traverse_postorder(self) -> list[Self]:
         """
         Traverse tree in post-order (children, then root).
 
@@ -202,13 +202,13 @@ class TreeNode:
             list[TreeNode]: Nodes in post-order.
 
         """
-        result = []
+        result: list[Self] = []
         for child in self.children:
             result.extend(child.traverse_postorder())
         result.append(self)
         return result
 
-    def traverse_levelorder(self) -> list[TreeNode]:
+    def traverse_levelorder(self) -> list[Self]:
         """
         Traverse tree in level-order (breadth-first).
 
@@ -217,7 +217,7 @@ class TreeNode:
             list[TreeNode]: Nodes in level-order.
 
         """
-        result = []
+        result: list[Self] = []
         queue = [self]
         while queue:
             node = queue.pop(0)

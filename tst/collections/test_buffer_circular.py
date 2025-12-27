@@ -50,14 +50,10 @@ def test_initialization():
     ), "Buffer should not be full upon initialization."
     assert buffer.get_all() == [], "Buffer contents should be empty."
 
-    with pytest.raises(
-        ValueError, match="Buffer size must be a positive integer."
-    ):
+    with pytest.raises(ValueError, match="Capacity must be at least 1"):
         CircularBuffer(size=0)
 
-    with pytest.raises(
-        ValueError, match="Buffer size must be a positive integer."
-    ):
+    with pytest.raises(ValueError, match="Capacity must be at least 1"):
         CircularBuffer(size=-1)
 
 
@@ -168,16 +164,7 @@ def test_repr():
     buffer.append(2)
     repr_output = repr(buffer)
 
-    expected_output = (
-        "CircularBuffer(\n"
-        "    size=3,\n"
-        "    buffer=[1, 2],\n"
-        "    full=False\n"
-        ")"
-    )
-    assert (
-        repr_output == expected_output
-    ), "The __repr__ output should match the expected format."
+    assert repr_output == "CircularBuffer(capacity=3, size=2, buffer=[1, 2])"
 
 
 def test_large_buffer():

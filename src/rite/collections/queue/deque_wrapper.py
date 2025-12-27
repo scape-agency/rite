@@ -39,16 +39,17 @@ class DequeWrapper:
 
     """
 
-    def __init__(self, maxlen: int | None = None) -> None:
+    def __init__(self, max_size: int | None = None) -> None:
         """
         Initialize a deque wrapper.
 
         Args:
         ----
-            maxlen: Maximum length of the deque.
+            max_size: Maximum length of the deque.
 
         """
-        self._deque: deque[Any] = deque(maxlen=maxlen)
+        self.max_size = max_size
+        self._deque: deque[Any] = deque(maxlen=max_size)
 
     def push_left(self, item: Any) -> None:
         """Add item to the left end."""
@@ -60,18 +61,26 @@ class DequeWrapper:
 
     def pop_left(self) -> Any:
         """Remove and return item from left end."""
+        if not self._deque:
+            return None
         return self._deque.popleft()
 
     def pop_right(self) -> Any:
         """Remove and return item from right end."""
+        if not self._deque:
+            return None
         return self._deque.pop()
 
     def peek_left(self) -> Any:
         """Return item at left end without removing."""
+        if not self._deque:
+            return None
         return self._deque[0]
 
     def peek_right(self) -> Any:
         """Return item at right end without removing."""
+        if not self._deque:
+            return None
         return self._deque[-1]
 
     def rotate(self, n: int = 1) -> None:
@@ -107,7 +116,10 @@ class DequeWrapper:
 
     def __repr__(self) -> str:
         """Return string representation."""
-        return f"DequeWrapper(size={len(self._deque)})"
+        return (
+            f"DequeWrapper(size={len(self._deque)}, "
+            f"max_size={self.max_size})"
+        )
 
 
 # =============================================================================

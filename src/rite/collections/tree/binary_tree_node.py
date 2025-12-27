@@ -78,7 +78,7 @@ class BinaryTreeNode:
         """
         return self.left is None and self.right is None
 
-    def has_left(self) -> bool:
+    def has_left_child(self) -> bool:
         """
         Check if node has left child.
 
@@ -89,7 +89,7 @@ class BinaryTreeNode:
         """
         return self.left is not None
 
-    def has_right(self) -> bool:
+    def has_right_child(self) -> bool:
         """
         Check if node has right child.
 
@@ -116,7 +116,7 @@ class BinaryTreeNode:
         right_height = self.right.get_height() if self.right else 0
         return 1 + max(left_height, right_height)
 
-    def inorder_traversal(self) -> list[Any]:
+    def inorder_traversal(self) -> list[BinaryTreeNode]:
         """
         Perform in-order traversal (left, root, right).
 
@@ -125,15 +125,19 @@ class BinaryTreeNode:
             list[Any]: Values in in-order.
 
         """
-        result = []
+        result: list[BinaryTreeNode] = []
         if self.left:
             result.extend(self.left.inorder_traversal())
-        result.append(self.value)
+        result.append(self)
         if self.right:
             result.extend(self.right.inorder_traversal())
         return result
 
-    def preorder_traversal(self) -> list[Any]:
+    def traverse_inorder(self) -> list[BinaryTreeNode]:
+        """Alias for inorder_traversal for compatibility."""
+        return self.inorder_traversal()
+
+    def preorder_traversal(self) -> list[BinaryTreeNode]:
         """
         Perform pre-order traversal (root, left, right).
 
@@ -142,14 +146,18 @@ class BinaryTreeNode:
             list[Any]: Values in pre-order.
 
         """
-        result = [self.value]
+        result: list[BinaryTreeNode] = [self]
         if self.left:
             result.extend(self.left.preorder_traversal())
         if self.right:
             result.extend(self.right.preorder_traversal())
         return result
 
-    def postorder_traversal(self) -> list[Any]:
+    def traverse_preorder(self) -> list[BinaryTreeNode]:
+        """Alias for preorder_traversal for compatibility."""
+        return self.preorder_traversal()
+
+    def postorder_traversal(self) -> list[BinaryTreeNode]:
         """
         Perform post-order traversal (left, right, root).
 
@@ -158,13 +166,17 @@ class BinaryTreeNode:
             list[Any]: Values in post-order.
 
         """
-        result = []
+        result: list[BinaryTreeNode] = []
         if self.left:
             result.extend(self.left.postorder_traversal())
         if self.right:
             result.extend(self.right.postorder_traversal())
-        result.append(self.value)
+        result.append(self)
         return result
+
+    def traverse_postorder(self) -> list[BinaryTreeNode]:
+        """Alias for postorder_traversal for compatibility."""
+        return self.postorder_traversal()
 
     def __repr__(self) -> str:
         """Return string representation."""

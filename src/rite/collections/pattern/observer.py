@@ -22,7 +22,6 @@ Implementation of the Observer design pattern for event-driven programming.
 from __future__ import annotations
 
 # Import | Standard Library
-from abc import ABC, abstractmethod
 from typing import Any
 
 # =============================================================================
@@ -30,7 +29,7 @@ from typing import Any
 # =============================================================================
 
 
-class Observer(ABC):
+class Observer:
     """
     Observer Abstract Base Class
     =============================
@@ -39,20 +38,11 @@ class Observer(ABC):
 
     """
 
-    @abstractmethod
     def update(
-        self, observable: Observable, *args: Any, **kwargs: Any
+        self, observable: Observable | None, *args: Any, **kwargs: Any
     ) -> None:
-        """
-        Called when the observed object changes.
-
-        Args:
-        ----
-            observable: The observable object that changed.
-            *args: Positional arguments from the notification.
-            **kwargs: Keyword arguments from the notification.
-
-        """
+        """Called when the observed object changes."""
+        raise NotImplementedError
 
 
 class Observable:
@@ -67,6 +57,11 @@ class Observable:
     def __init__(self) -> None:
         """Initialize an observable object."""
         self._observers: list[Observer] = []
+
+    @property
+    def observers(self) -> tuple[Observer, ...]:
+        """Return observers as an immutable tuple."""
+        return tuple(self._observers)
 
     def attach(self, observer: Observer) -> None:
         """
@@ -117,6 +112,10 @@ class Observable:
 
         """
         return len(self._observers)
+
+    def clear_observers(self) -> None:
+        """Remove all observers."""
+        self._observers.clear()
 
 
 # =============================================================================

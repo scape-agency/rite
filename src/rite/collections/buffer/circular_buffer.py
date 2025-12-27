@@ -98,11 +98,11 @@ class CircularBuffer:
             The maximum number of elements the buffer can hold.
         """
         if size <= 0:
-            raise ValueError("Buffer size must be a positive integer.")
-        self.size = size
+            raise ValueError("Capacity must be at least 1")
+        self.capacity = size
         self.buffer: list[Any | None] = [None] * size
         self.index = 0
-        self.full = False
+        self._count = 0
 
     def __repr__(self) -> str:
         """
@@ -114,11 +114,9 @@ class CircularBuffer:
             A string describing the buffer contents and state.
         """
         return (
-            f"CircularBuffer(\n"
-            f"    size={self.size},\n"
-            f"    buffer={self.get_all()},\n"
-            f"    full={self.full}\n"
-            f")"
+            f"CircularBuffer(capacity={self.capacity}, "
+            f"size={len(self)}, "
+            f"buffer={self.get_all()})"
         )
 
     def append(self, value: Any) -> None:
@@ -132,9 +130,9 @@ class CircularBuffer:
             The value to add to the buffer.
         """
         self.buffer[self.index] = value
-        self.index = (self.index + 1) % self.size
-        # Mark the buffer as full if we've looped back to the start
-        self.full = self.full or self.index == 0
+        self.index = (self.index + 1) % self.capacity
+        if self._count < self.capacity:
+            self._count += 1
 
     def get_all(self) -> list[Any | None]:
         """
@@ -146,9 +144,16 @@ class CircularBuffer:
             A list of elements in the buffer, ordered from the oldest to the
             newest.
         """
-        if self.full:
+        if self.is_full():
             return self.buffer[self.index :] + self.buffer[: self.index]
         return self.buffer[: self.index]
+
+    def get(self, index: int) -> Any | None:
+        """Return item at index or None if out of bounds."""
+        items = self.get_all()
+        if 0 <= index < len(items):
+            return items[index]
+        return None
 
     def is_empty(self) -> bool:
         """
@@ -159,7 +164,7 @@ class CircularBuffer:
         bool:
             True if the buffer is empty, False otherwise.
         """
-        return not self.full and self.index == 0
+        return self._count == 0
 
     def is_full(self) -> bool:
         """
@@ -170,7 +175,25 @@ class CircularBuffer:
         bool:
             True if the buffer is full, False otherwise.
         """
-        return self.full
+        return self._count >= self.capacity
+
+    def clear(self) -> None:
+        """Clear the buffer."""
+        self.buffer = [None] * self.capacity
+        self.index = 0
+        self._count = 0
+
+    def __len__(self) -> int:
+        """Return number of elements currently stored."""
+        return self._count
+
+    def __iter__(self):
+        """Iterate over items in logical order."""
+        return iter(self.get_all())
+
+    def __contains__(self, item: Any) -> bool:
+        """Return True if item present in buffer."""
+        return item in self.get_all()
 
 
 # =============================================================================

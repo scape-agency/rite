@@ -64,13 +64,9 @@ class CircularQueue:
         ----
             item: Item to add.
 
-        Returns:
-        -------
-            bool: True if successful, False if queue is full.
-
         """
         if self.is_full():
-            return False
+            raise OverflowError("Queue is full")
 
         self._rear = (self._rear + 1) % self.capacity
         self._data[self._rear] = item
@@ -85,13 +81,9 @@ class CircularQueue:
         -------
             Any: The front item.
 
-        Raises:
-        ------
-            IndexError: If queue is empty.
-
         """
         if self.is_empty():
-            raise IndexError("dequeue from empty queue")
+            raise IndexError("Queue is empty")
 
         item = self._data[self._front]
         self._data[self._front] = None
@@ -107,13 +99,9 @@ class CircularQueue:
         -------
             Any: The front item.
 
-        Raises:
-        ------
-            IndexError: If queue is empty.
-
         """
         if self.is_empty():
-            raise IndexError("peek at empty queue")
+            return None
         return self._data[self._front]
 
     def is_empty(self) -> bool:

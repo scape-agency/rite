@@ -115,6 +115,11 @@ class SingletonMeta(type):
             instance.__init__(*args, **kwargs)
         return instance
 
+    @classmethod
+    def reset_instance(cls, target_cls: type) -> None:
+        """Remove a cached instance for the given class if present."""
+        cls._instances.pop(target_cls, None)
+
 
 # =============================================================================
 # Module Exports

@@ -63,7 +63,7 @@ class SlidingWindow:
 
         """
         if size < 1:
-            raise ValueError("Window size must be at least 1")
+            raise ValueError("Size must be at least 1")
 
         self.size = size
         self.aggregation_func = aggregation_func
@@ -157,9 +157,11 @@ class SlidingWindow:
 
         Returns:
         -------
-            float: Sum of window values.
+            float | None: Sum of window values or None if empty.
 
         """
+        if not self._window:
+            return None
         return sum(self._window)
 
     def moving_max(self) -> Any | None:
@@ -183,6 +185,10 @@ class SlidingWindow:
 
         """
         return min(self._window) if self._window else None
+
+    def __iter__(self):
+        """Iterate over current window contents."""
+        return iter(self._window)
 
     def __len__(self) -> int:
         """Return current number of elements in window."""

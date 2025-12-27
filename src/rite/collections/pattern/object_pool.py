@@ -52,7 +52,7 @@ class ObjectPool:
         self,
         factory: Callable[[], Any],
         max_size: int = 10,
-        reset_func: Callable[[Any], None] | None = None,
+        reset: Callable[[Any], None] | None = None,
     ) -> None:
         """
         Initialize an object pool.
@@ -64,9 +64,12 @@ class ObjectPool:
             reset_func: Optional function to reset objects.
 
         """
+        if max_size < 1:
+            raise ValueError("max_size must be at least 1")
+
         self.factory = factory
         self.max_size = max_size
-        self.reset_func = reset_func
+        self.reset_func = reset
         self._available: list[Any] = []
         self._in_use: set[Any] = set()
 

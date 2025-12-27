@@ -70,6 +70,9 @@ class Trie:
             value: Optional value to associate with the word.
 
         """
+        if word == "":
+            return
+
         node = self.root
         for char in word:
             if char not in node.children:
@@ -94,6 +97,8 @@ class Trie:
             bool: True if word exists in trie.
 
         """
+        if word == "":
+            return False
         node = self._find_node(word)
         return node is not None and node.is_end_of_word
 
@@ -192,6 +197,10 @@ class Trie:
         self._collect_words(node, prefix, words)
         return words
 
+    def autocomplete(self, prefix: str) -> list[str]:
+        """Return all completions for the given prefix."""
+        return self.get_words_with_prefix(prefix)
+
     def get_all_words(self) -> list[str]:
         """
         Get all words stored in the trie.
@@ -254,7 +263,7 @@ class Trie:
 
     def __repr__(self) -> str:
         """Return string representation."""
-        return f"Trie(size={self._size})"
+        return f"Trie(words={self._size})"
 
 
 # =============================================================================

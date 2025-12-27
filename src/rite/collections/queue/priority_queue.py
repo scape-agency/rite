@@ -65,13 +65,9 @@ class PriorityQueue:
         -------
             Any: The highest priority item.
 
-        Raises:
-        ------
-            IndexError: If queue is empty.
-
         """
         if self.is_empty():
-            raise IndexError("pop from empty priority queue")
+            return None
         return heapq.heappop(self._heap)[2]
 
     def peek(self) -> Any:
@@ -82,14 +78,15 @@ class PriorityQueue:
         -------
             Any: The highest priority item.
 
-        Raises:
-        ------
-            IndexError: If queue is empty.
-
         """
         if self.is_empty():
-            raise IndexError("peek at empty priority queue")
+            return None
         return self._heap[0][2]
+
+    def clear(self) -> None:
+        """Remove all items from the queue."""
+        self._heap.clear()
+        self._counter = 0
 
     def is_empty(self) -> bool:
         """
