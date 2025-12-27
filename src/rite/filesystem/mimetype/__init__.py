@@ -33,9 +33,7 @@ ensuring that only files with appropriate MIME types are processed or stored.
 
 # Import | Local Modules
 from .mimetype_guess_from_path import mimetype_guess_from_path
-
-# MIME Type Verification Functions
-from .util_mimetype_verify import mimetype_verify
+from .mimetype_verify import mimetype_verify
 
 # MIME Type Detection Functions (Future or Conditional Use)
 # from .util_mimetype_from_bytes import mimetype_from_bytes

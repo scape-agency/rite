@@ -40,9 +40,6 @@ available for backward compatibility.
 from __future__ import annotations
 
 # Import | Local Modules
-# Import legacy classes from renamed files
-from ._duration_legacy import Duration as DurationClass
-from ._timezone_legacy import Timezone as TimezoneClass
 from .calendar import (
     calendar_is_leap_year,
     calendar_month_days,
@@ -68,7 +65,6 @@ from .formatting import (
     format_iso8601,
     format_rfc3339,
 )
-from .timestamp import Timestamp
 from .timezone import timezone_convert, timezone_get, timezone_list
 
 # =============================================================================
@@ -101,8 +97,4 @@ __all__: list[str] = [
     "format_iso8601",
     "format_rfc3339",
     "format_human_readable",
-    # Legacy
-    "Timestamp",
-    "DurationClass",
-    "TimezoneClass",
 ]
