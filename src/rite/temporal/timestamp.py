@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -36,6 +33,9 @@ from datetime import datetime
 # Import | Local Modules
 from .duration import Duration
 from .timezone import Timezone
+
+# Import | Libraries
+
 
 # =============================================================================
 # Classes

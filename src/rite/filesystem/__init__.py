@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -43,8 +40,8 @@ Example:
 from __future__ import annotations
 
 # Compression operations
-from .compress.file_gzip_compress import compress_file
-from .compress.file_gzip_uncompress import uncompress_file
+from .compress.gzip_compress import compress_file
+from .compress.gzip_uncompress import uncompress_file
 
 # File operations
 from .file.file_copy import copy_file

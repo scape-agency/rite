@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -38,6 +35,11 @@ from __future__ import annotations
 import logging
 import time
 from collections.abc import Callable
+
+# Import | Libraries
+
+# Import | Local Modules
+
 
 # =============================================================================
 # Classes

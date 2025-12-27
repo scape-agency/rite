@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -26,6 +23,11 @@ from __future__ import annotations
 import logging
 import urllib.parse
 from http.server import BaseHTTPRequestHandler, HTTPServer
+
+# Import | Libraries
+
+# Import | Local Modules
+
 
 # =============================================================================
 # Classes

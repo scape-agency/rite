@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -28,10 +25,8 @@ Dependencies:
 # Import | Future
 from __future__ import annotations
 
-from datetime import timedelta
-
 # Import | Standard Library
-from typing import Union
+from datetime import timedelta
 
 # Import | Libraries
 
@@ -53,16 +48,14 @@ class Duration:
 
     Attributes
     ----------
-    -----------
     td : timedelta
         The `timedelta` object representing the duration.
 
     Methods
     -------
-    --------
     __str__() -> str:
         Returns a human-readable string representation of the duration.
-    from_days(days: Union[int, float]) -> "Duration":
+    from_days(days: int | float) -> "Duration":
         Creates a `Duration` object from a number of days.
     to_days() -> float:
         Converts the duration to days.
@@ -74,13 +67,13 @@ class Duration:
         Returns the total duration in seconds.
     """
 
-    def __init__(self, seconds: Union[int, float] = 0) -> None:
+    def __init__(self, seconds: int | float = 0) -> None:
         """
         Initializes the `Duration` object.
 
         Parameters:
         -----------
-        seconds : Union[int, float], optional
+        seconds : int | float, optional
             The number of seconds for the duration (default: 0).
         """
         self.timedelta: timedelta = timedelta(seconds=seconds)
@@ -101,13 +94,13 @@ class Duration:
         return f"{hours}h {minutes}m {seconds}s"
 
     @staticmethod
-    def from_days(days: Union[int, float]) -> "Duration":
+    def from_days(days: int | float) -> "Duration":
         """
         Creates a `Duration` object from a number of days.
 
         Parameters:
         -----------
-        days : Union[int, float]
+        days : int | float
             The number of days.
 
         Returns

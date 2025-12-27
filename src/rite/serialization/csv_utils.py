@@ -1,13 +1,10 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
 
 """
 CSV Delimiter Detection
-========================
+=======================
 
 Provides functionality to detect the delimiter used in a CSV file based on its
 filename extension.
@@ -21,6 +18,13 @@ filename extension.
 
 # Import | Future
 from __future__ import annotations
+
+# Import | Standard Library
+
+# Import | Libraries
+
+# Import | Local Modules
+
 
 # =============================================================================
 # Functions
