@@ -1,5 +1,3 @@
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -16,6 +14,9 @@ The text module includes functions for:
 - Slug generation for URL-friendly strings
 - Text analysis (character frequency, word count, etc.)
 - String sanitization and cleaning
+- Text validation (email, numeric, alpha, alphanumeric)
+- Text manipulation (truncate, pad, wrap)
+- Text search (contains, starts_with, ends_with, find, count)
 - Morse code encoding/decoding
 - Random string generation
 
@@ -36,9 +37,8 @@ Example:
 # Import | Future
 from __future__ import annotations
 
-from .analysis import char_frequency, is_palindrome, longest_word, word_count
-
 # Import | Local Modules
+from .analysis import char_frequency, is_palindrome, longest_word, word_count
 from .case import (
     to_camel_case,
     to_constant_case,
@@ -52,10 +52,29 @@ from .case import (
     to_title_case,
     to_upper_case,
 )
+from .manipulation import (
+    text_pad_left,
+    text_pad_right,
+    text_truncate,
+    text_wrap,
+)
 from .morse import morse_decode, morse_encode
 from .random import random_alphanumeric, random_hex, random_string
 from .sanitize import clean, sanitize
+from .search import (
+    text_contains,
+    text_count,
+    text_ends_with,
+    text_find,
+    text_starts_with,
+)
 from .slug import add_slug_prefix, add_slug_suffix, slugify, unique_slug
+from .validation import (
+    text_is_alpha,
+    text_is_alphanumeric,
+    text_is_email,
+    text_is_numeric,
+)
 
 # =============================================================================
 # Exports
@@ -87,6 +106,22 @@ __all__: list[str] = [
     # Sanitization
     "sanitize",
     "clean",
+    # Validation
+    "text_is_email",
+    "text_is_numeric",
+    "text_is_alpha",
+    "text_is_alphanumeric",
+    # Manipulation
+    "text_truncate",
+    "text_pad_left",
+    "text_pad_right",
+    "text_wrap",
+    # Search
+    "text_contains",
+    "text_starts_with",
+    "text_ends_with",
+    "text_find",
+    "text_count",
     # Morse code
     "morse_encode",
     "morse_decode",

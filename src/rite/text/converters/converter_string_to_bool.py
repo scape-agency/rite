@@ -18,19 +18,12 @@ Provides functionality to convert strings to boolean values.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
-
-# Import | Libraries
-
-# Import | Local Modules
-
-
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def convert_string_to_bool(val: str) -> bool | None:
+def convert_string_to_bool(val: str | None) -> bool | None:
     """
     String to Boolean Converter
     ===========================
