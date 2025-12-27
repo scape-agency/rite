@@ -28,7 +28,8 @@ from rite.system.platform.platform_is_macos import (
 
 def test_platform_is_macos() -> None:
     """Test platform_is_macos() function."""
-    # TODO: Implement test
-    # result = platform_is_macos(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test returns bool
+    result = platform_is_macos()
+    assert isinstance(result, bool)
+    # On macOS, should be True
+    assert result is True

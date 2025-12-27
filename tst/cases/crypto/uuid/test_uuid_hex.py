@@ -33,7 +33,7 @@ def test_uuid_hex() -> None:
     assert isinstance(result, str)
     assert len(result) == 32  # UUID hex format (no dashes)
     assert all(c in "0123456789abcdef" for c in result)
-    
+
     # Test uniqueness
     result1 = uuid_hex()
     result2 = uuid_hex()

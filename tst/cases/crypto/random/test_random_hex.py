@@ -33,11 +33,11 @@ def test_random_hex() -> None:
     assert isinstance(result, str)
     assert len(result) == 64  # 32 bytes = 64 hex chars
     assert all(c in "0123456789abcdef" for c in result)
-    
+
     # Test custom size
     result = random_hex(16)
     assert len(result) == 32  # 16 bytes = 32 hex chars
-    
+
     # Test uniqueness
     result1 = random_hex(16)
     result2 = random_hex(16)

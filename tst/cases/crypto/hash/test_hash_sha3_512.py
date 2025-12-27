@@ -31,11 +31,11 @@ def test_hash_sha3_512() -> None:
     # Test with string
     result = hash_sha3_512("hello")
     assert len(result) == 128  # sha3-512 produces 64 bytes = 128 hex chars
-    
+
     # Test with bytes
     result2 = hash_sha3_512(b"hello")
     assert result == result2
-    
+
     # Test empty string
     result_empty = hash_sha3_512("")
     assert len(result_empty) == 128

@@ -32,11 +32,11 @@ def test_random_choice() -> None:
     choices = ["a", "b", "c", "d", "e"]
     result = random_choice(choices)
     assert result in choices
-    
+
     # Test with string
     result = random_choice("abcde")
     assert result in "abcde"
-    
+
     # Test uniqueness (run multiple times)
     results = [random_choice(choices) for _ in range(20)]
     assert len(set(results)) > 1  # Should have variety

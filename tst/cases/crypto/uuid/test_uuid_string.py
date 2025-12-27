@@ -31,9 +31,11 @@ def test_uuid_string() -> None:
     # Test basic generation
     result = uuid_string()
     assert isinstance(result, str)
-    assert len(result) == 36  # UUID string format: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    assert (
+        len(result) == 36
+    )  # UUID string format: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     assert result.count("-") == 4
-    
+
     # Test uniqueness
     result1 = uuid_string()
     result2 = uuid_string()

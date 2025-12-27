@@ -33,11 +33,11 @@ def test_random_urlsafe() -> None:
     assert isinstance(result, str)
     # URL-safe base64 uses A-Za-z0-9_-
     assert all(c.isalnum() or c in "-_" for c in result)
-    
+
     # Test custom size
     result = random_urlsafe(32)
     assert isinstance(result, str)
-    
+
     # Test uniqueness
     result1 = random_urlsafe(16)
     result2 = random_urlsafe(16)

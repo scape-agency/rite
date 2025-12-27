@@ -28,7 +28,9 @@ from rite.system.platform.platform_name import (
 
 def test_platform_name() -> None:
     """Test platform_name() function."""
-    # TODO: Implement test
-    # result = platform_name(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test returns string
+    result = platform_name()
+    assert isinstance(result, str)
+    assert len(result) > 0
+    # On macOS, should be Darwin
+    assert result == "Darwin"

@@ -28,7 +28,13 @@ from rite.system.platform.platform_python_version import (
 
 def test_platform_python_version() -> None:
     """Test platform_python_version() function."""
-    # TODO: Implement test
-    # result = platform_python_version(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test returns string
+    result = platform_python_version()
+    assert isinstance(result, str)
+    assert len(result) > 0
+    # Should contain dots and digits
+    assert "." in result
+    parts = result.split(".")
+    assert len(parts) >= 2
+    # Should be Python 3.x
+    assert parts[0] == "3"

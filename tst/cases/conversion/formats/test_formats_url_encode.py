@@ -28,7 +28,13 @@ from rite.conversion.formats.formats_url_encode import (
 
 def test_formats_url_encode() -> None:
     """Test formats_url_encode() function."""
-    # TODO: Implement test
-    # result = formats_url_encode(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test basic encode (quote_plus uses + for spaces)
+    assert formats_url_encode("hello world") == "hello+world"
+    assert formats_url_encode("test+value") == "test%2Bvalue"
+    assert formats_url_encode("a=b") == "a%3Db"
+
+    # Test no encoding needed
+    assert formats_url_encode("hello") == "hello"
+
+    # Test with safe parameter
+    assert formats_url_encode("a/b", safe="/") == "a/b"

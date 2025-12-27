@@ -28,7 +28,12 @@ from rite.filesystem.path.path_clean import (
 
 def test_path_clean() -> None:
     """Test path_clean() function."""
-    # TODO: Implement test
-    # result = path_clean(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test removing leading/trailing slashes
+    assert path_clean("//path/to/file//") == "/path/to/file"
+    assert path_clean("path/to/file") == "/path/to/file"
+
+    # Test single slash
+    assert path_clean("/") == "/"
+
+    # Test multiple slashes (only leading/trailing stripped, not internal)
+    assert path_clean("///a///b///") == "/a///b"

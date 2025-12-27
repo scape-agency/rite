@@ -28,7 +28,10 @@ from rite.conversion.formats.formats_url_decode import (
 
 def test_formats_url_decode() -> None:
     """Test formats_url_decode() function."""
-    # TODO: Implement test
-    # result = formats_url_decode(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test basic decode
+    assert formats_url_decode("hello%20world") == "hello world"
+    assert formats_url_decode("test%2Bvalue") == "test+value"
+    assert formats_url_decode("a%3Db") == "a=b"
+
+    # Test no encoding
+    assert formats_url_decode("hello") == "hello"

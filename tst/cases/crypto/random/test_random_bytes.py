@@ -32,12 +32,12 @@ def test_random_bytes() -> None:
     result = random_bytes()
     assert isinstance(result, bytes)
     assert len(result) == 32  # Default size
-    
+
     # Test custom size
     result = random_bytes(16)
     assert isinstance(result, bytes)
     assert len(result) == 16
-    
+
     # Test uniqueness
     result1 = random_bytes(16)
     result2 = random_bytes(16)

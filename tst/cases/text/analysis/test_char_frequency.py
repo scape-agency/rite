@@ -28,7 +28,13 @@ from rite.text.analysis.char_frequency import (
 
 def test_char_frequency() -> None:
     """Test char_frequency() function."""
-    # TODO: Implement test
-    # result = char_frequency(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test basic frequency
+    result = char_frequency("hello")
+    assert result == {'h': 1, 'e': 1, 'l': 2, 'o': 1}
+    
+    # Test with repeated characters
+    result = char_frequency("aabbcc")
+    assert result == {'a': 2, 'b': 2, 'c': 2}
+    
+    # Test empty string
+    assert char_frequency("") == {}

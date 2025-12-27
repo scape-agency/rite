@@ -28,7 +28,16 @@ from rite.text.analysis.longest_word import (
 
 def test_longest_word() -> None:
     """Test longest_word() function."""
-    # TODO: Implement test
-    # result = longest_word(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test basic longest
+    assert longest_word("hello world") == "hello"
+    assert longest_word("a bb ccc") == "ccc"
+    
+    # Test single word
+    assert longest_word("hello") == "hello"
+    
+    # Test error on empty string
+    with pytest.raises(ValueError, match="Text contains no words"):
+        longest_word("")
+    
+    with pytest.raises(ValueError, match="Text contains no words"):
+        longest_word("   ")

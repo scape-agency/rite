@@ -28,7 +28,12 @@ from rite.conversion.formats.formats_base64_decode import (
 
 def test_formats_base64_decode() -> None:
     """Test formats_base64_decode() function."""
-    # TODO: Implement test
-    # result = formats_base64_decode(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test basic decode
+    assert formats_base64_decode("aGVsbG8=") == b"hello"
+    assert formats_base64_decode("d29ybGQ=") == b"world"
+
+    # Test empty string
+    assert formats_base64_decode("") == b""
+
+    # Test with padding
+    assert formats_base64_decode("YQ==") == b"a"

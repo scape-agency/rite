@@ -28,7 +28,13 @@ from rite.conversion.formats.formats_hex_encode import (
 
 def test_formats_hex_encode() -> None:
     """Test formats_hex_encode() function."""
-    # TODO: Implement test
-    # result = formats_hex_encode(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test basic encode with bytes
+    assert formats_hex_encode(b"hello") == "68656c6c6f"
+    assert formats_hex_encode(b"world") == "776f726c64"
+
+    # Test with string
+    assert formats_hex_encode("hello") == "68656c6c6f"
+
+    # Test empty
+    assert formats_hex_encode(b"") == ""
+    assert formats_hex_encode("") == ""

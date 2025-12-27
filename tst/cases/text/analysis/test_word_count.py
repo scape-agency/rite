@@ -28,7 +28,13 @@ from rite.text.analysis.word_count import (
 
 def test_word_count() -> None:
     """Test word_count() function."""
-    # TODO: Implement test
-    # result = word_count(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test basic count
+    assert word_count("hello world") == 2
+    assert word_count("one two three four five") == 5
+    
+    # Test empty string
+    assert word_count("") == 0
+    assert word_count("   ") == 0
+    
+    # Test single word
+    assert word_count("hello") == 1

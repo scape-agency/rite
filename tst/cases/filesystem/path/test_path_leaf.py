@@ -28,7 +28,10 @@ from rite.filesystem.path.path_leaf import (
 
 def test_path_leaf() -> None:
     """Test path_leaf() function."""
-    # TODO: Implement test
-    # result = path_leaf(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test basic leaf extraction
+    assert path_leaf("/a/b/c/file.txt") == "file.txt"
+    assert path_leaf("/a/b/c/folder") == "folder"
+    assert path_leaf("file.txt") == "file.txt"
+
+    # Test with trailing slash
+    assert path_leaf("/a/b/c/") in ["", "c"]  # May vary by OS

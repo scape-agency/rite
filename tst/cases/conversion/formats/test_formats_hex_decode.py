@@ -28,7 +28,12 @@ from rite.conversion.formats.formats_hex_decode import (
 
 def test_formats_hex_decode() -> None:
     """Test formats_hex_decode() function."""
-    # TODO: Implement test
-    # result = formats_hex_decode(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test basic decode
+    assert formats_hex_decode("68656c6c6f") == b"hello"
+    assert formats_hex_decode("776f726c64") == b"world"
+
+    # Test uppercase
+    assert formats_hex_decode("48454C4C4F") == b"HELLO"
+
+    # Test empty
+    assert formats_hex_decode("") == b""

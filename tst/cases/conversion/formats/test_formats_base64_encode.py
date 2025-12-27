@@ -28,7 +28,13 @@ from rite.conversion.formats.formats_base64_encode import (
 
 def test_formats_base64_encode() -> None:
     """Test formats_base64_encode() function."""
-    # TODO: Implement test
-    # result = formats_base64_encode(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test basic encode with bytes
+    assert formats_base64_encode(b"hello") == "aGVsbG8="
+    assert formats_base64_encode(b"world") == "d29ybGQ="
+
+    # Test with string
+    assert formats_base64_encode("hello") == "aGVsbG8="
+
+    # Test empty
+    assert formats_base64_encode(b"") == ""
+    assert formats_base64_encode("") == ""

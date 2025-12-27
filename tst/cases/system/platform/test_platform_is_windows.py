@@ -28,7 +28,8 @@ from rite.system.platform.platform_is_windows import (
 
 def test_platform_is_windows() -> None:
     """Test platform_is_windows() function."""
-    # TODO: Implement test
-    # result = platform_is_windows(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test returns bool
+    result = platform_is_windows()
+    assert isinstance(result, bool)
+    # On macOS, should be False
+    assert result is False

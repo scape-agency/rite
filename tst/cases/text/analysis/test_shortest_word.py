@@ -28,7 +28,19 @@ from rite.text.analysis.shortest_word import (
 
 def test_shortest_word() -> None:
     """Test shortest_word() function."""
-    # TODO: Implement test
-    # result = shortest_word(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test basic shortest (both same length, returns first)
+    assert shortest_word("hello world") == "hello"
+    assert shortest_word("abc defgh") == "abc"
+    
+    # Test different lengths
+    assert shortest_word("a bb ccc") == "a"
+    
+    # Test single word
+    assert shortest_word("hello") == "hello"
+    
+    # Test error on empty string
+    with pytest.raises(ValueError, match="Text contains no words"):
+        shortest_word("")
+    
+    with pytest.raises(ValueError, match="Text contains no words"):
+        shortest_word("   ")

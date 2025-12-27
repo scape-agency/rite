@@ -28,7 +28,10 @@ from rite.conversion.formats.formats_json_encode import (
 
 def test_formats_json_encode() -> None:
     """Test formats_json_encode() function."""
-    # TODO: Implement test
-    # result = formats_json_encode(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test basic encode
+    assert formats_json_encode({"key": "value"}) == '{"key": "value"}'
+    assert formats_json_encode([1, 2, 3]) == "[1, 2, 3]"
+    assert formats_json_encode("hello") == '"hello"'
+    assert formats_json_encode(123) == "123"
+    assert formats_json_encode(True) == "true"
+    assert formats_json_encode(None) == "null"
