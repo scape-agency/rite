@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -23,7 +20,6 @@ from __future__ import annotations
 
 # Import | Standard Library
 from decimal import Decimal, InvalidOperation
-from typing import Optional
 
 # Import | Libraries
 
@@ -36,9 +32,9 @@ from typing import Optional
 
 
 def convert_string_to_decimal(
-    value: Optional[str],
+    value: str | None,
     length: int = 3,
-) -> Optional[Decimal]:
+) -> Decimal | None:
     """
     String to Decimal Converter
     ===========================

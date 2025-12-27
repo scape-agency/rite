@@ -1,14 +1,41 @@
+# =============================================================================
+# Docstring
+# =============================================================================
+
+"""
+Substitute Numbers with Words Converter
+========================================
+
+Replace numbers with word equivalents.
+
+"""
+
+
+# =============================================================================
+# Imports
+# =============================================================================
+
+# Import | Future
+from __future__ import annotations
+
+# =============================================================================
+# Functions
+# =============================================================================
+
+
 def to_substitute_numbers_with_words_case(text: str) -> str:
     """
     Replaces numbers in the text with their word equivalents.
-    Example: 'I have 2 dogs and 3 cats' -> 'I have two dogs and three cats'
 
-    Parameters:
-    text (str): The text to process.
+    Args:
+        text: The text to process
 
-    Returns
-    -------
-    str: The text with numbers replaced by words.
+    Returns:
+        The text with numbers replaced by words
+
+    Example:
+        >>> to_substitute_numbers_with_words_case("I have 2 dogs and 3 cats")
+        'I have two dogs and three cats'
     """
     num_to_word_dict = {
         "0": "zero",
@@ -23,3 +50,12 @@ def to_substitute_numbers_with_words_case(text: str) -> str:
         "9": "nine",
     }
     return " ".join(num_to_word_dict.get(word, word) for word in text.split())
+
+
+# =============================================================================
+# Exports
+# =============================================================================
+
+__all__: list[str] = [
+    "to_substitute_numbers_with_words_case",
+]

@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -22,7 +19,6 @@ Provides functionality to convert strings to float values.
 from __future__ import annotations
 
 # Import | Standard Library
-from typing import Optional
 
 # Import | Libraries
 
@@ -34,7 +30,7 @@ from typing import Optional
 # =============================================================================
 
 
-def convert_string_to_float(val: str) -> Optional[float]:
+def convert_string_to_float(val: str) -> float | None:
     """
     Convert a string representation of a float value to a float.
     """

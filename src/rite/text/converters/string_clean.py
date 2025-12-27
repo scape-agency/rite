@@ -1,11 +1,43 @@
+# =============================================================================
+# Docstring
+# =============================================================================
+
+"""
+String Cleaning
+===============
+
+Clean and normalize string values.
+
+"""
+
+
+# =============================================================================
+# Imports
+# =============================================================================
+
+# Import | Future
 from __future__ import annotations
 
-from typing import Optional
+# =============================================================================
+# Functions
+# =============================================================================
 
 
-def string_clean(val: Optional[str]) -> Optional[str]:
+def string_clean(val: str | None) -> str | None:
     """
     Trim string; treat empty, 'none' and 'null' as None.
+
+    Args:
+        val: Input string value
+
+    Returns:
+        Cleaned string or None
+
+    Example:
+        >>> string_clean("  hello  ")
+        'hello'
+        >>> string_clean("none")
+        None
     """
     if val is None:
         return None
@@ -15,5 +47,10 @@ def string_clean(val: Optional[str]) -> Optional[str]:
     return v
 
 
-# def string_clean(val: Optional[str]) -> Optional[str]:
-#     return (val or "").strip() or None
+# =============================================================================
+# Exports
+# =============================================================================
+
+__all__: list[str] = [
+    "string_clean",
+]

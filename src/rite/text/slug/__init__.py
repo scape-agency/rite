@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -21,22 +18,20 @@ Functions for generating URL-friendly slugs.
 # Import | Future
 from __future__ import annotations
 
-from .add_slug_prefix import add_slug_prefix
-from .add_slug_suffix import add_slug_suffix
-from .is_valid_slug import is_valid_slug
-
-# Import | Local Modules
+from .slug_add_prefix import add_slug_prefix
+from .slug_add_suffix import add_slug_suffix
+from .slug_is_valid import is_valid_slug
+from .slug_unique import unique_slug
 from .slugify import slugify
-from .unique_slug import unique_slug
 
 # =============================================================================
 # Exports
 # =============================================================================
 
 __all__: list[str] = [
-    "slugify",
     "add_slug_prefix",
     "add_slug_suffix",
-    "unique_slug",
     "is_valid_slug",
+    "slugify",
+    "unique_slug",
 ]

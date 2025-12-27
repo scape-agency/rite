@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 
 # =============================================================================
@@ -6,10 +5,10 @@
 # =============================================================================
 
 """
-Add Slug Prefix Function
-=========================
+Text Cleaning
+=============
 
-Add a prefix to a slug.
+Remove extra whitespace from text.
 
 """
 
@@ -21,30 +20,29 @@ Add a prefix to a slug.
 # Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
+import re
+
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def add_slug_prefix(slug: str, prefix: str, delimiter: str = "-") -> str:
+def clean(text: str) -> str:
     """
-    Add a prefix to a slug.
+    Remove extra whitespace from text.
 
     Args:
-        slug: The original slug.
-        prefix: The prefix to add.
-        delimiter: The delimiter used in the slug (default: "-").
+    ----
+        text: The input text to clean.
 
     Returns:
-        The slug with the prefix added.
+    -------
+        str: The cleaned text with normalized whitespace.
 
-    Example:
-        >>> add_slug_prefix("world", "hello")
-        'hello-world'
-        >>> add_slug_prefix("world", "hello", delimiter="_")
-        'hello_world'
     """
-    return f"{prefix}{delimiter}{slug}" if prefix else slug
+    cleaned = re.sub(r"\s+", " ", text)
+    return cleaned.strip()
 
 
 # =============================================================================
@@ -52,5 +50,5 @@ def add_slug_prefix(slug: str, prefix: str, delimiter: str = "-") -> str:
 # =============================================================================
 
 __all__: list[str] = [
-    "add_slug_prefix",
+    "clean",
 ]

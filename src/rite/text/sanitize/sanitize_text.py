@@ -1,15 +1,12 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
 
 """
-Text Cleaning
-=============
+Text Sanitization
+=================
 
-Remove extra whitespace from text.
+Sanitize text to create safe ASCII identifiers.
 
 """
 
@@ -23,27 +20,51 @@ from __future__ import annotations
 
 # Import | Standard Library
 import re
+import unicodedata
 
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def clean(text: str) -> str:
+def sanitize(
+    text: str,
+    replacement: str = "_",
+) -> str:
     """
-    Remove extra whitespace from text.
+    Sanitize text to create safe ASCII identifiers.
 
     Args:
     ----
-        text: The input text to clean.
+        text: The input text to sanitize.
+        replacement: The character to replace non-alphanumeric characters.
 
     Returns:
     -------
-        str: The cleaned text with normalized whitespace.
+        str: The sanitized text with only ASCII alphanumeric characters.
 
     """
-    cleaned = re.sub(r"\s+", " ", text)
-    return cleaned.strip()
+
+    normalized = (
+        unicodedata.normalize("NFKD", text)
+        .encode("ascii", "ignore")
+        .decode("ascii")
+    )
+
+    normalized = re.sub(
+        r"[^a-zA-Z0-9]",
+        replacement,
+        normalized,
+    )
+
+    if replacement:
+        pattern = re.escape(replacement) + "{2,}"
+        normalized = re.sub(
+            pattern,
+            replacement,
+            normalized,
+        )
+    return normalized.strip(replacement)
 
 
 # =============================================================================
@@ -51,5 +72,5 @@ def clean(text: str) -> str:
 # =============================================================================
 
 __all__: list[str] = [
-    "clean",
+    "sanitize",
 ]

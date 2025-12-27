@@ -1,15 +1,41 @@
+# =============================================================================
+# Docstring
+# =============================================================================
+
+"""
+NATO Phonetic Alphabet Converter
+=================================
+
+Translate text to NATO phonetic alphabet.
+
+"""
+
+
+# =============================================================================
+# Imports
+# =============================================================================
+
+# Import | Future
+from __future__ import annotations
+
+# =============================================================================
+# Functions
+# =============================================================================
+
+
 def to_nato_phonetic_alphabet_case(text: str) -> str:
     """
-    Translates each letter to its corresponding NATO phonetic alphabet
-    word.
-    Example: 'AB' -> 'Alpha Bravo'
+    Translates each letter to its corresponding NATO phonetic alphabet word.
 
-    Parameters:
-    text (str): The text to convert.
+    Args:
+        text: The text to convert
 
-    Returns
-    -------
-    str: The text in NATO phonetic alphabet.
+    Returns:
+        The text in NATO phonetic alphabet
+
+    Example:
+        >>> to_nato_phonetic_alphabet_case("AB")
+        'Alpha Bravo'
     """
     nato_dict = {
         "A": "Alpha",
@@ -41,3 +67,12 @@ def to_nato_phonetic_alphabet_case(text: str) -> str:
         " ": " ",
     }
     return " ".join(nato_dict.get(char.upper(), "") for char in text)
+
+
+# =============================================================================
+# Exports
+# =============================================================================
+
+__all__: list[str] = [
+    "to_nato_phonetic_alphabet_case",
+]

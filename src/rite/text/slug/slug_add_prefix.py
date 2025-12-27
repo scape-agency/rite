@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 
 # =============================================================================
@@ -6,10 +5,10 @@
 # =============================================================================
 
 """
-Is Valid Slug Function
-=======================
+Add Slug Prefix Function
+=========================
 
-Validate slug format.
+Add a prefix to a slug.
 
 """
 
@@ -21,40 +20,30 @@ Validate slug format.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
-import re
-
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def is_valid_slug(slug: str, delimiter: str = "-") -> bool:
+def add_slug_prefix(slug: str, prefix: str, delimiter: str = "-") -> str:
     """
-    Validate if a string is a valid slug.
-
-    A valid slug contains only lowercase letters, numbers, and delimiters,
-    and does not start or end with a delimiter.
+    Add a prefix to a slug.
 
     Args:
-        slug: The string to validate.
+        slug: The original slug.
+        prefix: The prefix to add.
         delimiter: The delimiter used in the slug (default: "-").
 
     Returns:
-        True if the string is a valid slug, False otherwise.
+        The slug with the prefix added.
 
     Example:
-        >>> is_valid_slug("hello-world")
-        True
-        >>> is_valid_slug("Hello-World")
-        False
-        >>> is_valid_slug("-hello-world")
-        False
-        >>> is_valid_slug("hello--world")
-        False
+        >>> add_slug_prefix("world", "hello")
+        'hello-world'
+        >>> add_slug_prefix("world", "hello", delimiter="_")
+        'hello_world'
     """
-    pattern = re.compile(f"^[a-z0-9]+(?:{re.escape(delimiter)}[a-z0-9]+)*$")
-    return bool(pattern.match(slug))
+    return f"{prefix}{delimiter}{slug}" if prefix else slug
 
 
 # =============================================================================
@@ -62,5 +51,5 @@ def is_valid_slug(slug: str, delimiter: str = "-") -> bool:
 # =============================================================================
 
 __all__: list[str] = [
-    "is_valid_slug",
+    "add_slug_prefix",
 ]

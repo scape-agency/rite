@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 
 # =============================================================================
@@ -6,10 +5,10 @@
 # =============================================================================
 
 """
-Text Sanitization
-=================
+Is Valid Slug Function
+=======================
 
-Sanitize text to create safe ASCII identifiers.
+Validate slug format.
 
 """
 
@@ -23,37 +22,38 @@ from __future__ import annotations
 
 # Import | Standard Library
 import re
-import unicodedata
 
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def sanitize(text: str, replacement: str = "_") -> str:
+def is_valid_slug(slug: str, delimiter: str = "-") -> bool:
     """
-    Sanitize text to create safe ASCII identifiers.
+    Validate if a string is a valid slug.
+
+    A valid slug contains only lowercase letters, numbers, and delimiters,
+    and does not start or end with a delimiter.
 
     Args:
-    ----
-        text: The input text to sanitize.
-        replacement: The character to replace non-alphanumeric characters.
+        slug: The string to validate.
+        delimiter: The delimiter used in the slug (default: "-").
 
     Returns:
-    -------
-        str: The sanitized text with only ASCII alphanumeric characters.
+        True if the string is a valid slug, False otherwise.
 
+    Example:
+        >>> is_valid_slug("hello-world")
+        True
+        >>> is_valid_slug("Hello-World")
+        False
+        >>> is_valid_slug("-hello-world")
+        False
+        >>> is_valid_slug("hello--world")
+        False
     """
-    normalized = (
-        unicodedata.normalize("NFKD", text)
-        .encode("ascii", "ignore")
-        .decode("ascii")
-    )
-    normalized = re.sub(r"[^a-zA-Z0-9]", replacement, normalized)
-    if replacement:
-        pattern = re.escape(replacement) + "{2,}"
-        normalized = re.sub(pattern, replacement, normalized)
-    return normalized.strip(replacement)
+    pattern = re.compile(f"^[a-z0-9]+(?:{re.escape(delimiter)}[a-z0-9]+)*$")
+    return bool(pattern.match(slug))
 
 
 # =============================================================================
@@ -61,5 +61,5 @@ def sanitize(text: str, replacement: str = "_") -> str:
 # =============================================================================
 
 __all__: list[str] = [
-    "sanitize",
+    "is_valid_slug",
 ]

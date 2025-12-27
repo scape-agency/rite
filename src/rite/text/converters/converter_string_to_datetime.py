@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -23,7 +20,6 @@ from __future__ import annotations
 
 # Import | Standard Library
 from datetime import datetime, timezone
-from typing import Optional
 
 # Import | Libraries
 
@@ -36,8 +32,8 @@ from typing import Optional
 
 
 def convert_string_to_datetime(
-    value: Optional[str],
-) -> Optional[datetime]:
+    value: str | None,
+) -> datetime | None:
     """
     String to Datetime Converter
     ============================
@@ -82,29 +78,3 @@ def convert_string_to_datetime(
 __all__: list[str] = [
     "convert_string_to_datetime",
 ]
-
-
-# def convert_string_to_datetime(value: Optional[str]) -> Optional[datetime]:
-#     """
-#     Convert a string to a timezone-aware datetime object.
-
-#     Parse a timestamp like '2024-12-11 11:42:34.049271+00' or ISO-ish strings.
-#     Returns None on blank/invalid.
-
-#     Supports ISO 8601 format, optionally naive or UTC.
-
-#     Returns:
-#         datetime object or None
-#     """
-#     if not value or value.strip() == "":
-#         return None
-
-#     dt = parse_datetime(value)
-#     if not dt:
-#         return None
-
-#     if is_naive(dt):
-#         # Use current timezone, or utc fallback
-#         tz = get_current_timezone()
-#         return make_aware(dt, timezone=tz)
-#     return dt

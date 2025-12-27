@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -22,7 +19,6 @@ Provides functionality to convert strings to integer values.
 from __future__ import annotations
 
 # Import | Standard Library
-from typing import Optional
 
 # Import | Libraries
 
@@ -34,7 +30,7 @@ from typing import Optional
 # =============================================================================
 
 
-def convert_string_to_int(val: str) -> Optional[int]:
+def convert_string_to_int(val: str) -> int | None:
     """
     Convert a string representation of an integer value to an integer.
     """
