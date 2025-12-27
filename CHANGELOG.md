@@ -26,7 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed Python 2 xrange to range in colour.py
 - Added missing colorsys import
 
-## [0.0.13] - Previous Release
+## [0.1.1] - Previous Release
 
 ### Added
 - Initial release with core utilities

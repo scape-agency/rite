@@ -53,7 +53,7 @@
     "priceCurrency": "USD"
   },
   "operatingSystem": "Cross-platform",
-  "softwareVersion": "0.0.13",
+  "softwareVersion": "0.1.1",
   "description": "Modern Python utility library with zero runtime dependencies, targeting Python 3.12+",
   "url": "https://www.pyrites.dev/",
   "author": {

@@ -62,7 +62,7 @@ __credits__ = [
     "Lars van Vianen",
 ]
 __license__ = "MIT License"
-__version__ = "0.0.13"
+__version__ = "0.1.1"
 __maintainer__ = "Scape Agency"
 __email__ = "info@scape.agency"
 __status__ = "Alpha"

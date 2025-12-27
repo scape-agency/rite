@@ -27,8 +27,8 @@ sys.path.insert(0, os.path.abspath("../src"))
 project = "rite"
 copyright = "2023-2025, Scape Agency BV"
 author = "Scape Agency"
-release = "0.0.13"
-version = "0.0.13"
+release = "0.1.1"
+version = "0.1.1"
 
 # =============================================================================
 # General Configuration
