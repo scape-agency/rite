@@ -59,7 +59,6 @@ Sanitize:
 from __future__ import annotations
 
 # Import | Local Modules
-from .clean_html import clean_html
 from .entities import entities_decode, entities_encode
 from .html import html_clean, html_escape, html_strip_tags, html_unescape
 from .markdown import markdown_escape, markdown_to_html
@@ -71,8 +70,7 @@ from .xml import xml_escape, xml_format, xml_unescape
 # =============================================================================
 
 __all__: list[str] = [
-    # Legacy
-    "clean_html",
+    # HTML
     # HTML
     "html_clean",
     "html_escape",

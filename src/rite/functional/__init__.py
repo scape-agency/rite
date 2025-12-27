@@ -67,7 +67,6 @@ from .composition import (
     composition_pipe,
 )
 from .currying import currying_curry, currying_uncurry
-from .debounce import debounce
 from .decorators import (
     decorators_debounce,
     decorators_deprecated,
@@ -87,8 +86,6 @@ from .predicates import (
 # =============================================================================
 
 __all__: list[str] = [
-    # Legacy
-    "debounce",
     # Decorators
     "decorators_debounce",
     "decorators_throttle",

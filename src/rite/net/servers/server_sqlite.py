@@ -1,5 +1,3 @@
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -22,15 +20,10 @@ built-in sqlite3 library.
 from __future__ import annotations
 
 # Import | Standard Library
+from collections.abc import Sequence
 import logging
 import sqlite3
-from collections.abc import Sequence
 from typing import Any
-
-# Import | Libraries
-
-# Import | Local Modules
-
 
 # =============================================================================
 # Classes
@@ -137,7 +130,8 @@ class SQLiteServer:
         -------
             list[Tuple]: List of rows returned by the query.
         """
-        return self._execute(query, params)
+        result: list[tuple[Any, ...]] = self._execute(query, params)
+        return result
 
     def fetch_one(
         self,
@@ -155,7 +149,8 @@ class SQLiteServer:
         -------
             Tuple: The first row returned by the query.
         """
-        return self._execute(query, params)[0]
+        result: tuple[Any, ...] = self._execute(query, params)[0]
+        return result
 
     def insert(self, table: str, data_dict: dict):
         """
@@ -269,6 +264,7 @@ def test():
 
 if __name__ == "__main__":
 
+    # Import | Standard Library
     import doctest
 
     doctest.testmod()

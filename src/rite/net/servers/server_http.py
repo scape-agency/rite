@@ -20,14 +20,9 @@ built-in http.server library.
 from __future__ import annotations
 
 # Import | Standard Library
+from http.server import BaseHTTPRequestHandler, HTTPServer
 import logging
 import urllib.parse
-from http.server import BaseHTTPRequestHandler, HTTPServer
-
-# Import | Libraries
-
-# Import | Local Modules
-
 
 # =============================================================================
 # Classes
@@ -212,6 +207,7 @@ def test():
 
 if __name__ == "__main__":
 
+    # Import | Standard Library
     import doctest
 
     doctest.testmod()
