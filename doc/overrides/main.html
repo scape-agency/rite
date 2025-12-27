@@ -2,9 +2,9 @@
 
 {% block extrahead %}
   <!-- Primary Meta Tags -->
-  <meta name="title" content="{% if page.title %}{{ page.title }} - {% endif %}Rite - Modern Python Utility Library">
-  <meta name="description" content="{% if page.meta.description %}{{ page.meta.description }}{% else %}Zero-dependency Python utility library for Python 3.10+. Features cryptography, filesystem, text processing, temporal operations, and more.{% endif %}">
-  <meta name="keywords" content="python, utility library, cryptography, filesystem, text processing, python utilities, python 3.10, zero dependencies, rite, {{ page.meta.keywords|default('') }}">
+  <meta name="title" content="{% if page and page.title %}{{ page.title }} - {% endif %}Rite - Modern Python Utility Library">
+  <meta name="description" content="{% if page and page.meta and page.meta.description %}{{ page.meta.description }}{% else %}Zero-dependency Python utility library for Python 3.10+. Features cryptography, filesystem, text processing, temporal operations, and more.{% endif %}">
+  <meta name="keywords" content="python, utility library, cryptography, filesystem, text processing, python utilities, python 3.10, zero dependencies, rite{% if page and page.meta and page.meta.keywords %}, {{ page.meta.keywords }}{% endif %}">
   <meta name="author" content="Scape Agency">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
@@ -12,9 +12,9 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ page.canonical_url }}">
-  <meta property="og:title" content="{% if page.title %}{{ page.title }} - {% endif %}Rite">
-  <meta property="og:description" content="{% if page.meta.description %}{{ page.meta.description }}{% else %}Zero-dependency Python utility library for Python 3.10+{% endif %}">
+  <meta property="og:url" content="{% if page and page.canonical_url %}{{ page.canonical_url }}{% else %}{{ config.site_url }}{% endif %}">
+  <meta property="og:title" content="{% if page and page.title %}{{ page.title }} - {% endif %}Rite">
+  <meta property="og:description" content="{% if page and page.meta and page.meta.description %}{{ page.meta.description }}{% else %}Zero-dependency Python utility library for Python 3.10+{% endif %}">
   <meta property="og:image" content="{{ config.site_url }}assets/image/rite_social.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -23,9 +23,9 @@
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="{{ page.canonical_url }}">
-  <meta property="twitter:title" content="{% if page.title %}{{ page.title }} - {% endif %}Rite">
-  <meta property="twitter:description" content="{% if page.meta.description %}{{ page.meta.description }}{% else %}Zero-dependency Python utility library for Python 3.10+{% endif %}">
+  <meta property="twitter:url" content="{% if page and page.canonical_url %}{{ page.canonical_url }}{% else %}{{ config.site_url }}{% endif %}">
+  <meta property="twitter:title" content="{% if page and page.title %}{{ page.title }} - {% endif %}Rite">
+  <meta property="twitter:description" content="{% if page and page.meta and page.meta.description %}{{ page.meta.description }}{% else %}Zero-dependency Python utility library for Python 3.10+{% endif %}">
   <meta property="twitter:image" content="{{ config.site_url }}assets/image/rite_social.png">
 
   <!-- Additional SEO -->
@@ -33,17 +33,17 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="Rite">
   <meta name="theme-color" content="#2196f3">
-  <link rel="canonical" href="{{ page.canonical_url }}">
+  {% if page and page.canonical_url %}<link rel="canonical" href="{{ page.canonical_url }}">{% endif %}
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "{% if page.is_homepage %}WebSite{% else %}WebPage{% endif %}",
-    "name": "{% if page.title %}{{ page.title }}{% else %}Rite{% endif %}",
-    "description": "{% if page.meta.description %}{{ page.meta.description }}{% else %}Modern Python utility library with zero runtime dependencies{% endif %}",
-    "url": "{{ page.canonical_url }}",
-    {% if page.is_homepage %}
+    "@type": "{% if page and page.is_homepage %}WebSite{% else %}WebPage{% endif %}",
+    "name": "{% if page and page.title %}{{ page.title }}{% else %}Rite{% endif %}",
+    "description": "{% if page and page.meta and page.meta.description %}{{ page.meta.description }}{% else %}Modern Python utility library with zero runtime dependencies{% endif %}",
+    "url": "{% if page and page.canonical_url %}{{ page.canonical_url }}{% else %}{{ config.site_url }}{% endif %}",
+    {% if page and page.is_homepage %}
     "potentialAction": {
       "@type": "SearchAction",
       "target": "{{ config.site_url }}?q={search_term_string}",
@@ -59,9 +59,7 @@
         "url": "{{ config.site_url }}assets/image/rite_logo_light.svg"
       }
     },
-    "inLanguage": "en-US",
-    "datePublished": "2023-01-01",
-    "dateModified": "{{ build_date_utc.strftime('%Y-%m-%d') }}"
+    "inLanguage": "en-US"
   }
   </script>
 {% endblock %}
