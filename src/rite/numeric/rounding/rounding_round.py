@@ -3,13 +3,18 @@
 # =============================================================================
 
 """
-Clamp Function
+Round Function
 ==============
 
-Clamp a value between minimum and maximum bounds.
+Round number to specified decimal places.
+
+Examples
+--------
+>>> from rite.numeric.rounding import rounding_round
+>>> rounding_round(3.14159, 2)
+3.14
 
 """
-
 
 # =============================================================================
 # Imports
@@ -23,40 +28,33 @@ from __future__ import annotations
 # =============================================================================
 
 
-def clamp(
-    val: float | None,
-    lo: float,
-    hi: float,
-) -> float | None:
+def rounding_round(value: float, decimals: int = 0) -> float:
     """
-    Clamp a value between a lower and upper bound.
+    Round number to specified decimal places.
 
     Args:
-        val: Value to clamp (or None)
-        lo: Lower bound
-        hi: Upper bound
+        value: Number to round.
+        decimals: Number of decimal places.
 
     Returns:
-        Clamped value or None if input is None
+        Rounded value.
 
-    Example:
-        >>> clamp(5, 0, 10)
-        5
-        >>> clamp(-5, 0, 10)
-        0
-        >>> clamp(None, 0, 10)
-        None
+    Examples:
+        >>> rounding_round(3.14159, 2)
+        3.14
+        >>> rounding_round(3.5)
+        4.0
+        >>> rounding_round(123.456, 1)
+        123.5
+
+    Notes:
+        Uses banker's rounding (round half to even).
     """
-    if val is None:
-        return None
-
-    return max(lo, min(hi, val))
+    return round(value, decimals)
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "clamp",
-]
+__all__: list[str] = ["rounding_round"]

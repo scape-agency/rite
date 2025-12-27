@@ -3,13 +3,18 @@
 # =============================================================================
 
 """
-Clamp Function
-==============
+Decimal to Percentage Converter
+================================
 
-Clamp a value between minimum and maximum bounds.
+Convert percentage to decimal.
+
+Examples
+--------
+>>> from rite.numeric.conversion import conversion_from_percentage
+>>> conversion_from_percentage(25)
+0.25
 
 """
-
 
 # =============================================================================
 # Imports
@@ -23,40 +28,32 @@ from __future__ import annotations
 # =============================================================================
 
 
-def clamp(
-    val: float | None,
-    lo: float,
-    hi: float,
-) -> float | None:
+def conversion_from_percentage(value: float) -> float:
     """
-    Clamp a value between a lower and upper bound.
+    Convert percentage to decimal.
 
     Args:
-        val: Value to clamp (or None)
-        lo: Lower bound
-        hi: Upper bound
+        value: Percentage value (0.0 to 100.0).
 
     Returns:
-        Clamped value or None if input is None
+        Decimal value (0.0 to 1.0).
 
-    Example:
-        >>> clamp(5, 0, 10)
-        5
-        >>> clamp(-5, 0, 10)
-        0
-        >>> clamp(None, 0, 10)
-        None
+    Examples:
+        >>> conversion_from_percentage(25)
+        0.25
+        >>> conversion_from_percentage(50)
+        0.5
+        >>> conversion_from_percentage(12.5)
+        0.125
+
+    Notes:
+        Divides by 100.
     """
-    if val is None:
-        return None
-
-    return max(lo, min(hi, val))
+    return value / 100
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "clamp",
-]
+__all__: list[str] = ["conversion_from_percentage"]

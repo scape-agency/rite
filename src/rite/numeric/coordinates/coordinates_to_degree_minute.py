@@ -3,19 +3,18 @@
 # =============================================================================
 
 """
-Degree-Minute Conversion
+Degree-Minute Converter
 =======================
 
-Convert float values to degree and minute components.
+Convert float to degree-minute format.
 
-Example:
-    >>> float_to_degree_minute(12.5)
-    (12, 30.0)
-    >>> float_to_degree_minute(-12.5)
-    (-12, 30.0)
+Examples
+--------
+>>> from rite.numeric.coordinates import coordinates_to_degree_minute
+>>> coordinates_to_degree_minute(12.5)
+(12, 30.0)
 
 """
-
 
 # =============================================================================
 # Imports
@@ -32,36 +31,44 @@ import math
 # =============================================================================
 
 
-def float_to_degree_minute(
+def coordinates_to_degree_minute(
     value: float, absolute: bool = False
 ) -> tuple[int, float]:
     """
-    Split a float value into DM (degree, minute) parts.
+    Convert float to degree-minute format.
 
     Args:
-        value: Float value to split
-        absolute: Obtain the absolute value
+        value: Float value to convert.
+        absolute: Use absolute value.
 
     Returns:
-        Tuple containing (degree, minute)
+        Tuple of (degrees, minutes).
 
-    Example:
-        >>> float_to_degree_minute(12.5)
+    Examples:
+        >>> coordinates_to_degree_minute(12.5)
         (12, 30.0)
-        >>> float_to_degree_minute(-12.5, absolute=True)
+        >>> coordinates_to_degree_minute(-12.5)
+        (-12, 30.0)
+        >>> coordinates_to_degree_minute(-12.5, absolute=True)
         (12, 30.0)
+
+    Notes:
+        Minutes are in range [0, 60).
     """
     invert = not absolute and value < 0
     value = abs(value)
-    degree = int(math.floor(value))
-    minute = (value - degree) * 60
-    return (degree * -1 if invert else degree, minute)
+
+    degrees = int(value)
+    minutes = (value - degrees) * 60
+
+    if invert:
+        degrees = -degrees
+
+    return degrees, minutes
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "float_to_degree_minute",
-]
+__all__: list[str] = ["coordinates_to_degree_minute"]

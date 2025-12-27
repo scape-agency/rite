@@ -3,13 +3,18 @@
 # =============================================================================
 
 """
-Clamp Function
+Sum Calculator
 ==============
 
-Clamp a value between minimum and maximum bounds.
+Calculate sum of numbers.
+
+Examples
+--------
+>>> from rite.numeric.statistics import statistics_sum
+>>> statistics_sum([1, 2, 3, 4, 5])
+15
 
 """
-
 
 # =============================================================================
 # Imports
@@ -23,40 +28,33 @@ from __future__ import annotations
 # =============================================================================
 
 
-def clamp(
-    val: float | None,
-    lo: float,
-    hi: float,
-) -> float | None:
+def statistics_sum(values: list[float]) -> float:
     """
-    Clamp a value between a lower and upper bound.
+    Calculate sum of numbers.
 
     Args:
-        val: Value to clamp (or None)
-        lo: Lower bound
-        hi: Upper bound
+        values: List of numbers.
 
     Returns:
-        Clamped value or None if input is None
+        Sum of all values.
 
-    Example:
-        >>> clamp(5, 0, 10)
-        5
-        >>> clamp(-5, 0, 10)
+    Examples:
+        >>> statistics_sum([1, 2, 3, 4, 5])
+        15
+        >>> statistics_sum([10, 20, 30])
+        60
+        >>> statistics_sum([])
         0
-        >>> clamp(None, 0, 10)
-        None
-    """
-    if val is None:
-        return None
 
-    return max(lo, min(hi, val))
+    Notes:
+        Returns 0 for empty list.
+        Wrapper around built-in sum().
+    """
+    return sum(values)
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "clamp",
-]
+__all__: list[str] = ["statistics_sum"]

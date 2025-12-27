@@ -8,8 +8,13 @@ Clamp Function
 
 Clamp a value between minimum and maximum bounds.
 
-"""
+Examples
+--------
+>>> from rite.numeric.math import math_clamp
+>>> math_clamp(5, 0, 10)
+5
 
+"""
 
 # =============================================================================
 # Imports
@@ -23,40 +28,34 @@ from __future__ import annotations
 # =============================================================================
 
 
-def clamp(
-    val: float | None,
-    lo: float,
-    hi: float,
-) -> float | None:
+def math_clamp(value: float, minimum: float, maximum: float) -> float:
     """
-    Clamp a value between a lower and upper bound.
+    Clamp a value between minimum and maximum bounds.
 
     Args:
-        val: Value to clamp (or None)
-        lo: Lower bound
-        hi: Upper bound
+        value: Value to clamp.
+        minimum: Lower bound.
+        maximum: Upper bound.
 
     Returns:
-        Clamped value or None if input is None
+        Clamped value.
 
-    Example:
-        >>> clamp(5, 0, 10)
+    Examples:
+        >>> math_clamp(5, 0, 10)
         5
-        >>> clamp(-5, 0, 10)
+        >>> math_clamp(-5, 0, 10)
         0
-        >>> clamp(None, 0, 10)
-        None
-    """
-    if val is None:
-        return None
+        >>> math_clamp(15, 0, 10)
+        10
 
-    return max(lo, min(hi, val))
+    Notes:
+        If minimum > maximum, behavior is undefined.
+    """
+    return max(minimum, min(maximum, value))
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "clamp",
-]
+__all__: list[str] = ["math_clamp"]

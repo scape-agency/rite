@@ -3,13 +3,18 @@
 # =============================================================================
 
 """
-Clamp Function
+Absolute Value
 ==============
 
-Clamp a value between minimum and maximum bounds.
+Get absolute value of a number.
+
+Examples
+--------
+>>> from rite.numeric.math import math_abs
+>>> math_abs(-5)
+5
 
 """
-
 
 # =============================================================================
 # Imports
@@ -23,40 +28,32 @@ from __future__ import annotations
 # =============================================================================
 
 
-def clamp(
-    val: float | None,
-    lo: float,
-    hi: float,
-) -> float | None:
+def math_abs(value: float) -> float:
     """
-    Clamp a value between a lower and upper bound.
+    Get absolute value of a number.
 
     Args:
-        val: Value to clamp (or None)
-        lo: Lower bound
-        hi: Upper bound
+        value: Number to get absolute value of.
 
     Returns:
-        Clamped value or None if input is None
+        Absolute value.
 
-    Example:
-        >>> clamp(5, 0, 10)
+    Examples:
+        >>> math_abs(-5)
         5
-        >>> clamp(-5, 0, 10)
+        >>> math_abs(5)
+        5
+        >>> math_abs(0)
         0
-        >>> clamp(None, 0, 10)
-        None
-    """
-    if val is None:
-        return None
 
-    return max(lo, min(hi, val))
+    Notes:
+        Wrapper around built-in abs() for consistency.
+    """
+    return abs(value)
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "clamp",
-]
+__all__: list[str] = ["math_abs"]

@@ -3,13 +3,18 @@
 # =============================================================================
 
 """
-Clamp Function
-==============
+Mean Calculator
+===============
 
-Clamp a value between minimum and maximum bounds.
+Calculate arithmetic mean of numbers.
+
+Examples
+--------
+>>> from rite.numeric.statistics import statistics_mean
+>>> statistics_mean([1, 2, 3, 4, 5])
+3.0
 
 """
-
 
 # =============================================================================
 # Imports
@@ -23,40 +28,38 @@ from __future__ import annotations
 # =============================================================================
 
 
-def clamp(
-    val: float | None,
-    lo: float,
-    hi: float,
-) -> float | None:
+def statistics_mean(values: list[float]) -> float:
     """
-    Clamp a value between a lower and upper bound.
+    Calculate arithmetic mean of numbers.
 
     Args:
-        val: Value to clamp (or None)
-        lo: Lower bound
-        hi: Upper bound
+        values: List of numbers.
 
     Returns:
-        Clamped value or None if input is None
+        Mean value.
 
-    Example:
-        >>> clamp(5, 0, 10)
-        5
-        >>> clamp(-5, 0, 10)
-        0
-        >>> clamp(None, 0, 10)
-        None
+    Raises:
+        ValueError: If values list is empty.
+
+    Examples:
+        >>> statistics_mean([1, 2, 3, 4, 5])
+        3.0
+        >>> statistics_mean([10, 20, 30])
+        20.0
+        >>> statistics_mean([5.5])
+        5.5
+
+    Notes:
+        Sum divided by count.
     """
-    if val is None:
-        return None
+    if not values:
+        raise ValueError("Cannot calculate mean of empty list")
 
-    return max(lo, min(hi, val))
+    return sum(values) / len(values)
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "clamp",
-]
+__all__: list[str] = ["statistics_mean"]

@@ -3,13 +3,18 @@
 # =============================================================================
 
 """
-Clamp Function
-==============
+Truncate Function
+=================
 
-Clamp a value between minimum and maximum bounds.
+Truncate decimal portion of number.
+
+Examples
+--------
+>>> from rite.numeric.rounding import rounding_trunc
+>>> rounding_trunc(3.9)
+3
 
 """
-
 
 # =============================================================================
 # Imports
@@ -18,45 +23,40 @@ Clamp a value between minimum and maximum bounds.
 # Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
+import math
+
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def clamp(
-    val: float | None,
-    lo: float,
-    hi: float,
-) -> float | None:
+def rounding_trunc(value: float) -> int:
     """
-    Clamp a value between a lower and upper bound.
+    Truncate decimal portion of number.
 
     Args:
-        val: Value to clamp (or None)
-        lo: Lower bound
-        hi: Upper bound
+        value: Number to truncate.
 
     Returns:
-        Clamped value or None if input is None
+        Truncated integer value.
 
-    Example:
-        >>> clamp(5, 0, 10)
-        5
-        >>> clamp(-5, 0, 10)
-        0
-        >>> clamp(None, 0, 10)
-        None
+    Examples:
+        >>> rounding_trunc(3.9)
+        3
+        >>> rounding_trunc(3.1)
+        3
+        >>> rounding_trunc(-3.9)
+        -3
+
+    Notes:
+        Rounds toward zero.
     """
-    if val is None:
-        return None
-
-    return max(lo, min(hi, val))
+    return math.trunc(value)
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "clamp",
-]
+__all__: list[str] = ["rounding_trunc"]

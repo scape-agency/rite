@@ -3,13 +3,18 @@
 # =============================================================================
 
 """
-Clamp Function
+Power Function
 ==============
 
-Clamp a value between minimum and maximum bounds.
+Raise a number to a power.
+
+Examples
+--------
+>>> from rite.numeric.math import math_pow
+>>> math_pow(2, 3)
+8.0
 
 """
-
 
 # =============================================================================
 # Imports
@@ -23,40 +28,34 @@ from __future__ import annotations
 # =============================================================================
 
 
-def clamp(
-    val: float | None,
-    lo: float,
-    hi: float,
-) -> float | None:
+def math_pow(base: float, exponent: float) -> float:
     """
-    Clamp a value between a lower and upper bound.
+    Raise a number to a power.
 
     Args:
-        val: Value to clamp (or None)
-        lo: Lower bound
-        hi: Upper bound
+        base: Base number.
+        exponent: Exponent.
 
     Returns:
-        Clamped value or None if input is None
+        Result of base ** exponent.
 
-    Example:
-        >>> clamp(5, 0, 10)
-        5
-        >>> clamp(-5, 0, 10)
-        0
-        >>> clamp(None, 0, 10)
-        None
+    Examples:
+        >>> math_pow(2, 3)
+        8.0
+        >>> math_pow(5, 2)
+        25.0
+        >>> math_pow(2, -1)
+        0.5
+
+    Notes:
+        Wrapper around ** operator for consistency.
     """
-    if val is None:
-        return None
-
-    return max(lo, min(hi, val))
+    result: float = base**exponent
+    return result
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "clamp",
-]
+__all__: list[str] = ["math_pow"]

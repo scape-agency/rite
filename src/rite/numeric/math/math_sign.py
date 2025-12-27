@@ -3,13 +3,18 @@
 # =============================================================================
 
 """
-Clamp Function
-==============
+Sign Function
+=============
 
-Clamp a value between minimum and maximum bounds.
+Get sign of a number (-1, 0, or 1).
+
+Examples
+--------
+>>> from rite.numeric.math import math_sign
+>>> math_sign(-5)
+-1
 
 """
-
 
 # =============================================================================
 # Imports
@@ -23,40 +28,37 @@ from __future__ import annotations
 # =============================================================================
 
 
-def clamp(
-    val: float | None,
-    lo: float,
-    hi: float,
-) -> float | None:
+def math_sign(value: float) -> int:
     """
-    Clamp a value between a lower and upper bound.
+    Get sign of a number.
 
     Args:
-        val: Value to clamp (or None)
-        lo: Lower bound
-        hi: Upper bound
+        value: Number to get sign of.
 
     Returns:
-        Clamped value or None if input is None
+        -1 if negative, 0 if zero, 1 if positive.
 
-    Example:
-        >>> clamp(5, 0, 10)
-        5
-        >>> clamp(-5, 0, 10)
+    Examples:
+        >>> math_sign(-5)
+        -1
+        >>> math_sign(0)
         0
-        >>> clamp(None, 0, 10)
-        None
-    """
-    if val is None:
-        return None
+        >>> math_sign(5)
+        1
 
-    return max(lo, min(hi, val))
+    Notes:
+        Uses integer comparison for zero check.
+    """
+    if value < 0:
+        return -1
+    elif value > 0:
+        return 1
+    else:
+        return 0
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "clamp",
-]
+__all__: list[str] = ["math_sign"]

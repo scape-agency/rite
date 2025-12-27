@@ -3,13 +3,18 @@
 # =============================================================================
 
 """
-Clamp Function
+Floor Function
 ==============
 
-Clamp a value between minimum and maximum bounds.
+Round down to nearest integer.
+
+Examples
+--------
+>>> from rite.numeric.rounding import rounding_floor
+>>> rounding_floor(3.9)
+3
 
 """
-
 
 # =============================================================================
 # Imports
@@ -18,45 +23,40 @@ Clamp a value between minimum and maximum bounds.
 # Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
+import math
+
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def clamp(
-    val: float | None,
-    lo: float,
-    hi: float,
-) -> float | None:
+def rounding_floor(value: float) -> int:
     """
-    Clamp a value between a lower and upper bound.
+    Round down to nearest integer.
 
     Args:
-        val: Value to clamp (or None)
-        lo: Lower bound
-        hi: Upper bound
+        value: Number to round down.
 
     Returns:
-        Clamped value or None if input is None
+        Floored integer value.
 
-    Example:
-        >>> clamp(5, 0, 10)
-        5
-        >>> clamp(-5, 0, 10)
-        0
-        >>> clamp(None, 0, 10)
-        None
+    Examples:
+        >>> rounding_floor(3.9)
+        3
+        >>> rounding_floor(3.1)
+        3
+        >>> rounding_floor(-3.1)
+        -4
+
+    Notes:
+        Rounds toward negative infinity.
     """
-    if val is None:
-        return None
-
-    return max(lo, min(hi, val))
+    return math.floor(value)
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "clamp",
-]
+__all__: list[str] = ["rounding_floor"]
