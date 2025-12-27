@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -18,9 +15,8 @@ Provides a rite entry point
 # Imports
 # =============================================================================
 
-# Import | Futures
 # Import | Future
-from __future__ import annotations, print_function
+from __future__ import annotations
 
 # Import | Standard Library
 import platform
