@@ -28,7 +28,12 @@ from rite.text.slug.slug_is_valid import (
 
 def test_is_valid_slug() -> None:
     """Test is_valid_slug() function."""
-    # TODO: Implement test
-    # result = is_valid_slug(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Valid slugs
+    assert is_valid_slug("hello-world") is True
+    assert is_valid_slug("test123") is True
+    
+    # Invalid slugs
+    assert is_valid_slug("Hello-World") is False  # uppercase
+    assert is_valid_slug("-hello-world") is False  # starts with delimiter
+    assert is_valid_slug("hello-world-") is False  # ends with delimiter
+    assert is_valid_slug("hello--world") is False  # double delimiter

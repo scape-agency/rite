@@ -28,7 +28,11 @@ from rite.text.slug.slug_add_suffix import (
 
 def test_add_slug_suffix() -> None:
     """Test add_slug_suffix() function."""
-    # TODO: Implement test
-    # result = add_slug_suffix(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Basic suffix
+    assert add_slug_suffix("hello", "world") == "hello-world"
+    
+    # With custom delimiter
+    assert add_slug_suffix("hello", "world", delimiter="_") == "hello_world"
+    
+    # With empty suffix
+    assert add_slug_suffix("hello", "") == "hello"

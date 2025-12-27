@@ -28,7 +28,17 @@ from rite.text.slug.slugify import (
 
 def test_slugify() -> None:
     """Test slugify() function."""
-    # TODO: Implement test
-    # result = slugify(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Basic slugify
+    assert slugify("Hello World!") == "hello-world"
+    
+    # With custom delimiter
+    assert slugify("Café au Lait", delimiter="_") == "cafe_au_lait"
+    
+    # With max length
+    assert slugify("Hello World", max_length=8) == "hello-wo"
+    
+    # With custom replacements
+    assert slugify("Hello & World", custom_replacements={"&": "and"}) == "hello-and-world"
+    
+    # Without lowercase
+    assert slugify("Hello World", lowercase=False) == "Hello-World"

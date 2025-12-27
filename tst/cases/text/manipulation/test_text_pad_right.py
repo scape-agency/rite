@@ -28,7 +28,11 @@ from rite.text.manipulation.text_pad_right import (
 
 def test_text_pad_right() -> None:
     """Test text_pad_right() function."""
-    # TODO: Implement test
-    # result = text_pad_right(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Pad with spaces
+    assert text_pad_right("Hi", 5) == "Hi   "
+    
+    # Pad with zeros
+    assert text_pad_right("5", 3, "0") == "500"
+    
+    # No padding needed
+    assert text_pad_right("Hello", 3) == "Hello"

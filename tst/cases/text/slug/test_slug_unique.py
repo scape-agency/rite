@@ -28,7 +28,14 @@ from rite.text.slug.slug_unique import (
 
 def test_unique_slug() -> None:
     """Test unique_slug() function."""
-    # TODO: Implement test
-    # result = unique_slug(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Unique slug (not in existing)
+    assert unique_slug("hello-world", set()) == "hello-world"
+    
+    # Slug exists once
+    assert unique_slug("hello-world", {"hello-world"}) == "hello-world-1"
+    
+    # Multiple conflicts
+    assert unique_slug("hello-world", {"hello-world", "hello-world-1"}) == "hello-world-2"
+    
+    # With list input
+    assert unique_slug("hello-world", ["hello-world"]) == "hello-world-1"

@@ -28,7 +28,14 @@ from rite.text.manipulation.text_wrap import (
 
 def test_text_wrap() -> None:
     """Test text_wrap() function."""
-    # TODO: Implement test
-    # result = text_wrap(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Wrap short text
+    result = text_wrap("Hello World", 5)
+    assert result == ["Hello", "World"]
+    
+    # Wrap longer text
+    result = text_wrap("A long sentence", 10)
+    assert result == ["A long", "sentence"]
+    
+    # No wrap needed
+    result = text_wrap("Hi", 10)
+    assert result == ["Hi"]
