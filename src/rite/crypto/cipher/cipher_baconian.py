@@ -30,7 +30,6 @@ References
 from __future__ import annotations
 
 # Import | Standard Library
-from typing import List
 
 # Import | Libraries
 
@@ -93,7 +92,7 @@ def encode_baconian_cipher(
         A string of 'a' and 'b' representing the encoded text.
     """
     return "".join(
-        _BACON_dict[char.lower()] for char in text if char.isalpha()
+        _BACON_DICT[char.lower()] for char in text if char.isalpha()
     )
 
 

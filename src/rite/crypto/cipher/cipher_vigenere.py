@@ -30,7 +30,6 @@ References
 from __future__ import annotations
 
 # Import | Standard Library
-from typing import List
 
 # Import | Libraries
 

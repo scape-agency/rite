@@ -39,9 +39,6 @@ References:
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
-from typing import List
-
 # Import | Local Modules
 from .cipher_atbash import decode_atbash_cipher, encode_atbash_cipher
 from .cipher_autokey import decode_autokey_cipher, encode_autokey_cipher
@@ -65,6 +62,9 @@ from .cipher_transposition import (
 )
 from .cipher_vigenere import decode_vigenere_cipher, encode_vigenere_cipher
 from .cipher_xor import decode_xor_cipher, encode_xor_cipher
+
+# Import | Standard Library
+
 
 # =============================================================================
 # Exports

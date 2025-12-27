@@ -24,7 +24,6 @@ from __future__ import annotations
 # Import | Standard Library
 import hashlib
 import hmac
-from typing import List
 
 # Import | Libraries
 

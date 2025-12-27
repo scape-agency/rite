@@ -6,10 +6,9 @@
 # =============================================================================
 
 """
-Rite - Cryptography - SHA256 Hash Module
-========================================
+Rite - UUID Module
+==================
 
-Provides functionality to compute SHA256 hashes.
 
 """
 
@@ -21,10 +20,13 @@ Provides functionality to compute SHA256 hashes.
 # Import | Future
 from __future__ import annotations
 
+import json
+
 # Import | Standard Library
-import hashlib
-import hmac
-from typing import List
+import uuid
+
+# Import | Standard Library
+from uuid import UUID
 
 # Import | Libraries
 
@@ -32,10 +34,13 @@ from typing import List
 
 
 # =============================================================================
-# Constants
+# Functions
 # =============================================================================
 
-ASCII_NOT_CONFUSABLE = "ABCEFGHJKLMNPQRSTUWXYZ123456789"
+
+# Import | Libraries
+
+# Import | Local Modules
 
 
 # =============================================================================
@@ -43,24 +48,38 @@ ASCII_NOT_CONFUSABLE = "ABCEFGHJKLMNPQRSTUWXYZ123456789"
 # =============================================================================
 
 
-def sha256_hash(
-    key,
-    msg,
-) -> str:
+def is_valid_uuid(
+    uuid_to_test,
+    version=4,
+) -> bool:
     """
-    SHA256 hexdigest of `msg` salted with `key`. UTF-8 Encoded.
+    Check if uuid_to_test is a valid UUID.
+
+    Parameters
+    ----------
+    uuid_to_test : str
+    version : {1, 2, 3, 4}
+
+     Returns
+    -------
+    `True` if uuid_to_test is a valid UUID, otherwise `False`.
+
+     Examples
+    --------
+    >>> is_valid_uuid('c9bf9e57-1685-4c89-bafb-ff5af830be8a')
+    True
+    >>> is_valid_uuid('c9bf9e58')
+    False
     """
-    return hmac.new(
-        key=key.encode("utf-8") if isinstance(key, str) else key,
-        msg=msg.encode("utf-8") if isinstance(msg, str) else msg,
-        digestmod=hashlib.sha256,
-    ).hexdigest()
 
+    try:
+        uuid_obj = UUID(
+            uuid_to_test,
+            version=version,
+        )
+    except ValueError:
+        return False
 
-# =============================================================================
-# Exports
-# =============================================================================
+    answer = str(uuid_obj) == uuid_to_test
 
-__all__: list[str] = [
-    "sha256_hash",
-]
+    return answer

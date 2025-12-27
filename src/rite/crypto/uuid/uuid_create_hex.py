@@ -9,6 +9,7 @@
 Rite - UUID Module
 ==================
 
+Generates a random UUID and returns it as a 32-character hexadecimal string.
 
 """
 
@@ -33,7 +34,7 @@ import uuid
 # =============================================================================
 
 
-def create_hex_uuid():
+def create_hex_uuid() -> str:
     """
     Generates a random UUID and returns it as a 32-character hexadecimal
     string.

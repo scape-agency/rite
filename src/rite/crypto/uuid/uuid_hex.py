@@ -6,12 +6,13 @@
 # =============================================================================
 
 """
-Rite - Cryptography Module
-==========================
+UUID Hexadecimal Generation
+===========================
 
-This module provides cryptographic utilities for the Rite application.
+Generate random UUIDs as hexadecimal strings.
 
 """
+
 
 # =============================================================================
 # Imports
@@ -21,13 +22,31 @@ This module provides cryptographic utilities for the Rite application.
 from __future__ import annotations
 
 # Import | Standard Library
-from typing import List
+import uuid
 
-# Import | Local Modules
+# =============================================================================
+# Functions
+# =============================================================================
+
+
+def uuid_hex() -> str:
+    """
+    Generate a random UUID and return it as a 32-character hexadecimal string.
+
+    Returns:
+        UUID as a 32-character hexadecimal string (no hyphens)
+
+    Example:
+        >>> len(uuid_hex())
+        32
+    """
+    return uuid.uuid4().hex
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = []
+__all__: list[str] = [
+    "uuid_hex",
+]

@@ -6,9 +6,10 @@
 # =============================================================================
 
 """
-Rite - UUID Module
-==================
+Rite - Cryptography - SHA256 Hash Module
+========================================
 
+Provides functionality to compute SHA256 hashes.
 
 """
 
@@ -20,14 +21,9 @@ Rite - UUID Module
 # Import | Future
 from __future__ import annotations
 
-import json
-
 # Import | Standard Library
-import uuid
-
-# Import | Standard Library
-from typing import List
-from uuid import UUID
+import hashlib
+import hmac
 
 # Import | Libraries
 
@@ -35,13 +31,10 @@ from uuid import UUID
 
 
 # =============================================================================
-# Functions
+# Constants
 # =============================================================================
 
-
-# Import | Libraries
-
-# Import | Local Modules
+ASCII_NOT_CONFUSABLE = "ABCEFGHJKLMNPQRSTUWXYZ123456789"
 
 
 # =============================================================================
@@ -49,38 +42,24 @@ from uuid import UUID
 # =============================================================================
 
 
-def is_valid_uuid(
-    uuid_to_test,
-    version=4,
-) -> bool:
+def sha256_hash(
+    key,
+    msg,
+) -> str:
     """
-    Check if uuid_to_test is a valid UUID.
-
-    Parameters
-    ----------
-    uuid_to_test : str
-    version : {1, 2, 3, 4}
-
-     Returns
-    -------
-    `True` if uuid_to_test is a valid UUID, otherwise `False`.
-
-     Examples
-    --------
-    >>> is_valid_uuid('c9bf9e57-1685-4c89-bafb-ff5af830be8a')
-    True
-    >>> is_valid_uuid('c9bf9e58')
-    False
+    SHA256 hexdigest of `msg` salted with `key`. UTF-8 Encoded.
     """
+    return hmac.new(
+        key=key.encode("utf-8") if isinstance(key, str) else key,
+        msg=msg.encode("utf-8") if isinstance(msg, str) else msg,
+        digestmod=hashlib.sha256,
+    ).hexdigest()
 
-    try:
-        uuid_obj = UUID(
-            uuid_to_test,
-            version=version,
-        )
-    except ValueError:
-        return False
 
-    answer = str(uuid_obj) == uuid_to_test
+# =============================================================================
+# Exports
+# =============================================================================
 
-    return answer
+__all__: list[str] = [
+    "sha256_hash",
+]
