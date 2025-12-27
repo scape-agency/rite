@@ -26,9 +26,18 @@ from rite.text.converters.converter_string_to_float import (
 # =============================================================================
 
 
-def test_convert_string_to_float() -> None:
-    """Test convert_string_to_float() function."""
-    # TODO: Implement test
-    # result = convert_string_to_float(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "value,expected",
+    [
+        ("3.14", 3.14),
+        ("0.0", 0.0),
+        ("-2.5", -2.5),
+        ("100", 100.0),
+        ("", None),
+        ("abc", None),
+        ("1.2.3", None),
+    ],
+)
+def test_convert_string_to_float(value: str, expected: float | None) -> None:
+    """Test convert_string_to_float() with various inputs."""
+    assert convert_string_to_float(value) == expected

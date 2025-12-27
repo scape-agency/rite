@@ -26,9 +26,15 @@ from rite.text.converters.converter_string_to_binary import (
 # =============================================================================
 
 
-def test_convert_string_to_binary() -> None:
-    """Test convert_string_to_binary() function."""
-    # TODO: Implement test
-    # result = convert_string_to_binary(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "text,expected",
+    [
+        ("A", "01000001"),
+        ("AB", "01000001 01000010"),
+        ("", ""),
+        ("a", "01100001"),
+    ],
+)
+def test_convert_string_to_binary(text: str, expected: str) -> None:
+    """Test convert_string_to_binary() with various inputs."""
+    assert convert_string_to_binary(text) == expected

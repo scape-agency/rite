@@ -26,9 +26,18 @@ from rite.text.converters.converter_string_to_int import (
 # =============================================================================
 
 
-def test_convert_string_to_int() -> None:
-    """Test convert_string_to_int() function."""
-    # TODO: Implement test
-    # result = convert_string_to_int(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "value,expected",
+    [
+        ("123", 123),
+        ("0", 0),
+        ("-42", -42),
+        ("999", 999),
+        ("", None),
+        ("abc", None),
+        ("12.34", None),
+    ],
+)
+def test_convert_string_to_int(value: str, expected: int | None) -> None:
+    """Test convert_string_to_int() with various inputs."""
+    assert convert_string_to_int(value) == expected

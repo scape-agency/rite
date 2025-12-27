@@ -36,8 +36,6 @@ from rite.text.search.text_count import (
         ("aaa", "a", 3),
     ],
 )
-def test_text_count(
-    text: str, substring: str, expected: int
-) -> None:
+def test_text_count(text: str, substring: str, expected: int) -> None:
     """Test text_count() with various inputs."""
     assert text_count(text, substring) == expected

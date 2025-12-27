@@ -36,8 +36,6 @@ from rite.text.search.text_find import (
         ("hello", "", 0),
     ],
 )
-def test_text_find(
-    text: str, substring: str, expected: int
-) -> None:
+def test_text_find(text: str, substring: str, expected: int) -> None:
     """Test text_find() with various inputs."""
     assert text_find(text, substring) == expected

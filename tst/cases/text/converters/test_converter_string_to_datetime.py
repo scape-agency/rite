@@ -27,8 +27,21 @@ from rite.text.converters.converter_string_to_datetime import (
 
 
 def test_convert_string_to_datetime() -> None:
-    """Test convert_string_to_datetime() function."""
-    # TODO: Implement test
-    # result = convert_string_to_datetime(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    """Test convert_string_to_datetime() with valid inputs."""
+    from datetime import datetime
+
+    # Test ISO format with timezone
+    result = convert_string_to_datetime("2024-12-11T11:42:34+00:00")
+    assert result is not None
+    assert result.year == 2024
+    assert result.month == 12
+    assert result.day == 11
+
+    # Test None input
+    assert convert_string_to_datetime(None) is None
+
+    # Test empty string
+    assert convert_string_to_datetime("") is None
+
+    # Test invalid format
+    assert convert_string_to_datetime("not-a-date") is None

@@ -36,8 +36,6 @@ from rite.text.search.text_ends_with import (
         ("hello", "HELLO", False),  # Case-sensitive
     ],
 )
-def test_text_ends_with(
-    text: str, suffix: str, expected: bool
-) -> None:
+def test_text_ends_with(text: str, suffix: str, expected: bool) -> None:
     """Test text_ends_with() with various inputs."""
     assert text_ends_with(text, suffix) == expected

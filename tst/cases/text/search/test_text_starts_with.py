@@ -36,8 +36,6 @@ from rite.text.search.text_starts_with import (
         ("hello", "HELLO", False),  # Case-sensitive
     ],
 )
-def test_text_starts_with(
-    text: str, prefix: str, expected: bool
-) -> None:
+def test_text_starts_with(text: str, prefix: str, expected: bool) -> None:
     """Test text_starts_with() with various inputs."""
     assert text_starts_with(text, prefix) == expected

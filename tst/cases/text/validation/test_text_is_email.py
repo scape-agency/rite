@@ -29,12 +29,12 @@ from rite.text.validation.text_is_email import (
 @pytest.mark.parametrize(
     "email,expected",
     [
-        ("test@example.com", True),   # Valid email
-        ("user+tag@domain.co.uk", True), # Valid with plus
-        ("invalid.email", False),     # Missing @
-        ("@example.com", False),      # Missing local part
-        ("test@", False),             # Missing domain
-        ("", False),                  # Empty
+        ("test@example.com", True),  # Valid email
+        ("user+tag@domain.co.uk", True),  # Valid with plus
+        ("invalid.email", False),  # Missing @
+        ("@example.com", False),  # Missing local part
+        ("test@", False),  # Missing domain
+        ("", False),  # Empty
     ],
 )
 def test_text_is_email(email: str, expected: bool) -> None:

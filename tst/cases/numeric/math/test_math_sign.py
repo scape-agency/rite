@@ -29,10 +29,10 @@ from rite.numeric.math.math_sign import (
 @pytest.mark.parametrize(
     "value,expected",
     [
-        (5, 1),       # Positive
-        (-5, -1),     # Negative
-        (0, 0),       # Zero
-        (3.14, 1),    # Positive float
+        (5, 1),  # Positive
+        (-5, -1),  # Negative
+        (0, 0),  # Zero
+        (3.14, 1),  # Positive float
         (-3.14, -1),  # Negative float
     ],
 )

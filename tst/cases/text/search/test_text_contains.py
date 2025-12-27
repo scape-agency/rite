@@ -36,8 +36,6 @@ from rite.text.search.text_contains import (
         ("test", "TEST", False),  # Case-sensitive
     ],
 )
-def test_text_contains(
-    text: str, substring: str, expected: bool
-) -> None:
+def test_text_contains(text: str, substring: str, expected: bool) -> None:
     """Test text_contains() with various inputs."""
     assert text_contains(text, substring) == expected

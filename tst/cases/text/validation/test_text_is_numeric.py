@@ -29,12 +29,12 @@ from rite.text.validation.text_is_numeric import (
 @pytest.mark.parametrize(
     "text,expected",
     [
-        ("123", True),         # All digits
-        ("0", True),           # Zero
-        ("123abc", False),     # Contains letters
-        ("12.34", False),      # Contains decimal
-        ("", False),           # Empty
-        (" 123", False),       # Contains space
+        ("123", True),  # All digits
+        ("0", True),  # Zero
+        ("123abc", False),  # Contains letters
+        ("12.34", False),  # Contains decimal
+        ("", False),  # Empty
+        (" 123", False),  # Contains space
     ],
 )
 def test_text_is_numeric(text: str, expected: bool) -> None:

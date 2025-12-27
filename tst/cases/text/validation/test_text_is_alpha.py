@@ -29,12 +29,12 @@ from rite.text.validation.text_is_alpha import (
 @pytest.mark.parametrize(
     "text,expected",
     [
-        ("abc", True),         # All letters
-        ("ABC", True),         # Uppercase
-        ("abc123", False),     # Contains numbers
-        ("abc-def", False),    # Contains hyphen
-        ("", False),           # Empty
-        ("hello world", False), # Contains space
+        ("abc", True),  # All letters
+        ("ABC", True),  # Uppercase
+        ("abc123", False),  # Contains numbers
+        ("abc-def", False),  # Contains hyphen
+        ("", False),  # Empty
+        ("hello world", False),  # Contains space
     ],
 )
 def test_text_is_alpha(text: str, expected: bool) -> None:

@@ -26,9 +26,24 @@ from rite.text.converters.converter_string_to_bool import (
 # =============================================================================
 
 
-def test_convert_string_to_bool() -> None:
-    """Test convert_string_to_bool() function."""
-    # TODO: Implement test
-    # result = convert_string_to_bool(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "value,expected",
+    [
+        ("true", True),
+        ("t", True),
+        ("1", True),
+        ("yes", True),
+        ("y", True),
+        ("false", False),
+        ("f", False),
+        ("0", False),
+        ("no", False),
+        ("n", False),
+        ("", None),
+        ("maybe", None),
+        ("abc", None),
+    ],
+)
+def test_convert_string_to_bool(value: str, expected: bool | None) -> None:
+    """Test convert_string_to_bool() with various inputs."""
+    assert convert_string_to_bool(value) == expected
