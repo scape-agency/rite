@@ -16,6 +16,10 @@ from __future__ import annotations
 # Import | Libraries
 import pytest
 
+# Import | Standard Library
+import tempfile
+from pathlib import Path
+
 # Import | Local Modules
 from rite.filesystem.file.file_move import (
     move_file,
@@ -28,7 +32,18 @@ from rite.filesystem.file.file_move import (
 
 def test_move_file() -> None:
     """Test move_file() function."""
-    # TODO: Implement test
-    # result = move_file(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    with tempfile.TemporaryDirectory() as tmpdir:
+        # Create source directory and file
+        source_dir = Path(tmpdir) / "source"
+        source_dir.mkdir()
+        test_file = source_dir / "test.txt"
+        test_file.write_text("test content")
+
+        # Move file to new directory
+        dest_dir = Path(tmpdir) / "dest"
+        move_file(str(source_dir), "test.txt", str(dest_dir))
+
+        # Verify file moved
+        assert not test_file.exists()
+        assert (dest_dir / "test.txt").exists()
+        assert (dest_dir / "test.txt").read_text() == "test content"

@@ -28,7 +28,14 @@ from rite.collections.dict.dict_filter import (
 
 def test_dict_filter() -> None:
     """Test dict_filter() function."""
-    # TODO: Implement test
-    # result = dict_filter(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Filter by value
+    result = dict_filter({"a": 1, "b": 2, "c": 3}, lambda k, v: v > 1)
+    assert result == {"b": 2, "c": 3}
+
+    # Filter by key
+    result = dict_filter({"a": 1, "b": 2, "c": 3}, lambda k, v: k != "b")
+    assert result == {"a": 1, "c": 3}
+
+    # Filter all out
+    result = dict_filter({"a": 1, "b": 2}, lambda k, v: False)
+    assert result == {}

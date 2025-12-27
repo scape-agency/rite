@@ -28,7 +28,17 @@ from rite.collections.dict.dict_deep_set import (
 
 def test_dict_deep_set() -> None:
     """Test dict_deep_set() function."""
-    # TODO: Implement test
-    # result = dict_deep_set(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Create nested structure
+    d1: dict[str, dict] = {}
+    dict_deep_set(d1, ["user", "profile", "name"], "John")
+    assert d1 == {"user": {"profile": {"name": "John"}}}
+
+    # Update existing nested value
+    d2 = {"user": {"profile": {"name": "Jane"}}}
+    dict_deep_set(d2, ["user", "profile", "name"], "John")
+    assert d2 == {"user": {"profile": {"name": "John"}}}
+
+    # Add to existing structure
+    d3 = {"user": {"profile": {"name": "John"}}}
+    dict_deep_set(d3, ["user", "profile", "age"], 30)
+    assert d3 == {"user": {"profile": {"name": "John", "age": 30}}}

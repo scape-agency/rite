@@ -28,7 +28,14 @@ from rite.collections.dict.dict_invert import (
 
 def test_dict_invert() -> None:
     """Test dict_invert() function."""
-    # TODO: Implement test
-    # result = dict_invert(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Basic invert
+    result = dict_invert({"a": 1, "b": 2, "c": 3})
+    assert result == {1: "a", 2: "b", 3: "c"}
+
+    # Empty dict
+    result = dict_invert({})
+    assert result == {}
+
+    # String values
+    result = dict_invert({"key1": "value1", "key2": "value2"})
+    assert result == {"value1": "key1", "value2": "key2"}

@@ -16,6 +16,10 @@ from __future__ import annotations
 # Import | Libraries
 import pytest
 
+# Import | Standard Library
+import tempfile
+from pathlib import Path
+
 # Import | Local Modules
 from rite.filesystem.file.file_read_text import (
     file_read_text,
@@ -28,7 +32,15 @@ from rite.filesystem.file.file_read_text import (
 
 def test_file_read_text() -> None:
     """Test file_read_text() function."""
-    # TODO: Implement test
-    # result = file_read_text(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    with tempfile.TemporaryDirectory() as tmpdir:
+        # Read existing file
+        file_path = Path(tmpdir) / "test.txt"
+        file_path.write_text("Test Content")
+        result = file_read_text(file_path)
+        assert result == "Test Content"
+
+        # Read empty file
+        empty_path = Path(tmpdir) / "empty.txt"
+        empty_path.write_text("")
+        result = file_read_text(empty_path)
+        assert result == ""

@@ -28,7 +28,14 @@ from rite.collections.dict.dict_merge import (
 
 def test_dict_merge() -> None:
     """Test dict_merge() function."""
-    # TODO: Implement test
-    # result = dict_merge(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test basic merge
+    result = dict_merge({"a": 1, "b": 2}, {"b": 3, "c": 4})
+    assert result == {"a": 1, "b": 3, "c": 4}
+
+    # Test merging multiple dicts
+    result = dict_merge({"a": 1}, {"b": 2}, {"c": 3})
+    assert result == {"a": 1, "b": 2, "c": 3}
+
+    # Test with empty dict
+    result = dict_merge({"a": 1}, {})
+    assert result == {"a": 1}
