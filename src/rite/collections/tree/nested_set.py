@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -28,6 +25,11 @@ from __future__ import annotations
 from collections import defaultdict
 from collections.abc import Iterator
 from typing import Any
+
+# Import | Libraries
+
+# Import | Local Modules
+
 
 # =============================================================================
 # Classes

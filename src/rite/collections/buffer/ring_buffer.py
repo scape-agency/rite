@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -21,8 +18,13 @@ Alias for CircularBuffer providing ring buffer functionality.
 # Import | Future
 from __future__ import annotations
 
-# Import | Local
+# Import | Local Modules
 from .circular_buffer import CircularBuffer
+
+# Import | Standard Library
+
+# Import | Libraries
+
 
 # =============================================================================
 # Aliases

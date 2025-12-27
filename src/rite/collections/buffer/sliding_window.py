@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -25,6 +22,11 @@ from __future__ import annotations
 from collections import deque
 from collections.abc import Callable
 from typing import Any
+
+# Import | Libraries
+
+# Import | Local Modules
+
 
 # =============================================================================
 # Classes
