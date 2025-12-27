@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.0-beta.3](https://github.com/scape-agency/rite/compare/v0.2.0-beta.2...v0.2.0-beta.3) (2025-12-27)
+
+### ✨ Features
+
+* Implement numeric conversion and JSON serialization tests ([efd6509](https://github.com/scape-agency/rite/commit/efd65096f5b8da83625ee00c5c96dfe02a8e3155))
+* Implement reflection attribute and collection list tests ([a4c4f37](https://github.com/scape-agency/rite/commit/a4c4f37f78d40195e49895c127e38f0d22d771c8))
+* Implement text converter tests (int, float, bool, binary, decimal, datetime) ([d5c1b3a](https://github.com/scape-agency/rite/commit/d5c1b3ab6cbdac17918efd7d5825ed724d384bbe))
+
 ## [0.2.0-beta.2](https://github.com/scape-agency/rite/compare/v0.2.0-beta.1...v0.2.0-beta.2) (2025-12-27)
 
 ### ✨ Features
