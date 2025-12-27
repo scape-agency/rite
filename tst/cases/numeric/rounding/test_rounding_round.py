@@ -28,7 +28,13 @@ from rite.numeric.rounding.rounding_round import (
 
 def test_rounding_round() -> None:
     """Test rounding_round() function."""
-    # TODO: Implement test
-    # result = rounding_round(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test default (0 decimals)
+    assert rounding_round(3.5) == 4.0
+    assert rounding_round(2.4) == 2.0
+    
+    # Test with decimals
+    assert rounding_round(3.14159, 2) == 3.14
+    assert rounding_round(3.14159, 4) == 3.1416
+    
+    # Test negative
+    assert rounding_round(-3.5) == -4.0

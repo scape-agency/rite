@@ -28,7 +28,13 @@ from rite.numeric.rounding.rounding_floor import (
 
 def test_rounding_floor() -> None:
     """Test rounding_floor() function."""
-    # TODO: Implement test
-    # result = rounding_floor(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test positive rounding down
+    assert rounding_floor(3.1) == 3
+    assert rounding_floor(3.9) == 3
+    
+    # Test negative rounding down
+    assert rounding_floor(-3.1) == -4
+    assert rounding_floor(-3.9) == -4
+    
+    # Test integer
+    assert rounding_floor(4.0) == 4

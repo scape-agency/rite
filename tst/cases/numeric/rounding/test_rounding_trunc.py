@@ -28,7 +28,13 @@ from rite.numeric.rounding.rounding_trunc import (
 
 def test_rounding_trunc() -> None:
     """Test rounding_trunc() function."""
-    # TODO: Implement test
-    # result = rounding_trunc(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test positive truncation
+    assert rounding_trunc(3.9) == 3
+    assert rounding_trunc(3.1) == 3
+    
+    # Test negative truncation (towards zero)
+    assert rounding_trunc(-3.9) == -3
+    assert rounding_trunc(-3.1) == -3
+    
+    # Test integer
+    assert rounding_trunc(4.0) == 4

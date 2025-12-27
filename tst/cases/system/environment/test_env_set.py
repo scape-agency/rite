@@ -28,7 +28,14 @@ from rite.system.environment.env_set import (
 
 def test_env_set() -> None:
     """Test env_set() function."""
-    # TODO: Implement test
-    # result = env_set(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    import os
+    # Test set
+    env_set("TEST_VAR", "test_value")
+    assert os.environ.get("TEST_VAR") == "test_value"
+    
+    # Test overwrite
+    env_set("TEST_VAR", "new_value")
+    assert os.environ.get("TEST_VAR") == "new_value"
+    
+    # Cleanup
+    del os.environ["TEST_VAR"]
