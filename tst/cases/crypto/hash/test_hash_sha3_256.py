@@ -28,7 +28,14 @@ from rite.crypto.hash.hash_sha3_256 import (
 
 def test_hash_sha3_256() -> None:
     """Test hash_sha3_256() function."""
-    # TODO: Implement test
-    # result = hash_sha3_256(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test with string
+    result = hash_sha3_256("hello")
+    assert len(result) == 64  # sha3-256 produces 32 bytes = 64 hex chars
+    
+    # Test with bytes
+    result2 = hash_sha3_256(b"hello")
+    assert result == result2
+    
+    # Test empty string
+    result_empty = hash_sha3_256("")
+    assert len(result_empty) == 64

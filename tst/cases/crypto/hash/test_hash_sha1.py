@@ -28,7 +28,11 @@ from rite.crypto.hash.hash_sha1 import (
 
 def test_hash_sha1() -> None:
     """Test hash_sha1() function."""
-    # TODO: Implement test
-    # result = hash_sha1(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test with string
+    assert hash_sha1("hello") == "aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d"
+    
+    # Test with bytes
+    assert hash_sha1(b"hello") == "aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d"
+    
+    # Test empty string
+    assert hash_sha1("") == "da39a3ee5e6b4b0d3255bfef95601890afd80709"

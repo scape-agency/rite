@@ -28,7 +28,14 @@ from rite.crypto.hash.hash_blake2b import (
 
 def test_hash_blake2b() -> None:
     """Test hash_blake2b() function."""
-    # TODO: Implement test
-    # result = hash_blake2b(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test with string
+    result = hash_blake2b("hello")
+    assert len(result) == 128  # blake2b produces 64 bytes = 128 hex chars
+    
+    # Test with bytes
+    result2 = hash_blake2b(b"hello")
+    assert result == result2
+    
+    # Test empty string
+    result_empty = hash_blake2b("")
+    assert len(result_empty) == 128
