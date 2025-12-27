@@ -1,26 +1,59 @@
 {
     "recommendations": [
-        // Linting and Formatting
+        // Python Development
+        "ms-python.python",                         // Python language support
+        "ms-python.vscode-pylance",                 // Fast Python language server
+        "ms-python.black-formatter",                // Black code formatter
+        "ms-python.isort",                          // Import sorting
+        "ms-python.flake8",                         // Flake8 linter
+        "ms-python.pylint",                         // Pylint static analyzer
+
+        // AI Assistants
+        "github.copilot",                           // GitHub Copilot
+        "github.copilot-chat",                      // GitHub Copilot Chat
+
+        // Testing
+        "littlefoxteam.vscode-python-test-adapter", // Python test adapter
+        "ryanluker.vscode-coverage-gutters",        // Coverage visualization
+
+        // Git
+        "eamodio.gitlens",                          // GitLens for Git capabilities
+        "mhutchie.git-graph",                       // Git graph visualization
+        "github.vscode-pull-request-github",        // GitHub PR integration
+
+        // Documentation
+        "njpwerner.autodocstring",                  // Auto-generate docstrings
+        "lextudio.restructuredtext",                // reStructuredText support
+        "trond-snekvik.simple-rst",                 // Simple RST preview
+
+        // Code Quality
+        "streetsidesoftware.code-spell-checker",    // Spell checker
+        "editorconfig.editorconfig",                // EditorConfig support
+        "tamasfe.even-better-toml",                 // TOML language support
+
+        // Utilities
+        "gruntfuggly.todo-tree",                    // TODO tree
+        "wayou.vscode-todo-highlight",              // TODO highlighting
+        "usernamehw.errorlens",                     // Error lens
+        "ms-vsliveshare.vsliveshare",               // Live Share
+
+        // Markdown
+        "yzhang.markdown-all-in-one",               // Markdown all-in-one
+        "davidanson.vscode-markdownlint",           // Markdown linting
+
+        // Linting and Formatting (for non-Python files)
         "dbaeumer.vscode-eslint",                   // ESLint for JavaScript/TypeScript linting
         "esbenp.prettier-vscode",                   // Prettier for code formatting
         "stylelint.vscode-stylelint",               // Stylelint for CSS/SCSS linting
 
-        // Language Support
+        // Language Support (non-Python)
         "ms-vscode.vscode-typescript-next",         // Enhanced TypeScript support
         "redhat.vscode-yaml",                       // YAML language support
         "syler.sass-indented",                      // SCSS/SASS language support
-        "jinja.html-formatter",                     // Jinja2 templating language support
 
         // Development Tools
         "ritwickdey.LiveServer",                    // Live Server for HTML/JS development
-        "gruntfuggly.todo-tree",                    // TODO Tree for managing TODOs
-        "github.vscode-pull-request-github",        // GitHub Pull Request integration
-        "eamodio.gitlens",                          // GitLens for advanced Git capabilities
         "ms-azuretools.vscode-docker",              // Docker support for containerized applications
-
-        // Code Quality and Documentation
-        "streetsidesoftware.code-spell-checker",    // Spell checker for code comments and strings
-        "microsoft.vscode-code-annotations",        // Code annotations for better documentation
 
         // Theming and UI Enhancements
         "PKief.material-icon-theme",                // Material icon theme

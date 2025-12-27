@@ -1,5 +1,97 @@
 {
 
+    // ========================================================================
+    // Python Configuration
+    // ========================================================================
+
+    // Python environment and interpreter
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    "python.terminal.activateEnvironment": true,
+    "python.terminal.activateEnvInCurrentTerminal": true,
+
+    // Formatting
+    "python.formatting.provider": "none",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        },
+        "editor.rulers": [88],
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+
+    // Black formatter
+    "black-formatter.args": [
+        "--line-length=88",
+        "--target-version=py310"
+    ],
+
+    // isort
+    "isort.args": [
+        "--profile=black",
+        "--line-length=88"
+    ],
+    "isort.check": true,
+
+    // Linting
+    "python.linting.enabled": true,
+    "python.linting.lintOnSave": true,
+
+    // Flake8
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--config=${workspaceFolder}/.flake8"
+    ],
+
+    // Pylint
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintArgs": [
+        "--rcfile=${workspaceFolder}/.pylintrc"
+    ],
+
+    // Mypy
+    "python.linting.mypyEnabled": true,
+    "python.linting.mypyArgs": [
+        "--config-file=${workspaceFolder}/mypy.ini",
+        "--show-column-numbers",
+        "--show-error-codes"
+    ],
+
+    // Python analysis
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.autoSearchPaths": true,
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/src"
+    ],
+    "python.analysis.fixAll": [
+        "source.unusedImports"
+    ],
+    "python.analysis.completeFunctionParens": true,
+    "python.analysis.importFormat": "absolute",
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.analysis.inlayHints.variableTypes": true,
+
+    // Testing
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestArgs": [
+        "tst"
+    ],
+    "python.testing.autoTestDiscoverOnSaveEnabled": true,
+
+    // ========================================================================
+    // Editor - Code Actions on Save
+    // ========================================================================
+
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+        "source.organizeImports": "explicit"
+    },
+
 
     // Eslint
     // ========================================================================
@@ -60,13 +152,13 @@
     "editor.bracketPairColorization.enabled": true,
     "editor.bracketPairColorization.independentColorPoolPerBracketType": false,
     "editor.codeActions.triggerOnFocusChange": false,
+    // ========================================================================
+    // Editor - Code Actions on Save
+    // ========================================================================
+
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": "explicit",
         "source.organizeImports": "explicit"
-        // "source.fixAll.eslint": "always",
-        // "source.fixAll.stylelint": "always",
-        // "source.organizeImports": true,
-        // "source.fixAll": true
     },
     "editor.codeActionWidget.includeNearbyQuickFixes": true,
     "editor.codeActionWidget.showHeaders": true,
