@@ -26,7 +26,8 @@ from __future__ import annotations
 
 # Import | Standard Library
 from collections import defaultdict
-from typing import Any, Dict, Iterator, List, Optional
+from collections.abc import Iterator
+from typing import Any
 
 # =============================================================================
 # Classes
@@ -51,7 +52,7 @@ class NestedSetStructure:
         """
         self._root_elements: list[Any] = []
         self._children: dict[Any, list[Any]] = defaultdict(list)
-        self._parent: dict[Any, Optional[Any]] = {}
+        self._parent: dict[Any, Any | None] = {}
 
     def __contains__(self, item: Any) -> bool:
         """
@@ -74,7 +75,7 @@ class NestedSetStructure:
     def add(
         self,
         item: Any,
-        parent: Optional[Any] = None,
+        parent: Any | None = None,
     ) -> None:
         """
         Add an item to the structure, optionally specifying a parent.
@@ -98,7 +99,7 @@ class NestedSetStructure:
         """
         return self._children.get(item, [])
 
-    def parent(self, item: Any) -> Optional[Any]:
+    def parent(self, item: Any) -> Any | None:
         """
         Return the parent of the given item, or None if it has no parent.
         """

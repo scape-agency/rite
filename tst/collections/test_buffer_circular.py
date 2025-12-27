@@ -32,7 +32,7 @@ Dependencies:
 
 import pytest
 
-from rite.structures.structure_buffer_circular import CircularBuffer
+from rite.collections import CircularBuffer
 
 # =============================================================================
 # Test Cases

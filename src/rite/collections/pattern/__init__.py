@@ -6,13 +6,19 @@
 # =============================================================================
 
 """
-Rite - Data Structures Module
-==============================
+Design Pattern Collections Module
+===================================
 
-This module provides data structures and utilities for managing and
-processing data within the Rite application.
+Provides design pattern implementations for common software patterns.
+
+Classes:
+--------
+- SingletonMeta: Singleton pattern metaclass
+- Observer: Observer pattern implementation
+- ObjectPool: Object pool pattern
 
 """
+
 
 # =============================================================================
 # Imports
@@ -21,26 +27,19 @@ processing data within the Rite application.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
-from typing import List
+from .object_pool import ObjectPool
+from .observer import Observable, Observer
 
-# Import | Local Modules
-
-
-# =============================================================================
-# Exports
-# =============================================================================
-
-__all__: list[str] = []
-
-from typing import List
-
-from .structure_set_nested import NestedSetStructure  # noqa: F401
+# Import | Local
+from .singleton import SingletonMeta
 
 # =============================================================================
 # Module Exports
 # =============================================================================
 
 __all__: list[str] = [
-    "NestedSetStructure",
+    "SingletonMeta",
+    "Observer",
+    "Observable",
+    "ObjectPool",
 ]

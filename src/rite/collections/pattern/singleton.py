@@ -55,7 +55,7 @@ Example:
 from __future__ import annotations
 
 # Import | Standard Library
-from typing import Any, Dict
+from typing import Any
 
 # =============================================================================
 # Classes
@@ -80,6 +80,12 @@ class SingletonMeta(type):
     __call__(*args, **kwargs):
         Overrides the `__call__` method to control instance creation.
 
+    Example
+    -------
+        # Define a Singleton class
+        class Configuration(metaclass=SingletonMeta):
+            def __init__(self, value):
+                self.value = value
     """
 
     _instances: dict[type, Any] = {}
@@ -114,7 +120,7 @@ class SingletonMeta(type):
 # Module Exports
 # =============================================================================
 
-__all__ = [
+__all__: list[str] = [
     "SingletonMeta",
 ]
 

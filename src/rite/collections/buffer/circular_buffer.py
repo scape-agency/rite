@@ -46,7 +46,7 @@ Usage:
 from __future__ import annotations
 
 # Import | Standard Library
-from typing import Any, Optional
+from typing import Any
 
 # Import | Libraries
 
@@ -67,10 +67,9 @@ class CircularBuffer:
 
     Attributes
     ----------
-    -----------
     size : int
         The maximum number of elements the buffer can hold.
-    buffer : list[Optional[Any]]
+    buffer : list[Any | None]
         The internal list storing buffer elements.
     index : int
         The current index for the next write operation.
@@ -79,10 +78,9 @@ class CircularBuffer:
 
     Methods
     -------
-    --------
     append(value: Any) -> None:
         Adds a value to the buffer, overwriting the oldest element if full.
-    get_all() -> list[Optional[Any]]:
+    get_all() -> list[Any | None]:
         Retrieves all elements in the buffer in the correct order.
     is_empty() -> bool:
         Checks if the buffer is empty.
@@ -102,7 +100,7 @@ class CircularBuffer:
         if size <= 0:
             raise ValueError("Buffer size must be a positive integer.")
         self.size = size
-        self.buffer: list[Optional[Any]] = [None] * size
+        self.buffer: list[Any | None] = [None] * size
         self.index = 0
         self.full = False
 
@@ -112,7 +110,6 @@ class CircularBuffer:
 
         Returns
         -------
-        --------
         str:
             A string describing the buffer contents and state.
         """
@@ -139,14 +136,13 @@ class CircularBuffer:
         # Mark the buffer as full if we've looped back to the start
         self.full = self.full or self.index == 0
 
-    def get_all(self) -> list[Optional[Any]]:
+    def get_all(self) -> list[Any | None]:
         """
         Retrieves all elements in the buffer in the correct order.
 
         Returns
         -------
-        --------
-        list[Optional[Any]]:
+        list[Any | None]:
             A list of elements in the buffer, ordered from the oldest to the
             newest.
         """
@@ -160,7 +156,6 @@ class CircularBuffer:
 
         Returns
         -------
-        --------
         bool:
             True if the buffer is empty, False otherwise.
         """
@@ -172,7 +167,6 @@ class CircularBuffer:
 
         Returns
         -------
-        --------
         bool:
             True if the buffer is full, False otherwise.
         """
@@ -183,7 +177,7 @@ class CircularBuffer:
 # Module Exports
 # =============================================================================
 
-__all__ = [
+__all__: list[str] = [
     "CircularBuffer",
 ]
 
