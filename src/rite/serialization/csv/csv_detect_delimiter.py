@@ -3,14 +3,18 @@
 # =============================================================================
 
 """
-CSV Delimiter Detection
+CSV Delimiter Detector
 =======================
 
-Provides functionality to detect the delimiter used in a CSV file based on its
-filename extension.
+Detect delimiter from filename.
+
+Examples
+--------
+>>> from rite.serialization.csv import csv_detect_delimiter
+>>> csv_detect_delimiter("data.tsv")
+'\\t'
 
 """
-
 
 # =============================================================================
 # Imports
@@ -24,18 +28,26 @@ from __future__ import annotations
 # =============================================================================
 
 
-def detect_delimiter(filename: str) -> str:
+def csv_detect_delimiter(filename: str) -> str:
     """
-    Detect the delimiter used in a CSV file based on its filename.
+    Detect delimiter from filename extension.
 
     Args:
-    ----
-        filename: The name or path of the CSV file.
+        filename: CSV filename or path.
 
     Returns:
-    -------
-        str: The detected delimiter character (tab or comma).
+        Delimiter character (tab or comma).
 
+    Examples:
+        >>> csv_detect_delimiter("data.csv")
+        ','
+        >>> csv_detect_delimiter("data.tsv")
+        '\\t'
+        >>> csv_detect_delimiter("path/to/data.tsv")
+        '\\t'
+
+    Notes:
+        Returns tab for .tsv, comma otherwise.
     """
     if filename.endswith(".tsv"):
         return "\t"
@@ -43,9 +55,7 @@ def detect_delimiter(filename: str) -> str:
 
 
 # =============================================================================
-# Module Exports
+# Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "detect_delimiter",
-]
+__all__: list[str] = ["csv_detect_delimiter"]

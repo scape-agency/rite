@@ -3,14 +3,18 @@
 # =============================================================================
 
 """
-CSV Delimiter Detection
-=======================
+JSON Validator
+==============
 
-Provides functionality to detect the delimiter used in a CSV file based on its
-filename extension.
+Validate JSON string.
+
+Examples
+--------
+>>> from rite.serialization.json import json_validate
+>>> json_validate('{"key": "value"}')
+True
 
 """
-
 
 # =============================================================================
 # Imports
@@ -19,33 +23,44 @@ filename extension.
 # Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
+import json
+
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def detect_delimiter(filename: str) -> str:
+def json_validate(text: str) -> bool:
     """
-    Detect the delimiter used in a CSV file based on its filename.
+    Validate JSON string.
 
     Args:
-    ----
-        filename: The name or path of the CSV file.
+        text: JSON string to validate.
 
     Returns:
-    -------
-        str: The detected delimiter character (tab or comma).
+        True if valid JSON, False otherwise.
 
+    Examples:
+        >>> json_validate('{"key": "value"}')
+        True
+        >>> json_validate('{invalid}')
+        False
+        >>> json_validate('[1, 2, 3]')
+        True
+
+    Notes:
+        Returns False on any JSON decode error.
     """
-    if filename.endswith(".tsv"):
-        return "\t"
-    return ","
+    try:
+        json.loads(text)
+        return True
+    except json.JSONDecodeError:
+        return False
 
 
 # =============================================================================
-# Module Exports
+# Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "detect_delimiter",
-]
+__all__: list[str] = ["json_validate"]

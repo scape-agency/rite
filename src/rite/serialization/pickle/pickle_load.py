@@ -3,14 +3,17 @@
 # =============================================================================
 
 """
-CSV Delimiter Detection
-=======================
+Pickle Load
+===========
 
-Provides functionality to detect the delimiter used in a CSV file based on its
-filename extension.
+Deserialize object from pickle file.
+
+Examples
+--------
+>>> from rite.serialization.pickle import pickle_load
+>>> data = pickle_load("data.pkl")
 
 """
-
 
 # =============================================================================
 # Imports
@@ -19,33 +22,44 @@ filename extension.
 # Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
+from pathlib import Path
+import pickle
+from typing import Any
+
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def detect_delimiter(filename: str) -> str:
+def pickle_load(path: str | Path) -> Any:
     """
-    Detect the delimiter used in a CSV file based on its filename.
+    Deserialize object from pickle file.
 
     Args:
-    ----
-        filename: The name or path of the CSV file.
+        path: Path to pickle file.
 
     Returns:
-    -------
-        str: The detected delimiter character (tab or comma).
+        Deserialized object.
 
+    Examples:
+        >>> pickle_load("data.pkl")
+        {'key': 'value'}
+
+    Notes:
+        Uses binary mode.
+        Be careful with untrusted data.
     """
-    if filename.endswith(".tsv"):
-        return "\t"
-    return ","
+    file_path = Path(path)
+
+    with file_path.open("rb") as f:
+        result: Any = pickle.load(f)
+
+    return result
 
 
 # =============================================================================
-# Module Exports
+# Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "detect_delimiter",
-]
+__all__: list[str] = ["pickle_load"]

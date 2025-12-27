@@ -3,14 +3,17 @@
 # =============================================================================
 
 """
-CSV Delimiter Detection
-=======================
+JSON Loader
+===========
 
-Provides functionality to detect the delimiter used in a CSV file based on its
-filename extension.
+Load JSON from file.
+
+Examples
+--------
+>>> from rite.serialization.json import json_load
+>>> data = json_load("data.json")
 
 """
-
 
 # =============================================================================
 # Imports
@@ -19,33 +22,44 @@ filename extension.
 # Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
+import json
+from pathlib import Path
+from typing import Any
+
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def detect_delimiter(filename: str) -> str:
+def json_load(path: str | Path) -> Any:
     """
-    Detect the delimiter used in a CSV file based on its filename.
+    Load JSON data from file.
 
     Args:
-    ----
-        filename: The name or path of the CSV file.
+        path: Path to JSON file.
 
     Returns:
-    -------
-        str: The detected delimiter character (tab or comma).
+        Parsed JSON data.
 
+    Raises:
+        FileNotFoundError: If file doesn't exist.
+        json.JSONDecodeError: If JSON is invalid.
+
+    Examples:
+        >>> json_load("config.json")
+        {'key': 'value'}
+
+    Notes:
+        Uses UTF-8 encoding.
     """
-    if filename.endswith(".tsv"):
-        return "\t"
-    return ","
+    file_path = Path(path)
+    with file_path.open("r", encoding="utf-8") as f:
+        return json.load(f)
 
 
 # =============================================================================
-# Module Exports
+# Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "detect_delimiter",
-]
+__all__: list[str] = ["json_load"]

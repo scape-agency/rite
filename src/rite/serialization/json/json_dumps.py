@@ -3,14 +3,18 @@
 # =============================================================================
 
 """
-CSV Delimiter Detection
-=======================
+JSON Dumps
+==========
 
-Provides functionality to detect the delimiter used in a CSV file based on its
-filename extension.
+Serialize data to JSON string.
+
+Examples
+--------
+>>> from rite.serialization.json import json_dumps
+>>> json_dumps({"key": "value"})
+'{"key": "value"}'
 
 """
-
 
 # =============================================================================
 # Imports
@@ -19,33 +23,40 @@ filename extension.
 # Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
+import json
+from typing import Any
+
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def detect_delimiter(filename: str) -> str:
+def json_dumps(data: Any, indent: int | None = None) -> str:
     """
-    Detect the delimiter used in a CSV file based on its filename.
+    Serialize data to JSON string.
 
     Args:
-    ----
-        filename: The name or path of the CSV file.
+        data: Data to serialize.
+        indent: Indentation spaces (None for compact).
 
     Returns:
-    -------
-        str: The detected delimiter character (tab or comma).
+        JSON string.
 
+    Examples:
+        >>> json_dumps({"key": "value"})
+        '{"key": "value"}'
+        >>> json_dumps({"key": "value"}, indent=2)
+        '{\\n  "key": "value"\\n}'
+
+    Notes:
+        Wrapper around json.dumps.
     """
-    if filename.endswith(".tsv"):
-        return "\t"
-    return ","
+    return json.dumps(data, indent=indent)
 
 
 # =============================================================================
-# Module Exports
+# Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "detect_delimiter",
-]
+__all__: list[str] = ["json_dumps"]
