@@ -60,6 +60,8 @@
 
 </details>
 
+---
+
 ## About
 
 **rite** is a modern Python utility library with zero external runtime dependencies. Built with Python 3.10+ in mind, it provides a comprehensive collection of utilities for cryptography, filesystem operations, text processing, collections, conversions, and more.
@@ -84,6 +86,8 @@
 - **conversion**: Type conversions, data format transformations (JSON, CSV)
 - **numeric**: Mathematical utilities, statistics, number operations
 - **temporal**: Date/time utilities, timestamp operations, formatting
+
+---
 
 ## Quick Start
 
@@ -141,16 +145,18 @@ unique = list_unique([1, 2, 2, 3])  # [1, 2, 3]
 flat = list_flatten([[1, 2], [3, 4]])  # [1, 2, 3, 4]
 ```
 
+---
+
 ## Documentation
 
-### 📚 User Documentation
+### User Documentation
 
 - **[Getting Started](doc/getting-started.md)** - Quick introduction and module overview
 - **[Installation Guide](doc/installation.md)** - Detailed installation instructions
 - **[Usage Examples](doc/examples.md)** - Practical examples for all modules
 - **[API Reference](https://www.pyrites.dev)** - Complete API documentation
 
-### 🛠️ Developer Documentation
+### Developer Documentation
 
 - **[Contributing Guide](doc/contributing.md)** - How to contribute to Rite
 - **[Development Setup](doc/development/setup.md)** - Set up your development environment
@@ -158,16 +164,18 @@ flat = list_flatten([[1, 2], [3, 4]])  # [1, 2, 3, 4]
 - **[Testing Guide](doc/development/testing.md)** - Testing practices and patterns
 - **[Configuration Reference](doc/development/configuration.md)** - Configuration files and settings
 
-### 🤖 AI Agent Documentation
+### AI Agent Documentation
 
 - **[AI Instructions](doc/development/ai-instructions.md)** - Guidelines for AI agents and GitHub Copilot
 
-### 📖 Additional Resources
+### Additional Resources
 
 - **[Changelog](CHANGELOG.md)** - Version history and release notes
 - **[Architecture](ARCHITECTURE.txt)** - System architecture overview
 - **[Security Policy](SECURITY.md)** - Security guidelines and reporting
 - **[License](LICENSE)** - MIT License details
+
+---
 
 ## Authors
 
@@ -178,19 +186,12 @@ Scape Agency is a spatial innovation collective that dreams, discovers and desig
 - website: [scape.agency](https://www.scape.agency "Scape Agency website")
 - github: [github.com/scape-agency](https://github.com/scape-agency "Scape Agency Github")
 
-## License
-
-Except where otherwise noted, **rite** is licensed under the terms of the [MIT License](https://opensource.org/licenses/MIT "MIT License").
+---
 
 ## Contributing
 
 We'd love for you to contribute and to make **rite** even better than it is today!
-Please refer to the [contribution guidelines](CONTRIBUTING.md) for information.
-
-## Disclaimer
-
-**THIS SOFTWARE IS PROVIDED AS IS WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
- welcome contributions! Please see our [Contributing Guide](doc/contributing.md) for details on:
+Please refer to the [contribution guidelines](CONTRIBUTING.md) for details on:
 
 - Code of conduct
 - Development workflow
@@ -198,7 +199,7 @@ Please refer to the [contribution guidelines](CONTRIBUTING.md) for information.
 - Testing requirements
 - Pull request process
 
-Quick start for contributors:
+> Quick start for contributors:
 
 ```bash
 # Clone the repository
@@ -218,7 +219,17 @@ make test
 make check
 ```
 
+---
 
+## License
+
+Except where otherwise noted, **rite** is licensed under the terms of the [MIT License](https://opensource.org/licenses/MIT "MIT License").
+
+---
+
+## Disclaimer
+
+**THIS SOFTWARE IS PROVIDED AS IS WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
 
 ---
 
