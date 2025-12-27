@@ -13,15 +13,14 @@ Tests for rite.crypto.cipher.cipher_rail_fence.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.crypto.cipher.cipher_rail_fence import (
-    encode_rail_fence_cipher,
     decode_rail_fence_cipher,
+    encode_rail_fence_cipher,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -42,4 +41,3 @@ def test_decode_rail_fence_cipher() -> None:
     # result = decode_rail_fence_cipher(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

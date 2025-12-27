@@ -13,14 +13,13 @@ Tests for rite.net.validation.validation_is_url.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.net.validation.validation_is_url import (
     validation_is_url,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_validation_is_url() -> None:
     # result = validation_is_url(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

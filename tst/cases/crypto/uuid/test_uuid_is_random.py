@@ -13,14 +13,13 @@ Tests for rite.crypto.uuid.uuid_is_random.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.crypto.uuid.uuid_is_random import (
     is_random_uuid,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_is_random_uuid() -> None:
     # result = is_random_uuid(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

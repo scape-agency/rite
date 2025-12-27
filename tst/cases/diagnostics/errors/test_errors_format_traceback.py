@@ -13,14 +13,13 @@ Tests for rite.diagnostics.errors.errors_format_traceback.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.diagnostics.errors.errors_format_traceback import (
     errors_format_traceback,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_errors_format_traceback() -> None:
     # result = errors_format_traceback(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

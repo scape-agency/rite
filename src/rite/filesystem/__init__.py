@@ -39,6 +39,7 @@ Example:
 # Import | Future
 from __future__ import annotations
 
+# Import | Local Modules
 # Compression operations
 from .compress.gzip_compress import compress_file
 from .compress.gzip_uncompress import uncompress_file

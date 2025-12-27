@@ -13,14 +13,13 @@ Tests for rite.diagnostics.metrics.metrics_histogram.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.diagnostics.metrics.metrics_histogram import (
     metrics_histogram,
 )
-
 
 # =============================================================================
 # Test Class: metrics_histogram
@@ -91,4 +90,3 @@ class Testmetrics_histogram:
         # result = instance.reset()
         # assert result is not None
         pytest.skip("Test not implemented")
-

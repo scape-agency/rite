@@ -21,11 +21,8 @@ from __future__ import annotations
 # Import | Standard Library
 import platform
 
-# Import | Libraries
-import rite
-
 # Import | Local Modules
-
+import rite
 
 # =============================================================================
 # Main

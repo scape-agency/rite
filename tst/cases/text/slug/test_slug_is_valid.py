@@ -13,14 +13,13 @@ Tests for rite.text.slug.slug_is_valid.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.slug.slug_is_valid import (
     is_valid_slug,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_is_valid_slug() -> None:
     # result = is_valid_slug(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

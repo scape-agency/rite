@@ -13,14 +13,13 @@ Tests for rite.reflection.signature.signature_get_return_annotation.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.reflection.signature.signature_get_return_annotation import (
     signature_get_return_annotation,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_signature_get_return_annotation() -> None:
     # result = signature_get_return_annotation(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

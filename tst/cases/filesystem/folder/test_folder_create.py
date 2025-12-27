@@ -13,14 +13,13 @@ Tests for rite.filesystem.folder.folder_create.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.filesystem.folder.folder_create import (
     create_directory,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_create_directory() -> None:
     # result = create_directory(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

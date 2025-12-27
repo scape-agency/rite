@@ -13,14 +13,13 @@ Tests for rite.text.analysis.char_frequency.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.analysis.char_frequency import (
     char_frequency,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_char_frequency() -> None:
     # result = char_frequency(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

@@ -13,15 +13,14 @@ Tests for rite.crypto.cipher.cipher_vigenere.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.crypto.cipher.cipher_vigenere import (
-    encode_vigenere_cipher,
     decode_vigenere_cipher,
+    encode_vigenere_cipher,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -42,4 +41,3 @@ def test_decode_vigenere_cipher() -> None:
     # result = decode_vigenere_cipher(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

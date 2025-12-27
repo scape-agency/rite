@@ -13,15 +13,14 @@ Tests for rite.collections.pattern.observer.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.collections.pattern.observer import (
-    Observer,
     Observable,
+    Observer,
 )
-
 
 # =============================================================================
 # Test Class: Observer
@@ -107,4 +106,3 @@ class TestObservable:
         # result = instance.clear_observers()
         # assert result is not None
         pytest.skip("Test not implemented")
-

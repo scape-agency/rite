@@ -13,14 +13,13 @@ Tests for rite.serialization.json.json_validate.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.serialization.json.json_validate import (
     json_validate,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_json_validate() -> None:
     # result = json_validate(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

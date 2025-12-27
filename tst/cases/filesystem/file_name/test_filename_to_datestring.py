@@ -13,7 +13,7 @@ Tests for rite.filesystem.file_name.filename_to_datestring.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
@@ -21,7 +21,6 @@ from rite.filesystem.file_name.filename_to_datestring import (
     date_format_to_regex,
     filename_to_datestring,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -42,4 +41,3 @@ def test_filename_to_datestring() -> None:
     # result = filename_to_datestring(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

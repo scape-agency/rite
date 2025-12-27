@@ -13,14 +13,13 @@ Tests for rite.numeric.math.math_pow.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.numeric.math.math_pow import (
     math_pow,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_math_pow() -> None:
     # result = math_pow(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

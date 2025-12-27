@@ -13,14 +13,13 @@ Tests for rite.text.converters.case_to_rainbow.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.converters.case_to_rainbow import (
     to_rainbow_case,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_to_rainbow_case() -> None:
     # result = to_rainbow_case(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

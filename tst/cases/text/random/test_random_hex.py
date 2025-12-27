@@ -13,14 +13,13 @@ Tests for rite.text.random.random_hex.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.random.random_hex import (
     random_hex,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_random_hex() -> None:
     # result = random_hex(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

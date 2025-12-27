@@ -13,14 +13,13 @@ Tests for rite.text.analysis.shortest_word.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.analysis.shortest_word import (
     shortest_word,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_shortest_word() -> None:
     # result = shortest_word(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

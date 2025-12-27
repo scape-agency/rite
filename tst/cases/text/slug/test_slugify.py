@@ -13,14 +13,13 @@ Tests for rite.text.slug.slugify.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.slug.slugify import (
     slugify,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_slugify() -> None:
     # result = slugify(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

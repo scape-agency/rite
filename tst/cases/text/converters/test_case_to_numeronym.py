@@ -13,14 +13,13 @@ Tests for rite.text.converters.case_to_numeronym.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.converters.case_to_numeronym import (
     to_numeronym_case,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_to_numeronym_case() -> None:
     # result = to_numeronym_case(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

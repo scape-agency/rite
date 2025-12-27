@@ -13,15 +13,14 @@ Tests for rite.filesystem.file.file_size_to_string.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.filesystem.file.file_size_to_string import (
-    file_size_to_string,
     _SizedStream,
+    file_size_to_string,
 )
-
 
 # =============================================================================
 # Test Class: _SizedStream
@@ -65,4 +64,3 @@ def test_file_size_to_string() -> None:
     # result = file_size_to_string(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

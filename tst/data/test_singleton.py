@@ -32,10 +32,13 @@ Dependencies:
 # Imports
 # =============================================================================
 
+# Import | Standard Library
 import threading
 
+# Import | Libraries
 import pytest
 
+# Import | Local Modules
 from rite.collections import SingletonMeta
 
 # =============================================================================

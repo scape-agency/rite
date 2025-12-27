@@ -1,9 +1,13 @@
+# Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
 from pathlib import Path
 
+# Import | Libraries
 import pytest
 
+# Import | Local Modules
 from rite.filesystem import (
     folder_ensure_exists,
     folder_list_files,
@@ -109,6 +113,7 @@ def test_delete_contents_error_branch(monkeypatch, tmp_path: Path) -> None:
     sub_directory.mkdir(parents=True)
 
     # Force shutil.rmtree to raise so we hit the exception block
+    # Import | Standard Library
     import shutil as _shutil
 
     def _failing_rmtree(path: Path) -> None:  # type: ignore[override]

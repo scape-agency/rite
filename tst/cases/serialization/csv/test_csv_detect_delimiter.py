@@ -13,14 +13,13 @@ Tests for rite.serialization.csv.csv_detect_delimiter.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.serialization.csv.csv_detect_delimiter import (
     csv_detect_delimiter,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_csv_detect_delimiter() -> None:
     # result = csv_detect_delimiter(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

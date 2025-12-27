@@ -13,14 +13,13 @@ Tests for rite.collections.pattern.singleton.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.collections.pattern.singleton import (
     SingletonMeta,
 )
-
 
 # =============================================================================
 # Test Class: SingletonMeta
@@ -43,4 +42,3 @@ class TestSingletonMeta:
         # result = instance.reset_instance()
         # assert result is not None
         pytest.skip("Test not implemented")
-

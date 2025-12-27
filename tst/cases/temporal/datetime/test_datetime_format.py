@@ -13,14 +13,13 @@ Tests for rite.temporal.datetime.datetime_format.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.temporal.datetime.datetime_format import (
     datetime_format,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_datetime_format() -> None:
     # result = datetime_format(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

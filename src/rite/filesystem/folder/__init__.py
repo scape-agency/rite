@@ -1,5 +1,3 @@
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -20,14 +18,10 @@ Rite application.
 # Import | Future
 from __future__ import annotations
 
+# Import | Local Modules
 from .folder_ensure_exists import folder_ensure_exists
 from .folder_list_files import folder_list_files
 from .folder_size_to_string import folder_size_to_string
-
-# Import | Standard Library
-
-# Import | Local Modules
-
 
 # =============================================================================
 # Exports

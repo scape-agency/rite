@@ -13,14 +13,13 @@ Tests for rite.system.environment.env_delete.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.system.environment.env_delete import (
     env_delete,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_env_delete() -> None:
     # result = env_delete(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

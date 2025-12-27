@@ -13,14 +13,13 @@ Tests for rite.filesystem.file.file_write_text.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.filesystem.file.file_write_text import (
     file_write_text,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_file_write_text() -> None:
     # result = file_write_text(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

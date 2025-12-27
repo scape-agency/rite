@@ -13,14 +13,13 @@ Tests for rite.text.analysis.is_palindrome.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.analysis.is_palindrome import (
     is_palindrome,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_is_palindrome() -> None:
     # result = is_palindrome(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

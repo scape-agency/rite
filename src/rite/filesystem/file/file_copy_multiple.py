@@ -1,5 +1,3 @@
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -21,8 +19,8 @@ Provides utilities for copying multiple files or entire directories.
 from __future__ import annotations
 
 # Import | Standard Library
-import shutil
 from pathlib import Path
+import shutil
 
 # =============================================================================
 # Functions

@@ -13,14 +13,13 @@ Tests for rite.text.search.text_ends_with.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.search.text_ends_with import (
     text_ends_with,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_text_ends_with() -> None:
     # result = text_ends_with(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

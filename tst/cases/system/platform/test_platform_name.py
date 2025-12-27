@@ -13,14 +13,13 @@ Tests for rite.system.platform.platform_name.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.system.platform.platform_name import (
     platform_name,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_platform_name() -> None:
     # result = platform_name(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

@@ -13,14 +13,13 @@ Tests for rite.text.analysis.average_word_length.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.analysis.average_word_length import (
     average_word_length,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_average_word_length() -> None:
     # result = average_word_length(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

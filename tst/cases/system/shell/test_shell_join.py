@@ -13,14 +13,13 @@ Tests for rite.system.shell.shell_join.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.system.shell.shell_join import (
     shell_join,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_shell_join() -> None:
     # result = shell_join(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

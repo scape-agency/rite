@@ -13,14 +13,13 @@ Tests for rite.conversion.to_percentage.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.conversion.to_percentage import (
     to_percentage,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_to_percentage() -> None:
     # result = to_percentage(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

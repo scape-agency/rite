@@ -13,14 +13,13 @@ Tests for rite.system.path.path_join.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.system.path.path_join import (
     path_join,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_path_join() -> None:
     # result = path_join(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

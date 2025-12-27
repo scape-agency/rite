@@ -13,15 +13,14 @@ Tests for rite.filesystem.mimetype.mimetype_validate.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.filesystem.mimetype.mimetype_validate import (
-    validate_mimetype,
     MimeValidationError,
+    validate_mimetype,
 )
-
 
 # =============================================================================
 # Test Class: MimeValidationError
@@ -49,4 +48,3 @@ def test_validate_mimetype() -> None:
     # result = validate_mimetype(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

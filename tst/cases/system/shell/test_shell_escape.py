@@ -13,14 +13,13 @@ Tests for rite.system.shell.shell_escape.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.system.shell.shell_escape import (
     shell_escape,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_shell_escape() -> None:
     # result = shell_escape(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

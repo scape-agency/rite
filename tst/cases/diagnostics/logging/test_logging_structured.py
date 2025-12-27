@@ -13,16 +13,15 @@ Tests for rite.diagnostics.logging.logging_structured.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.diagnostics.logging.logging_structured import (
-    logging_structured,
     _JSONFormatter,
     _KeyValueFormatter,
+    logging_structured,
 )
-
 
 # =============================================================================
 # Test Class: _JSONFormatter
@@ -81,4 +80,3 @@ def test_logging_structured() -> None:
     # result = logging_structured(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

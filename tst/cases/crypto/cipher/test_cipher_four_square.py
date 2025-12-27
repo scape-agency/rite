@@ -13,18 +13,17 @@ Tests for rite.crypto.cipher.cipher_four_square.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.crypto.cipher.cipher_four_square import (
-    generate_square,
+    decode_four_square_cipher,
+    encode_four_square_cipher,
     find_position,
     four_square_cipher_pair,
-    encode_four_square_cipher,
-    decode_four_square_cipher,
+    generate_square,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -69,4 +68,3 @@ def test_decode_four_square_cipher() -> None:
     # result = decode_four_square_cipher(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

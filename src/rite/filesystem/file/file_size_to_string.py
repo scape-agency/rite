@@ -21,7 +21,6 @@ from __future__ import annotations
 # Import | Standard Library
 from typing import BinaryIO, Protocol
 
-# Import | Local Modules
 # Implement local bytes-to-string conversion to avoid external dependency.
 
 SIZE_UNITS: tuple[str, ...] = (
@@ -57,11 +56,9 @@ class _SizedStream(Protocol):
 
     size: int
 
-    def tell(self, *args, **kwargs) -> int:
-        ...
+    def tell(self, *args, **kwargs) -> int: ...
 
-    def seek(self, *args, **kwargs) -> int:
-        ...
+    def seek(self, *args, **kwargs) -> int: ...
 
 
 # =============================================================================

@@ -13,14 +13,13 @@ Tests for rite.filesystem.compress.gzip_settings.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.filesystem.compress.gzip_settings import (
     GzipCompressionSettings,
 )
-
 
 # =============================================================================
 # Test Class: GzipCompressionSettings
@@ -35,4 +34,3 @@ class TestGzipCompressionSettings:
         # TODO: Implement test
         instance = GzipCompressionSettings()
         assert instance is not None
-

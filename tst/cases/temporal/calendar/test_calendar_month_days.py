@@ -13,14 +13,13 @@ Tests for rite.temporal.calendar.calendar_month_days.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.temporal.calendar.calendar_month_days import (
     calendar_month_days,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_calendar_month_days() -> None:
     # result = calendar_month_days(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

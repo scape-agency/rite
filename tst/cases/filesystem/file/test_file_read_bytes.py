@@ -13,14 +13,13 @@ Tests for rite.filesystem.file.file_read_bytes.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.filesystem.file.file_read_bytes import (
     file_read_bytes,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_file_read_bytes() -> None:
     # result = file_read_bytes(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

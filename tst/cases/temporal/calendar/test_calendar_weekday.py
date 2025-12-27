@@ -13,14 +13,13 @@ Tests for rite.temporal.calendar.calendar_weekday.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.temporal.calendar.calendar_weekday import (
     calendar_weekday,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_calendar_weekday() -> None:
     # result = calendar_weekday(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

@@ -7,5 +7,3 @@ mirror the ``src.rite.filesystem`` structure.
 This module is intentionally empty and kept only to avoid
 import errors for any external references.
 """
-
-*** End Patch

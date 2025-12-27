@@ -2,6 +2,7 @@
 
 """Tests for PriorityQueue."""
 
+# Import | Local Modules
 from src.rite.collections.queue import PriorityQueue
 
 

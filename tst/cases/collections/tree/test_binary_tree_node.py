@@ -13,14 +13,13 @@ Tests for rite.collections.tree.binary_tree_node.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.collections.tree.binary_tree_node import (
     BinaryTreeNode,
 )
-
 
 # =============================================================================
 # Test Class: BinaryTreeNode
@@ -115,4 +114,3 @@ class TestBinaryTreeNode:
         # result = instance.traverse_postorder()
         # assert result is not None
         pytest.skip("Test not implemented")
-

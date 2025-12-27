@@ -1,7 +1,10 @@
+# Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
 import io
 
+# Import | Local Modules
 from rite.filesystem.compress.file_gzip_compress import compress_file
 
 

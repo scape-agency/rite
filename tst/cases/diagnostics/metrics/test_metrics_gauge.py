@@ -13,14 +13,13 @@ Tests for rite.diagnostics.metrics.metrics_gauge.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.diagnostics.metrics.metrics_gauge import (
     metrics_gauge,
 )
-
 
 # =============================================================================
 # Test Class: metrics_gauge
@@ -75,4 +74,3 @@ class Testmetrics_gauge:
         # result = instance.reset()
         # assert result is not None
         pytest.skip("Test not implemented")
-

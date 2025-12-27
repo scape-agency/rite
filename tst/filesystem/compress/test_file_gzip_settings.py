@@ -1,5 +1,7 @@
+# Import | Future
 from __future__ import annotations
 
+# Import | Local Modules
 from rite.filesystem.compress.file_gzip_settings import (
     GzipCompressionSettings,
     settings,

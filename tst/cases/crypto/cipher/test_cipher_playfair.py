@@ -13,19 +13,18 @@ Tests for rite.crypto.cipher.cipher_playfair.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.crypto.cipher.cipher_playfair import (
     create_playfair_square,
+    decode_playfair_cipher,
+    encode_playfair_cipher,
     find_position,
     playfair_cipher_pair,
     prepare_text,
-    encode_playfair_cipher,
-    decode_playfair_cipher,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -78,4 +77,3 @@ def test_decode_playfair_cipher() -> None:
     # result = decode_playfair_cipher(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

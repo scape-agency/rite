@@ -13,15 +13,14 @@ Tests for rite.diagnostics.logging.logging_to_console.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.diagnostics.logging.logging_to_console import (
-    logging_to_console,
     _ColorFormatter,
+    logging_to_console,
 )
-
 
 # =============================================================================
 # Test Class: _ColorFormatter
@@ -57,4 +56,3 @@ def test_logging_to_console() -> None:
     # result = logging_to_console(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

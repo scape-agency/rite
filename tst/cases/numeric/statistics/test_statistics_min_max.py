@@ -13,15 +13,14 @@ Tests for rite.numeric.statistics.statistics_min_max.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.numeric.statistics.statistics_min_max import (
-    statistics_min,
     statistics_max,
+    statistics_min,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -42,4 +41,3 @@ def test_statistics_max() -> None:
     # result = statistics_max(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

@@ -13,14 +13,13 @@ Tests for rite.diagnostics.metrics.metrics_timer.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.diagnostics.metrics.metrics_timer import (
     metrics_timer,
 )
-
 
 # =============================================================================
 # Test Class: metrics_timer
@@ -67,4 +66,3 @@ class Testmetrics_timer:
         # result = instance.reset()
         # assert result is not None
         pytest.skip("Test not implemented")
-

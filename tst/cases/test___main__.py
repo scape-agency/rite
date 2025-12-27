@@ -13,14 +13,13 @@ Tests for rite.__main__.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.__main__ import (
     main,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_main() -> None:
     # result = main(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

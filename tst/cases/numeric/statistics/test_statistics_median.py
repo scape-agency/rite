@@ -13,14 +13,13 @@ Tests for rite.numeric.statistics.statistics_median.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.numeric.statistics.statistics_median import (
     statistics_median,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_statistics_median() -> None:
     # result = statistics_median(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

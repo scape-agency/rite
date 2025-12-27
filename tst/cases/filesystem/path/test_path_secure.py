@@ -13,14 +13,13 @@ Tests for rite.filesystem.path.path_secure.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.filesystem.path.path_secure import (
     path_secure,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_path_secure() -> None:
     # result = path_secure(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

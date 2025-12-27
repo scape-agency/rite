@@ -13,14 +13,13 @@ Tests for rite.system.platform.platform_python_version.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.system.platform.platform_python_version import (
     platform_python_version,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_platform_python_version() -> None:
     # result = platform_python_version(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

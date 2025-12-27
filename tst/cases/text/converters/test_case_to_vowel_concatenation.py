@@ -13,14 +13,13 @@ Tests for rite.text.converters.case_to_vowel_concatenation.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.converters.case_to_vowel_concatenation import (
     to_vowel_concatenation_case,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_to_vowel_concatenation_case() -> None:
     # result = to_vowel_concatenation_case(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

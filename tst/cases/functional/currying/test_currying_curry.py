@@ -13,14 +13,13 @@ Tests for rite.functional.currying.currying_curry.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.functional.currying.currying_curry import (
     currying_curry,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_currying_curry() -> None:
     # result = currying_curry(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

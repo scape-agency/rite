@@ -13,14 +13,13 @@ Tests for rite.reflection.types.types_is_class.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.reflection.types.types_is_class import (
     types_is_class,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_types_is_class() -> None:
     # result = types_is_class(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

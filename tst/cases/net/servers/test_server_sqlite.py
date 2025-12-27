@@ -13,15 +13,14 @@ Tests for rite.net.servers.server_sqlite.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.net.servers.server_sqlite import (
-    test,
     SQLiteServer,
+    test,
 )
-
 
 # =============================================================================
 # Test Class: SQLiteServer
@@ -105,4 +104,3 @@ def test_test() -> None:
     # result = test(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

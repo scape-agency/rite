@@ -13,14 +13,13 @@ Tests for rite.filesystem.mimetype.mimetype_read_head_bytes.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.filesystem.mimetype.mimetype_read_head_bytes import (
     read_head_bytes,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_read_head_bytes() -> None:
     # result = read_head_bytes(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

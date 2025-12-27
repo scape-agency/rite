@@ -13,14 +13,13 @@ Tests for rite.numeric.value_to_decimal.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.numeric.value_to_decimal import (
     value_to_decimal,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_value_to_decimal() -> None:
     # result = value_to_decimal(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

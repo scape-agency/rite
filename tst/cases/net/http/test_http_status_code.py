@@ -13,14 +13,13 @@ Tests for rite.net.http.http_status_code.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.net.http.http_status_code import (
     http_status_code,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_http_status_code() -> None:
     # result = http_status_code(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

@@ -27,7 +27,7 @@ Examples
 from __future__ import annotations
 
 # Import | Standard Library
-from typing import TypeVar, cast
+from typing import cast, TypeVar
 
 # =============================================================================
 # Type Variables

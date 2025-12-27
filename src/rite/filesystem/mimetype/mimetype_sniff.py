@@ -18,8 +18,6 @@ Best-effort magic-number based MIME type detection.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
-
 BytesLike = bytes | bytearray | memoryview
 
 

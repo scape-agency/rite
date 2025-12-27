@@ -13,14 +13,13 @@ Tests for rite.filesystem.file.file_spooled_settings.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.filesystem.file.file_spooled_settings import (
     SpooledFileSettings,
 )
-
 
 # =============================================================================
 # Test Class: SpooledFileSettings
@@ -35,4 +34,3 @@ class TestSpooledFileSettings:
         # TODO: Implement test
         instance = SpooledFileSettings()
         assert instance is not None
-

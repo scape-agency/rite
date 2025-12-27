@@ -13,14 +13,13 @@ Tests for rite.numeric.range.range_scale.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.numeric.range.range_scale import (
     range_scale,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_range_scale() -> None:
     # result = range_scale(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

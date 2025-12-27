@@ -13,14 +13,13 @@ Tests for rite.functional.decorators.decorators_deprecated.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.functional.decorators.decorators_deprecated import (
     decorators_deprecated,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_decorators_deprecated() -> None:
     # result = decorators_deprecated(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

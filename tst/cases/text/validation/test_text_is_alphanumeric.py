@@ -13,14 +13,13 @@ Tests for rite.text.validation.text_is_alphanumeric.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.validation.text_is_alphanumeric import (
     text_is_alphanumeric,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_text_is_alphanumeric() -> None:
     # result = text_is_alphanumeric(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

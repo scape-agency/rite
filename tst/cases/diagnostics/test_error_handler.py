@@ -13,14 +13,13 @@ Tests for rite.diagnostics.error_handler.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.diagnostics.error_handler import (
     ErrorHandler,
 )
-
 
 # =============================================================================
 # Test Class: ErrorHandler
@@ -59,4 +58,3 @@ class TestErrorHandler:
         # result = instance.retry_operation()
         # assert result is not None
         pytest.skip("Test not implemented")
-

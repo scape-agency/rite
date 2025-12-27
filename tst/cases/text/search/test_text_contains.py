@@ -13,14 +13,13 @@ Tests for rite.text.search.text_contains.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.search.text_contains import (
     text_contains,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_text_contains() -> None:
     # result = text_contains(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

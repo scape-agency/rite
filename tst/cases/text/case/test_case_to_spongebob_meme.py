@@ -13,14 +13,13 @@ Tests for rite.text.case.case_to_spongebob_meme.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.case.case_to_spongebob_meme import (
     to_spongebob_meme_case,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_to_spongebob_meme_case() -> None:
     # result = to_spongebob_meme_case(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

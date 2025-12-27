@@ -31,11 +31,14 @@ Dependencies:
 # Imports
 # =============================================================================
 
+# Import | Standard Library
 import os
 import tempfile
 
+# Import | Libraries
 import pytest
 
+# Import | Local Modules
 from rite.diagnostics import Logger
 
 # =============================================================================

@@ -1,5 +1,7 @@
+# Import | Future
 from __future__ import annotations
 
+# Import | Local Modules
 from rite.filesystem.mimetype.mimetype_sniff import mimetype_sniff
 
 

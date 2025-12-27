@@ -13,14 +13,13 @@ Tests for rite.serialization.pickle.pickle_dumps.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.serialization.pickle.pickle_dumps import (
     pickle_dumps,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_pickle_dumps() -> None:
     # result = pickle_dumps(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

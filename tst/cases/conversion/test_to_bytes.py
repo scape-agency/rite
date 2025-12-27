@@ -13,14 +13,13 @@ Tests for rite.conversion.to_bytes.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.conversion.to_bytes import (
     to_bytes,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_to_bytes() -> None:
     # result = to_bytes(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

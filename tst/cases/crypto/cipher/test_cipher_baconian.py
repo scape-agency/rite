@@ -13,15 +13,14 @@ Tests for rite.crypto.cipher.cipher_baconian.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.crypto.cipher.cipher_baconian import (
-    encode_baconian_cipher,
     decode_baconian_cipher,
+    encode_baconian_cipher,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -42,4 +41,3 @@ def test_decode_baconian_cipher() -> None:
     # result = decode_baconian_cipher(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

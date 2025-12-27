@@ -13,14 +13,13 @@ Tests for rite.text.search.text_find.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.search.text_find import (
     text_find,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_text_find() -> None:
     # result = text_find(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

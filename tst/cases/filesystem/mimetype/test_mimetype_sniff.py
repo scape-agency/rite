@@ -13,14 +13,13 @@ Tests for rite.filesystem.mimetype.mimetype_sniff.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.filesystem.mimetype.mimetype_sniff import (
     mimetype_sniff,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_mimetype_sniff() -> None:
     # result = mimetype_sniff(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

@@ -13,14 +13,13 @@ Tests for rite.conversion.formats.formats_hex_encode.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.conversion.formats.formats_hex_encode import (
     formats_hex_encode,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_formats_hex_encode() -> None:
     # result = formats_hex_encode(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

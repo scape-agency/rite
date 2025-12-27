@@ -13,14 +13,13 @@ Tests for rite.filesystem.folder.folder_list_folders.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.filesystem.folder.folder_list_folders import (
     list_folders,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_list_folders() -> None:
     # result = list_folders(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

@@ -13,14 +13,13 @@ Tests for rite.system.process.process_check_output.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.system.process.process_check_output import (
     process_check_output,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_process_check_output() -> None:
     # result = process_check_output(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

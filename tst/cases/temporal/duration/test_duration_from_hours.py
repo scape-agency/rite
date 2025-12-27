@@ -13,14 +13,13 @@ Tests for rite.temporal.duration.duration_from_hours.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.temporal.duration.duration_from_hours import (
     duration_from_hours,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_duration_from_hours() -> None:
     # result = duration_from_hours(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

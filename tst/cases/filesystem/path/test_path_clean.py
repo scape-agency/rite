@@ -13,14 +13,13 @@ Tests for rite.filesystem.path.path_clean.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.filesystem.path.path_clean import (
     path_clean,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_path_clean() -> None:
     # result = path_clean(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

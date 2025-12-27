@@ -13,14 +13,13 @@ Tests for rite.numeric.statistics.statistics_mean.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.numeric.statistics.statistics_mean import (
     statistics_mean,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_statistics_mean() -> None:
     # result = statistics_mean(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

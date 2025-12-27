@@ -13,14 +13,13 @@ Tests for rite.text.analysis.word_count.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.analysis.word_count import (
     word_count,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_word_count() -> None:
     # result = word_count(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

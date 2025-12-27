@@ -13,14 +13,13 @@ Tests for rite.text.morse.morse_encode.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.morse.morse_encode import (
     morse_encode,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_morse_encode() -> None:
     # result = morse_encode(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

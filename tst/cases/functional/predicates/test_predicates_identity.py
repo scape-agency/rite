@@ -13,14 +13,13 @@ Tests for rite.functional.predicates.predicates_identity.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.functional.predicates.predicates_identity import (
     predicates_identity,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_predicates_identity() -> None:
     # result = predicates_identity(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

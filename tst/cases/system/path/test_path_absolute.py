@@ -13,14 +13,13 @@ Tests for rite.system.path.path_absolute.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.system.path.path_absolute import (
     path_absolute,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_path_absolute() -> None:
     # result = path_absolute(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

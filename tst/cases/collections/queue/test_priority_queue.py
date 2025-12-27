@@ -13,14 +13,13 @@ Tests for rite.collections.queue.priority_queue.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.collections.queue.priority_queue import (
     PriorityQueue,
 )
-
 
 # =============================================================================
 # Test Class: PriorityQueue
@@ -75,4 +74,3 @@ class TestPriorityQueue:
         # result = instance.is_empty()
         # assert result is not None
         pytest.skip("Test not implemented")
-

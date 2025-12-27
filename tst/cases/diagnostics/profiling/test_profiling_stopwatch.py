@@ -13,14 +13,13 @@ Tests for rite.diagnostics.profiling.profiling_stopwatch.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.diagnostics.profiling.profiling_stopwatch import (
     profiling_stopwatch,
 )
-
 
 # =============================================================================
 # Test Class: profiling_stopwatch
@@ -35,4 +34,3 @@ class Testprofiling_stopwatch:
         # TODO: Implement test
         instance = profiling_stopwatch()
         assert instance is not None
-

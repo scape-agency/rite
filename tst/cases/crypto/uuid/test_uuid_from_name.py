@@ -13,14 +13,13 @@ Tests for rite.crypto.uuid.uuid_from_name.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.crypto.uuid.uuid_from_name import (
     from_name,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_from_name() -> None:
     # result = from_name(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

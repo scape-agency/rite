@@ -13,14 +13,13 @@ Tests for rite.system.process.process_run.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.system.process.process_run import (
     process_run,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_process_run() -> None:
     # result = process_run(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

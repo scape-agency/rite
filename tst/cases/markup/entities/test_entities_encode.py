@@ -13,14 +13,13 @@ Tests for rite.markup.entities.entities_encode.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.markup.entities.entities_encode import (
     entities_encode,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_entities_encode() -> None:
     # result = entities_encode(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

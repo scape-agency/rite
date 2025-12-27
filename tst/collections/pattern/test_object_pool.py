@@ -2,10 +2,13 @@
 
 """Tests for ObjectPool."""
 
+# Import | Standard Library
 from functools import partial
 
+# Import | Libraries
 import pytest
 
+# Import | Local Modules
 from src.rite.collections.pattern import ObjectPool
 
 

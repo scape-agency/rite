@@ -19,13 +19,8 @@ Deletes all files and subdirectories inside a given folder.
 from __future__ import annotations
 
 # Import | Standard Library
-import shutil
 from pathlib import Path
-
-# Import | Libraries
-
-# Import | Local Modules
-
+import shutil
 
 # =============================================================================
 # Functions

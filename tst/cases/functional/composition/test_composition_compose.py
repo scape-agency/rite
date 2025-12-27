@@ -13,14 +13,13 @@ Tests for rite.functional.composition.composition_compose.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.functional.composition.composition_compose import (
     composition_compose,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_composition_compose() -> None:
     # result = composition_compose(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

@@ -1,8 +1,10 @@
+# Import | Future
 from __future__ import annotations
 
+# Import | Local Modules
 from rite.filesystem.file.file_spooled_settings import (
-    SpooledFileSettings,
     settings,
+    SpooledFileSettings,
 )
 
 

@@ -13,14 +13,13 @@ Tests for rite.functional.predicates.predicates_negate.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.functional.predicates.predicates_negate import (
     predicates_negate,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_predicates_negate() -> None:
     # result = predicates_negate(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

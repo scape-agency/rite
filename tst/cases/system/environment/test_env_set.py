@@ -13,14 +13,13 @@ Tests for rite.system.environment.env_set.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.system.environment.env_set import (
     env_set,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_env_set() -> None:
     # result = env_set(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

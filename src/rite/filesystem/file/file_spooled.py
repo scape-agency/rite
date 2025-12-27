@@ -1,5 +1,3 @@
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -21,9 +19,9 @@ Provides utilities for creating spooled temporary files.
 from __future__ import annotations
 
 # Import | Standard Library
-import tempfile
 from pathlib import Path
 from shutil import copyfileobj
+import tempfile
 
 # Import | Local Modules
 from .file_spooled_settings import settings

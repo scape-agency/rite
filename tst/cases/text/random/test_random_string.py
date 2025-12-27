@@ -13,14 +13,13 @@ Tests for rite.text.random.random_string.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.random.random_string import (
     random_string,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_random_string() -> None:
     # result = random_string(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

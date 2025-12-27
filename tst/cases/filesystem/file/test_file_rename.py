@@ -13,14 +13,13 @@ Tests for rite.filesystem.file.file_rename.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.filesystem.file.file_rename import (
     rename_file,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_rename_file() -> None:
     # result = rename_file(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

@@ -13,14 +13,13 @@ Tests for rite.crypto.random.random_choice.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.crypto.random.random_choice import (
     random_choice,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_random_choice() -> None:
     # result = random_choice(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

@@ -13,14 +13,13 @@ Tests for rite.functional.partial.partial_right.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.functional.partial.partial_right import (
     partial_right,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_partial_right() -> None:
     # result = partial_right(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

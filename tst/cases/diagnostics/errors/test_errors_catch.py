@@ -13,14 +13,13 @@ Tests for rite.diagnostics.errors.errors_catch.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.diagnostics.errors.errors_catch import (
     errors_catch,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_errors_catch() -> None:
     # result = errors_catch(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

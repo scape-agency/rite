@@ -13,14 +13,13 @@ Tests for rite.collections.queue.circular_queue.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.collections.queue.circular_queue import (
     CircularQueue,
 )
-
 
 # =============================================================================
 # Test Class: CircularQueue
@@ -83,4 +82,3 @@ class TestCircularQueue:
         # result = instance.clear()
         # assert result is not None
         pytest.skip("Test not implemented")
-

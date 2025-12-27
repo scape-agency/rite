@@ -13,14 +13,13 @@ Tests for rite.temporal.timezone.timezone_get.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.temporal.timezone.timezone_get import (
     timezone_get,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_timezone_get() -> None:
     # result = timezone_get(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

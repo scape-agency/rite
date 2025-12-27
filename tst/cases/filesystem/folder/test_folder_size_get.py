@@ -13,14 +13,13 @@ Tests for rite.filesystem.folder.folder_size_get.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.filesystem.folder.folder_size_get import (
     get_folder_size,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_get_folder_size() -> None:
     # result = get_folder_size(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

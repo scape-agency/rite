@@ -13,14 +13,13 @@ Tests for rite.text.validation.text_is_email.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.validation.text_is_email import (
     text_is_email,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_text_is_email() -> None:
     # result = text_is_email(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

@@ -13,14 +13,13 @@ Tests for rite.markup.sanitize.sanitize_filename.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.markup.sanitize.sanitize_filename import (
     sanitize_filename,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_sanitize_filename() -> None:
     # result = sanitize_filename(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

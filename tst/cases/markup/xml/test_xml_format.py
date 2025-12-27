@@ -13,14 +13,13 @@ Tests for rite.markup.xml.xml_format.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.markup.xml.xml_format import (
     xml_format,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_xml_format() -> None:
     # result = xml_format(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

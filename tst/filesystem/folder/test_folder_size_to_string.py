@@ -1,7 +1,10 @@
+# Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
 from pathlib import Path
 
+# Import | Local Modules
 from rite.filesystem.folder.folder_size_to_string import folder_size_to_string
 
 

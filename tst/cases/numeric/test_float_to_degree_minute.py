@@ -13,14 +13,13 @@ Tests for rite.numeric.float_to_degree_minute.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.numeric.float_to_degree_minute import (
     float_to_degree_minute,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_float_to_degree_minute() -> None:
     # result = float_to_degree_minute(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

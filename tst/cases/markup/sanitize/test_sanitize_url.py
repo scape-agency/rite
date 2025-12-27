@@ -13,14 +13,13 @@ Tests for rite.markup.sanitize.sanitize_url.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.markup.sanitize.sanitize_url import (
     sanitize_url,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_sanitize_url() -> None:
     # result = sanitize_url(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

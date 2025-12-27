@@ -13,15 +13,14 @@ Tests for rite.crypto.cipher.cipher_scytale.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.crypto.cipher.cipher_scytale import (
-    encode_scytale_cipher,
     decode_scytale_cipher,
+    encode_scytale_cipher,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -42,4 +41,3 @@ def test_decode_scytale_cipher() -> None:
     # result = decode_scytale_cipher(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

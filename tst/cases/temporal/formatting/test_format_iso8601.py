@@ -13,14 +13,13 @@ Tests for rite.temporal.formatting.format_iso8601.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.temporal.formatting.format_iso8601 import (
     format_iso8601,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_format_iso8601() -> None:
     # result = format_iso8601(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

@@ -13,14 +13,13 @@ Tests for rite.text.case.case_to_first_letter_of_each_word.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.case.case_to_first_letter_of_each_word import (
     to_first_letter_of_each_word_case,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_to_first_letter_of_each_word_case() -> None:
     # result = to_first_letter_of_each_word_case(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

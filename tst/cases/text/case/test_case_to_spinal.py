@@ -13,14 +13,13 @@ Tests for rite.text.case.case_to_spinal.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.case.case_to_spinal import (
     to_spinal_case,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_to_spinal_case() -> None:
     # result = to_spinal_case(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

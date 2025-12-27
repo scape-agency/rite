@@ -13,14 +13,13 @@ Tests for rite.diagnostics.logger.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.diagnostics.logger import (
     Logger,
 )
-
 
 # =============================================================================
 # Test Class: Logger
@@ -91,4 +90,3 @@ class TestLogger:
         # result = instance.clear_log()
         # assert result is not None
         pytest.skip("Test not implemented")
-

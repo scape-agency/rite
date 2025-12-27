@@ -13,14 +13,13 @@ Tests for rite.net.request.request_get.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.net.request.request_get import (
     request_get,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_request_get() -> None:
     # result = request_get(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

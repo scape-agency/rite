@@ -13,15 +13,14 @@ Tests for rite.crypto.cipher.cipher_atbash.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.crypto.cipher.cipher_atbash import (
-    encode_atbash_cipher,
     decode_atbash_cipher,
+    encode_atbash_cipher,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -42,4 +41,3 @@ def test_decode_atbash_cipher() -> None:
     # result = decode_atbash_cipher(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

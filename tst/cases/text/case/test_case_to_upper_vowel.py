@@ -13,14 +13,13 @@ Tests for rite.text.case.case_to_upper_vowel.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.case.case_to_upper_vowel import (
     to_vowel_uppercase_case,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_to_vowel_uppercase_case() -> None:
     # result = to_vowel_uppercase_case(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

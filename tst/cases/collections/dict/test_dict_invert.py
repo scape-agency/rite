@@ -13,14 +13,13 @@ Tests for rite.collections.dict.dict_invert.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.collections.dict.dict_invert import (
     dict_invert,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_dict_invert() -> None:
     # result = dict_invert(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

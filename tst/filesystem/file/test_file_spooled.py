@@ -1,8 +1,11 @@
+# Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
 import io
 from pathlib import Path
 
+# Import | Local Modules
 from rite.filesystem import create_spooled_temporary_file
 
 

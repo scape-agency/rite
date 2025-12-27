@@ -1,9 +1,13 @@
+# Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
 import io
 
+# Import | Libraries
 import pytest
 
+# Import | Local Modules
 from rite.filesystem.mimetype.mimetype_validate import (
     MimeValidationError,
     validate_mimetype,

@@ -13,14 +13,13 @@ Tests for rite.text.manipulation.text_wrap.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.manipulation.text_wrap import (
     text_wrap,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_text_wrap() -> None:
     # result = text_wrap(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

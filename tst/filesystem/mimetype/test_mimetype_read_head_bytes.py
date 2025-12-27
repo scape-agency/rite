@@ -1,8 +1,11 @@
+# Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
 import io
 from pathlib import Path
 
+# Import | Local Modules
 from rite.filesystem.mimetype.mimetype_read_head_bytes import read_head_bytes
 
 

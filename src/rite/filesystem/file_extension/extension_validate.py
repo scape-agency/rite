@@ -1,5 +1,3 @@
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -21,8 +19,8 @@ Provides utilities for validating file extensions.
 from __future__ import annotations
 
 # Import | Standard Library
-import re
 from collections.abc import Iterable
+import re
 
 # Import | Local Modules
 from .extension_regex import EXTENSION_REGEX

@@ -13,14 +13,13 @@ Tests for rite.net.mime.mime_guess_type.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.net.mime.mime_guess_type import (
     mime_guess_type,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_mime_guess_type() -> None:
     # result = mime_guess_type(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

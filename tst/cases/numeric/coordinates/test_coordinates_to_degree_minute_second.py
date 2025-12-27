@@ -13,14 +13,13 @@ Tests for rite.numeric.coordinates.coordinates_to_degree_minute_second.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.numeric.coordinates.coordinates_to_degree_minute_second import (
     coordinates_to_degree_minute_second,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_coordinates_to_degree_minute_second() -> None:
     # result = coordinates_to_degree_minute_second(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

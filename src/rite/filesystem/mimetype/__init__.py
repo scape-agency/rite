@@ -1,5 +1,3 @@
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -33,6 +31,7 @@ ensuring that only files with appropriate MIME types are processed or stored.
 # Imports
 # =============================================================================
 
+# Import | Local Modules
 from .mimetype_guess_from_path import mimetype_guess_from_path
 
 # MIME Type Verification Functions

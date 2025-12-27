@@ -13,13 +13,10 @@ Tests for rite.filesystem.file_extension.extension_regex.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
-# Import | Local Modules
-from rite.filesystem.file_extension.extension_regex import (
-    # TODO: Add imports
-)
+# TODO: Add imports from rite.filesystem.file_extension.extension_regex
 
 
 # =============================================================================

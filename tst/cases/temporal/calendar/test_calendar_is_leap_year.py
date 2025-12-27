@@ -13,14 +13,13 @@ Tests for rite.temporal.calendar.calendar_is_leap_year.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.temporal.calendar.calendar_is_leap_year import (
     calendar_is_leap_year,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_calendar_is_leap_year() -> None:
     # result = calendar_is_leap_year(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

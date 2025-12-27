@@ -13,15 +13,14 @@ Tests for rite.collections.tree.trie.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.collections.tree.trie import (
-    TrieNode,
     Trie,
+    TrieNode,
 )
-
 
 # =============================================================================
 # Test Class: TrieNode
@@ -115,4 +114,3 @@ class TestTrie:
         # result = instance.get_all_words()
         # assert result is not None
         pytest.skip("Test not implemented")
-

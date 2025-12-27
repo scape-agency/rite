@@ -13,15 +13,14 @@ Tests for rite.crypto.cipher.cipher_xor.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.crypto.cipher.cipher_xor import (
-    encode_xor_cipher,
     decode_xor_cipher,
+    encode_xor_cipher,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -42,4 +41,3 @@ def test_decode_xor_cipher() -> None:
     # result = decode_xor_cipher(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

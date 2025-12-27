@@ -13,14 +13,13 @@ Tests for rite.functional.composition.composition_chain.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.functional.composition.composition_chain import (
     composition_chain,
 )
-
 
 # =============================================================================
 # Test Class: composition_chain
@@ -51,4 +50,3 @@ class Testcomposition_chain:
         # result = instance.value()
         # assert result is not None
         pytest.skip("Test not implemented")
-

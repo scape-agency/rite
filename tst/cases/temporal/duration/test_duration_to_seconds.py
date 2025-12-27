@@ -13,14 +13,13 @@ Tests for rite.temporal.duration.duration_to_seconds.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.temporal.duration.duration_to_seconds import (
     duration_to_seconds,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_duration_to_seconds() -> None:
     # result = duration_to_seconds(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

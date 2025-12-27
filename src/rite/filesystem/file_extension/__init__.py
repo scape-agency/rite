@@ -1,6 +1,6 @@
-
 """File extension helpers for the filesystem package."""
 
+# Import | Local Modules
 from .extension_normalize import extension_normalize
 from .extension_regex import EXTENSION_REGEX
 from .extension_validate import extension_validate

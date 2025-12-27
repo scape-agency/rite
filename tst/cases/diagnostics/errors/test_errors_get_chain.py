@@ -13,14 +13,13 @@ Tests for rite.diagnostics.errors.errors_get_chain.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.diagnostics.errors.errors_get_chain import (
     errors_get_chain,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_errors_get_chain() -> None:
     # result = errors_get_chain(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

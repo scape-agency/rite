@@ -13,14 +13,13 @@ Tests for rite.temporal.formatting.format_rfc3339.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.temporal.formatting.format_rfc3339 import (
     format_rfc3339,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_format_rfc3339() -> None:
     # result = format_rfc3339(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

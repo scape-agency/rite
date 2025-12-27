@@ -13,14 +13,13 @@ Tests for rite.filesystem.file_name.filename_to_date.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.filesystem.file_name.filename_to_date import (
     filename_to_date,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_filename_to_date() -> None:
     # result = filename_to_date(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

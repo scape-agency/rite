@@ -13,14 +13,13 @@ Tests for rite.filesystem.path.path_exists.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.filesystem.path.path_exists import (
     path_exists,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_path_exists() -> None:
     # result = path_exists(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

@@ -13,14 +13,13 @@ Tests for rite.collections.pattern.object_pool.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.collections.pattern.object_pool import (
     ObjectPool,
 )
-
 
 # =============================================================================
 # Test Class: ObjectPool
@@ -83,4 +82,3 @@ class TestObjectPool:
         # result = instance.in_use_count()
         # assert result is not None
         pytest.skip("Test not implemented")
-

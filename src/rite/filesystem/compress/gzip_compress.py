@@ -20,8 +20,8 @@ from __future__ import annotations
 
 # Import | Standard Library
 import gzip
-import tempfile
 from shutil import copyfileobj
+import tempfile
 from typing import BinaryIO
 
 # Import | Local Modules

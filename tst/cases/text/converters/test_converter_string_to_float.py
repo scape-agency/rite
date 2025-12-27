@@ -13,14 +13,13 @@ Tests for rite.text.converters.converter_string_to_float.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.text.converters.converter_string_to_float import (
     convert_string_to_float,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_convert_string_to_float() -> None:
     # result = convert_string_to_float(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

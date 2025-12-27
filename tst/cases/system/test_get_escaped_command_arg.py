@@ -13,14 +13,13 @@ Tests for rite.system.get_escaped_command_arg.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
+# Import | Libraries
 import pytest
 
 # Import | Local Modules
 from rite.system.get_escaped_command_arg import (
     get_escaped_command_arg,
 )
-
 
 # =============================================================================
 # Test Functions
@@ -33,4 +32,3 @@ def test_get_escaped_command_arg() -> None:
     # result = get_escaped_command_arg(test_input)
     # assert result == expected_output
     pytest.skip("Test not implemented")
-

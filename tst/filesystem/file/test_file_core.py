@@ -1,12 +1,15 @@
+# Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
 import io
 from pathlib import Path
 from typing import BinaryIO, cast
 
+# Import | Libraries
 import pytest
 
-from rite.filesystem import EXTENSION_REGEX  # kept here for now
+# Import | Local Modules
 from rite.filesystem import (
     compress_file,
     copy_file,
@@ -24,6 +27,7 @@ from rite.filesystem import (
     rename_file,
     uncompress_file,
 )
+from rite.filesystem import EXTENSION_REGEX  # kept here for now
 
 
 def test_read_and_write_text_and_bytes(tmp_path: Path) -> None:

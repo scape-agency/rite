@@ -1,7 +1,10 @@
+# Import | Future
 from __future__ import annotations
 
+# Import | Libraries
 import pytest
 
+# Import | Local Modules
 from rite.filesystem import extension_validate
 
 

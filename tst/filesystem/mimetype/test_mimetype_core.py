@@ -1,15 +1,22 @@
+# Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
 import io
+from pathlib import Path
 import sys
 import types
-from pathlib import Path
 
+# Import | Libraries
 import pytest
 
+# Import | Local Modules
 from rite.filesystem.mimetype.mimetype_guess import mimetype_guess
 from rite.filesystem.mimetype.mimetype_guess_from_path import (
     mimetype_guess_from_path,
+)
+from rite.filesystem.mimetype.mimetype_match import (
+    ,
 )
 from rite.filesystem.mimetype.mimetype_match import (
     mimetype_match as simple_match,
@@ -17,8 +24,8 @@ from rite.filesystem.mimetype.mimetype_match import (
 from rite.filesystem.mimetype.mimetype_read_head_bytes import read_head_bytes
 from rite.filesystem.mimetype.mimetype_sniff import mimetype_sniff
 from rite.filesystem.mimetype.mimetype_validate import (
-    MimeValidationError,
     mimetype_match,
+    MimeValidationError,
     validate_mimetype,
 )
 from rite.filesystem.mimetype.mimetype_verify import mimetype_verify
@@ -130,8 +137,10 @@ def test_mimetype_verify_with_django_stub(tmp_path: Path) -> None:
     sys.modules.setdefault("django.utils", utils_mod)
     sys.modules["django.utils.translation"] = translation_mod
 
+    # Import | Standard Library
     from importlib import reload
 
+    # Import | Local Modules
     # Reload module so it picks up the stub
     import rite.filesystem.mimetype.mimetype_verify as verify_module
 
