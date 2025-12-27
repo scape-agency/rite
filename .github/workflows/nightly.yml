@@ -1,0 +1,67 @@
+# =============================================================================
+# GitHub Actions Workflow: Nightly Tests
+# =============================================================================
+
+name: Nightly Tests
+
+on:
+  schedule:
+    # Run every day at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  nightly:
+    name: Nightly Test Suite
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: ["3.10", "3.11", "3.12", "3.13-dev"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          allow-prereleases: true
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+
+      - name: Install dependencies
+        run: poetry install --no-interaction --with dev
+
+      - name: Run full test suite
+        run: poetry run pytest -v --cov=rite --cov-report=term
+
+      - name: Run slow tests
+        run: poetry run pytest -v -m slow
+
+      - name: Create issue if nightly fails
+        if: failure() && github.event_name == 'schedule'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = `Nightly test failure on ${{ matrix.os }} with Python ${{ matrix.python-version }}`;
+            const body = `
+            The nightly test suite failed.
+
+            **Environment:**
+            - OS: ${{ matrix.os }}
+            - Python: ${{ matrix.python-version }}
+            - Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            Please investigate and fix.
+            `;
+
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: title,
+              body: body,
+              labels: ['bug', 'nightly-failure']
+            });
