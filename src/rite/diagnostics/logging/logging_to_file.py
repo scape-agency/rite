@@ -74,7 +74,7 @@ def logging_to_file(
 
         if format_string is None:
             format_string = (
-                "%(asctime)s - %(name)s - " "%(levelname)s - %(message)s"
+                "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
             )
 
         formatter = logging.Formatter(format_string)

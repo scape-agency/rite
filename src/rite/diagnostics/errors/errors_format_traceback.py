@@ -71,7 +71,7 @@ def errors_format_traceback(
             for key, value in frame.f_locals.items():
                 try:
                     lines.append(f"    {key} = {repr(value)}\n")
-                except Exception:  # noqa: BLE001
+                except (ValueError, TypeError, RecursionError):
                     lines.append(f"    {key} = <unrepresentable>\n")
             tb = tb.tb_next
 

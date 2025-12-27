@@ -24,7 +24,6 @@ from __future__ import annotations
 
 # Import | Standard Library
 from pathlib import Path
-import sys
 from typing import Any
 
 # =============================================================================
@@ -55,6 +54,7 @@ def toml_load(path: str | Path) -> dict[str, Any]:
     """
     try:
         # Import | Standard Library
+        # pylint: disable=import-outside-toplevel
         import tomllib
     except ImportError as e:
         raise ImportError("tomllib requires Python 3.11+") from e

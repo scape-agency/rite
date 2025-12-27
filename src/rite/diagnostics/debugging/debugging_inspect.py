@@ -24,7 +24,6 @@ Examples
 from __future__ import annotations
 
 # Import | Standard Library
-import inspect
 from typing import Any
 
 # =============================================================================
@@ -32,7 +31,10 @@ from typing import Any
 # =============================================================================
 
 
-def debugging_inspect(obj: Any, show_private: bool = False) -> dict[str, Any]:
+def debugging_inspect(
+    obj: Any,
+    show_private: bool = False,
+) -> dict[str, Any]:
     """
     Inspect object attributes and methods.
 
@@ -70,7 +72,7 @@ def debugging_inspect(obj: Any, show_private: bool = False) -> dict[str, Any]:
                 result["methods"].append(name)
             else:
                 result["attributes"][name] = attr
-        except Exception:
+        except (AttributeError, TypeError):
             result["attributes"][name] = "<unavailable>"
 
     return result

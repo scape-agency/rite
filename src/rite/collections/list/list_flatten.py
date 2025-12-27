@@ -29,7 +29,6 @@ Examples
 from __future__ import annotations
 
 # Import | Standard Library
-from collections.abc import Iterable
 from typing import Any, TypeVar
 
 # =============================================================================

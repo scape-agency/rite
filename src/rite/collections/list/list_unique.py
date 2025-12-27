@@ -29,7 +29,7 @@ Examples
 from __future__ import annotations
 
 # Import | Standard Library
-from typing import Any, TypeVar
+from typing import TypeVar
 
 # =============================================================================
 # Type Variables

@@ -2,7 +2,13 @@
 # Docstring
 # =============================================================================
 
-""" """
+"""
+Rite - Filesystem - MIME Type Validation Module
+===============================================
+
+Provides functionality to validate MIME types of files or data.
+
+"""
 
 
 # =============================================================================
@@ -12,6 +18,7 @@
 # Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
 from typing import Any, Iterable
 
 # Import | Local Modules
@@ -19,6 +26,9 @@ from .mimetype_guess import mimetype_guess
 from .mimetype_match import mimetype_match
 
 
+# =============================================================================
+# Classes & Functions
+# =============================================================================
 class MimeValidationError(ValueError):
     """Raised when a value does not satisfy MIME type constraints."""
 

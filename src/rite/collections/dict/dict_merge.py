@@ -27,7 +27,7 @@ Examples
 from __future__ import annotations
 
 # Import | Standard Library
-from typing import Any, TypeVar
+from typing import TypeVar, cast
 
 # =============================================================================
 # Type Variables
@@ -77,7 +77,14 @@ def dict_merge(
                     and isinstance(result[key], dict)
                     and isinstance(value, dict)
                 ):
-                    result[key] = dict_merge(result[key], value, deep=True)
+                    result[key] = cast(
+                        V,
+                        dict_merge(
+                            cast(dict[K, V], result[key]),
+                            cast(dict[K, V], value),
+                            deep=True,
+                        ),
+                    )
                 else:
                     result[key] = value
         else:
