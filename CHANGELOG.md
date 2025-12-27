@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.3-beta.1](https://github.com/scape-agency/rite/compare/v0.1.2...v0.1.3-beta.1) (2025-12-27)
+
+### 🐛 Bug Fixes
+
+* Remove broken imports and nonexistent module references ([e8770b3](https://github.com/scape-agency/rite/commit/e8770b3254a228d2533229f1686ae0f903ef8bc5))
+
 ## [0.1.2-beta.4](https://github.com/scape-agency/rite/compare/v0.1.2-beta.3...v0.1.2-beta.4) (2025-12-27)
 
 ### 🐛 Bug Fixes
