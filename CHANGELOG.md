@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.2-beta.4](https://github.com/scape-agency/rite/compare/v0.1.2-beta.3...v0.1.2-beta.4) (2025-12-27)
+
+### 🐛 Bug Fixes
+
+* **lint:** Fix E704 protocol method signatures with proper implementation ([ccc0a6d](https://github.com/scape-agency/rite/commit/ccc0a6ddc43b36c4baaa93ea9fd806acdc7c8eed))
+
 ## [0.1.2-beta.3](https://github.com/scape-agency/rite/compare/v0.1.2-beta.2...v0.1.2-beta.3) (2025-12-27)
 
 ### 🐛 Bug Fixes
