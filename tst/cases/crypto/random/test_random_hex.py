@@ -28,7 +28,17 @@ from rite.crypto.random.random_hex import (
 
 def test_random_hex() -> None:
     """Test random_hex() function."""
-    # TODO: Implement test
-    # result = random_hex(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test default size
+    result = random_hex()
+    assert isinstance(result, str)
+    assert len(result) == 64  # 32 bytes = 64 hex chars
+    assert all(c in "0123456789abcdef" for c in result)
+    
+    # Test custom size
+    result = random_hex(16)
+    assert len(result) == 32  # 16 bytes = 32 hex chars
+    
+    # Test uniqueness
+    result1 = random_hex(16)
+    result2 = random_hex(16)
+    assert result1 != result2

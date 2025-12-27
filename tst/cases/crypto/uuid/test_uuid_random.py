@@ -28,7 +28,16 @@ from rite.crypto.uuid.uuid_random import (
 
 def test_uuid_random() -> None:
     """Test uuid_random() function."""
-    # TODO: Implement test
-    # result = uuid_random(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    import uuid as stdlib_uuid
+    
+    # Test basic generation
+    result = uuid_random()
+    assert isinstance(result, stdlib_uuid.UUID)
+    
+    # Test uniqueness
+    result1 = uuid_random()
+    result2 = uuid_random()
+    assert result1 != result2
+    
+    # Test version 4 (random)
+    assert result.version == 4

@@ -28,7 +28,15 @@ from rite.crypto.random.random_choice import (
 
 def test_random_choice() -> None:
     """Test random_choice() function."""
-    # TODO: Implement test
-    # result = random_choice(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test with list
+    choices = ["a", "b", "c", "d", "e"]
+    result = random_choice(choices)
+    assert result in choices
+    
+    # Test with string
+    result = random_choice("abcde")
+    assert result in "abcde"
+    
+    # Test uniqueness (run multiple times)
+    results = [random_choice(choices) for _ in range(20)]
+    assert len(set(results)) > 1  # Should have variety

@@ -28,7 +28,13 @@ from rite.crypto.uuid.uuid_string import (
 
 def test_uuid_string() -> None:
     """Test uuid_string() function."""
-    # TODO: Implement test
-    # result = uuid_string(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test basic generation
+    result = uuid_string()
+    assert isinstance(result, str)
+    assert len(result) == 36  # UUID string format: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    assert result.count("-") == 4
+    
+    # Test uniqueness
+    result1 = uuid_string()
+    result2 = uuid_string()
+    assert result1 != result2

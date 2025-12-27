@@ -28,7 +28,17 @@ from rite.crypto.random.random_bytes import (
 
 def test_random_bytes() -> None:
     """Test random_bytes() function."""
-    # TODO: Implement test
-    # result = random_bytes(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test default size
+    result = random_bytes()
+    assert isinstance(result, bytes)
+    assert len(result) == 32  # Default size
+    
+    # Test custom size
+    result = random_bytes(16)
+    assert isinstance(result, bytes)
+    assert len(result) == 16
+    
+    # Test uniqueness
+    result1 = random_bytes(16)
+    result2 = random_bytes(16)
+    assert result1 != result2  # Should be different

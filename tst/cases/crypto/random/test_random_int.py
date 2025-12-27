@@ -28,7 +28,16 @@ from rite.crypto.random.random_int import (
 
 def test_random_int() -> None:
     """Test random_int() function."""
-    # TODO: Implement test
-    # result = random_int(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test range
+    for _ in range(10):
+        result = random_int(0, 100)
+        assert 0 <= result <= 100
+    
+    # Test different range
+    for _ in range(10):
+        result = random_int(50, 60)
+        assert 50 <= result <= 60
+    
+    # Test uniqueness
+    results = [random_int(0, 1000) for _ in range(20)]
+    assert len(set(results)) > 1  # Should have variety
