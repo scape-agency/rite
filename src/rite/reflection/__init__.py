@@ -75,10 +75,6 @@ from .inspection import (
     inspection_get_source,
 )
 
-# Import | Legacy
-from .load_class import ClassImportError as _ClassImportError
-from .load_class import load_class
-
 # Import | Signature Utilities
 from .signature import (
     signature_get_parameters,

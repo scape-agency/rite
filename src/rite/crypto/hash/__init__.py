@@ -35,9 +35,9 @@ from .hash_md5 import hash_md5
 from .hash_sha1 import hash_sha1
 from .hash_sha3_256 import hash_sha3_256
 from .hash_sha3_512 import hash_sha3_512
-from .hash_sha256 import hash_sha256, hash_sha256_hmac, sha256_hash
+from .hash_sha256 import hash_sha256, hash_sha256_hmac
 from .hash_sha384 import hash_sha384
-from .hash_sha512 import hash_sha512, hash_sha512_hmac, sha512_hash
+from .hash_sha512 import hash_sha512, hash_sha512_hmac
 
 # =============================================================================
 # Exports
@@ -60,7 +60,4 @@ __all__: list[str] = [
     # BLAKE2
     "hash_blake2b",
     "hash_blake2s",
-    # Legacy
-    "sha256_hash",
-    "sha512_hash",
 ]

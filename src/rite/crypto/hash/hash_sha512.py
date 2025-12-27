@@ -86,23 +86,6 @@ def hash_sha512_hmac(
     return hmac.new(key=key, msg=msg, digestmod=hashlib.sha512).hexdigest()
 
 
-# Legacy alias for backward compatibility
-def sha512_hash(key: str | bytes, msg: str | bytes) -> str:
-    """
-    Legacy function: SHA512 HMAC (backward compatibility).
-
-    Use hash_sha512_hmac() instead.
-
-    Args:
-        key: Secret key.
-        msg: Message to authenticate.
-
-    Returns:
-        Hexadecimal HMAC-SHA-512 string.
-    """
-    return hash_sha512_hmac(key, msg)
-
-
 # =============================================================================
 # Exports
 # =============================================================================
@@ -110,5 +93,4 @@ def sha512_hash(key: str | bytes, msg: str | bytes) -> str:
 __all__: list[str] = [
     "hash_sha512",
     "hash_sha512_hmac",
-    "sha512_hash",  # Legacy
 ]

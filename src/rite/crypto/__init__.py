@@ -91,8 +91,6 @@ from .hash import (
     hash_sha384,
     hash_sha512,
     hash_sha512_hmac,
-    sha256_hash,
-    sha512_hash,
 )
 
 # Import | Local Modules - Random
@@ -136,9 +134,6 @@ __all__: list[str] = [
     # Hashing - BLAKE2
     "hash_blake2b",
     "hash_blake2s",
-    # Hashing - Legacy
-    "sha256_hash",
-    "sha512_hash",
     # Random
     "random_bytes",
     "random_hex",

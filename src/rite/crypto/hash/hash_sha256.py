@@ -86,23 +86,6 @@ def hash_sha256_hmac(
     return hmac.new(key=key, msg=msg, digestmod=hashlib.sha256).hexdigest()
 
 
-# Legacy alias for backward compatibility
-def sha256_hash(key: str | bytes, msg: str | bytes) -> str:
-    """
-    Legacy function: SHA256 HMAC (backward compatibility).
-
-    Use hash_sha256_hmac() instead.
-
-    Args:
-        key: Secret key.
-        msg: Message to authenticate.
-
-    Returns:
-        Hexadecimal HMAC-SHA-256 string.
-    """
-    return hash_sha256_hmac(key, msg)
-
-
 # =============================================================================
 # Exports
 # =============================================================================
@@ -110,5 +93,4 @@ def sha256_hash(key: str | bytes, msg: str | bytes) -> str:
 __all__: list[str] = [
     "hash_sha256",
     "hash_sha256_hmac",
-    "sha256_hash",  # Legacy
 ]
