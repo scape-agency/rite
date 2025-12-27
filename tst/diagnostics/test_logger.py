@@ -130,7 +130,7 @@ def test_console_logging(capsys):
     captured = capsys.readouterr()
 
     assert (
-        "Console info message" in captured.out
+        "Console info message" in captured.err
     ), "Console logging should capture messages."
 
 

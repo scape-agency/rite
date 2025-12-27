@@ -197,7 +197,6 @@ class Logger:
         """
         if self.log_file and os.path.exists(self.log_file):
             open(self.log_file, "w", encoding="utf-8").close()
-            self.info("Log file cleared.")
 
 
 # =============================================================================

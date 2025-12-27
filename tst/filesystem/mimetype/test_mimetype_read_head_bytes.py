@@ -22,4 +22,4 @@ def test_read_head_bytes_from_stream_preserves_position() -> None:
     stream.read(2)
     head = read_head_bytes(stream, n=3)
     assert head == b"cde"
-    assert stream.read() == b"f"
+    assert stream.read() == b"cdef"
