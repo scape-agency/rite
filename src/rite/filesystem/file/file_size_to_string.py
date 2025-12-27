@@ -57,8 +57,11 @@ class _SizedStream(Protocol):
 
     size: int
 
-    def tell(self, *args, **kwargs) -> int: ...
-    def seek(self, *args, **kwargs) -> int: ...
+    def tell(self, *args, **kwargs) -> int:
+        ...
+
+    def seek(self, *args, **kwargs) -> int:
+        ...
 
 
 # =============================================================================

@@ -1,13 +1,13 @@
 # =============================================================================
 # Development Container for Rite
-# Python 3.15 Development Environment
+# Python 3.12 Development Environment
 # =============================================================================
 
-FROM python:3.15-slim-bookworm
+FROM python:3.12-slim-bookworm
 
 # Metadata
 LABEL maintainer="Scape Agency"
-LABEL description="Rite Python 3.15 Development Container"
+LABEL description="Rite Python 3.12 Development Container"
 LABEL version="1.0"
 
 # Environment variables

@@ -2,7 +2,7 @@
   "extends": ["@commitlint/config-conventional"],
   "rules": {
     "type-enum": [
-      2,
+      1,
       "always",
       [
         "feat",
@@ -15,11 +15,13 @@
         "build",
         "ci",
         "chore",
-        "revert"
+        "revert",
+        "release",
+        "version"
       ]
     ],
     "scope-enum": [
-      1,
+      0,
       "always",
       [
         "crypto",
@@ -37,12 +39,13 @@
         "config"
       ]
     ],
-    "subject-case": [2, "always", "sentence-case"],
-    "subject-empty": [2, "never"],
-    "subject-full-stop": [2, "never", "."],
-    "header-max-length": [2, "always", 100],
-    "body-leading-blank": [2, "always"],
-    "body-max-line-length": [2, "always", 100],
-    "footer-leading-blank": [2, "always"]
+    "type-empty": [1, "never"],
+    "subject-case": [0, "always", "sentence-case"],
+    "subject-empty": [1, "never"],
+    "subject-full-stop": [0, "never", "."],
+    "header-max-length": [1, "always", 120],
+    "body-leading-blank": [1, "always"],
+    "body-max-line-length": [1, "always", 120],
+    "footer-leading-blank": [1, "always"]
   }
 }
