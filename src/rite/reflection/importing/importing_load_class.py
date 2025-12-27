@@ -1,17 +1,21 @@
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
 
 """
-Dynamic Class Loading
-====================
+Class Importer
+==============
 
-Dynamically import classes from module paths.
+Dynamically load class from module path.
+
+Examples
+--------
+>>> from rite.reflection.importing import importing_load_class
+>>> OrderedDict = importing_load_class("collections.OrderedDict")
+>>> isinstance(OrderedDict(), dict)
+True
 
 """
-
 
 # =============================================================================
 # Imports
@@ -29,7 +33,7 @@ from importlib import import_module
 
 
 class ClassImportError(ImportError):
-    """Raised when a class cannot be dynamically imported."""
+    """Raised when class cannot be dynamically imported."""
 
 
 # =============================================================================
@@ -37,54 +41,55 @@ class ClassImportError(ImportError):
 # =============================================================================
 
 
-def load_class(path: str) -> type:
+def importing_load_class(path: str) -> type:
     """
-    Dynamically import a class from a given module path.
+    Dynamically load class from module path.
 
     Args:
-        path: The fully qualified module path of the class
-              (e.g., "mypackage.mymodule.MyClass")
+        path: Fully qualified path (e.g., "module.Class").
 
     Returns:
-        The loaded class object
+        Loaded class object.
 
     Raises:
-        ClassImportError: If the module or class cannot be imported
+        ClassImportError: If module or class cannot be imported.
 
-    Example:
-        >>> MyClass = load_class("collections.OrderedDict")
-        >>> isinstance(MyClass(), dict)
-        True
+    Examples:
+        >>> importing_load_class("collections.OrderedDict")
+        <class 'collections.OrderedDict'>
+        >>> importing_load_class("pathlib.Path")
+        <class 'pathlib.Path'>
+
+    Notes:
+        Path format: "module.submodule.ClassName".
     """
     try:
         module_path, class_name = path.rsplit(".", 1)
     except ValueError as exc:
         raise ClassImportError(
-            f"Invalid path format: '{path}'. Expected format 'module.ClassName'."
+            f"Invalid path format: '{path}'. " f"Expected 'module.ClassName'."
         ) from exc
 
     try:
         module = import_module(module_path)
     except ModuleNotFoundError as exc:
         raise ClassImportError(
-            f"Error importing module '{module_path}': {exc}"
+            f"Module '{module_path}' not found: {exc}"
         ) from exc
 
     try:
         cls = getattr(module, class_name)
     except AttributeError as exc:
         raise ClassImportError(
-            f"Module '{module_path}' does not define a class named '{class_name}'."
+            f"Module '{module_path}' has no class '{class_name}'."
         ) from exc
 
-    return cls
+    result: type = cls
+    return result
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "ClassImportError",
-    "load_class",
-]
+__all__: list[str] = ["importing_load_class", "ClassImportError"]
