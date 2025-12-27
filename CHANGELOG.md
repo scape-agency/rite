@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.0-beta.2](https://github.com/scape-agency/rite/compare/v0.2.0-beta.1...v0.2.0-beta.2) (2025-12-27)
+
+### ✨ Features
+
+* Implement temporal calendar, numeric math, and text validation/search tests ([01f69c8](https://github.com/scape-agency/rite/commit/01f69c84457e817141fcacd813415716dda80074))
+
 ## [0.2.0-beta.1](https://github.com/scape-agency/rite/compare/v0.1.3-beta.1...v0.2.0-beta.1) (2025-12-27)
 
 ### ✨ Features
