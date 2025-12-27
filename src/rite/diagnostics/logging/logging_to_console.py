@@ -66,6 +66,7 @@ def logging_to_console(
                 "%(asctime)s - %(name)s - " "%(levelname)s - %(message)s"
             )
 
+        formatter: logging.Formatter
         if colorize:
             formatter = _ColorFormatter(format_string)
         else:

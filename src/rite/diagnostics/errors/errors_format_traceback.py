@@ -27,6 +27,7 @@ from __future__ import annotations
 
 # Import | Standard Library
 import traceback
+import types
 
 # =============================================================================
 # Functions
@@ -60,7 +61,7 @@ def errors_format_traceback(
 
     if include_locals and exception.__traceback__:
         lines.append("\nLocal variables:\n")
-        tb = exception.__traceback__
+        tb: types.TracebackType | None = exception.__traceback__
         while tb:
             frame = tb.tb_frame
             lines.append(

@@ -32,14 +32,9 @@ backoff.
 from __future__ import annotations
 
 # Import | Standard Library
+from collections.abc import Callable
 import logging
 import time
-from collections.abc import Callable
-
-# Import | Libraries
-
-# Import | Local Modules
-
 
 # =============================================================================
 # Classes

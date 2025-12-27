@@ -59,6 +59,7 @@ def logging_structured(
     if not logger.handlers:
         handler = logging.StreamHandler()
 
+        formatter: logging.Formatter
         if json_format:
             formatter = _JSONFormatter()
         else:
