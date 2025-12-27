@@ -12,7 +12,7 @@ updates:
   # Git Submodule dependencies
   # ===========================================================================
 
-  - 
+  -
     package-ecosystem: "gitsubmodule"
     directory: "/"
     schedule:
@@ -33,7 +33,7 @@ updates:
   # GitHub Actions dependencies
   # ===========================================================================
 
-  - 
+  -
     package-ecosystem: "github-actions"
     directory: "/"
     schedule:
@@ -41,19 +41,27 @@ updates:
       day: "monday"
       time: "09:00"
       timezone: "Europe/Amsterdam"
-    target-branch: "main"
+    target-branch: "dev"
     commit-message:
-      prefix: "dependabot-github-actions"
+      prefix: "ci(deps)"
       include: "scope"
     labels:
       - "dependencies"
       - "github-actions"
+      - "ci"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "vanvianen"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
 
 
   # NPM dependencies
   # ===========================================================================
 
-  - 
+  -
     package-ecosystem: "npm"
     directory: "/"
     schedule:
@@ -72,7 +80,7 @@ updates:
   # Docker dependencies
   # ===========================================================================
 
-  - 
+  -
     package-ecosystem: "docker"
     directory: "/src/"
     schedule:
@@ -91,7 +99,7 @@ updates:
   # devContainer dependencies
   # ===========================================================================
 
-  - 
+  -
     package-ecosystem: "docker"
     directory: "/.devcontainer"
     schedule:
@@ -106,7 +114,7 @@ updates:
       - "dependencies"
       - "devcontainer"
 
-  - 
+  -
     package-ecosystem: "devcontainers"
     directory: "/"
     schedule:
@@ -125,17 +133,41 @@ updates:
   # PIP dependencies
   # ===========================================================================
 
-  - 
+  -
     package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "weekly"
-      day: "monday"
+      interval: "daily"
       time: "09:00"
       timezone: "Europe/Amsterdam"
-    target-branch: "main"
+    target-branch: "dev"
     commit-message:
-      prefix: "dependabot-pip"
+      prefix: "build(deps)"
+      include: "scope"
     labels:
       - "dependencies"
-      - "pip"
+      - "python"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "vanvianen"
+    assignees:
+      - "vanvianen"
+    versioning-strategy: increase
+    groups:
+      development-dependencies:
+        dependency-type: "development"
+        patterns:
+          - "pytest*"
+          - "black"
+          - "isort"
+          - "flake8*"
+          - "pylint"
+          - "mypy"
+          - "bandit*"
+          - "coverage"
+          - "sphinx*"
+          - "tox"
+          - "pre-commit"
+      security-dependencies:
+        update-types:
+          - "security"
