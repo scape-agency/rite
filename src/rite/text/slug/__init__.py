@@ -18,6 +18,7 @@ Functions for generating URL-friendly slugs.
 # Import | Future
 from __future__ import annotations
 
+# Import | Local Modules
 from .slug_add_prefix import add_slug_prefix
 from .slug_add_suffix import add_slug_suffix
 from .slug_is_valid import is_valid_slug

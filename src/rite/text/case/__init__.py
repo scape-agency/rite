@@ -1,5 +1,3 @@
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -20,6 +18,7 @@ Functions for converting text between different case formats.
 # Import | Future
 from __future__ import annotations
 
+# Import | Local Modules
 from .to_camel_case import to_camel_case
 from .to_constant_case import to_constant_case
 from .to_dot_case import to_dot_case
@@ -28,8 +27,6 @@ from .to_lower_case import to_lower_case
 from .to_pascal_case import to_pascal_case
 from .to_path_case import to_path_case
 from .to_sentence_case import to_sentence_case
-
-# Import | Local Modules
 from .to_snake_case import to_snake_case
 from .to_title_case import to_title_case
 from .to_upper_case import to_upper_case

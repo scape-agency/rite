@@ -1,5 +1,7 @@
+# Import | Future
 from __future__ import annotations
 
+# Import | Local Modules
 from .average_word_length import average_word_length
 from .char_frequency import char_frequency
 from .is_palindrome import is_palindrome
