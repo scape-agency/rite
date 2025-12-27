@@ -2,12 +2,12 @@
 
 ## Project Context
 
-**Rite** is a modern Python utility library targeting Python 3.10+ with zero external runtime dependencies. It provides utilities for cryptography, filesystem operations, text processing, collections, conversions, and more.
+**Rite** is a modern Python utility library targeting Python 3.12+ with zero external runtime dependencies. It provides utilities for cryptography, filesystem operations, text processing, collections, conversions, and more.
 
 ## Core Principles
 
 ### 1. Python Version & Compatibility
-- **Target:** Python 3.10, 3.11, 3.12
+- **Target:** Python 3.12+
 - **Use modern syntax:** `X | None` instead of `Optional[X]`, `X | Y` instead of `Union[X, Y]`
 - **NO Python 2 compatibility code**
 - **NO coding declarations** (`# -*- coding: utf-8 -*-`)
@@ -103,7 +103,7 @@ __all__: list[str] = ["function_name"]
 **ALWAYS provide type hints:**
 
 ```python
-# ✅ Correct (Python 3.10+)
+# ✅ Correct (Python 3.12+)
 def process(data: str | None = None) -> dict[str, Any]:
     pass
 
@@ -368,7 +368,7 @@ For complete guidelines, see:
 
 ## Remember
 
-- **Modern Python only** (3.10+)
+- **Modern Python only** (3.12+)
 - **Zero runtime dependencies**
 - **Consistent structure everywhere**
 - **Type hints always**

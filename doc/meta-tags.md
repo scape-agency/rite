@@ -4,8 +4,8 @@
 ## Primary Meta Tags
 ```html
 <meta name="title" content="Rite - Modern Python Utility Library">
-<meta name="description" content="Zero-dependency Python utility library for Python 3.10+. Features cryptography, filesystem, text processing, temporal operations, and more.">
-<meta name="keywords" content="python, utility library, cryptography, filesystem, text processing, python utilities, python 3.10, zero dependencies, rite">
+<meta name="description" content="Zero-dependency Python utility library for Python 3.12+. Features cryptography, filesystem, text processing, temporal operations, and more.">
+<meta name="keywords" content="python, utility library, cryptography, filesystem, text processing, python utilities, python 3.12, zero dependencies, rite">
 <meta name="author" content="Scape Agency">
 <meta name="robots" content="index, follow">
 <meta name="language" content="English">
@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.pyrites.dev/">
 <meta property="og:title" content="Rite - Modern Python Utility Library">
-<meta property="og:description" content="Zero-dependency Python utility library for Python 3.10+. Features cryptography, filesystem, text processing, temporal operations, and more.">
+<meta property="og:description" content="Zero-dependency Python utility library for Python 3.12+. Features cryptography, filesystem, text processing, temporal operations, and more.">
 <meta property="og:image" content="https://www.pyrites.dev/assets/image/rite_social.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -26,7 +26,7 @@
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://www.pyrites.dev/">
 <meta property="twitter:title" content="Rite - Modern Python Utility Library">
-<meta property="twitter:description" content="Zero-dependency Python utility library for Python 3.10+. Features cryptography, filesystem, text processing, temporal operations, and more.">
+<meta property="twitter:description" content="Zero-dependency Python utility library for Python 3.12+. Features cryptography, filesystem, text processing, temporal operations, and more.">
 <meta property="twitter:image" content="https://www.pyrites.dev/assets/image/rite_social.png">
 <meta property="twitter:creator" content="@scapeagency">
 
@@ -54,7 +54,7 @@
   },
   "operatingSystem": "Cross-platform",
   "softwareVersion": "0.0.13",
-  "description": "Modern Python utility library with zero runtime dependencies, targeting Python 3.10+",
+  "description": "Modern Python utility library with zero runtime dependencies, targeting Python 3.12+",
   "url": "https://www.pyrites.dev/",
   "author": {
     "@type": "Organization",

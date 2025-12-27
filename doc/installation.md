@@ -2,7 +2,7 @@
 
 ## Requirements
 
-- **Python**: >=3.10, <4.0
+- **Python**: >=3.12, <4.0
 - **Operating System**: Linux, macOS, Windows
 - **Package Manager**: pip or Poetry (recommended)
 

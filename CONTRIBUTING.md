@@ -45,7 +45,7 @@ git checkout -b fix/your-bug-fix
 
 Rite follows strict code quality standards:
 
-- **Python 3.10+** syntax only
+- **Python 3.12+** syntax only
 - **Zero runtime dependencies** in src/
 - **Type hints** on all functions
 - **Google-style docstrings**
