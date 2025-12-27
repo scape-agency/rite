@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
@@ -25,7 +22,6 @@ Modules:
     system: System-level operations
     diagnostics: Logging and error handling
     functional: Functional programming utilities
-    identity: Unique identifier generation
     reflection: Runtime introspection
 
 """
@@ -46,7 +42,6 @@ from . import (
     diagnostics,
     filesystem,
     functional,
-    identity,
     markup,
     net,
     numeric,
@@ -91,6 +86,5 @@ __all__: list[str] = [
     "system",
     "diagnostics",
     "functional",
-    "identity",
     "reflection",
 ]
