@@ -1,0 +1,7 @@
+# =============================================================================
+# Docker Ignore Configuration
+# =============================================================================
+# Moved to .devcontainer/.dockerignore
+# This file is kept for backward compatibility
+
+# See .devcontainer/.dockerignore for the actual configuration
