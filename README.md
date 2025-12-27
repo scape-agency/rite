@@ -48,56 +48,60 @@
 <summary>Table of Contents</summary>
 
 - [About](#about)
+- [Features](#features)
 - [Quick Start](#quick-start)
-- [Usage](#usage)
+  - [Installation](#installation)
+  - [Basic Usage](#basic-usage)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
 - [Authors](#authors)
 - [License](#license)
-- [Contributing](#contributing)
 - [Disclaimer](#disclaimer)
 
 </details>
 
 ## About
 
-**rite** is a comprehensive Python utility package providing a collection of reusable functions and utilities for common programming tasks. The package follows a stdlib-mirroring architecture for intuitive module organization.
+**rite** is a modern Python utility library with zero external runtime dependencies. Built with Python 3.10+ in mind, it provides a comprehensive collection of utilities for cryptography, filesystem operations, text processing, collections, conversions, and more.
 
-### Features
+### Key Features
 
-**Core Modules (Zero Dependencies):**
+- **Zero Dependencies**: No external runtime dependencies
+- **Type Safe**: Comprehensive type hints with Python 3.10+ syntax  
+- **Well Tested**: >80% code coverage with extensive test suite
+- **Modern Python**: Supports Python 3.10, 3.11, 3.12
+- **Modular Design**: Clear module organization with consistent structure
+- **Fully Documented**: Extensive documentation and practical examples
 
-- **text**: String processing, case conversion, slug generation, text analysis, Morse code
-- **numeric**: Mathematical operations, clamping, coordinate conversions, decimal handling
-- **temporal**: Timestamp handling, duration calculations, timezone utilities
-- **filesystem**: Path operations and file system utilities
-- **collections**: Data structures (circular buffers, singleton, nested sets)
-- **serialization**: JSON, CSV, INI format handling (stdlib only)
-- **conversion**: Type conversions (bool, number, percentage, decimal)
-- **crypto**: Hashing and simple ciphers (stdlib only)
-- **net**: HTTP and SQLite server utilities
-- **markup**: HTML cleaning and manipulation
-- **system**: Command execution and system operations
-- **diagnostics**: Logging and error handling
-- **functional**: Functional programming utilities (decorators, etc.)
-- **identity**: UUID generation and validation
-- **reflection**: Dynamic class loading and introspection
+### Module Overview
+
+**Core Modules:**
+
+- **crypto**: UUID generation, hashing (SHA-256, MD5, BLAKE2), HMAC, cryptographic utilities
+- **filesystem**: File/directory operations, path utilities, safe file handling
+- **text**: Slug generation, case conversion, text sanitization, text analysis
+- **collections**: List/dictionary utilities, data structures, iteration helpers
+- **conversion**: Type conversions, data format transformations (JSON, CSV)
+- **numeric**: Mathematical utilities, statistics, number operations
+- **temporal**: Date/time utilities, timestamp operations, formatting
 
 ## Quick Start
 
 ### Installation
 
-Install from PyPI:
+**From PyPI:**
 
 ```sh
 pip install rite
 ```
 
-Or install a specific version:
+**Using Poetry:**
 
 ```sh
-pip install rite==0.0.13
+poetry add rite
 ```
 
-For development installation:
+**From Source:**
 
 ```sh
 git clone https://github.com/scape-agency/rite.git
@@ -105,113 +109,65 @@ cd rite
 poetry install
 ```
 
-[PyPi Package](https://pypi.org/project/rite/)
+[View on PyPI](https://pypi.org/project/rite/)
 
-## Usage
-
-### Text Processing
+### Basic Usage
 
 ```python
-from rite.text import to_snake_case, to_camel_case, slugify
-from rite.text import char_frequency, word_count, is_palindrome
+# Cryptography
+from rite.crypto.uuid import uuid_hex
+from rite.crypto.hash import hash_sha256
 
-# Case conversions
-snake = to_snake_case("HelloWorld")  # "hello_world"
-camel = to_camel_case("hello_world")  # "helloWorld"
+user_id = uuid_hex()
+password_hash = hash_sha256("secure_password")
 
-# Create URL-friendly slugs
-slug = slugify("Hello World!")  # "hello-world"
+# Filesystem
+from rite.filesystem.file import file_copy, file_exists
 
-# Text analysis
-freq = char_frequency("hello")  # {'h': 1, 'e': 1, 'l': 2, 'o': 1}
-words = word_count("Hello world")  # 2
-palindrome = is_palindrome("racecar")  # True
+if file_exists("config.json"):
+    file_copy("config.json", "config.backup.json")
+
+# Text Processing
+from rite.text.slug import slug_generate
+from rite.text.case import case_to_snake
+
+slug = slug_generate("Hello World!")  # 'hello-world'
+snake = case_to_snake("helloWorld")  # 'hello_world'
+
+# Collections
+from rite.collections.list import list_unique, list_flatten
+
+unique = list_unique([1, 2, 2, 3])  # [1, 2, 3]
+flat = list_flatten([[1, 2], [3, 4]])  # [1, 2, 3, 4]
 ```
 
-### Numeric Operations
+## Documentation
 
-```python
-from rite.numeric import clamp, float_to_degree_minute_second
+### 📚 User Documentation
 
-# Clamp values between bounds
-value = clamp(15, 0, 10)  # 10
+- **[Getting Started](doc/getting-started.md)** - Quick introduction and module overview
+- **[Installation Guide](doc/installation.md)** - Detailed installation instructions
+- **[Usage Examples](doc/examples.md)** - Practical examples for all modules
+- **[API Reference](https://www.pyrites.dev)** - Complete API documentation
 
-# Convert coordinates
-dms = float_to_degree_minute_second(12.5)  # (12, 30, 0.0)
-```
+### 🛠️ Developer Documentation
 
-### Temporal Operations
+- **[Contributing Guide](doc/contributing.md)** - How to contribute to Rite
+- **[Development Setup](doc/development/setup.md)** - Set up your development environment
+- **[Code Style Guide](doc/development/code-style.md)** - Code standards and conventions
+- **[Testing Guide](doc/development/testing.md)** - Testing practices and patterns
+- **[Configuration Reference](doc/development/configuration.md)** - Configuration files and settings
 
-```python
-from rite.temporal import Timestamp, Duration, Timezone
+### 🤖 AI Agent Documentation
 
-# Create and manipulate timestamps
-ts = Timestamp()
-unix_time = ts.to_unix()
+- **[AI Instructions](doc/development/ai-instructions.md)** - Guidelines for AI agents and GitHub Copilot
 
-# Handle durations
-duration = Duration(seconds=3661)
-print(duration)  # "1h 1m 1s"
+### 📖 Additional Resources
 
-# Work with timezones
-tz = Timezone("Europe/Amsterdam")
-now = tz.now()
-```
-
-### Type Conversions
-
-```python
-from rite.conversion import to_bool, to_number, to_percentage
-
-# Flexible boolean conversion
-to_bool("yes")  # True
-to_bool("no")   # False
-
-# Parse numbers from strings
-to_number("45.5 kg")  # 45.5
-
-# Convert to percentage
-to_percentage(0.35)  # 35.0
-```
-
-### UUID Generation
-
-```python
-from rite.identity import uuid_string, uuid_hex, is_valid_uuid
-
-# Generate UUIDs
-uuid_str = uuid_string()  # "550e8400-e29b-41d4-a716-446655440000"
-uuid_compact = uuid_hex()  # "550e8400e29b41d4a716446655440000"
-
-# Validate UUIDs
-valid = is_valid_uuid("550e8400-e29b-41d4-a716-446655440000")  # True
-```
-
-### File System Operations
-
-```python
-from rite.filesystem import path_leaf
-
-# Get the final component of a path
-filename = path_leaf("/path/to/file.txt")  # "file.txt"
-```
-
-### Collections & Data Structures
-
-```python
-from rite.collections import CircularBuffer, SingletonMeta
-
-# Use a circular buffer
-buffer = CircularBuffer(size=5)
-buffer.append(1)
-buffer.append(2)
-
-# Create singleton classes
-class MyConfig(metaclass=SingletonMeta):
-    pass
-```
-
-For more examples and documentation, visit our [documentation](https://www.pyrites.dev).
+- **[Changelog](CHANGELOG.md)** - Version history and release notes
+- **[Architecture](ARCHITECTURE.txt)** - System architecture overview
+- **[Security Policy](SECURITY.md)** - Security guidelines and reporting
+- **[License](LICENSE)** - MIT License details
 
 ## Authors
 
@@ -234,3 +190,39 @@ Please refer to the [contribution guidelines](CONTRIBUTING.md) for information.
 ## Disclaimer
 
 **THIS SOFTWARE IS PROVIDED AS IS WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
+ welcome contributions! Please see our [Contributing Guide](doc/contributing.md) for details on:
+
+- Code of conduct
+- Development workflow
+- Code standards
+- Testing requirements
+- Pull request process
+
+Quick start for contributors:
+
+```bash
+# Clone the repository
+git clone https://github.com/scape-agency/rite.git
+cd rite
+
+# Install dependencies
+poetry install --with dev
+
+# Install pre-commit hooks
+poetry run pre-commit install
+
+# Run tests
+make test
+
+# Run all checks
+make check
+```
+
+
+
+---
+
+<p align="center">
+    <b>Made with 🖤 by <a href="https://www.scape.agency" target="_blank">Scape Agency</a></b><br/>
+    <sub>Copyright 2026 Scape Agency. All Rights Reserved</sub>
+</p>
