@@ -32,7 +32,6 @@ from __future__ import annotations
 
 # Import | Standard Library
 from datetime import datetime
-from typing import List
 from zoneinfo import ZoneInfo, available_timezones
 
 # Import | Libraries

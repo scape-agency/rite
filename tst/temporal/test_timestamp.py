@@ -31,9 +31,7 @@ from unittest.mock import patch
 import pytest
 
 # Import | Local Modules
-from rite.time.duration import Duration
-from rite.time.timestamp import Timestamp
-from rite.time.timezone import Timezone
+from rite.temporal import Duration, Timestamp, Timezone
 
 # =============================================================================
 # Test Cases

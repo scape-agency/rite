@@ -32,7 +32,6 @@ from __future__ import annotations
 
 # Import | Standard Library
 from datetime import datetime
-from typing import Optional
 
 # Import | Local Modules
 from .duration import Duration
@@ -82,22 +81,23 @@ class Timestamp:
 
     def __init__(
         self,
-        dt: Optional[datetime] = None,
-        tz: Optional[str] = "UTC",
+        dt: datetime | None = None,
+        tz: str | None = "UTC",
     ) -> None:
         """
         Initializes the `Timestamp` object.
 
         Parameters:
         -----------
-        dt : Optional[datetime]
+        dt : datetime | None
             A `datetime` object to initialize the timestamp. If not provided,
             the current date and time is used.
-        tz : Optional[str]
+        tz : str | None
             The timezone name (e.g., "UTC", "Europe/Amsterdam").
             Defaults to UTC.
         """
-        self.timezone = Timezone(tz)
+        resolved_tz = tz or "UTC"
+        self.timezone = Timezone(resolved_tz)
         self.datetime: datetime = (dt or datetime.now()).astimezone(
             self.timezone.timezone
         )
@@ -141,7 +141,7 @@ class Timestamp:
     @staticmethod
     def from_unix(
         timestamp: int,
-        tz: Optional[str] = "UTC",
+        tz: str | None = "UTC",
     ) -> "Timestamp":
         """
         Creates a `Timestamp` object from a UNIX timestamp.
@@ -150,7 +150,7 @@ class Timestamp:
         -----------
         timestamp : int
             The UNIX timestamp to convert.
-        tz : Optional[str]
+        tz : str | None
             The timezone for the new `Timestamp` object (default: "UTC").
 
         Returns
@@ -167,8 +167,11 @@ class Timestamp:
         if not isinstance(timestamp, int):
             raise ValueError("UNIX timestamp must be an integer.")
         try:
-            dt = datetime.fromtimestamp(timestamp, Timezone(tz).timezone)
-            return Timestamp(dt, tz)
+            resolved_tz = tz or "UTC"
+            dt = datetime.fromtimestamp(
+                timestamp, Timezone(resolved_tz).timezone
+            )
+            return Timestamp(dt, resolved_tz)
             # return Timestamp(datetime.fromtimestamp(timestamp))
         except OverflowError as exc:
             raise ValueError("Timestamp out of valid range.") from exc
@@ -177,7 +180,7 @@ class Timestamp:
     def parse(
         date_string: str,
         fmt: str = "%Y-%m-%d %H:%M:%S",
-        tz: Optional[str] = "UTC",
+        tz: str | None = "UTC",
     ) -> "Timestamp":
         """
         Parses a date string into a `Timestamp` object based on the given
@@ -189,7 +192,7 @@ class Timestamp:
             The date string to parse.
         fmt : str, optional
             The format of the date string (default: "%Y-%m-%d %H:%M:%S").
-        tz : Optional[str]
+        tz : str | None
             The timezone for the new `Timestamp` object (default: "UTC").
 
         Returns
@@ -199,8 +202,9 @@ class Timestamp:
             A new `Timestamp` object.
         """
         dt = datetime.strptime(date_string, fmt)
-        tzinfo = Timezone(tz).timezone
-        return Timestamp(dt.replace(tzinfo=tzinfo), tz)
+        resolved_tz = tz or "UTC"
+        tzinfo = Timezone(resolved_tz).timezone
+        return Timestamp(dt.replace(tzinfo=tzinfo), resolved_tz)
 
     def add_duration(
         self,
@@ -334,7 +338,7 @@ class Timestamp:
 # Exports
 # =============================================================================
 
-__all__ = [
+__all__: list[str] = [
     "Timestamp",
 ]
 

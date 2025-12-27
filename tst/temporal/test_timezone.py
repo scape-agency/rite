@@ -25,10 +25,11 @@ from datetime import datetime
 
 # Import | Libraries
 import pytest
-import pytz
 
 # Import | Local Modules
-from rite.time.timezone import Timezone
+from rite.temporal import Timezone
+
+pytz = pytest.importorskip("pytz")
 
 # =============================================================================
 # Test Cases
