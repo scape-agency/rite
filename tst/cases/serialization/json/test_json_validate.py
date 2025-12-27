@@ -30,11 +30,11 @@ from rite.serialization.json.json_validate import (
     "json_str,expected",
     [
         ('{"key": "value"}', True),
-        ('[1, 2, 3]', True),
-        ('true', True),
-        ('null', True),
-        ('{invalid json}', False),
-        ('', False),
+        ("[1, 2, 3]", True),
+        ("true", True),
+        ("null", True),
+        ("{invalid json}", False),
+        ("", False),
     ],
 )
 def test_json_validate(json_str: str, expected: bool) -> None:

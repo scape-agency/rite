@@ -31,22 +31,17 @@ class Testcomposition_chain:
 
     def test_instantiation(self) -> None:
         """Test composition_chain can be instantiated."""
-        # TODO: Implement test
-        instance = composition_chain()
+        instance = composition_chain(42)
         assert instance is not None
 
     def test_pipe(self) -> None:
         """Test composition_chain.pipe() method."""
-        # TODO: Implement test
-        instance = composition_chain()
-        # result = instance.pipe()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance = composition_chain(5)
+        double = lambda x: x * 2
+        result = instance.pipe(double)
+        assert result.value() == 10
 
     def test_value(self) -> None:
         """Test composition_chain.value() method."""
-        # TODO: Implement test
-        instance = composition_chain()
-        # result = instance.value()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance = composition_chain(42)
+        assert instance.value() == 42

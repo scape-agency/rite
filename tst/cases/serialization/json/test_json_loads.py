@@ -31,9 +31,9 @@ from rite.serialization.json.json_loads import (
     [
         ('{"key": "value"}', {"key": "value"}),
         ('{"number": 42}', {"number": 42}),
-        ('[1, 2, 3]', [1, 2, 3]),
-        ('true', True),
-        ('null', None),
+        ("[1, 2, 3]", [1, 2, 3]),
+        ("true", True),
+        ("null", None),
     ],
 )
 def test_json_loads(json_str: str, expected) -> None:

@@ -26,9 +26,19 @@ from rite.system.path.path_is_dir import (
 # =============================================================================
 
 
-def test_path_is_dir() -> None:
+def test_path_is_dir(tmp_path) -> None:
     """Test path_is_dir() function."""
-    # TODO: Implement test
-    # result = path_is_dir(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Create a directory and file for testing
+    test_file = tmp_path / "test.txt"
+    test_file.write_text("test")
+    test_dir = tmp_path / "test_dir"
+    test_dir.mkdir()
+
+    # Test directory
+    assert path_is_dir(str(test_dir)) is True
+
+    # Test file
+    assert path_is_dir(str(test_file)) is False
+
+    # Test non-existing path
+    assert path_is_dir(str(tmp_path / "nonexistent")) is False

@@ -28,7 +28,14 @@ from rite.system.path.path_absolute import (
 
 def test_path_absolute() -> None:
     """Test path_absolute() function."""
-    # TODO: Implement test
-    # result = path_absolute(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Import | Standard Library
+    import os
+
+    # Test relative path
+    result = path_absolute("file.txt")
+    assert os.path.isabs(result)
+
+    # Test absolute path (should return as-is)
+    abs_path = "/tmp/test.txt"
+    result = path_absolute(abs_path)
+    assert os.path.isabs(result)

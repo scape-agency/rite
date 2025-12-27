@@ -28,6 +28,7 @@ from rite.serialization.json.json_dump import (
 
 def test_json_dump(tmp_path) -> None:
     """Test json_dump() function."""
+    # Import | Standard Library
     import json
 
     # Create a temporary JSON file path

@@ -26,9 +26,19 @@ from rite.system.path.path_exists import (
 # =============================================================================
 
 
-def test_path_exists() -> None:
+def test_path_exists(tmp_path) -> None:
     """Test path_exists() function."""
-    # TODO: Implement test
-    # result = path_exists(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Create a file and directory for testing
+    test_file = tmp_path / "test.txt"
+    test_file.write_text("test")
+    test_dir = tmp_path / "test_dir"
+    test_dir.mkdir()
+
+    # Test existing file
+    assert path_exists(str(test_file)) is True
+
+    # Test existing directory
+    assert path_exists(str(test_dir)) is True
+
+    # Test non-existing path
+    assert path_exists(str(tmp_path / "nonexistent")) is False

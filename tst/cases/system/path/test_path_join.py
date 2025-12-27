@@ -26,9 +26,16 @@ from rite.system.path.path_join import (
 # =============================================================================
 
 
-def test_path_join() -> None:
-    """Test path_join() function."""
-    # TODO: Implement test
-    # result = path_join(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "parts,expected",
+    [
+        (("path", "to", "file.txt"), "path/to/file.txt"),
+        (("dir",), "dir"),
+        (("path", ""), "path"),
+    ],
+)
+def test_path_join(parts, expected) -> None:
+    """Test path_join() with various parts."""
+    result = path_join(*parts)
+    # Normalize path separators for cross-platform comparison
+    assert result.replace("\\", "/") == expected.replace("\\", "/")
