@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.2-beta.1](https://github.com/scape-agency/rite/compare/v0.1.1...v0.1.2-beta.1) (2025-12-27)
+
+### 🐛 Bug Fixes
+
+* **lint:** Resolve flake8 E704 and C901 violations ([4811f29](https://github.com/scape-agency/rite/commit/4811f29a84cfb0f4764083543ee8b0969250ceb8))
+
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
