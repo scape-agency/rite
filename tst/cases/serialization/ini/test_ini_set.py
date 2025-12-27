@@ -26,9 +26,22 @@ from rite.serialization.ini.ini_set import (
 # =============================================================================
 
 
-def test_ini_set() -> None:
+def test_ini_set(tmp_path) -> None:
     """Test ini_set() function."""
-    # TODO: Implement test
-    # result = ini_set(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Import | Standard Library
+    import configparser
+
+    # Create a test INI file
+    ini_file = tmp_path / "test.ini"
+    config = configparser.ConfigParser()
+    config["section1"] = {"key1": "value1"}
+    with ini_file.open("w") as f:
+        config.write(f)
+
+    # Test setting a value
+    ini_set(str(ini_file), "section1", "key1", "new_value")
+
+    # Verify the value was updated
+    result_config = configparser.ConfigParser()
+    result_config.read(str(ini_file))
+    assert result_config["section1"]["key1"] == "new_value"

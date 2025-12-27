@@ -26,9 +26,22 @@ from rite.serialization.ini.ini_get import (
 # =============================================================================
 
 
-def test_ini_get() -> None:
+def test_ini_get(tmp_path) -> None:
     """Test ini_get() function."""
-    # TODO: Implement test
-    # result = ini_get(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Import | Standard Library
+    import configparser
+
+    # Create a test INI file
+    ini_file = tmp_path / "test.ini"
+    config = configparser.ConfigParser()
+    config["section1"] = {"key1": "value1", "key2": "value2"}
+    with ini_file.open("w") as f:
+        config.write(f)
+
+    # Test getting existing value
+    result = ini_get(str(ini_file), "section1", "key1")
+    assert result == "value1"
+
+    # Test getting non-existing key with default
+    result = ini_get(str(ini_file), "section1", "missing", "default")
+    assert result == "default"

@@ -26,9 +26,16 @@ from rite.markup.entities.entities_decode import (
 # =============================================================================
 
 
-def test_entities_decode() -> None:
-    """Test entities_decode() function."""
-    # TODO: Implement test
-    # result = entities_decode(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "text,expected",
+    [
+        ("caf&#233;", "café"),
+        ("hello", "hello"),
+        ("&lt;tag&gt;", "<tag>"),
+        ("&amp;", "&"),
+        ("&quot;", '"'),
+    ],
+)
+def test_entities_decode(text: str, expected: str) -> None:
+    """Test entities_decode() with various entities."""
+    assert entities_decode(text) == expected

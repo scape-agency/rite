@@ -26,9 +26,20 @@ from rite.markup.entities.entities_encode import (
 # =============================================================================
 
 
-def test_entities_encode() -> None:
-    """Test entities_encode() function."""
-    # TODO: Implement test
-    # result = entities_encode(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "text,ascii_only",
+    [
+        ("café", False),
+        ("hello", False),
+        ("<tag>", False),
+        ("&", False),
+    ],
+)
+def test_entities_encode(text: str, ascii_only: bool) -> None:
+    """Test entities_encode() with various inputs."""
+    result = entities_encode(text, ascii_only)
+    # Just verify it returns a string
+    assert isinstance(result, str)
+    # Verify the result is entity-encoded (contains & or &#)
+    if text != "hello":
+        assert "&" in result
