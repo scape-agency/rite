@@ -3,7 +3,10 @@ site_name: rite
 site_url: https://www.pyrites.dev/
 site_description: Python Utility Package
 site_author: Scape Agency
-lang: en
+
+# Directories
+docs_dir: doc
+site_dir: site
 
 # Repository
 repo_name: 'GitHub'
@@ -23,7 +26,7 @@ copyright: >
 # Configuration
 theme:
   name: material
-  custom_dir: 'docs/overrides'
+  custom_dir: 'doc/overrides'
   locale: en
   language: en
   palette:
@@ -44,7 +47,7 @@ theme:
   # font:
   #   text: 'Manrope'
   #   code: 'Roboto Mono'
-  logo: assets/image/logo_light.png
+  logo: assets/image/rite_logo_light.svg
   favicon: assets/favicon/favicon.ico
   features:
     # - announce.dismiss
@@ -77,22 +80,34 @@ plugins:
       lang: en
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
   - mkdocstrings:
-  #   custom_templates: templates
       default_handler: python
       handlers:
         python:
+          paths: [src]
           options:
             # Heading options
             heading_level: 2
             show_root_heading: false
-            show_root_toc_entry: false
+            show_root_toc_entry: true
             show_root_full_path: false
             show_root_members_full_path: false
             show_object_full_path: false
-            show_category_heading: false
-            # Additional options
+            show_category_heading: true
+            # Member options
             show_bases: true
             show_source: false
+            show_signature: true
+            show_signature_annotations: true
+            separate_signature: true
+            # Docstring options
+            docstring_style: google
+            docstring_section_style: table
+            merge_init_into_class: true
+            show_if_no_docstring: false
+            # Additional options
+            filters: ["!^_"]
+            group_by_category: true
+            show_submodules: true
 
 # Customization
 extra:
@@ -133,37 +148,40 @@ markdown_extensions:
   - def_list
   - footnotes
   - md_in_html
-  # - toc:
-  #     permalink: true
-  # - pymdownx.arithmatex:
-  #     generic: true
-  # - pymdownx.betterem:
-  #     smart_enable: all
-  # - pymdownx.caret
-  # - pymdownx.details
-  # - pymdownx.emoji:
-  #     emoji_generator: !!python/name:materialx.emoji.to_svg
-  #     emoji_index: !!python/name:materialx.emoji.twemoji
-  # - pymdownx.highlight:
-  #     anchor_linenums: true
-  # - pymdownx.inlinehilite
-  # - pymdownx.keys
-  # - pymdownx.magiclink:
-  #     repo_url_shorthand: true
-  #     user: squidfunk
-  #     repo: mkdocs-material
-  # - pymdownx.mark
-  # - pymdownx.smartsymbols
-  # - pymdownx.superfences:
-  #     custom_fences:
-  #       - name: mermaid
-  #         class: mermaid
-  #         format: !!python/name:pymdownx.superfences.fence_code_format
-  # - pymdownx.tabbed:
-  #     alternate_style: true
-  # - pymdownx.tasklist:
-  #     custom_checkbox: true
-  # - pymdownx.tilde
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: scape-agency
+      repo: rite
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
 
 
 # Page tree
@@ -174,6 +192,27 @@ nav:
       - 'Installation': 'installation.md'
       - 'Getting Started': 'getting-started.md'
       - 'Examples': 'examples.md'
+  - API Reference:
+      - 'Overview': 'api/index.md'
+      - Core:
+          - 'Collections': 'api/collections.md'
+          - 'Conversion': 'api/conversion.md'
+          - 'Text': 'api/text.md'
+      - System & I/O:
+          - 'Filesystem': 'api/filesystem.md'
+          - 'System': 'api/system.md'
+          - 'Net': 'api/net.md'
+      - Data:
+          - 'Serialization': 'api/serialization.md'
+          - 'Markup': 'api/markup.md'
+      - Security:
+          - 'Crypto': 'api/crypto.md'
+          - 'Numeric': 'api/numeric.md'
+          - 'Temporal': 'api/temporal.md'
+      - Development:
+          - 'Diagnostics': 'api/diagnostics.md'
+          - 'Functional': 'api/functional.md'
+          - 'Reflection': 'api/reflection.md'
   - Development:
       - 'Setup': 'development/setup.md'
       - 'Configuration': 'development/configuration.md'

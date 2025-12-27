@@ -1,0 +1,159 @@
+/* =============================================================================
+   Rite Sphinx Documentation Custom Styles
+   ============================================================================= */
+
+/* Import brand font */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+
+/* Root Variables */
+:root {
+    --brand-primary: rgb(0, 0, 15);
+    --brand-accent: #2196f3;
+    --text-primary: rgba(0, 0, 0, 0.87);
+    --code-bg: #f5f5f5;
+    --code-fg: #37474f;
+}
+
+/* Typography */
+body {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+code, pre {
+    font-family: 'Roboto Mono', 'Courier New', monospace;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    color: var(--brand-primary);
+}
+
+h1 {
+    border-bottom: 2px solid var(--brand-accent);
+    padding-bottom: 0.5rem;
+}
+
+h2 {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 0.3rem;
+}
+
+/* Links */
+a {
+    color: var(--brand-accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Code Blocks */
+pre {
+    background-color: var(--code-bg);
+    padding: 1rem;
+    border-radius: 0.25rem;
+    border-left: 3px solid var(--brand-accent);
+    overflow-x: auto;
+}
+
+code {
+    background-color: var(--code-bg);
+    color: var(--code-fg);
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.2rem;
+    font-size: 0.9em;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+}
+
+/* API Documentation */
+.sig-name {
+    font-weight: 600;
+    color: var(--brand-primary);
+}
+
+.sig-param {
+    font-style: italic;
+}
+
+dt {
+    font-weight: 600;
+    color: var(--brand-primary);
+    margin-top: 1rem;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+th {
+    background-color: var(--brand-primary);
+    color: white;
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+td {
+    padding: 0.75rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Admonitions */
+.admonition {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-left: 4px solid var(--brand-accent);
+    background-color: #f8f9fa;
+    border-radius: 0.25rem;
+}
+
+.admonition-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--brand-primary);
+}
+
+/* Navigation */
+.wy-nav-content {
+    max-width: 1200px;
+}
+
+.wy-side-nav-search {
+    background-color: var(--brand-primary);
+}
+
+.wy-menu-vertical a {
+    color: var(--text-primary);
+}
+
+.wy-menu-vertical a:hover {
+    background-color: var(--brand-accent);
+    color: white;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}

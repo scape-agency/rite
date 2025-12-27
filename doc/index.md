@@ -1,3 +1,9 @@
+---
+title: Home
+description: Rite is a modern Python utility library with zero dependencies for Python 3.10+. Features cryptography, filesystem operations, text processing, and 92+ utility functions.
+keywords: python utility library, python 3.10, zero dependencies, cryptography, filesystem, text processing, type safe
+---
+
 # Rite Documentation
 
 Welcome to the **Rite** documentation! Rite is a modern Python utility library providing a comprehensive collection of utilities for cryptography, filesystem operations, text processing, collections, conversions, and more.
@@ -19,6 +25,14 @@ Welcome to the **Rite** documentation! Rite is a modern Python utility library p
 - [Examples](examples.md) - Practical usage examples
 - [Quick Start](quick_start.md) - Jump right in
 
+### API Reference
+- [API Overview](api/index.md) - Complete API documentation
+- [Text Module](api/text.md) - Text processing (92+ functions)
+- [Crypto Module](api/crypto.md) - Cryptography and hashing
+- [Filesystem Module](api/filesystem.md) - File operations
+- [Temporal Module](api/temporal.md) - Date/time utilities
+- [All Modules](api/index.md) - Browse all 13 modules
+
 ### For Contributors
 - [Contributing](contributing.md) - How to contribute to Rite
 - [Development Setup](development/setup.md) - Set up your development environment
@@ -30,7 +44,6 @@ Welcome to the **Rite** documentation! Rite is a modern Python utility library p
 - [AI Instructions](development/ai-instructions.md) - Guidelines for AI agents and GitHub Copilot
 
 ### Reference
-- [API Documentation](api/index.md) - Complete API reference
 - [Changelog](../CHANGELOG.md) - Version history
 - [Architecture](../ARCHITECTURE.txt) - System architecture
 
