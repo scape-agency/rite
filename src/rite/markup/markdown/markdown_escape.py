@@ -1,17 +1,20 @@
-
-
 # =============================================================================
 # Docstring
 # =============================================================================
 
 """
-HTML Cleaning
-=============
+Markdown Escape
+===============
 
-Utilities for cleaning and processing HTML content.
+Escape Markdown special characters.
+
+Examples
+--------
+>>> from rite.markup.markdown import markdown_escape
+>>> markdown_escape("*not italic*")
+'\\\\*not italic\\\\*'
 
 """
-
 
 # =============================================================================
 # Imports
@@ -23,48 +26,37 @@ from __future__ import annotations
 # Import | Standard Library
 import re
 
-# Import | Libraries
-
-# Import | Local Modules
-
-
-# =============================================================================
-# Constants
-# =============================================================================
-
-# Compile regex once to remove HTML tags
-CLEANR: re.Pattern[str] = re.compile(r"<.*?>")
-
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def clean_html(
-    raw_html: str,
-    strip: bool = True,
-) -> str:
+def markdown_escape(text: str) -> str:
     """
-    Remove HTML tags from a given raw HTML string.
+    Escape Markdown special characters.
 
     Args:
-        raw_html (str): The raw HTML string to be cleaned.
+        text: Text to escape.
 
     Returns:
-        str: The cleaned text with HTML tags removed.
+        Escaped text.
+
+    Examples:
+        >>> markdown_escape("# Not a heading")
+        '\\\\# Not a heading'
+        >>> markdown_escape("[not](link)")
+        '\\\\[not\\\\]\\\\(link\\\\)'
+
+    Notes:
+        Escapes: *, _, #, [, ], (, ), `, ~
+        Prevents Markdown interpretation.
     """
-    cleaned: str = re.sub(
-        pattern=CLEANR,
-        repl="",
-        string=raw_html,
-    )
-    return cleaned.strip() if strip else cleaned
+    special_chars = r"[\*_#\[\]\(\)`~]"
+    return re.sub(special_chars, r"\\\\\g<0>", text)
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "clean_html",
-]
+__all__: list[str] = ["markdown_escape"]
