@@ -3,13 +3,18 @@
 # =============================================================================
 
 """
-Command Argument Escaping
-=========================
+Shell Join
+==========
 
-Escape command line arguments for safe shell usage.
+Join command arguments into shell string.
+
+Examples
+--------
+>>> from rite.system.shell import shell_join
+>>> shell_join(["ls", "-la", "file name.txt"])
+"ls -la 'file name.txt'"
 
 """
-
 
 # =============================================================================
 # Imports
@@ -19,30 +24,38 @@ Escape command line arguments for safe shell usage.
 from __future__ import annotations
 
 # Import | Standard Library
-from shlex import quote
+from shlex import join
 
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def get_escaped_command_arg(arg: str) -> str:
-    """Escapes a command line argument to make it safe for shell usage.
+def shell_join(args: list[str]) -> str:
+    """
+    Join command arguments into shell string.
 
     Args:
-        arg: The argument to escape.
+        args: List of command arguments.
 
     Returns:
-        str: The escaped argument.
+        Shell command string.
 
+    Examples:
+        >>> shell_join(["ls", "-la"])
+        'ls -la'
+        >>> shell_join(["echo", "hello world"])
+        "echo 'hello world'"
+
+    Notes:
+        Uses shlex.join for proper escaping.
+        Python 3.8+ required for shlex.join.
     """
-    return quote(arg)
+    return join(args)
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "get_escaped_command_arg",
-]
+__all__: list[str] = ["shell_join"]

@@ -3,13 +3,18 @@
 # =============================================================================
 
 """
-Command Argument Escaping
-=========================
+Platform Name
+=============
 
-Escape command line arguments for safe shell usage.
+Get operating system name.
+
+Examples
+--------
+>>> from rite.system.platform import platform_name
+>>> platform_name()
+'Linux'
 
 """
-
 
 # =============================================================================
 # Imports
@@ -19,30 +24,35 @@ Escape command line arguments for safe shell usage.
 from __future__ import annotations
 
 # Import | Standard Library
-from shlex import quote
+import platform
 
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def get_escaped_command_arg(arg: str) -> str:
-    """Escapes a command line argument to make it safe for shell usage.
-
-    Args:
-        arg: The argument to escape.
+def platform_name() -> str:
+    """
+    Get operating system name.
 
     Returns:
-        str: The escaped argument.
+        OS name (Linux, Darwin, Windows, etc).
 
+    Examples:
+        >>> platform_name()
+        'Linux'
+        >>> platform_name()
+        'Darwin'
+
+    Notes:
+        Returns system name from platform.system().
     """
-    return quote(arg)
+    result: str = platform.system()
+    return result
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "get_escaped_command_arg",
-]
+__all__: list[str] = ["platform_name"]

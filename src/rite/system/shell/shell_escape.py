@@ -3,13 +3,18 @@
 # =============================================================================
 
 """
-Command Argument Escaping
-=========================
+Shell Escape
+============
 
-Escape command line arguments for safe shell usage.
+Escape shell argument.
+
+Examples
+--------
+>>> from rite.system.shell import shell_escape
+>>> shell_escape("file name.txt")
+"'file name.txt'"
 
 """
-
 
 # =============================================================================
 # Imports
@@ -26,15 +31,25 @@ from shlex import quote
 # =============================================================================
 
 
-def get_escaped_command_arg(arg: str) -> str:
-    """Escapes a command line argument to make it safe for shell usage.
+def shell_escape(arg: str) -> str:
+    """
+    Escape shell argument for safe usage.
 
     Args:
-        arg: The argument to escape.
+        arg: Argument to escape.
 
     Returns:
-        str: The escaped argument.
+        Escaped argument string.
 
+    Examples:
+        >>> shell_escape("file name.txt")
+        "'file name.txt'"
+        >>> shell_escape("simple")
+        'simple'
+
+    Notes:
+        Uses shlex.quote for proper escaping.
+        Safe for shell command construction.
     """
     return quote(arg)
 
@@ -43,6 +58,4 @@ def get_escaped_command_arg(arg: str) -> str:
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "get_escaped_command_arg",
-]
+__all__: list[str] = ["shell_escape"]

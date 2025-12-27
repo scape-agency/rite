@@ -3,13 +3,18 @@
 # =============================================================================
 
 """
-Command Argument Escaping
-=========================
+Platform Architecture
+=====================
 
-Escape command line arguments for safe shell usage.
+Get system architecture.
+
+Examples
+--------
+>>> from rite.system.platform import platform_architecture
+>>> platform_architecture()
+'x86_64'
 
 """
-
 
 # =============================================================================
 # Imports
@@ -19,30 +24,35 @@ Escape command line arguments for safe shell usage.
 from __future__ import annotations
 
 # Import | Standard Library
-from shlex import quote
+import platform
 
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def get_escaped_command_arg(arg: str) -> str:
-    """Escapes a command line argument to make it safe for shell usage.
-
-    Args:
-        arg: The argument to escape.
+def platform_architecture() -> str:
+    """
+    Get system architecture.
 
     Returns:
-        str: The escaped argument.
+        Architecture string (x86_64, arm64, etc).
 
+    Examples:
+        >>> platform_architecture()
+        'x86_64'
+        >>> platform_architecture()
+        'arm64'
+
+    Notes:
+        Returns machine type from platform.machine().
     """
-    return quote(arg)
+    result: str = platform.machine()
+    return result
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "get_escaped_command_arg",
-]
+__all__: list[str] = ["platform_architecture"]

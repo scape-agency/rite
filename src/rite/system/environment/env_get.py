@@ -3,13 +3,17 @@
 # =============================================================================
 
 """
-Command Argument Escaping
-=========================
+Environment Get
+===============
 
-Escape command line arguments for safe shell usage.
+Get environment variable value.
+
+Examples
+--------
+>>> from rite.system.environment import env_get
+>>> env_get("PATH")
 
 """
-
 
 # =============================================================================
 # Imports
@@ -19,30 +23,38 @@ Escape command line arguments for safe shell usage.
 from __future__ import annotations
 
 # Import | Standard Library
-from shlex import quote
+import os
 
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def get_escaped_command_arg(arg: str) -> str:
-    """Escapes a command line argument to make it safe for shell usage.
+def env_get(key: str, default: str | None = None) -> str | None:
+    """
+    Get environment variable value.
 
     Args:
-        arg: The argument to escape.
+        key: Environment variable name.
+        default: Default value if not found.
 
     Returns:
-        str: The escaped argument.
+        Variable value or default.
 
+    Examples:
+        >>> env_get("PATH")
+        '/usr/bin:/bin'
+        >>> env_get("MISSING", "default")
+        'default'
+
+    Notes:
+        Returns None if not found and no default.
     """
-    return quote(arg)
+    return os.environ.get(key, default)
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "get_escaped_command_arg",
-]
+__all__: list[str] = ["env_get"]

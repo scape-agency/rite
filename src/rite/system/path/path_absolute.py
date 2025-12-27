@@ -3,13 +3,18 @@
 # =============================================================================
 
 """
-Command Argument Escaping
-=========================
+Path Absolute
+=============
 
-Escape command line arguments for safe shell usage.
+Get absolute path.
+
+Examples
+--------
+>>> from rite.system.path import path_absolute
+>>> path_absolute(".")
+'/current/working/directory'
 
 """
-
 
 # =============================================================================
 # Imports
@@ -19,30 +24,38 @@ Escape command line arguments for safe shell usage.
 from __future__ import annotations
 
 # Import | Standard Library
-from shlex import quote
+from pathlib import Path
 
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def get_escaped_command_arg(arg: str) -> str:
-    """Escapes a command line argument to make it safe for shell usage.
+def path_absolute(path: str | Path) -> str:
+    """
+    Get absolute path as string.
 
     Args:
-        arg: The argument to escape.
+        path: Relative or absolute path.
 
     Returns:
-        str: The escaped argument.
+        Absolute path string.
 
+    Examples:
+        >>> path_absolute(".")
+        '/current/working/directory'
+        >>> path_absolute("../parent")
+        '/parent/directory'
+
+    Notes:
+        Resolves symlinks and relative paths.
     """
-    return quote(arg)
+    result: str = str(Path(path).resolve())
+    return result
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "get_escaped_command_arg",
-]
+__all__: list[str] = ["path_absolute"]

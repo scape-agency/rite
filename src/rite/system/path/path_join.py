@@ -3,13 +3,18 @@
 # =============================================================================
 
 """
-Command Argument Escaping
-=========================
+Path Join
+=========
 
-Escape command line arguments for safe shell usage.
+Join path components.
+
+Examples
+--------
+>>> from rite.system.path import path_join
+>>> path_join("/tmp", "file.txt")
+'/tmp/file.txt'
 
 """
-
 
 # =============================================================================
 # Imports
@@ -19,30 +24,38 @@ Escape command line arguments for safe shell usage.
 from __future__ import annotations
 
 # Import | Standard Library
-from shlex import quote
+from pathlib import Path
 
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def get_escaped_command_arg(arg: str) -> str:
-    """Escapes a command line argument to make it safe for shell usage.
+def path_join(*parts: str) -> str:
+    """
+    Join path components into single path.
 
     Args:
-        arg: The argument to escape.
+        *parts: Path components to join.
 
     Returns:
-        str: The escaped argument.
+        Joined path string.
 
+    Examples:
+        >>> path_join("/tmp", "dir", "file.txt")
+        '/tmp/dir/file.txt'
+        >>> path_join(".", "file.txt")
+        './file.txt'
+
+    Notes:
+        Uses platform-specific separator.
     """
-    return quote(arg)
+    result: str = str(Path(*parts))
+    return result
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "get_escaped_command_arg",
-]
+__all__: list[str] = ["path_join"]

@@ -3,13 +3,18 @@
 # =============================================================================
 
 """
-Command Argument Escaping
-=========================
+Platform Python Version
+=======================
 
-Escape command line arguments for safe shell usage.
+Get Python version information.
+
+Examples
+--------
+>>> from rite.system.platform import platform_python_version
+>>> platform_python_version()
+'3.10.5'
 
 """
-
 
 # =============================================================================
 # Imports
@@ -19,30 +24,35 @@ Escape command line arguments for safe shell usage.
 from __future__ import annotations
 
 # Import | Standard Library
-from shlex import quote
+import platform
 
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def get_escaped_command_arg(arg: str) -> str:
-    """Escapes a command line argument to make it safe for shell usage.
-
-    Args:
-        arg: The argument to escape.
+def platform_python_version() -> str:
+    """
+    Get Python version string.
 
     Returns:
-        str: The escaped argument.
+        Python version (e.g., '3.10.5').
 
+    Examples:
+        >>> platform_python_version()
+        '3.10.5'
+        >>> platform_python_version()
+        '3.11.2'
+
+    Notes:
+        Returns version from platform.python_version().
     """
-    return quote(arg)
+    result: str = platform.python_version()
+    return result
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "get_escaped_command_arg",
-]
+__all__: list[str] = ["platform_python_version"]

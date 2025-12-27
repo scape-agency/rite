@@ -3,13 +3,17 @@
 # =============================================================================
 
 """
-Command Execution
-=================
+Process Run Command
+===================
 
-Execute system commands in subprocess.
+Execute command in subprocess.
+
+Examples
+--------
+>>> from rite.system.process import process_run
+>>> code, out, err = process_run(["ls", "-la"], Path.cwd())
 
 """
-
 
 # =============================================================================
 # Imports
@@ -27,56 +31,53 @@ import subprocess
 # =============================================================================
 
 
-def run_command(
-    cmd: list[str],
-    cwd: Path,
-    check: bool = False,
+def process_run(
+    cmd: list[str], cwd: Path | str | None = None, check: bool = False
 ) -> tuple[int, str, str]:
     """
-    Run a command in a subprocess and return the result.
+    Run command in subprocess and return result.
 
     Args:
-        cmd: The command to run.
-        cwd: The working directory to run the command in.
-        check: Whether to check the return code.
+        cmd: Command as list of strings.
+        cwd: Working directory. Defaults to current.
+        check: Raise exception on non-zero exit.
 
     Returns:
-        A tuple containing the return code, stdout, and stderr.
+        Tuple of (return_code, stdout, stderr).
 
+    Raises:
+        CalledProcessError: If check=True and command fails.
+
+    Examples:
+        >>> process_run(["echo", "hello"])
+        (0, 'hello', '')
+        >>> process_run(["ls"], Path("/tmp"))
+        (0, '...', '')
+
+    Notes:
+        Uses Popen for subprocess execution.
+        Output is text mode with UTF-8 encoding.
     """
+    work_dir = str(cwd) if cwd else None
 
-    # Run the command
     p = subprocess.Popen(
         cmd,
-        cwd=str(cwd),
+        cwd=work_dir,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         text=True,
     )
 
-    # Get the output and error
     out, err = p.communicate()
 
-    # Check the return code
     if check and p.returncode != 0:
-        raise subprocess.CalledProcessError(
-            p.returncode,
-            cmd,
-            out,
-            err,
-        )
+        raise subprocess.CalledProcessError(p.returncode, cmd, out, err)
 
-    # Return the result
     return p.returncode, out.strip(), err.strip()
 
-
-# def is_git_repo(path: Path) -> bool:
-#     return (path / ".git").is_dir()
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "run_command",
-]
+__all__: list[str] = ["process_run"]

@@ -3,13 +3,18 @@
 # =============================================================================
 
 """
-Command Argument Escaping
-=========================
+Path Exists
+===========
 
-Escape command line arguments for safe shell usage.
+Check if path exists.
+
+Examples
+--------
+>>> from rite.system.path import path_exists
+>>> path_exists("/tmp")
+True
 
 """
-
 
 # =============================================================================
 # Imports
@@ -19,30 +24,37 @@ Escape command line arguments for safe shell usage.
 from __future__ import annotations
 
 # Import | Standard Library
-from shlex import quote
+from pathlib import Path
 
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def get_escaped_command_arg(arg: str) -> str:
-    """Escapes a command line argument to make it safe for shell usage.
+def path_exists(path: str | Path) -> bool:
+    """
+    Check if path exists.
 
     Args:
-        arg: The argument to escape.
+        path: Path to check.
 
     Returns:
-        str: The escaped argument.
+        True if exists, False otherwise.
 
+    Examples:
+        >>> path_exists("/tmp")
+        True
+        >>> path_exists("/nonexistent")
+        False
+
+    Notes:
+        Works for files and directories.
     """
-    return quote(arg)
+    return Path(path).exists()
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "get_escaped_command_arg",
-]
+__all__: list[str] = ["path_exists"]

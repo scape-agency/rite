@@ -3,13 +3,18 @@
 # =============================================================================
 
 """
-Command Argument Escaping
-=========================
+Shell Split
+===========
 
-Escape command line arguments for safe shell usage.
+Split shell command string.
+
+Examples
+--------
+>>> from rite.system.shell import shell_split
+>>> shell_split("ls -la '/tmp/file name.txt'")
+['ls', '-la', '/tmp/file name.txt']
 
 """
-
 
 # =============================================================================
 # Imports
@@ -19,30 +24,38 @@ Escape command line arguments for safe shell usage.
 from __future__ import annotations
 
 # Import | Standard Library
-from shlex import quote
+from shlex import split
 
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def get_escaped_command_arg(arg: str) -> str:
-    """Escapes a command line argument to make it safe for shell usage.
+def shell_split(cmd: str) -> list[str]:
+    """
+    Split shell command string into arguments.
 
     Args:
-        arg: The argument to escape.
+        cmd: Command string to split.
 
     Returns:
-        str: The escaped argument.
+        List of command arguments.
 
+    Examples:
+        >>> shell_split("ls -la")
+        ['ls', '-la']
+        >>> shell_split("echo 'hello world'")
+        ['echo', 'hello world']
+
+    Notes:
+        Uses shlex.split for proper parsing.
+        Handles quoted arguments correctly.
     """
-    return quote(arg)
+    return split(cmd)
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "get_escaped_command_arg",
-]
+__all__: list[str] = ["shell_split"]

@@ -3,13 +3,17 @@
 # =============================================================================
 
 """
-Command Argument Escaping
-=========================
+Environment Set
+===============
 
-Escape command line arguments for safe shell usage.
+Set environment variable value.
+
+Examples
+--------
+>>> from rite.system.environment import env_set
+>>> env_set("MY_VAR", "value")
 
 """
-
 
 # =============================================================================
 # Imports
@@ -19,30 +23,37 @@ Escape command line arguments for safe shell usage.
 from __future__ import annotations
 
 # Import | Standard Library
-from shlex import quote
+import os
 
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def get_escaped_command_arg(arg: str) -> str:
-    """Escapes a command line argument to make it safe for shell usage.
+def env_set(key: str, value: str) -> None:
+    """
+    Set environment variable value.
 
     Args:
-        arg: The argument to escape.
+        key: Environment variable name.
+        value: Value to set.
 
     Returns:
-        str: The escaped argument.
+        None
 
+    Examples:
+        >>> env_set("MY_VAR", "value")
+        >>> env_get("MY_VAR")
+        'value'
+
+    Notes:
+        Affects current process and children.
     """
-    return quote(arg)
+    os.environ[key] = value
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "get_escaped_command_arg",
-]
+__all__: list[str] = ["env_set"]

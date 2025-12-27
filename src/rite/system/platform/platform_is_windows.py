@@ -3,13 +3,18 @@
 # =============================================================================
 
 """
-Command Argument Escaping
-=========================
+Platform Is Windows
+===================
 
-Escape command line arguments for safe shell usage.
+Check if running on Windows.
+
+Examples
+--------
+>>> from rite.system.platform import platform_is_windows
+>>> platform_is_windows()
+False
 
 """
-
 
 # =============================================================================
 # Imports
@@ -19,30 +24,34 @@ Escape command line arguments for safe shell usage.
 from __future__ import annotations
 
 # Import | Standard Library
-from shlex import quote
+import platform
 
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def get_escaped_command_arg(arg: str) -> str:
-    """Escapes a command line argument to make it safe for shell usage.
-
-    Args:
-        arg: The argument to escape.
+def platform_is_windows() -> bool:
+    """
+    Check if running on Windows.
 
     Returns:
-        str: The escaped argument.
+        True if Windows, False otherwise.
 
+    Examples:
+        >>> platform_is_windows()
+        False
+        >>> platform_is_windows()
+        True
+
+    Notes:
+        Checks if platform.system() is 'Windows'.
     """
-    return quote(arg)
+    return platform.system() == "Windows"
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
-    "get_escaped_command_arg",
-]
+__all__: list[str] = ["platform_is_windows"]
