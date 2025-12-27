@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.2-beta.2](https://github.com/scape-agency/rite/compare/v0.1.2-beta.1...v0.1.2-beta.2) (2025-12-27)
+
+### 🐛 Bug Fixes
+
+* **ci:** Replace types-all with specific type stubs ([24ed8b1](https://github.com/scape-agency/rite/commit/24ed8b14846db725b72c7844b69c8c738a332024))
+* **docs:** Register myst_parser extension for Sphinx markdown support ([1c6df53](https://github.com/scape-agency/rite/commit/1c6df53d05d98fa0660a71929284908592dab3ac))
+* **test:** Resolve Black parsing errors in test files ([6b7b91c](https://github.com/scape-agency/rite/commit/6b7b91c53b3e2f1903518db2f3697ecbbdc45549))
+
+### 📚 Documentation
+
+* Document trailing newline enforcement across linting tools ([fa8b0a2](https://github.com/scape-agency/rite/commit/fa8b0a2fb3c77023849c78cc38065c501ee55c44))
+
 ## [0.1.2-beta.1](https://github.com/scape-agency/rite/compare/v0.1.1...v0.1.2-beta.1) (2025-12-27)
 
 ### 🐛 Bug Fixes
