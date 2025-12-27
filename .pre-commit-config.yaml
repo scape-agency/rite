@@ -42,7 +42,11 @@ repos:
     rev: v1.14.1
     hooks:
       - id: mypy
-        additional_dependencies: [types-all]
+        additional_dependencies:
+          - types-PyYAML
+          - types-requests
+          - types-setuptools
+          - types-urllib3
         args: ['--config-file=mypy.ini']
         exclude: ^(tests?/|tst/)
 
