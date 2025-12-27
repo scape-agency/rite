@@ -59,31 +59,159 @@
 
 ## About
 
-**rite** is a Python Utility Package.
+**rite** is a comprehensive Python utility package providing a collection of reusable functions and utilities for common programming tasks. The package follows a stdlib-mirroring architecture for intuitive module organization.
 
-Focus:
+### Features
 
-- Data
-- Files
-- Folders
+**Core Modules (Zero Dependencies):**
+
+- **text**: String processing, case conversion, slug generation, text analysis, Morse code
+- **numeric**: Mathematical operations, clamping, coordinate conversions, decimal handling
+- **temporal**: Timestamp handling, duration calculations, timezone utilities
+- **filesystem**: Path operations and file system utilities
+- **collections**: Data structures (circular buffers, singleton, nested sets)
+- **serialization**: JSON, CSV, INI format handling (stdlib only)
+- **conversion**: Type conversions (bool, number, percentage, decimal)
+- **crypto**: Hashing and simple ciphers (stdlib only)
+- **net**: HTTP and SQLite server utilities
+- **markup**: HTML cleaning and manipulation
+- **system**: Command execution and system operations
+- **diagnostics**: Logging and error handling
+- **functional**: Functional programming utilities (decorators, etc.)
+- **identity**: UUID generation and validation
+- **reflection**: Dynamic class loading and introspection
 
 ## Quick Start
 
 ### Installation
 
-``` sh
+Install from PyPI:
+
+```sh
 pip install rite
 ```
 
-``` sh
-pip install rite==0.0.0
+Or install a specific version:
+
+```sh
+pip install rite==0.0.13
 ```
 
-[PyPi](https://pypi.org/project/rite/)
+For development installation:
+
+```sh
+git clone https://github.com/scape-agency/rite.git
+cd rite
+poetry install
+```
+
+[PyPi Package](https://pypi.org/project/rite/)
 
 ## Usage
 
-...
+### Text Processing
+
+```python
+from rite.text import to_snake_case, to_camel_case, slugify
+from rite.text import char_frequency, word_count, is_palindrome
+
+# Case conversions
+snake = to_snake_case("HelloWorld")  # "hello_world"
+camel = to_camel_case("hello_world")  # "helloWorld"
+
+# Create URL-friendly slugs
+slug = slugify("Hello World!")  # "hello-world"
+
+# Text analysis
+freq = char_frequency("hello")  # {'h': 1, 'e': 1, 'l': 2, 'o': 1}
+words = word_count("Hello world")  # 2
+palindrome = is_palindrome("racecar")  # True
+```
+
+### Numeric Operations
+
+```python
+from rite.numeric import clamp, float_to_degree_minute_second
+
+# Clamp values between bounds
+value = clamp(15, 0, 10)  # 10
+
+# Convert coordinates
+dms = float_to_degree_minute_second(12.5)  # (12, 30, 0.0)
+```
+
+### Temporal Operations
+
+```python
+from rite.temporal import Timestamp, Duration, Timezone
+
+# Create and manipulate timestamps
+ts = Timestamp()
+unix_time = ts.to_unix()
+
+# Handle durations
+duration = Duration(seconds=3661)
+print(duration)  # "1h 1m 1s"
+
+# Work with timezones
+tz = Timezone("Europe/Amsterdam")
+now = tz.now()
+```
+
+### Type Conversions
+
+```python
+from rite.conversion import to_bool, to_number, to_percentage
+
+# Flexible boolean conversion
+to_bool("yes")  # True
+to_bool("no")   # False
+
+# Parse numbers from strings
+to_number("45.5 kg")  # 45.5
+
+# Convert to percentage
+to_percentage(0.35)  # 35.0
+```
+
+### UUID Generation
+
+```python
+from rite.identity import uuid_string, uuid_hex, is_valid_uuid
+
+# Generate UUIDs
+uuid_str = uuid_string()  # "550e8400-e29b-41d4-a716-446655440000"
+uuid_compact = uuid_hex()  # "550e8400e29b41d4a716446655440000"
+
+# Validate UUIDs
+valid = is_valid_uuid("550e8400-e29b-41d4-a716-446655440000")  # True
+```
+
+### File System Operations
+
+```python
+from rite.filesystem import path_leaf
+
+# Get the final component of a path
+filename = path_leaf("/path/to/file.txt")  # "file.txt"
+```
+
+### Collections & Data Structures
+
+```python
+from rite.collections import CircularBuffer, SingletonMeta
+
+# Use a circular buffer
+buffer = CircularBuffer(size=5)
+buffer.append(1)
+buffer.append(2)
+
+# Create singleton classes
+class MyConfig(metaclass=SingletonMeta):
+    pass
+```
+
+For more examples and documentation, visit our [documentation](https://www.pyrites.dev).
 
 ## Authors
 
