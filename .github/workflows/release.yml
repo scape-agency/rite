@@ -18,7 +18,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: 3.12.7
+          python-version: '3.12'
 
       # Cache Poetry dependencies for faster builds
       - name: Cache Poetry dependencies
