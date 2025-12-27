@@ -101,19 +101,19 @@ extra:
     provider: google
     property: G-49589BK5M9
   social:
-    - icon: fontawesome/solid/globe 
+    - icon: fontawesome/solid/globe
       link: https://www.scape.agency
-    - icon: fontawesome/brands/github 
+    - icon: fontawesome/brands/github
       link: https://github.com/scape-agency/
-    - icon: fontawesome/brands/linkedin 
+    - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/company/scape-agency/
-    - icon: fontawesome/brands/instagram 
+    - icon: fontawesome/brands/instagram
       link: https://www.instagram.com/scape.agency/
-    - icon: fontawesome/brands/facebook 
+    - icon: fontawesome/brands/facebook
       link: https://www.facebook.com/scape.agency/
   # consent:
   #   title: Cookie consent
-  #   description: >- 
+  #   description: >-
   #     We use cookies to recognize your repeated visits and preferences, as well
   #     as to measure the effectiveness of our documentation and whether users
   #     find what they're searching for. With your consent, you're helping us to
@@ -168,14 +168,26 @@ markdown_extensions:
 
 # Page tree
 nav:
-  - Introduction: 'index.md'
-  - Quick Start: 'quick_start.md'
+  - Home: 'index.md'
+  - Getting Started:
+      - 'Quick Start': 'quick_start.md'
+      - 'Installation': 'installation.md'
+      - 'Getting Started': 'getting-started.md'
+      - 'Examples': 'examples.md'
+  - Development:
+      - 'Setup': 'development/setup.md'
+      - 'Configuration': 'development/configuration.md'
+      - 'Code Style': 'development/code-style.md'
+      - 'Testing': 'development/testing.md'
+      - 'AI Instructions': 'development/ai-instructions.md'
+      - 'Build': 'development/build.md'
+  - Contributing: 'contributing.md'
   - Resources:
       - 'Glossary': 'resources/glossary.md'
       - 'Links': 'resources/links.md'
   - About:
       - 'Authors': 'about/authors.md'
-  - Legal Information:
+  - Legal:
       - 'License': 'legal/license.md'
       - 'Privacy Policy': 'legal/privacy_policy.md'
       - 'Disclaimer': 'legal/disclaimer.md'
