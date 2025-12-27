@@ -188,6 +188,9 @@ dist
 # Docusaurus cache and generated files
 .docusaurus
 
+# MkDocs build output
+site/
+
 # Serverless directories
 .serverless/
 
