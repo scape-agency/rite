@@ -9,6 +9,10 @@
 # Maximum line length - match Black's default
 max-line-length = 79
 
+# Ensure exactly one newline at end of files (W292)
+# W292: no newline at end of file - ENABLED (required)
+# W293: blank line contains whitespace - ENABLED (required)
+
 # Ignore the following rules:
 # - E203: Whitespace before ':' (conflicts with Black)
 # - E266: Too many leading '#' for block comments

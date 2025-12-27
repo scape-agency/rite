@@ -161,6 +161,8 @@ commands = ["mypy src/"]
 line-length = 79
 target-version = ["py310", "py311", "py312"]
 extend-exclude = '(\.eggs|\.git|\.hg|\.mypy_cache|\.tox|\.venv|_build|buck-out|build|dist|htmlcov|bup|wip)'
+# Ensure files end with exactly one newline
+ensure-newline = true
 
 
 # =============================================================================

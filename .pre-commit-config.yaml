@@ -9,6 +9,7 @@ repos:
       - id: check-added-large-files
         args: ['--maxkb=1000']
       - id: end-of-file-fixer
+        # Ensures exactly one newline at end of file
       - id: trailing-whitespace
       - id: mixed-line-ending
       - id: detect-private-key
