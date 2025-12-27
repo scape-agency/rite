@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.0-beta.5](https://github.com/scape-agency/rite/compare/v0.2.0-beta.4...v0.2.0-beta.5) (2025-12-27)
+
+### ✨ Features
+
+* Implement INI serialization and markup entities tests ([125d341](https://github.com/scape-agency/rite/commit/125d341b44a745d861136bc0fdca9975f57d4806))
+
 ## [0.2.0-beta.4](https://github.com/scape-agency/rite/compare/v0.2.0-beta.3...v0.2.0-beta.4) (2025-12-27)
 
 ### ✨ Features
