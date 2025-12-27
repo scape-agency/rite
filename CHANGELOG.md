@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 * **ci:** Replace types-all with specific type stubs ([24ed8b1](https://github.com/scape-agency/rite/commit/24ed8b14846db725b72c7844b69c8c738a332024))
 * **docs:** Register myst_parser extension for Sphinx markdown support ([1c6df53](https://github.com/scape-agency/rite/commit/1c6df53d05d98fa0660a71929284908592dab3ac))
+* **lint:** Fix E704 protocol method signatures ([0fdaa79](https://github.com/scape-agency/rite/commit/0fdaa7917c9fd8a897c1e40dce20a5c4a35c6f6c))
 * **test:** Resolve Black parsing errors in test files ([6b7b91c](https://github.com/scape-agency/rite/commit/6b7b91c53b3e2f1903518db2f3697ecbbdc45549))
 
 ### 📚 Documentation
@@ -44,7 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed Python 2 xrange to range in colour.py
 - Added missing colorsys import
 
-## [0.1.1] - Previous Release
+## [0.1.2] - Previous Release
 
 ### Added
 - Initial release with core utilities
