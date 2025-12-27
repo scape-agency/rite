@@ -6,10 +6,11 @@
 # =============================================================================
 
 """
-Rite - Open CSV File Module
-===========================
+CSV Delimiter Detection
+========================
 
-This module provides utilities for CSV file handling and manipulation.
+Provides functionality to detect the delimiter used in a CSV file based on its
+filename extension.
 
 """
 
@@ -21,43 +22,33 @@ This module provides utilities for CSV file handling and manipulation.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
-from typing import List
-
-# Import | Libraries
-
-# Import | Local Modules
-
-
 # =============================================================================
 # Functions
 # =============================================================================
 
 
-def open_csv(path_or_resource):
+def detect_delimiter(filename: str) -> str:
     """
-    Open a CSV file for reading.
+    Detect the delimiter used in a CSV file based on its filename.
+
+    Args:
+    ----
+        filename: The name or path of the CSV file.
+
+    Returns:
+    -------
+        str: The detected delimiter character (tab or comma).
+
     """
-
-    if hasattr(path_or_resource, "open"):
-        return path_or_resource.open(
-            "r",
-            newline="",
-            encoding="utf-8",
-        )
-
-    return open(
-        path_or_resource,
-        "r",
-        newline="",
-        encoding="utf-8",
-    )
+    if filename.endswith(".tsv"):
+        return "\t"
+    return ","
 
 
 # =============================================================================
-# Exports
+# Module Exports
 # =============================================================================
 
 __all__: list[str] = [
-    "open_csv",
+    "detect_delimiter",
 ]

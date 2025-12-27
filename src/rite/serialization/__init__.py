@@ -6,12 +6,24 @@
 # =============================================================================
 
 """
-Rite - CSV File Module
-======================
+Serialization Module
+====================
 
-This module provides utilities for CSV file handling and manipulation.
+This module provides data serialization utilities similar to Python's
+json, csv, and pickle modules.
+
+Functions will include:
+- JSON utilities (stdlib only)
+- CSV utilities (stdlib only)
+- INI/config file handling
+- Object serialization
+
+Example:
+    >>> from rite.serialization import json_load
+    >>> data = json_load("data.json")
 
 """
+
 
 # =============================================================================
 # Imports
@@ -20,14 +32,18 @@ This module provides utilities for CSV file handling and manipulation.
 # Import | Future
 from __future__ import annotations
 
-# Import | Standard Library
-from typing import List
+from .csv_utils import detect_delimiter
+from .ini_utils import INIHandler
 
-# Import | Local Modules
-
+# Import | Local
+from .json_utils import JSONHandler
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: list[str] = []
+__all__: list[str] = [
+    "JSONHandler",
+    "detect_delimiter",
+    "INIHandler",
+]

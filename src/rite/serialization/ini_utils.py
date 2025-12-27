@@ -6,10 +6,19 @@
 # =============================================================================
 
 """
-Provides INIHandler Module
-==========================
+INI Configuration Handler Module
+=================================
 
+Provides utilities for INI configuration file operations using Python's
+standard library configparser module.
 
+This module offers an INIHandler class with methods for:
+- Reading and writing INI configuration files
+- Updating and retrieving values from INI sections
+- Managing sections and keys
+- Validating INI file existence
+
+All functionality uses only Python stdlib (configparser module).
 
 """
 
@@ -23,7 +32,7 @@ from __future__ import annotations
 
 # Import | Standard Library
 import configparser
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 # Import | Libraries
 
@@ -49,7 +58,12 @@ class INIHandler(object):
         Saves a ConfigParser object to an INI file.
     update_ini(config: configparser.ConfigParser, section: str, updates: dict[str, Any]):
         Updates a section in the ConfigParser object.
-    get_value(config: configparser.ConfigParser, section: str, key: str, fallback: Optional[Any] = None) -> Any:
+    get_value(
+        config: configparser.ConfigParser,
+        section: str,
+        key: str,
+        fallback: Any | None = None,
+    ) -> Any:
         Gets a value from a section in the ConfigParser object.
     add_section(config: configparser.ConfigParser, section: str):
         Adds a new section to the ConfigParser object.
@@ -83,7 +97,7 @@ class INIHandler(object):
         return config
 
     @staticmethod
-    def save_ini(config: configparser.ConfigParser, file_path: str):
+    def save_ini(config: configparser.ConfigParser, file_path: str) -> None:
         """
         Saves a ConfigParser object to an INI file.
 
@@ -99,7 +113,7 @@ class INIHandler(object):
         config: configparser.ConfigParser,
         section: str,
         updates: dict[str, Any],
-    ):
+    ) -> None:
         """
         Updates a section in the ConfigParser object.
 
@@ -118,7 +132,7 @@ class INIHandler(object):
         config: configparser.ConfigParser,
         section: str,
         key: str,
-        fallback: Optional[Any] = None,
+        fallback: Any | None = None,
     ) -> Any:
         """
         Gets a value from a section in the ConfigParser object.
@@ -127,7 +141,7 @@ class INIHandler(object):
             config (configparser.ConfigParser): The ConfigParser object.
             section (str): The section from which to get the value.
             key (str): The key for the value to get.
-            fallback (Optional[Any]): The default value to return if the key
+            fallback (Any | None): The default value to return if the key
             is not found.
 
         Returns
@@ -138,7 +152,7 @@ class INIHandler(object):
         return config.get(section, key, fallback=fallback)
 
     @staticmethod
-    def add_section(config: configparser.ConfigParser, section: str):
+    def add_section(config: configparser.ConfigParser, section: str) -> bool:
         """
         Adds a new section to the ConfigParser object.
 
@@ -157,7 +171,9 @@ class INIHandler(object):
         return False
 
     @staticmethod
-    def remove_section(config: configparser.ConfigParser, section: str):
+    def remove_section(
+        config: configparser.ConfigParser, section: str
+    ) -> bool:
         """
         Removes a section from the ConfigParser object.
 
@@ -246,74 +262,6 @@ class INIHandler(object):
         return False
 
 
-# =============================================================================
-# Functions
-# =============================================================================
-
-
-def test():
-    """
-    Test Function
-    """
-
-    # Example usage
-    config = INIHandler.load_ini("config.ini")
-
-    # Update configuration
-    INIHandler.update_ini(
-        config, "section1", {"key1": "value1", "key2": "value2"}
-    )
-
-    # Save configuration
-    INIHandler.save_ini(config, "config_updated.ini")
-
-    # Example usage
-    config = INIHandler.load_ini("config.ini")
-
-    # Get value with a fallback
-    value = INIHandler.get_value(
-        config, "section1", "key1", fallback="default"
-    )
-
-    # Add a new section
-    added = INIHandler.add_section(config, "new_section")
-
-    # Remove a section
-    removed = INIHandler.remove_section(config, "section_to_remove")
-
-    # Save configuration
-    INIHandler.save_ini(config, "config_updated.ini")
-
-    # Example usage
-    config = INIHandler.load_ini("config.ini")
-
-    # List all sections
-    sections = INIHandler.list_sections(config)
-    print(sections)
-
-    # List all keys in a section
-    keys = INIHandler.list_keys(config, "section1")
-    print(keys)
-
-    # Check if a specific key exists
-    exists = INIHandler.has_key(config, "section1", "key1")
-    print(exists)
-
-    # Remove a specific key
-    removed = INIHandler.remove_key(config, "section1", "key1")
-    print(removed)
-
-    # Save configuration
-    INIHandler.save_ini(config, "config_updated.ini")
-
-
-# =============================================================================
-# Main
-# =============================================================================
-
-if __name__ == "__main__":
-    """Main"""
-    import doctest
-
-    doctest.testmod()
-    test()
+__all__: list[str] = [
+    "INIHandler",
+]
