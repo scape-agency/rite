@@ -13,6 +13,9 @@ Tests for rite.conversion.types.types_to_dict.
 # Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
+from collections.abc import Mapping
+
 # Import | Libraries
 import pytest
 
@@ -31,11 +34,25 @@ def test_types_to_dict_from_mapping_and_pairs() -> None:
     data = {"a": 1, "b": 2}
     assert types_to_dict(data) is data
 
-    class CustomMapping(dict):
-        """Simple mapping subclass for testing."""
+    # Test with non-dict Mapping to exercise the Mapping branch
+    class CustomMapping(Mapping):
+        """Custom mapping that doesn't inherit from dict."""
 
-    custom = CustomMapping({"x": 10})
-    assert types_to_dict(custom) == {"x": 10}
+        def __init__(self, data: dict) -> None:
+            self._data = data
+
+        def __getitem__(self, key):
+            return self._data[key]
+
+        def __iter__(self):
+            return iter(self._data)
+
+        def __len__(self):
+            return len(self._data)
+
+    custom = CustomMapping({"x": 10, "y": 20})
+    result = types_to_dict(custom)
+    assert result == {"x": 10, "y": 20}
 
     pairs = [("a", 1), ("b", 2)]
     assert types_to_dict(pairs) == {"a": 1, "b": 2}

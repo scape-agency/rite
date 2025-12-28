@@ -102,6 +102,24 @@ class TestTrie:
         # Deleting non-existent word returns False
         assert instance.delete("missing") is False
 
+    def test_delete_non_word(self) -> None:
+        """Test deleting a prefix that's not marked as end-of-word."""
+        instance = Trie()
+        instance.insert("python")
+
+        # Try to delete a prefix that's not a complete word
+        assert instance.delete("py") is False
+        assert instance.search("python")  # Original still there
+
+    def test_delete_partial_path(self) -> None:
+        """Test deleting when part of the path doesn't exist."""
+        instance = Trie()
+        instance.insert("cat")
+
+        # Try to delete a word with overlapping prefix
+        assert instance.delete("car") is False
+        assert instance.search("cat")  # Original still there
+
     def test_get_words_with_prefix(self) -> None:
         """Test Trie.get_words_with_prefix() method."""
         instance = Trie()

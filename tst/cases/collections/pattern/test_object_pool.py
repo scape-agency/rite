@@ -85,6 +85,7 @@ class TestObjectPool:
         assert instance.in_use_count() == 1
         instance.release(obj)
         assert instance.in_use_count() == 0
+
     def test_release_with_reset_func(self) -> None:
         """Test ObjectPool.release() with reset parameter."""
         reset_called = []

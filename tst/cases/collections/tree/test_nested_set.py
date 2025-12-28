@@ -89,6 +89,7 @@ class TestNestedSetStructure:
         items = instance.nested_items()
         # Expect depth-first traversal respecting insertion order
         assert items == ["root1", "child1", "child2", "root2", "child3"]
+
     def test_add_duplicate(self) -> None:
         """Test adding the same item twice (early return path)."""
         instance = NestedSetStructure()
