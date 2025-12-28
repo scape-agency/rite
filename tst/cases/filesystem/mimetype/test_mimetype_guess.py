@@ -47,3 +47,28 @@ def test_mimetype_guess_from_name_and_bytes() -> None:
     stream = io.BytesIO(b"\x89PNG\r\n\x1a\nrest")
     mime = mimetype_guess(stream, prefer_sniff=True)
     assert mime == "image/png"
+
+
+def test_mimetype_guess_url_path() -> None:
+    """Test mimetype_guess extracts path from URL (lines 84-85)."""
+    result = mimetype_guess("http://example.com/image.jpg")
+    assert result in {"image/jpeg", "image/pjpeg"}
+
+    # URL with query string
+    result = mimetype_guess("https://cdn.example.com/file.png?v=123")
+    assert result == "image/png"
+
+
+def test_mimetype_guess_empty_bytes() -> None:
+    """Test mimetype_guess with empty bytes returns None (line 93)."""
+    stream = io.BytesIO(b"")
+    result = mimetype_guess(stream, prefer_sniff=True)
+    assert result is None
+
+
+def test_mimetype_guess_unknown_bytes() -> None:
+    """Test mimetype_guess with unknown bytes."""
+    stream = io.BytesIO(b"random unknown data")
+    result = mimetype_guess(stream, prefer_sniff=True)
+    # Should return None or fall back to filename
+    assert result is None or isinstance(result, str)

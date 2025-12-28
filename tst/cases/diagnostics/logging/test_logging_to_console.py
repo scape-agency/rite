@@ -131,3 +131,17 @@ def test_logging_to_console_no_duplicate_handlers() -> None:
     assert logger1 is logger2
     # Should not have duplicate handlers
     assert len(logger1.handlers) == 1
+
+
+def test_logging_to_console_no_colorize_format(caplog) -> None:
+    """Test logging_to_console without colorize (line 73)."""
+    # Use unique name to avoid handler reuse
+    # Import | Standard Library
+    import uuid
+
+    name = f"test_no_color_{uuid.uuid4().hex[:8]}"
+    logger = logging_to_console(name, colorize=False)
+    assert logger is not None
+    # Verify it uses standard Formatter, not ColorFormatter
+    handler = logger.handlers[0]
+    assert type(handler.formatter) is logging.Formatter

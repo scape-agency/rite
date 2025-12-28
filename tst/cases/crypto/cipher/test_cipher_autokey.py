@@ -52,10 +52,9 @@ def test_encode_autokey_cipher_with_non_alpha() -> None:
 
 def test_decode_autokey_cipher_with_non_alpha() -> None:
     """Test decoding with non-alpha characters (line 117)."""
-    # Encode and then decode with numbers
-    encoded = encode_autokey_cipher("A1B", "KEY")
-    assert "1" in encoded
-    # Can't do round-trip because keystream is different for non-alpha
+    # Directly test the decode function with non-alpha
+    decoded = decode_autokey_cipher("K1Y", "KEY")
+    assert "1" in decoded  # Non-alpha preserved
 
 
 def test_autokey_cipher_lowercase() -> None:

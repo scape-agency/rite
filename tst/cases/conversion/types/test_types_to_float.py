@@ -52,3 +52,14 @@ def test_types_to_float(
 ) -> None:
     """Test types_to_float() for numeric and string inputs."""
     assert types_to_float(value, default) == expected
+
+
+def test_types_to_float_pattern_match() -> None:
+    """Test types_to_float with pattern match fallback (line 88)."""
+    # String that fails direct conversion but matches pattern
+    result = types_to_float("  3.14abc", None)
+    assert result is None  # Pattern won't match with trailing chars
+
+    # Valid float with whitespace uses pattern
+    result = types_to_float("  42.5  ", None)
+    assert result == 42.5

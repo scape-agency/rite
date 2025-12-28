@@ -43,3 +43,18 @@ def test_entities_encode(text: str, ascii_only: bool) -> None:
     # Verify the result is entity-encoded (contains & or &#)
     if text != "hello":
         assert "&" in result
+
+
+def test_entities_encode_ascii_only() -> None:
+    """Test entities_encode with ascii_only=True (line 53)."""
+    result = entities_encode("café", ascii_only=True)
+    # 'c', 'a', 'f' should stay as is, 'é' should be encoded
+    assert result.startswith("caf")
+    assert "&#" in result  # é encoded
+
+
+def test_entities_encode_all_ascii() -> None:
+    """Test entities_encode with all ASCII chars and ascii_only=True."""
+    result = entities_encode("hello", ascii_only=True)
+    # All ASCII should stay as is
+    assert result == "hello"

@@ -89,3 +89,10 @@ def test_sanitize_url_parametrized(
     """Test sanitize_url with various parameters."""
     result = sanitize_url(url, allowed)
     assert result == expected
+
+
+def test_sanitize_url_exception_handling() -> None:
+    """Test sanitize_url handles exceptions gracefully (line 67)."""
+    # A URL that might cause issues during parsing but shouldn't crash
+    result = sanitize_url("://broken", ["http"])
+    assert result == ""

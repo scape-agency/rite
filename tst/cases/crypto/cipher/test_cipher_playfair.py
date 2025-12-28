@@ -96,12 +96,13 @@ def test_playfair_cipher_pair_same_row() -> None:
 
 
 def test_playfair_cipher_pair_same_column() -> None:
-    """Test cipher_pair with same column."""
-    square = create_playfair_square("KEY")
-    # Find letters in the same column
-    pair = playfair_cipher_pair("KS", square, mode="encode")
-    assert isinstance(pair, str)
-    assert len(pair) == 2
+    """Test cipher_pair with same column (lines 104-105)."""
+    square = create_playfair_square("")  # Standard square
+    # Find letters in the same column - A and F should be in same column
+    # Standard square: ABCDE/FGHIK/LMNOP/QRSTU/VWXYZ
+    pair_encoded = playfair_cipher_pair("AF", square, mode="encode")
+    pair_decoded = playfair_cipher_pair(pair_encoded, square, mode="decode")
+    assert pair_decoded == "AF"
 
 
 def test_prepare_text_with_j() -> None:
@@ -109,3 +110,10 @@ def test_prepare_text_with_j() -> None:
     result = prepare_text("JELLO")
     assert "J" not in result
     assert "I" in result or result.startswith("I")
+
+
+def test_prepare_text_single_char_end() -> None:
+    """Test prepare_text pads single char at end (line 136)."""
+    result = prepare_text("ABC")
+    # AB + CX (padded)
+    assert len(result) % 2 == 0

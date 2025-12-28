@@ -98,3 +98,10 @@ def test_path_safe_join_current_directory_references() -> None:
     # Multiple dots in path
     result = path_safe_join("/opt", "app.v1", "data")
     assert result == "opt/app.v1/data"
+
+
+def test_path_safe_join_equals_base() -> None:
+    """Test path_safe_join when result equals base (line 75)."""
+    # When final path would equal base path, append /
+    result = path_safe_join("/var/data", "")
+    assert result == "var/data/"

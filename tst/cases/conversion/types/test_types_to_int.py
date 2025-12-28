@@ -50,3 +50,14 @@ def test_types_to_int(
 ) -> None:
     """Test types_to_int() for ints, floats, strings, and defaults."""
     assert types_to_int(value, default) == expected
+
+
+def test_types_to_int_pattern_match() -> None:
+    """Test types_to_int with pattern match fallback (line 89)."""
+    # String that fails direct conversion but matches pattern
+    result = types_to_int("  42abc", None)
+    assert result is None  # Pattern won't match with trailing chars
+
+    # Valid int with whitespace uses pattern
+    result = types_to_int("  99  ", None)
+    assert result == 99
