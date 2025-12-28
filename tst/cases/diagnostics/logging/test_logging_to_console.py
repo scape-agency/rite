@@ -91,11 +91,20 @@ def test_logging_to_console_default_format() -> None:
 
 
 def test_logging_to_console_custom_format() -> None:
-    """Test logging_to_console with custom format."""
+    """Test logging_to_console with custom format (branch 64->70)."""
+    # Import | Standard Library
+    import logging as log_module
+
+    # Use unique name and clear handlers to ensure we enter the handler setup
+    name = "test_custom_format_branch"
+    logger_raw = log_module.getLogger(name)
+    logger_raw.handlers.clear()
+
     custom_format = "%(name)s - %(message)s"
-    logger = logging_to_console("test", format_string=custom_format)
+    logger = logging_to_console(name, format_string=custom_format)
     assert logger is not None
     assert isinstance(logger, logging.Logger)
+    assert len(logger.handlers) == 1
 
 
 def test_logging_to_console_with_colorize() -> None:
@@ -142,3 +151,29 @@ def test_logging_to_console_no_colorize_format(caplog) -> None:
     # Verify it uses standard Formatter, not ColorFormatter
     handler = logger.handlers[0]
     assert type(handler.formatter) is logging.Formatter
+
+
+def test_logging_to_console_existing_handlers_skip() -> None:
+    """Test logging_to_console skips handler setup if already present (64->70)."""
+    # Import | Standard Library
+    import logging as log_module
+
+    # Use static name to ensure we're testing handler skip behavior
+    name = "test_skip_handler_setup"
+
+    # Get the logger and clear any existing handlers from previous runs
+    logger = log_module.getLogger(name)
+    logger.handlers.clear()
+
+    # First call - adds handler (no existing handlers)
+    logger1 = logging_to_console(name, colorize=True)
+    handler_count_1 = len(logger1.handlers)
+    assert handler_count_1 == 1
+
+    # Second call - should skip adding handler (branch 64->70)
+    logger2 = logging_to_console(name, colorize=False)
+    handler_count_2 = len(logger2.handlers)
+    # Should still have only 1 handler (not 2)
+    assert handler_count_2 == 1
+    # Both calls return same logger
+    assert logger1 is logger2

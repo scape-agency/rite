@@ -45,6 +45,11 @@ from rite.conversion.types.types_to_bool import (
         ("false", None, False),
         ("invalid", None, None),
         ("invalid", True, True),
+        ("", False, False),  # Empty string -> default
+        ("random", False, False),  # Unrecognized -> default
+        (-1, None, True),  # Negative number is truthy
+        ([], None, None),  # List -> not str, falls to default (branch 83->92)
+        ({}, False, False),  # Dict -> not str, falls to default
     ],
 )
 def test_types_to_bool(

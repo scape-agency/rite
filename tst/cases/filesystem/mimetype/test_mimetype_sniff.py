@@ -88,6 +88,19 @@ def test_check_riff_container_short_buffer() -> None:
     assert _check_riff_container(memoryview(b"RIFFxxx")) is None
 
 
+def test_check_riff_container_long_but_not_riff() -> None:
+    """Test RIFF check with long buffer but not RIFF (branch 57->59)."""
+    # Length >= 12 but first 4 bytes != RIFF
+    assert _check_riff_container(memoryview(b"NOTRIFFdataa")) is None
+
+
+def test_check_riff_container_riff_but_unknown_type() -> None:
+    """Test RIFF container with unknown type (branch 57->59)."""
+    # Starts with RIFF, but not WEBP or WAVE
+    riff_unknown = b"RIFF" + b"xxxx" + b"UNKN"
+    assert _check_riff_container(memoryview(riff_unknown)) is None
+
+
 def test_check_ogg_container_ogg() -> None:
     """Test Ogg container detection."""
     ogg_header = b"OggS" + b"\x00" * 60

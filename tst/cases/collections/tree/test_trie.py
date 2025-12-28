@@ -180,3 +180,27 @@ class TestTrie:
         instance.insert("apple")
         result = instance.get_words_with_prefix("xyz")
         assert result == []
+
+    def test_insert_duplicate_word(self) -> None:
+        """Test inserting duplicate word skips size increment (line 79->81)."""
+        instance = Trie()
+        instance.insert("hello")
+        assert len(instance) == 1
+        # Inserting same word again should not increment size
+        instance.insert("hello")
+        assert len(instance) == 1
+        # Update value on duplicate insert
+        instance.insert("hello", value="world")
+        assert instance.get("hello") == "world"
+        assert len(instance) == 1
+
+    def test_delete_single_word_removes_nodes(self) -> None:
+        """Test deleting single word removes orphan nodes (lines 162-163)."""
+        instance = Trie()
+        instance.insert("xyz")
+        assert instance.search("xyz")
+        # Delete should remove all nodes since no shared prefix
+        result = instance.delete("xyz")
+        assert result is True
+        assert not instance.search("xyz")
+        assert len(instance) == 0

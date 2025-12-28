@@ -155,6 +155,7 @@ class _KeyValueFormatter(logging.Formatter):
                 "exc_info",
                 "exc_text",
                 "stack_info",
+                "taskName",  # Python 3.12+
             ):
                 extras.append(f'{key}="{value}"')
 

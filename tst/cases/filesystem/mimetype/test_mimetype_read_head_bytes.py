@@ -150,3 +150,46 @@ def test_read_head_bytes_failing_peek() -> None:
     stream = FailingPeekStream()
     result = read_head_bytes(stream, n=4)
     assert result == b"fall"
+
+
+def test_read_head_bytes_peek_returns_non_bytes() -> None:
+    """Test peek returning non-bytes-like object (branch 68->74)."""
+
+    class NonBytesPeekStream:
+        def peek(self, n: int) -> str:
+            # Return a string instead of bytes
+            return "not bytes"
+
+        def read(self, n: int) -> bytes:
+            return b"fallback"[:n]
+
+        def tell(self) -> int:
+            return 0
+
+        def seek(self, pos: int, whence: int = 0) -> int:
+            return 0
+
+    stream = NonBytesPeekStream()
+    # Should fall through to read/seek since peek doesn't return bytes
+    result = read_head_bytes(stream, n=4)
+    assert result == b"fall"
+
+
+def test_read_head_bytes_read_returns_non_bytes() -> None:
+    """Test read returning non-bytes-like object (branch 85->91)."""
+
+    class NonBytesReadStream:
+        def read(self, n: int) -> str:
+            # Return a string instead of bytes
+            return "not bytes"
+
+        def tell(self) -> int:
+            return 0
+
+        def seek(self, pos: int, whence: int = 0) -> int:
+            return 0
+
+    stream = NonBytesReadStream()
+    # Should return None since read doesn't return bytes
+    result = read_head_bytes(stream, n=4)
+    assert result is None

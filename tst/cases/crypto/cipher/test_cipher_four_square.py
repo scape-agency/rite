@@ -99,3 +99,11 @@ def test_four_square_cipher_pair_invalid_mode() -> None:
         four_square_cipher_pair(
             "HE", square_tl, square_tr, square_bl, square_br, mode="invalid"
         )
+
+
+def test_encode_even_length_no_padding() -> None:
+    """Test encoding even-length text skips X padding (line 134->137)."""
+    # HELO is 4 characters (even), should not pad with X
+    result = encode_four_square_cipher("HELO", "KEY1", "KEY2")
+    assert isinstance(result, str)
+    assert len(result) == 4  # 4 characters -> 2 pairs -> 4 output chars

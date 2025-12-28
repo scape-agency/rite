@@ -70,3 +70,33 @@ def test_copy_files_missing_source_raises(tmp_path) -> None:
 
     with pytest.raises(FileNotFoundError):
         copy_files(source_dir, target_dir, recursive=True)
+
+
+def test_copy_files_no_overwrite_recursive(tmp_path) -> None:
+    """Test copy_files skips existing files when overwrite=False (line 69)."""
+    source_dir = tmp_path / "src_ow"
+    target_dir = tmp_path / "dst_ow"
+    source_dir.mkdir()
+    target_dir.mkdir()
+    (source_dir / "file.txt").write_text("new content")
+    (target_dir / "file.txt").write_text("old content")
+
+    copy_files(source_dir, target_dir, recursive=True, overwrite=False)
+
+    # Original content should be preserved
+    assert (target_dir / "file.txt").read_text() == "old content"
+
+
+def test_copy_files_no_overwrite_non_recursive(tmp_path) -> None:
+    """Test copy_files skips existing files non-recursive (line 75)."""
+    source_dir = tmp_path / "src_ow2"
+    target_dir = tmp_path / "dst_ow2"
+    source_dir.mkdir()
+    target_dir.mkdir()
+    (source_dir / "file.txt").write_text("new content")
+    (target_dir / "file.txt").write_text("old content")
+
+    copy_files(source_dir, target_dir, recursive=False, overwrite=False)
+
+    # Original content should be preserved
+    assert (target_dir / "file.txt").read_text() == "old content"

@@ -73,6 +73,29 @@ def test_types_to_dict_with_key_attr() -> None:
     assert result["b"].value == 2
 
 
+def test_types_to_dict_with_key_attr_missing() -> None:
+    """Test key_attr when some items don't have the attribute (line 79)."""
+
+    class Item:
+        def __init__(self, key: str) -> None:
+            self.key = key
+
+    class NoKey:
+        pass
+
+    items = [Item("a"), NoKey(), Item("b")]
+    result = types_to_dict(items, key_attr="key")
+    # Only items with 'key' attr should be in result
+    assert set(result.keys()) == {"a", "b"}
+
+
+def test_types_to_dict_list_not_pairs() -> None:
+    """Test list that isn't key-value pairs (line 76->84)."""
+    # List of single items, not pairs - should fail
+    with pytest.raises(ValueError):
+        types_to_dict([1, 2, 3])
+
+
 def test_types_to_dict_invalid_input_raises() -> None:
     """Test that unsupported inputs raise ValueError."""
     with pytest.raises(ValueError):

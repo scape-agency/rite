@@ -41,6 +41,8 @@ from rite.conversion.types.types_to_number import (
         ("1.5e3 m", None, 1500.0),
         ("invalid", None, None),
         ("invalid", 1.0, 1.0),
+        ([], None, None),  # List -> default (line 76->81)
+        ({}, 0.0, 0.0),  # Dict -> default
     ],
 )
 def test_types_to_number(

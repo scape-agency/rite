@@ -65,3 +65,12 @@ def test_sanitize_html_handles_attributes() -> None:
     """Test that sanitize_html handles tag attributes."""
     result = sanitize_html('<a href="http://example.com">Link</a>')
     assert "href" in result or "a" in result
+
+
+def test_sanitize_html_no_allowed_tags() -> None:
+    """Test sanitize_html with no allowed tags (branch 69->84)."""
+    # Pass empty list - skips tag filtering, only removes dangerous
+    result = sanitize_html("<p>Text</p><script>bad</script>", allowed_tags=[])
+    # Dangerous tags removed, but other tags remain (no filter applied)
+    assert "<p>Text</p>" in result
+    assert "script" not in result

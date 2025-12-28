@@ -40,7 +40,7 @@ def _shift_char(c: str, k: str, decode: bool = False) -> str:
     Args:
         c: Character to shift.
         k: Key character to use for shift.
-        decode: Whether to decode (subtract shift) instead of encode (add shift).
+        decode: Whether to decode (subtract) instead of encode (add).
 
     Returns:
         Shifted character.

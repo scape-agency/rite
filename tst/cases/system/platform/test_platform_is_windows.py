@@ -16,9 +16,6 @@ from __future__ import annotations
 # Import | Standard Library
 import sys
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.system.platform.platform_is_windows import (
     platform_is_windows,

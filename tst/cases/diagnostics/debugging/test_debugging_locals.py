@@ -27,8 +27,8 @@ def test_debugging_locals_captures_variables(capsys) -> None:
     """Test debugging_locals captures local variables."""
 
     def test_func():
-        var_x = 42  # noqa: F841 - captured by debugging_locals
-        var_y = "hello"  # noqa: F841 - captured by debugging_locals
+        var_x = 42  # pylint: disable=unused-variable
+        var_y = "hello"  # pylint: disable=unused-variable
         result = debugging_locals()
         assert "var_x" in result
         assert "var_y" in result
@@ -46,8 +46,8 @@ def test_debugging_locals_excludes_private(capsys) -> None:
     """Test debugging_locals excludes private by default."""
 
     def test_func():
-        var_x = 1  # noqa: F841 - captured by debugging_locals
-        _private = 2  # noqa: F841 - tested to be excluded
+        var_x = 1  # pylint: disable=unused-variable
+        _private = 2  # pylint: disable=unused-variable
         result = debugging_locals(show_private=False)
         assert "var_x" in result
         assert "_private" not in result
@@ -61,8 +61,8 @@ def test_debugging_locals_includes_private(capsys) -> None:
     """Test debugging_locals includes private when requested."""
 
     def test_func():
-        var_x = 1  # noqa: F841 - captured by debugging_locals
-        _private = 2  # noqa: F841 - captured by debugging_locals
+        var_x = 1  # pylint: disable=unused-variable
+        _private = 2  # pylint: disable=unused-variable
         result = debugging_locals(show_private=True)
         assert "var_x" in result
         assert "_private" in result
@@ -76,7 +76,7 @@ def test_debugging_locals_includes_private(capsys) -> None:
 def test_debugging_locals_frame_none(capsys, monkeypatch) -> None:
     """Test debugging_locals when currentframe returns None (line 62)."""
     # Import | Standard Library
-    import inspect
+    import inspect  # pylint: disable=import-outside-toplevel
 
     # Monkeypatch to return None for currentframe
     monkeypatch.setattr(inspect, "currentframe", lambda: None)
@@ -88,7 +88,7 @@ def test_debugging_locals_frame_none(capsys, monkeypatch) -> None:
 def test_debugging_locals_caller_frame_none(capsys, monkeypatch) -> None:
     """Test debugging_locals when f_back is None (line 67)."""
     # Import | Standard Library
-    import inspect
+    import inspect  # pylint: disable=import-outside-toplevel
 
     class FakeFrame:
         f_back = None

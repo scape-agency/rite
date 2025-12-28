@@ -119,6 +119,28 @@ class Test_KeyValueFormatter:
         result = formatter.format(record)
         assert 'duration_ms="500"' in result
 
+    def test_format_key_value_no_extras(self) -> None:
+        """Test _KeyValueFormatter without extra fields (line 161->164)."""
+        formatter = _KeyValueFormatter()
+        record = logging.LogRecord(
+            name="test",
+            level=logging.INFO,
+            pathname="test.py",
+            lineno=1,
+            msg="Test message",
+            args=(),
+            exc_info=None,
+        )
+        # No custom fields added - all standard LogRecord attributes excluded
+        result = formatter.format(record)
+        # Base format should include the message
+        assert 'message="Test message"' in result
+        assert "level=INFO" in result
+        assert "logger=test" in result
+        # Verify result ends with the message (no trailing extras)
+        # The base format is: timestamp level=X logger=Y message="..."
+        assert result.rstrip().endswith('message="Test message"')
+
 
 # =============================================================================
 # Test Functions

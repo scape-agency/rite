@@ -31,7 +31,7 @@ try:
     __version__ = version("rite")
 except PackageNotFoundError:
     # Package is not installed (development mode)
-    __version__ = "0.2.2"  # Keep in sync with pyproject.toml
+    __version__ = "0.2.3"  # Keep in sync with pyproject.toml
 
 # =============================================================================
 # Exports

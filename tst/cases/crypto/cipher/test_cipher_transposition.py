@@ -61,9 +61,31 @@ def test_encode_transposition_with_padding() -> None:
     assert len(result) == 6
 
 
+def test_encode_transposition_no_padding() -> None:
+    """Test encoding with text not needing padding (line 51->54)."""
+    result = encode_transposition_cipher("ABCDEF", 3)
+    # 6 chars with key 3 = exactly 2 rows, no padding needed
+    assert len(result) == 6
+
+
 def test_decode_transposition_no_strip() -> None:
     """Test decoding without stripping padding (line 90->89)."""
     encoded = encode_transposition_cipher("HI", 3)
     result = decode_transposition_cipher(encoded, 3, strip_padding=False)
     # Should keep trailing spaces
     assert len(result) == 3
+
+
+def test_decode_transposition_uneven_columns() -> None:
+    """Test decoding with uneven column lengths (branch 90->89)."""
+    # Manually create an encoded string that would produce uneven columns
+    # when decoded. With key=3 and 5 chars:
+    # full_rows = 5 // 3 = 1
+    # extra_chars = 5 % 3 = 2
+    # col_lengths = [2, 2, 1] (first 2 columns have 2 chars, 3rd has 1)
+    # So we need a 5-char string to decode
+    encoded = "ABCDE"  # Unpadded encoded string
+    result = decode_transposition_cipher(encoded, 3)
+    # This should hit the row < len(col) FALSE branch when:
+    # row=1, col[2] has len=1, 1<1 is FALSE
+    assert isinstance(result, str)

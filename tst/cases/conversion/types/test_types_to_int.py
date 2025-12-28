@@ -43,6 +43,8 @@ from rite.conversion.types.types_to_int import (
         ("  +10  ", None, 10),
         ("invalid", None, None),
         ("invalid", 1, 1),
+        ([], None, None),  # List -> default (line 72->79)
+        ({}, 0, 0),  # Dict -> default
     ],
 )
 def test_types_to_int(

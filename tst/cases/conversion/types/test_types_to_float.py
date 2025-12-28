@@ -43,6 +43,8 @@ from rite.conversion.types.types_to_float import (
         ("  -2.5  ", None, -2.5),
         ("invalid", None, None),
         ("invalid", 1.5, 1.5),
+        ([], None, None),  # List -> default (line 71->78)
+        ({}, 0.0, 0.0),  # Dict -> default
     ],
 )
 def test_types_to_float(

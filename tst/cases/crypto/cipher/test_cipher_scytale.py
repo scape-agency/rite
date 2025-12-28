@@ -60,3 +60,10 @@ def test_encode_scytale_with_padding() -> None:
     result = encode_scytale_cipher("HELLO", 3)
     # Should pad to 6 characters (2 rows x 3 cols)
     assert len(result) == 6
+
+
+def test_encode_scytale_no_padding() -> None:
+    """Test encoding with text that doesn't need padding (line 51->54)."""
+    # Text length 6 with diameter 3 = exactly 2 rows, no padding
+    result = encode_scytale_cipher("HELLOO", 3)
+    assert len(result) == 6
