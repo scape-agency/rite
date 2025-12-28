@@ -59,6 +59,23 @@ def test_errors_format_traceback_without_locals() -> None:
         assert "Local variables" not in result
 
 
+def test_errors_format_traceback_unrepresentable_locals() -> None:
+    """Test errors_format_traceback with unrepresentable local variables."""
+
+    class BadRepr:
+        def __repr__(self):
+            raise ValueError("Bad repr")
+
+    try:
+        bad_obj = BadRepr()
+        raise RuntimeError("error with bad repr")
+    except RuntimeError as e:
+        result = errors_format_traceback(e, include_locals=True)
+        assert "RuntimeError" in result
+        # Should handle the unrepresentable object gracefully
+        assert "<unrepresentable>" in result or "bad_obj" in result
+
+
 def test_errors_format_traceback_nested() -> None:
     """Test errors_format_traceback with nested exceptions."""
     try:

@@ -59,6 +59,12 @@ class Testmetrics_timer:
         assert instance.average > 0.0
         assert instance.average == instance.total / instance.count
 
+    def test_average_zero_count(self) -> None:
+        """Test metrics_timer.average returns 0 when no measurements."""
+        instance = metrics_timer("test_timer")
+        assert instance.count == 0
+        assert instance.average == 0.0
+
     def test_reset(self) -> None:
         """Test metrics_timer.reset() method."""
         instance = metrics_timer("test_timer")

@@ -76,5 +76,32 @@ def test_logging_with_context_no_context() -> None:
 
 def test_logging_with_context_creates_handler() -> None:
     """Test logging_with_context sets up handler."""
-    adapter = logging_with_context("test", req_id="r1")
+    adapter = logging_with_context("test_handler_creation", req_id="r1")
     assert len(adapter.logger.handlers) > 0
+
+
+def test_logging_with_context_info_message() -> None:
+    """Test logging an info message with context."""
+    adapter = logging_with_context("test_info", request_id="abc123")
+    # This should not raise
+    adapter.info("Test message")
+
+
+def test_logging_with_context_debug_message() -> None:
+    """Test logging a debug message with context."""
+    adapter = logging_with_context(
+        "test_debug", level=logging.DEBUG, task="test"
+    )
+    adapter.debug("Debug message")
+
+
+def test_logging_with_context_warning_message() -> None:
+    """Test logging a warning message with context."""
+    adapter = logging_with_context("test_warning", request_id="warn123")
+    adapter.warning("Warning message")
+
+
+def test_logging_with_context_error_message() -> None:
+    """Test logging an error message with context."""
+    adapter = logging_with_context("test_error", request_id="err123")
+    adapter.error("Error message")

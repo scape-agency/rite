@@ -66,3 +66,17 @@ def test_debugging_inspect_dict() -> None:
     result = debugging_inspect(obj)
     assert result["type"] == "dict"
     assert "methods" in result
+
+
+def test_debugging_inspect_unavailable_attribute() -> None:
+    """Test debugging_inspect marks unavailable attributes."""
+
+    class TestObj:
+        @property
+        def bad_prop(self):
+            raise AttributeError("Intentional error")
+
+    obj = TestObj()
+    result = debugging_inspect(obj)
+    assert "bad_prop" in result["attributes"]
+    assert result["attributes"]["bad_prop"] == "<unavailable>"

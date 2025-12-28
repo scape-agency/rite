@@ -54,7 +54,9 @@ def test_http_parse_headers_empty_string() -> None:
 
 def test_http_parse_headers_no_colon() -> None:
     """Test http_parse_headers skips lines without colons."""
-    headers_str = "Content-Type: application/json\r\nInvalidLine\r\nHost: example.com"
+    headers_str = (
+        "Content-Type: application/json\r\nInvalidLine\r\nHost: example.com"
+    )
     result = http_parse_headers(headers_str)
     assert "InvalidLine" not in result
     assert result["Content-Type"] == "application/json"

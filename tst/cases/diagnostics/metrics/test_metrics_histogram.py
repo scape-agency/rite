@@ -89,3 +89,32 @@ class Testmetrics_histogram:
         instance.reset()
         assert instance.count == 0
         assert instance.sum == 0.0
+
+    def test_mean_empty(self) -> None:
+        """Test metrics_histogram.mean on empty histogram."""
+        instance = metrics_histogram("test_histogram")
+        assert instance.mean == 0.0
+
+    def test_median_empty(self) -> None:
+        """Test metrics_histogram.median on empty histogram."""
+        instance = metrics_histogram("test_histogram")
+        assert instance.median == 0.0
+
+    def test_percentile_empty(self) -> None:
+        """Test metrics_histogram.percentile on empty histogram."""
+        instance = metrics_histogram("test_histogram")
+        assert instance.percentile(50) == 0.0
+
+    def test_percentile_single_value(self) -> None:
+        """Test metrics_histogram.percentile with single value."""
+        instance = metrics_histogram("test_histogram")
+        instance.observe(42.0)
+        result = instance.percentile(50)
+        assert result == 42.0
+
+    def test_repr(self) -> None:
+        """Test metrics_histogram __repr__ method."""
+        instance = metrics_histogram("test_histogram")
+        instance.observe(10.0)
+        result = repr(instance)
+        assert "test_histogram" in result

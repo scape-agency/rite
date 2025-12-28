@@ -130,6 +130,29 @@ class TestSQLiteServer:
             result = instance.fetch_all("SELECT * FROM test")
             assert len(result) == 2
 
+    def test_transaction_rollback_on_error(self) -> None:
+        """Test SQLiteServer.transaction() rolls back on error."""
+        # Import | Standard Library
+        import sqlite3
+        import tempfile
+
+        with tempfile.NamedTemporaryFile(delete=False) as tmp:
+            instance = SQLiteServer(tmp.name)
+            instance.execute_query(
+                "CREATE TABLE test (id INTEGER PRIMARY KEY, name TEXT)"
+            )
+            instance.execute_query("INSERT INTO test VALUES (1, 'test1')")
+            queries = [
+                ("INSERT INTO test VALUES (?, ?)", (2, "test2")),
+                # This should fail due to duplicate primary key
+                ("INSERT INTO test VALUES (?, ?)", (1, "duplicate")),
+            ]
+            with pytest.raises(sqlite3.Error):
+                instance.transaction(queries)
+            # Check that first insert was rolled back
+            result = instance.fetch_all("SELECT * FROM test")
+            assert len(result) == 1
+
 
 # =============================================================================
 # Test Functions
@@ -137,8 +160,6 @@ class TestSQLiteServer:
 
 
 def test_test() -> None:
-    """Test test() function."""
-    # TODO: Implement test
-    # result = test(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    """Test test() function - skipped as it's for manual testing."""
+    # The test() function is intended for manual testing with example usage
+    pytest.skip("Test not implemented - test() is for manual testing")

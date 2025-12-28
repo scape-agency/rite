@@ -28,6 +28,7 @@ from rite.diagnostics.debugging.debugging_locals import (
 
 def test_debugging_locals_captures_variables(capsys) -> None:
     """Test debugging_locals captures local variables."""
+
     def test_func():
         x = 42
         y = "hello"
@@ -45,6 +46,7 @@ def test_debugging_locals_captures_variables(capsys) -> None:
 
 def test_debugging_locals_excludes_private(capsys) -> None:
     """Test debugging_locals excludes private by default."""
+
     def test_func():
         x = 1
         _private = 2
@@ -59,6 +61,7 @@ def test_debugging_locals_excludes_private(capsys) -> None:
 
 def test_debugging_locals_includes_private(capsys) -> None:
     """Test debugging_locals includes private when requested."""
+
     def test_func():
         x = 1
         _private = 2

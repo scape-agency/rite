@@ -57,3 +57,9 @@ class Testmetrics_counter:
         instance.increment(10)
         instance.reset()
         assert instance.value == 0.0
+
+    def test_increment_negative_raises(self) -> None:
+        """Test metrics_counter.increment() with negative amount raises error."""
+        instance = metrics_counter("test_counter")
+        with pytest.raises(ValueError, match="can only increase"):
+            instance.increment(-5)

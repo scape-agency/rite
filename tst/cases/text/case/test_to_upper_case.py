@@ -28,5 +28,7 @@ from rite.text.case.to_upper_case import (
 
 def test_to_upper_case() -> None:
     """Test to_upper_case() function."""
-    assert to_upper_case("hello") == "HELLO" or to_upper_case("hello") == "hello"
+    assert (
+        to_upper_case("hello") == "HELLO" or to_upper_case("hello") == "hello"
+    )
     assert isinstance(to_upper_case("test"), str)

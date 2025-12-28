@@ -39,3 +39,13 @@ def test_decode_caesar_cipher() -> None:
     result = decode_caesar_cipher("KHOOR", 3)
     assert result == "HELLO"
     assert isinstance(result, str)
+
+
+def test_encode_caesar_cipher_with_non_alpha() -> None:
+    """Test encode_caesar_cipher() preserves non-alphabetic characters."""
+    result = encode_caesar_cipher("Hello, World! 123", 3)
+    assert result == "Khoor, Zruog! 123"
+    # Numbers, spaces, and punctuation should be unchanged
+    assert "," in result
+    assert " " in result
+    assert "123" in result
