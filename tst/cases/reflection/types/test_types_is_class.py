@@ -45,24 +45,27 @@ class TestTypesIsClass:
 
     def test_custom_class_returns_true(self) -> None:
         """Test that custom class returns True."""
+
         class MyClass:
             pass
-        
+
         assert types_is_class(MyClass)
 
     def test_custom_instance_returns_false(self) -> None:
         """Test that custom instance returns False."""
+
         class MyClass:
             pass
-        
+
         obj = MyClass()
         assert not types_is_class(obj)
 
     def test_function_returns_false(self) -> None:
         """Test that function returns False."""
+
         def my_func():
             pass
-        
+
         assert not types_is_class(my_func)
 
     def test_lambda_returns_false(self) -> None:
@@ -78,7 +81,9 @@ class TestTypesIsClass:
 
     def test_module_returns_false(self) -> None:
         """Test that module returns False."""
+        # Import | Standard Library
         import json
+
         assert not types_is_class(json)
 
     def test_none_returns_false(self) -> None:

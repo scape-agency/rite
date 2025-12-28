@@ -31,22 +31,30 @@ class TestTypesIsModule:
 
     def test_json_module_returns_true(self) -> None:
         """Test that json module returns True."""
+        # Import | Standard Library
         import json
+
         assert types_is_module(json)
 
     def test_math_module_returns_true(self) -> None:
         """Test that math module returns True."""
+        # Import | Standard Library
         import math
+
         assert types_is_module(math)
 
     def test_os_module_returns_true(self) -> None:
         """Test that os module returns True."""
+        # Import | Standard Library
         import os
+
         assert types_is_module(os)
 
     def test_sys_module_returns_true(self) -> None:
         """Test that sys module returns True."""
+        # Import | Standard Library
         import sys
+
         assert types_is_module(sys)
 
     def test_string_returns_false(self) -> None:
@@ -72,9 +80,10 @@ class TestTypesIsModule:
 
     def test_function_returns_false(self) -> None:
         """Test that function returns False."""
+
         def my_func():
             pass
-        
+
         assert not types_is_module(my_func)
 
     def test_none_returns_false(self) -> None:
@@ -83,10 +92,14 @@ class TestTypesIsModule:
 
     def test_collections_module_returns_true(self) -> None:
         """Test that collections module returns True."""
+        # Import | Standard Library
         import collections
+
         assert types_is_module(collections)
 
     def test_datetime_module_returns_true(self) -> None:
         """Test that datetime module returns True."""
+        # Import | Standard Library
         import datetime
+
         assert types_is_module(datetime)

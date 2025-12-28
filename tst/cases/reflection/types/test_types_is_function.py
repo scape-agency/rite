@@ -31,9 +31,10 @@ class TestTypesIsFunction:
 
     def test_function_returns_true(self) -> None:
         """Test that function returns True."""
+
         def my_func():
             pass
-        
+
         assert types_is_function(my_func)
 
     def test_lambda_returns_true(self) -> None:
@@ -68,34 +69,40 @@ class TestTypesIsFunction:
 
     def test_unbound_method_returns_true(self) -> None:
         """Test that unbound method function returns True."""
+
         class MyClass:
             def method(self):
                 pass
-        
+
         # Accessing from class (not instance) gives a function
         assert types_is_function(MyClass.method)
 
     def test_module_returns_false(self) -> None:
         """Test that module returns False."""
+        # Import | Standard Library
         import json
+
         assert not types_is_function(json)
 
     def test_nested_function_returns_true(self) -> None:
         """Test that nested function returns True."""
+
         def outer():
             def inner():
                 pass
+
             return inner
-        
+
         inner_func = outer()
         assert types_is_function(inner_func)
 
     def test_staticmethod_returns_true(self) -> None:
         """Test with static method."""
+
         class MyClass:
             @staticmethod
             def static_func():
                 pass
-        
+
         # When accessed via the class, static methods are functions
         assert types_is_function(MyClass.static_func)

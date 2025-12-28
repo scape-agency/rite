@@ -33,7 +33,9 @@ class TestInspectionGetMethods:
         """Test that function returns list of tuples."""
         result = inspection_get_methods(str)
         assert isinstance(result, list)
-        assert all(isinstance(item, tuple) and len(item) == 2 for item in result)
+        assert all(
+            isinstance(item, tuple) and len(item) == 2 for item in result
+        )
 
     def test_contains_string_methods(self) -> None:
         """Test that string instance methods are returned."""
@@ -65,13 +67,14 @@ class TestInspectionGetMethods:
 
     def test_with_custom_class(self) -> None:
         """Test with custom class instance."""
+
         class MyClass:
             def my_method(self):
                 pass
-            
+
             def another_method(self):
                 pass
-        
+
         obj = MyClass()
         result = inspection_get_methods(obj)
         names = [name for name, _ in result]
@@ -80,14 +83,15 @@ class TestInspectionGetMethods:
 
     def test_includes_inherited_methods(self) -> None:
         """Test that inherited methods are included."""
+
         class Parent:
             def parent_method(self):
                 pass
-        
+
         class Child(Parent):
             def child_method(self):
                 pass
-        
+
         obj = Child()
         result = inspection_get_methods(obj)
         names = [name for name, _ in result]
