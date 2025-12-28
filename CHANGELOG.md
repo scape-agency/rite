@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.3-beta.3](https://github.com/scape-agency/rite/compare/v0.2.3-beta.2...v0.2.3-beta.3) (2025-12-28)
+
+### 🐛 Bug Fixes
+
+* Windows Poetry PATH and exclude CHANGELOG from prettier ([a712311](https://github.com/scape-agency/rite/commit/a7123112d0479f886abf9669a299b5d8f0ed588c))
+
+### 👷 CI/CD
+
+* Add poetry lock verification to workflows and pre-commit ([511b51b](https://github.com/scape-agency/rite/commit/511b51bd74c16e6dd52603223401d9ce950e00ee))
+
 ## [0.2.3-beta.2](https://github.com/scape-agency/rite/compare/v0.2.3-beta.1...v0.2.3-beta.2) (2025-12-28)
 
 ### 🐛 Bug Fixes
