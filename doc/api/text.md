@@ -1,111 +1,31 @@
+---
+title: Text API
+description: Comprehensive text processing utilities from rite.text including case conversion, slugging, validation, and sanitization.
+keywords: python text utils, slugify, case conversion, sanitize, rite.text
+---
+
 # Text Module
 
-The `rite.text` module provides comprehensive text processing utilities including case conversions, slug generation, text analysis, validation, manipulation, and search operations.
+The `rite.text` module provides comprehensive text processing utilities
+including case conversions, slug generation, text analysis, validation,
+manipulation, search operations, and sanitization.
 
 ## Overview
 
-::: rite.text
-options:
-show_root_heading: true
-show_source: false
-heading_level: 2
+This section introduces the text processing helpers at a high level.
+Each submodule page provides the detailed API reference.
 
 ## Submodules
 
-### Case Conversions
-
-Transform text between different naming conventions and styles.
-
-::: rite.text.case
-options:
-members: - to_snake_case - to_camel_case - to_pascal_case - to_kebab_case - to_constant_case - to_dot_case - to_path_case - to_title_case - to_sentence_case - to_lower_case - to_upper_case
-show_source: false
-heading_level: 3
-
-### Slug Generation
-
-Create URL-friendly slugs from text.
-
-::: rite.text.slug
-options:
-members: - slugify - slug_unique - slug_add_prefix - slug_add_suffix - slug_is_valid
-show_source: false
-heading_level: 3
-
-### Text Analysis
-
-Analyze text content and structure.
-
-::: rite.text.analysis
-options:
-members: - char_frequency - word_count - is_palindrome - longest_word - shortest_word - average_word_length
-show_source: false
-heading_level: 3
-
-### Text Validation
-
-Validate text format and content.
-
-::: rite.text.validation
-options:
-members: - text_is_email - text_is_numeric - text_is_alpha - text_is_alphanumeric
-show_source: false
-heading_level: 3
-
-### Text Manipulation
-
-Manipulate and transform text.
-
-::: rite.text.manipulation
-options:
-members: - text_truncate - text_pad_left - text_pad_right - text_wrap
-show_source: false
-heading_level: 3
-
-### Text Search
-
-Search and find patterns in text.
-
-::: rite.text.search
-options:
-members: - text_contains - text_starts_with - text_ends_with - text_find - text_count
-show_source: false
-heading_level: 3
-
-### Sanitization
-
-Clean and sanitize text content.
-
-::: rite.text.sanitize
-options:
-members: - sanitize - clean
-show_source: false
-heading_level: 3
-
-### Morse Code
-
-Encode and decode Morse code.
-
-::: rite.text.morse
-options:
-members: - morse_encode - morse_decode
-show_source: false
-heading_level: 3
-
-### Random Generation
-
-Generate random strings.
-
-::: rite.text.random
-options:
-members: - random_string - random_hex - random_alphanumeric
-show_source: false
-heading_level: 3
-
-## Examples
-
-### Basic Usage
-
+- [Case](text/case.md): Case conversion utilities.
+- [Slug](text/slug.md): Slug generation and validation.
+- [Analysis](text/analysis.md): Text analysis helpers.
+- [Validation](text/validation.md): Validate text input.
+- [Manipulation](text/manipulation.md): Text manipulation helpers.
+- [Search](text/search.md): Search within text.
+- [Sanitize](text/sanitize.md): Text sanitization utilities.
+- [Morse](text/morse.md): Morse code conversion.
+- [Random](text/random.md): Random text generation.
 ```python
 from rite.text import to_snake_case, slugify, text_truncate
 

@@ -57,7 +57,9 @@ source_suffix = {
 }
 
 # Master document
-master_doc = "index"
+# Use the generated API "modules" file as the Sphinx root so the
+# sidebar/table of contents follows the src/rite/ package structure.
+master_doc = "api_generated/modules"
 
 # Language
 language = "en"
@@ -136,20 +138,11 @@ intersphinx_mapping = {
 # HTML Output Settings
 # =============================================================================
 
+# Restore the original Sphinx Read the Docs theme while still
+# relying on custom.css for fonts and colors.
 html_theme = "sphinx_rtd_theme"
 html_static_path = ["_static"]
 html_css_files = ["custom.css"]
-
-html_theme_options = {
-    "logo_only": False,
-    "prev_next_buttons_location": "bottom",
-    "style_external_links": False,
-    "collapse_navigation": True,
-    "sticky_navigation": True,
-    "navigation_depth": 4,
-    "includehidden": True,
-    "titles_only": False,
-}
 
 html_logo = "assets/image/rite_logo_light.png"
 html_favicon = "assets/favicon/favicon.ico"

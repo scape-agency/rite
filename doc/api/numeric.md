@@ -4,53 +4,15 @@ The `rite.numeric` module provides numerical operations, mathematical utilities,
 
 ## Overview
 
-::: rite.numeric
-options:
-show_root_heading: true
-show_source: false
-heading_level: 2
+This section introduces the numeric utilities conceptually. Detailed
+APIs for each area are covered on the submodule pages.
 
 ## Submodules
 
-### Math
-
-Basic mathematical operations.
-
-::: rite.numeric.math
-options:
-members: - math_abs - math_clamp - math_sign - math_pow
-show_source: false
-heading_level: 3
-
-### Rounding
-
-Number rounding utilities.
-
-::: rite.numeric.rounding
-options:
-members: - rounding_round - rounding_ceil - rounding_floor - rounding_trunc
-show_source: false
-heading_level: 3
-
-### Statistics
-
-Statistical calculations.
-
-::: rite.numeric.statistics
-options:
-members: - statistics_mean - statistics_median - statistics_sum - statistics_min_max
-show_source: false
-heading_level: 3
-
-### Range
-
-Range operations.
-
-::: rite.numeric.range
-options:
-members: - range_in_range - range_normalize - range_scale
-show_source: false
-heading_level: 3
+- [Math](numeric/math.md): Basic mathematical operations.
+- [Rounding](numeric/rounding.md): Number rounding utilities.
+- [Statistics](numeric/statistics.md): Statistical calculations.
+- [Range](numeric/range.md): Range operations.
 
 ## Examples
 

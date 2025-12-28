@@ -5,18 +5,17 @@
 /* Fonts
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+/*
+   Use STIX Two Text for headings/title and Inter for body text,
+   with JetBrains Mono for code. All are open source and provide
+   matching monospace styles.
+*/
 
-@font-face {
-    font-family: "Manrope";
-    src: url("../font/manrope/manrope-regular.woff2") format("woff2");
-    font-weight: 400;
-    font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@400;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 :root {
-    --md-text-font: "Manrope";
-    --md-code-font: "Roboto Mono";
+    --md-text-font: "Inter";
+    --md-code-font: "JetBrains Mono";
 }
 
 /* Brand Colors
@@ -56,6 +55,21 @@
 
 .md-header__title {
     color: white !important;
+    font-family: "STIX Two Text", "Inter", system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 400;
+}
+
+/* Ensure the header text span uses STIX Two Text and hide any
+   remaining logo button if Material still renders it. */
+.md-header__title .md-ellipsis {
+    font-family: "STIX Two Text", "Inter", system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: white !important;
+}
+
+.md-header__button.md-logo {
+    display: none !important;
 }
 
 .md-header__button {

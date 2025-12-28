@@ -4,53 +4,15 @@ The `rite.markup` module provides utilities for working with HTML, XML, and Mark
 
 ## Overview
 
-::: rite.markup
-options:
-show_root_heading: true
-show_source: false
-heading_level: 2
+This section describes the overall markup utilities at a high level.
+The detailed APIs live on the individual submodule pages.
 
 ## Submodules
 
-### HTML
-
-HTML manipulation and sanitization.
-
-::: rite.markup.html
-options:
-members: - html_escape - html_unescape - html_strip_tags - html_clean
-show_source: false
-heading_level: 3
-
-### XML
-
-XML parsing and formatting.
-
-::: rite.markup.xml
-options:
-members: - xml_escape - xml_unescape - xml_format
-show_source: false
-heading_level: 3
-
-### Markdown
-
-Markdown processing.
-
-::: rite.markup.markdown
-options:
-members: - markdown_escape - markdown_to_html
-show_source: false
-heading_level: 3
-
-### Entities
-
-HTML entity encoding/decoding.
-
-::: rite.markup.entities
-options:
-members: - entities_encode - entities_decode
-show_source: false
-heading_level: 3
+- [HTML](markup/html.md): HTML manipulation and sanitization.
+- [XML](markup/xml.md): XML parsing and formatting.
+- [Markdown](markup/markdown.md): Markdown processing.
+- [Entities](markup/entities.md): HTML entity encoding/decoding.
 
 ## Examples
 

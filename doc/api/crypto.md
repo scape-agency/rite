@@ -1,56 +1,25 @@
+---
+title: Crypto API
+description: Cryptographic helpers from rite.crypto including hashing, HMAC, and UUID utilities.
+keywords: python crypto, hashing, hmac, uuid, rite.crypto
+---
+
 # Crypto Module
 
-The `rite.crypto` module provides cryptographic operations including hashing, ciphers, UUIDs, and secure random generation.
+The `rite.crypto` package provides hashing, HMAC, UUID, and other
+cryptographic helpers built entirely on the Python standard library.
 
 ## Overview
 
-::: rite.crypto
-options:
-show_root_heading: true
-show_source: false
-heading_level: 2
+This section introduces the cryptographic helpers at a high level.
+Each submodule page contains the detailed API reference.
 
 ## Submodules
 
-### Hashing
-
-Cryptographic hash functions.
-
-::: rite.crypto.hash
-options:
-members: - hash_md5 - hash_sha1 - hash_sha256 - hash_sha384 - hash_sha512 - hash_sha3_256 - hash_sha3_512 - hash_blake2b - hash_blake2s
-show_source: false
-heading_level: 3
-
-### UUID Generation
-
-Generate and validate UUIDs.
-
-::: rite.crypto.uuid
-options:
-members: - uuid_random - uuid_hex - uuid_string - uuid_from_name - uuid_is_valid - uuid_is_random - uuid_get_version
-show_source: false
-heading_level: 3
-
-### Secure Random
-
-Cryptographically secure random generation.
-
-::: rite.crypto.random
-options:
-members: - random_bytes - random_int - random_hex - random_choice - random_urlsafe
-show_source: false
-heading_level: 3
-
-### Ciphers
-
-Classical cipher implementations.
-
-::: rite.crypto.cipher
-options:
-members: - cipher_caesar - cipher_rot13 - cipher_vigenere - cipher_atbash - cipher_xor
-show_source: false
-heading_level: 3
+- [Hash](crypto/hash.md): Cryptographic hash functions.
+- [UUID](crypto/uuid.md): Generate and validate UUIDs.
+- [Random](crypto/random.md): Cryptographically secure random generation.
+- [Cipher](crypto/cipher.md): Classical cipher implementations.
 
 ## Examples
 

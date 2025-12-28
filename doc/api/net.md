@@ -4,43 +4,14 @@ The `rite.net` module provides network utilities including URL handling, HTTP op
 
 ## Overview
 
-::: rite.net
-options:
-show_root_heading: true
-show_source: false
-heading_level: 2
+This section gives a high-level overview of the networking helpers.
+The full reference for each area is on the submodule pages.
 
 ## Submodules
 
-### URL
-
-Parse and manipulate URLs.
-
-::: rite.net.url
-options:
-members: - url_parse - url_build - url_encode - url_decode - url_parse_query
-show_source: false
-heading_level: 3
-
-### HTTP
-
-HTTP utilities and status codes.
-
-::: rite.net.http
-options:
-members: - http_status_code - http_is_method - http_parse_headers
-show_source: false
-heading_level: 3
-
-### Validation
-
-Validate network-related formats.
-
-::: rite.net.validation
-options:
-members: - validation_is_url - validation_is_email - validation_is_ipv4 - validation_is_port
-show_source: false
-heading_level: 3
+- [URL](net/url.md): Parse and manipulate URLs.
+- [HTTP](net/http.md): HTTP utilities and status codes.
+- [Validation](net/validation.md): Validate network-related formats.
 
 ## Examples
 

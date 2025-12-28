@@ -43,10 +43,14 @@ theme:
   #     toggle:
   #       icon: material/brightness-4
   #       name: Switch to light mode
+  # Use text title only (no logo image); font is configured via extra.css
+  # and extra_javascript.
   # font:
-  #   text: 'Manrope'
-  #   code: 'Roboto Mono'
-  logo: assets/image/rite_logo_light.svg
+  #   text: 'STIX Two Text'
+  #   code: 'JetBrains Mono'
+  # Explicitly disable the Material logo so only the site_name
+  # title ("rite") is shown in the header.
+  logo: null
   favicon: assets/favicon/favicon.ico
   features:
     # - announce.dismiss
@@ -97,7 +101,7 @@ plugins:
             show_source: false
             show_signature: true
             show_signature_annotations: true
-            separate_signature: true
+            separate_signature: false
             # Docstring options
             docstring_style: google
             docstring_section_style: table
@@ -189,27 +193,32 @@ nav:
       - "Installation": "installation.md"
       - "Getting Started": "getting-started.md"
       - "Examples": "examples.md"
+  - CLI: "cli.md"
   - API Reference:
-      - "Overview": "api/index.md"
-      - Core:
-          - "Collections": "api/collections.md"
-          - "Conversion": "api/conversion.md"
-          - "Text": "api/text.md"
-      - System & I/O:
-          - "Filesystem": "api/filesystem.md"
-          - "System": "api/system.md"
-          - "Net": "api/net.md"
-      - Data:
-          - "Serialization": "api/serialization.md"
-          - "Markup": "api/markup.md"
-      - Security:
-          - "Crypto": "api/crypto.md"
-          - "Numeric": "api/numeric.md"
-          - "Temporal": "api/temporal.md"
-      - Development:
-          - "Diagnostics": "api/diagnostics.md"
-          - "Functional": "api/functional.md"
-          - "Reflection": "api/reflection.md"
+    - "Overview": "api/index.md"
+    - "Collections":
+        - "Overview": "api/collections.md"
+        - "Buffer": "api/collections/buffer.md"
+        - "Cache": "api/collections/cache.md"
+        - "Dict": "api/collections/dict.md"
+        - "List": "api/collections/list.md"
+        - "Pattern": "api/collections/pattern.md"
+        - "Queue": "api/collections/queue.md"
+        - "Set": "api/collections/set.md"
+        - "Tree": "api/collections/tree.md"
+    - "Conversion": "api/conversion.md"
+    - "Crypto": "api/crypto.md"
+    - "Diagnostics": "api/diagnostics.md"
+    - "Filesystem": "api/filesystem.md"
+    - "Functional": "api/functional.md"
+    - "Markup": "api/markup.md"
+    - "Net": "api/net.md"
+    - "Numeric": "api/numeric.md"
+    - "Reflection": "api/reflection.md"
+    - "Serialization": "api/serialization.md"
+    - "System": "api/system.md"
+    - "Temporal": "api/temporal.md"
+    - "Text": "api/text.md"
   - Development:
       - "Setup": "development/setup.md"
       - "Configuration": "development/configuration.md"

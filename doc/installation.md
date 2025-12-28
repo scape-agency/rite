@@ -15,7 +15,7 @@
 pip install rite
 
 # Install specific version
-pip install rite==1.0.0
+pip install "rite==<version>"
 
 # Upgrade to latest version
 pip install --upgrade rite
@@ -28,7 +28,7 @@ pip install --upgrade rite
 poetry add rite
 
 # Add specific version
-poetry add rite@1.0.0
+poetry add "rite@<version>"
 
 # Add with development dependencies
 poetry add rite --group dev
@@ -109,7 +109,7 @@ See the [Dev Container documentation](https://github.com/scape-agency/rite/tree/
 
 ### Python Version Issues
 
-Ensure you have Python 3.10 or higher:
+Ensure you have Python 3.12 or higher:
 
 ```bash
 python --version
@@ -118,9 +118,7 @@ python --version
 If you have multiple Python versions:
 
 ```bash
-python3.10 -m pip install rite
-# or
-python3.11 -m pip install rite
+python3.12 -m pip install rite
 ```
 
 ### Permission Errors

@@ -1,6 +1,13 @@
+---
+title: Serialization API
+description: Data format helpers from rite.serialization including JSON, CSV, TOML, Pickle, and INI utilities.
+keywords: python serialization, json, csv, toml, pickle, ini, rite.serialization
+---
+
 # Serialization Module
 
-The `rite.serialization` module provides utilities for working with various data formats including JSON, CSV, TOML, Pickle, and INI files.
+The `rite.serialization` module provides utilities for working with
+various data formats including JSON, CSV, TOML, Pickle, and INI files.
 
 ## Overview
 

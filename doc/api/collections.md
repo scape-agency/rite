@@ -1,66 +1,27 @@
+---
+title: Collections API
+description: Advanced data structures, buffers, caches, queues, and trees from rite.collections.
+keywords: python collections, lru cache, lfu cache, ttl cache, circular buffer, sliding window, object pool
+---
+
 # Collections Module
 
-The `rite.collections` module provides advanced data structures including caches, buffers, trees, and collection utilities.
+The `rite.collections` package provides higher-level data structures and
+collection utilities that extend the Python standard library.
 
 ## Overview
 
-::: rite.collections
-options:
-show_root_heading: true
-show_source: false
-heading_level: 2
+This section gives a high-level overview of the collections
+infrastructure. Detailed APIs for each submodule are available on their
+dedicated pages below.
 
 ## Submodules
 
-### Cache
-
-LRU, LFU, and TTL cache implementations.
-
-::: rite.collections.cache
-options:
-members: - lru_cache - lfu_cache - ttl_cache
-show_source: false
-heading_level: 3
-
-### Buffer
-
-Circular and sliding window buffers.
-
-::: rite.collections.buffer
-options:
-members: - circular_buffer - bounded_buffer - ring_buffer - sliding_window
-show_source: false
-heading_level: 3
-
-### Dictionary Utilities
-
-Deep operations on dictionaries.
-
-::: rite.collections.dict
-options:
-members: - dict_deep_get - dict_deep_set - dict_merge - dict_filter - dict_invert
-show_source: false
-heading_level: 3
-
-### List Utilities
-
-Advanced list operations.
-
-::: rite.collections.list
-options:
-members: - list_chunk - list_flatten - list_group_by - list_interleave - list_partition - list_unique
-show_source: false
-heading_level: 3
-
-### Tree Structures
-
-Tree and trie data structures.
-
-::: rite.collections.tree
-options:
-members: - TreeNode - BinaryTreeNode - Trie
-show_source: false
-heading_level: 3
+- [Cache](collections/cache.md): LRU, LFU, and TTL caches.
+- [Buffer](collections/buffer.md): Circular and sliding window buffers.
+- [Dictionary Utilities](collections/dict.md): Deep dictionary helpers.
+- [List Utilities](collections/list.md): Advanced list operations.
+- [Tree Structures](collections/tree.md): Trees, binary trees, and tries.
 
 ## Examples
 

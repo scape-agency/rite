@@ -1,7 +1,7 @@
 ---
 title: Home
-description: Rite is a modern Python utility library with zero dependencies for Python 3.10+. Features cryptography, filesystem operations, text processing, and 92+ utility functions.
-keywords: python utility library, python 3.10, zero dependencies, cryptography, filesystem, text processing, type safe
+description: Rite is a modern Python utility library with zero dependencies for Python 3.12+. Features cryptography, filesystem operations, text processing, and 92+ utility functions.
+keywords: python utility library, python 3.12, zero dependencies, cryptography, filesystem, text processing, type safe
 ---
 
 # Rite Documentation
@@ -11,9 +11,9 @@ Welcome to the **Rite** documentation! Rite is a modern Python utility library p
 ## Features
 
 -   **Zero Dependencies**: No external runtime dependencies
--   **Type Safe**: Comprehensive type hints with Python 3.10+ syntax
--   **Well Tested**: >80% code coverage
--   **Modern Python**: Python 3.10, 3.11, 3.12 support
+-   **Type Safe**: Comprehensive type hints with Python 3.12+ syntax
+-   **Well Tested**: >99% code coverage
+-   **Modern Python**: Python 3.12+ support
 -   **Modular**: Clear module organization with consistent structure
 -   **Documented**: Extensive documentation and examples
 
@@ -84,7 +84,7 @@ Date and time utilities, timestamp operations, formatting.
 
 ## Requirements
 
--   Python 3.10 or higher
+-   Python 3.12 or higher
 -   No external dependencies
 
 ## Installation
@@ -119,11 +119,11 @@ if file_exists("config.json"):
     file_copy("config.json", "config.backup.json")
 
 # Text Processing
-from rite.text.slug import slug_generate
-from rite.text.case import case_to_snake
+from rite.text.slug import slugify
+from rite.text.case import to_snake_case
 
-slug = slug_generate("Hello World!")  # 'hello-world'
-snake = case_to_snake("helloWorld")  # 'hello_world'
+slug = slugify("Hello World!")  # 'hello-world'
+snake = to_snake_case("helloWorld")  # 'hello_world'
 
 # Collections
 from rite.collections.list import list_unique, list_flatten
