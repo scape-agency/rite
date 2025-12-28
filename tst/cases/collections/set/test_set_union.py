@@ -7,9 +7,6 @@
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.collections.set import set_union
 

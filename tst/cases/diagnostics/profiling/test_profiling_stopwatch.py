@@ -13,9 +13,6 @@ Tests for rite.diagnostics.profiling.profiling_stopwatch.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.diagnostics.profiling.profiling_stopwatch import (
     profiling_stopwatch,

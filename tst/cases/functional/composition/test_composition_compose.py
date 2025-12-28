@@ -13,9 +13,6 @@ Tests for rite.functional.composition.composition_compose.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.functional.composition.composition_compose import (
     composition_compose,

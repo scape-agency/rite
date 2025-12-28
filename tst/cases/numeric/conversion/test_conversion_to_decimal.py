@@ -36,11 +36,11 @@ from rite.numeric.conversion.conversion_to_decimal import (
         (0, "0"),
     ],
 )
-def test_conversion_to_decimal(value, expected: str) -> None:
+def test_conversion_to_decimal(
+    value,
+    expected: str,
+) -> None:
     """Test conversion_to_decimal() with various inputs."""
-    # Import | Standard Library
-    from decimal import Decimal
-
     result = conversion_to_decimal(value)
     assert str(result) == expected
 

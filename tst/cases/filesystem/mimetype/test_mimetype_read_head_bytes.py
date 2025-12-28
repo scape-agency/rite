@@ -17,9 +17,6 @@ from __future__ import annotations
 import io
 from pathlib import Path
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.filesystem.mimetype.mimetype_read_head_bytes import read_head_bytes
 

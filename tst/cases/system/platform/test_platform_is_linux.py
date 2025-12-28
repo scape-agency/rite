@@ -13,8 +13,8 @@ Tests for rite.system.platform.platform_is_linux.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
+# Import | Standard Library
+import sys
 
 # Import | Local Modules
 from rite.system.platform.platform_is_linux import (
@@ -31,5 +31,6 @@ def test_platform_is_linux() -> None:
     # Test returns bool
     result = platform_is_linux()
     assert isinstance(result, bool)
-    # On macOS, should be False
-    assert result is False
+    # Result should match sys.platform check
+    expected = sys.platform.startswith("linux")
+    assert result is expected

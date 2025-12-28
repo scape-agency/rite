@@ -214,7 +214,7 @@ class TestCsvWrite:
         # Write first data
         data1 = [{"id": "1", "name": "First"}]
         csv_write(csv_file, data1)
-        content1 = csv_file.read_text()
+        _ = csv_file.read_text()  # Verify first file was written
 
         # Write second data (overwrites)
         data2 = [{"id": "2", "name": "Second"}]

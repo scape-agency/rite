@@ -13,9 +13,6 @@ Tests for rite.crypto.hash.hash_sha512.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.crypto.hash.hash_sha512 import (
     hash_sha512,

@@ -13,9 +13,6 @@ Tests for rite.reflection.documentation.documentation_get_file.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.reflection.documentation.documentation_get_file import (
     documentation_get_file,

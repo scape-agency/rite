@@ -16,9 +16,6 @@ from __future__ import annotations
 # Import | Standard Library
 import logging
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.diagnostics.logging.logging_with_context import (
     logging_with_context,

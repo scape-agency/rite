@@ -13,9 +13,6 @@ Tests for rite.net.url.url_parse.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.net.url.url_parse import (
     url_parse,

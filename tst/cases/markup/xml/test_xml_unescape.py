@@ -13,9 +13,6 @@ Tests for rite.markup.xml.xml_unescape.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.markup.xml.xml_unescape import (
     xml_unescape,

@@ -3,10 +3,6 @@ from __future__ import annotations
 
 # Import | Standard Library
 import io
-from typing import Any
-
-# Import | Libraries
-import pytest
 
 # Import | Local Modules
 from rite.filesystem import file_size_to_string
@@ -52,7 +48,7 @@ class MockFileWithBrokenMethods:
 class MockFileWithMissingMethods:
     """Mock file object with missing tell/seek methods."""
 
-    pass
+    pass  # pylint: disable=unnecessary-pass
 
 
 def test_file_size_to_string_from_stream_units() -> None:

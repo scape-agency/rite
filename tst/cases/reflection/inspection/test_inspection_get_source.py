@@ -13,9 +13,6 @@ Tests for rite.reflection.inspection.inspection_get_source.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.reflection.inspection.inspection_get_source import (
     inspection_get_source,

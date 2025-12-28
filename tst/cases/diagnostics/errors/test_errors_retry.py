@@ -100,7 +100,7 @@ def test_errors_retry() -> None:
     # Test with no exceptions (default)
     @errors_retry(max_attempts=2, delay=0.01)
     def default_exception() -> None:
-        raise Exception("caught")
+        raise RuntimeError("caught")
 
-    with pytest.raises(Exception):
+    with pytest.raises(RuntimeError):
         default_exception()

@@ -16,10 +16,6 @@ from __future__ import annotations
 # Import | Standard Library
 import gzip
 import io
-import tempfile
-
-# Import | Libraries
-import pytest
 
 # Import | Local Modules
 from rite.filesystem.compress.gzip_compress import (

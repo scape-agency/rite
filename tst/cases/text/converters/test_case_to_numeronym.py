@@ -13,9 +13,6 @@ Tests for rite.text.converters.case_to_numeronym.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.text.converters.case_to_numeronym import (
     to_numeronym_case,

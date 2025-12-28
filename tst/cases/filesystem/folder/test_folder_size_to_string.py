@@ -14,8 +14,7 @@ Tests for rite.filesystem.folder.folder_size_to_string.
 from __future__ import annotations
 
 # Import | Standard Library
-import os
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 
 # Import | Local Modules
 from rite.filesystem.folder.folder_size_to_string import (
@@ -66,19 +65,9 @@ def test_folder_size_to_string(tmp_path) -> None:
 
 def test_folder_size_to_string_oserror(tmp_path) -> None:
     """Test folder_size_to_string handles OSError on stat (lines 86-88)."""
-    # Import | Standard Library
-    from pathlib import Path
-
-    # Import | Local Modules
-    from rite.filesystem.folder import folder_list_files
-
     root = tmp_path
     (root / "file1.bin").write_bytes(b"x" * 1024)
     (root / "file2.bin").write_bytes(b"y" * 1024)
-
-    # Create fake paths that mimic real behavior
-    file1 = root / "file1.bin"
-    file2 = root / "file2.bin"
 
     class MockStatResult:
         """Mock stat result."""

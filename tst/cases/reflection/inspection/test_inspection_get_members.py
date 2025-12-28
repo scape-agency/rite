@@ -16,9 +16,6 @@ from __future__ import annotations
 # Import | Standard Library
 import inspect
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.reflection.inspection.inspection_get_members import (
     inspection_get_members,
@@ -63,7 +60,7 @@ class TestInspectionGetMembers:
         assert isinstance(result, list)
         # All items should be functions when using isfunction predicate
         if result:
-            for name, member in result:
+            for _, member in result:
                 assert inspect.isfunction(member)
 
     def test_with_isclass_predicate(self) -> None:
@@ -76,7 +73,7 @@ class TestInspectionGetMembers:
         # collections module has classes
         assert len(result) > 0
         # All items should be classes
-        for name, member in result:
+        for _, member in result:
             assert inspect.isclass(member)
 
     def test_none_predicate(self) -> None:
@@ -99,7 +96,7 @@ class TestInspectionGetMembers:
 
         result = inspection_get_members(json)
         if result:
-            for name, member in result:
+            for name, _ in result:
                 assert isinstance(name, str)
 
     def test_all_members_returned(self) -> None:

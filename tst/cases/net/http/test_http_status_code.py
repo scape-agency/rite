@@ -13,9 +13,6 @@ Tests for rite.net.http.http_status_code.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.net.http.http_status_code import (
     http_status_code,

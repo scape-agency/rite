@@ -13,9 +13,6 @@ Tests for rite.reflection.documentation.documentation_get_comments.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.reflection.documentation.documentation_get_comments import (
     documentation_get_comments,
@@ -30,9 +27,8 @@ def test_documentation_get_comments() -> None:
     """Test documentation_get_comments() with function."""
 
     # Create a function with comments
-    def test_func():
+    def test_func() -> None:
         """Test function."""
-        pass
 
     result = documentation_get_comments(test_func)
     # Comments are only captured for functions defined at module level

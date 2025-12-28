@@ -13,9 +13,6 @@ Tests for rite.diagnostics.errors.errors_format_traceback.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.diagnostics.errors.errors_format_traceback import (
     errors_format_traceback,
@@ -39,8 +36,8 @@ def test_errors_format_traceback_basic() -> None:
 def test_errors_format_traceback_with_locals() -> None:
     """Test errors_format_traceback with local variables."""
     try:
-        x = 42
-        y = "test"
+        _context_x = 42  # noqa: F841 - Local for testing include_locals
+        _context_y = "test"  # noqa: F841 - Local for testing include_locals
         raise RuntimeError("error")
     except RuntimeError as e:
         result = errors_format_traceback(e, include_locals=True)
@@ -67,7 +64,7 @@ def test_errors_format_traceback_unrepresentable_locals() -> None:
             raise ValueError("Bad repr")
 
     try:
-        bad_obj = BadRepr()
+        bad_obj = BadRepr()  # noqa: F841 - Local for testing include_locals
         raise RuntimeError("error with bad repr")
     except RuntimeError as e:
         result = errors_format_traceback(e, include_locals=True)

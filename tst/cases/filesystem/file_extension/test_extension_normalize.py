@@ -13,9 +13,6 @@ Tests for rite.filesystem.file_extension.extension_normalize.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.filesystem.file_extension.extension_normalize import (
     extension_normalize,

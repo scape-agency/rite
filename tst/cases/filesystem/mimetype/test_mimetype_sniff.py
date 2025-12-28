@@ -15,7 +15,6 @@ from __future__ import annotations
 
 # Import | Local Modules
 from rite.filesystem.mimetype.mimetype_sniff import (
-    _check_fixed_signatures,
     _check_iso_bmff,
     _check_ogg_container,
     _check_riff_container,
@@ -174,7 +173,7 @@ def test_check_iso_bmff_short_buffer() -> None:
 def test_mimetype_sniff_max_probe() -> None:
     """Test max_probe parameter limits bytes inspected."""
     # Create a buffer with PNG signature beyond max_probe limit
-    data = b"x" * 10 + b"\x89PNG\r\n\x1a\n"
+    _ = b"x" * 10 + b"\x89PNG\r\n\x1a\n"  # noqa: F841 - example data
     # With default max_probe, signature should be found if within range
     assert mimetype_sniff(b"\x89PNG\r\n\x1a\n" + b"x" * 600) == "image/png"
 

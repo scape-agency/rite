@@ -13,9 +13,6 @@ Tests for rite.filesystem.file_name.filename_to_date.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.filesystem.file_name.filename_to_date import (
     filename_to_date,

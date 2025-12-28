@@ -13,9 +13,6 @@ Tests for rite.filesystem.file_name.filename_to_datestring.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.filesystem.file_name.filename_to_datestring import (
     date_format_to_regex,

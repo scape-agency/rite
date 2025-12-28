@@ -13,9 +13,6 @@ Tests for rite.diagnostics.debugging.debugging_trace.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.diagnostics.debugging.debugging_trace import (
     debugging_trace,

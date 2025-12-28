@@ -13,9 +13,6 @@ Tests for rite.text.analysis.is_palindrome.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.text.analysis.is_palindrome import (
     is_palindrome,

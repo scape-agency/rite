@@ -13,9 +13,6 @@ Tests for rite.text.case.case_to_pig_latin.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.text.case.case_to_pig_latin import (
     to_pig_latin_case,

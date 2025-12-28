@@ -13,9 +13,6 @@ Tests for rite.text.case.to_camel_case.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.text.case.to_camel_case import (
     to_camel_case,

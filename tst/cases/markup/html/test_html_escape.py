@@ -13,9 +13,6 @@ Tests for rite.markup.html.html_escape.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.markup.html.html_escape import (
     html_escape,

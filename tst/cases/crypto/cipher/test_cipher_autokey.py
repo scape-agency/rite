@@ -13,9 +13,6 @@ Tests for rite.crypto.cipher.cipher_autokey.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.crypto.cipher.cipher_autokey import (
     decode_autokey_cipher,

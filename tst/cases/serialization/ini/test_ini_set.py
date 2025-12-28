@@ -13,9 +13,6 @@ Tests for rite.serialization.ini.ini_set.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.serialization.ini.ini_set import (
     ini_set,

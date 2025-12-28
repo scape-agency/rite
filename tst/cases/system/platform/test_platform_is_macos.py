@@ -13,8 +13,8 @@ Tests for rite.system.platform.platform_is_macos.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
+# Import | Standard Library
+import sys
 
 # Import | Local Modules
 from rite.system.platform.platform_is_macos import (
@@ -31,5 +31,6 @@ def test_platform_is_macos() -> None:
     # Test returns bool
     result = platform_is_macos()
     assert isinstance(result, bool)
-    # On macOS, should be True
-    assert result is True
+    # Result should match sys.platform check
+    expected = sys.platform == "darwin"
+    assert result is expected

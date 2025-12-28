@@ -13,9 +13,6 @@ Tests for rite.system.process.process_call.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.system.process.process_call import (
     process_call,

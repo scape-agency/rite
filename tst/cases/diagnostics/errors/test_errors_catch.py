@@ -30,7 +30,7 @@ def test_errors_catch() -> None:
     """Test errors_catch() context manager."""
     # Test catching exception silently
     with errors_catch():
-        1 / 0
+        _ = 1 / 0
 
     # Test catching specific exception
     with errors_catch(exceptions=(ValueError,)):
@@ -73,4 +73,4 @@ def test_errors_catch() -> None:
     # Test exception not raised if not in tuple
     with pytest.raises(ZeroDivisionError):
         with errors_catch(exceptions=(ValueError,)):
-            1 / 0
+            _ = 1 / 0

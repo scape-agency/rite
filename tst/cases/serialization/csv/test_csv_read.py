@@ -161,7 +161,7 @@ class TestCsvRead:
         """Test reading CSV with newlines within quoted fields."""
         # Create CSV with multiline fields
         csv_file = tmp_path / "multiline.csv"
-        csv_file.write_text("name,description\n" 'Item A,"Line 1\nLine 2"\n')
+        csv_file.write_text('name,description\nItem A,"Line 1\nLine 2"\n')
 
         # Read the CSV
         result = csv_read(csv_file)

@@ -13,9 +13,6 @@ Tests for rite.diagnostics.profiling.profiling_count_calls.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.diagnostics.profiling.profiling_count_calls import (
     profiling_count_calls,
@@ -37,11 +34,11 @@ def test_profiling_count_calls() -> None:
     def func1() -> None:
         pass
 
-    assert func1.call_count == 0
+    assert func1.call_count == 0  # type: ignore[attr-defined]
     func1()
-    assert func1.call_count == 1
+    assert func1.call_count == 1  # type: ignore[attr-defined]
     func1()
-    assert func1.call_count == 2
+    assert func1.call_count == 2  # type: ignore[attr-defined]
 
     # Test with arguments
     @profiling_count_calls()
@@ -49,9 +46,9 @@ def test_profiling_count_calls() -> None:
         return f"{a}:{b}"
 
     func2(1, "test")
-    assert func2.call_count == 1
+    assert func2.call_count == 1  # type: ignore[attr-defined]
     result = func2(2, "test2")
-    assert func2.call_count == 2
+    assert func2.call_count == 2  # type: ignore[attr-defined]
     assert result == "2:test2"
 
     # Test print_every functionality
@@ -69,7 +66,7 @@ def test_profiling_count_calls() -> None:
     output = captured_output.getvalue()
 
     assert "func3 called 2 times" in output
-    assert func3.call_count == 2
+    assert func3.call_count == 2  # type: ignore[attr-defined]
 
     # Test multiple decorators
     @profiling_count_calls()
@@ -84,8 +81,8 @@ def test_profiling_count_calls() -> None:
     func4()
     func5()
 
-    assert func4.call_count == 2
-    assert func5.call_count == 1
+    assert func4.call_count == 2  # type: ignore[attr-defined]
+    assert func5.call_count == 1  # type: ignore[attr-defined]
 
     # Test return value is preserved
     @profiling_count_calls()
@@ -94,4 +91,4 @@ def test_profiling_count_calls() -> None:
 
     result = returns_tuple()
     assert result == (123, "result")
-    assert returns_tuple.call_count == 1
+    assert returns_tuple.call_count == 1  # type: ignore[attr-defined]

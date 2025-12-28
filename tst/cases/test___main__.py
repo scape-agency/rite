@@ -13,9 +13,6 @@ Tests for rite.__main__.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.__main__ import (
     main,

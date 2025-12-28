@@ -13,9 +13,6 @@ Tests for rite.markup.html.html_clean.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.markup.html.html_clean import (
     html_clean,

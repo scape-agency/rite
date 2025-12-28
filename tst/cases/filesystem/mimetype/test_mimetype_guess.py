@@ -16,9 +16,6 @@ from __future__ import annotations
 # Import | Standard Library
 import io
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.filesystem.mimetype.mimetype_guess import mimetype_guess
 
@@ -81,6 +78,10 @@ def test_mimetype_guess_invalid_url() -> None:
     class BadUrlName:
         def __init__(self, name: str) -> None:
             self.name = name
+
+    # Verify the class works - the test below uses pathlib instead
+    bad_url = BadUrlName("http://[invalid")
+    assert bad_url.name == "http://[invalid"
 
     # This should not crash, but fall through to path extraction
     # We need to use a malformed URL that causes urlsplit ValueError

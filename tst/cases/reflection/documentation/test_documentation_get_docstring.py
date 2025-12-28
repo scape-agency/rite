@@ -13,9 +13,6 @@ Tests for rite.reflection.documentation.documentation_get_docstring.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.reflection.documentation.documentation_get_docstring import (
     documentation_get_docstring,
@@ -29,9 +26,8 @@ from rite.reflection.documentation.documentation_get_docstring import (
 def test_documentation_get_docstring() -> None:
     """Test documentation_get_docstring() with function."""
 
-    def test_func():
+    def test_func() -> None:
         """This is a test docstring."""
-        pass
 
     result = documentation_get_docstring(test_func)
     assert result == "This is a test docstring."
@@ -40,14 +36,14 @@ def test_documentation_get_docstring() -> None:
 def test_documentation_get_docstring_multiline() -> None:
     """Test documentation_get_docstring() with multiline docstring."""
 
-    def test_func():
+    def test_func() -> None:
         """First line.
 
         Second paragraph.
         """
-        pass
 
     result = documentation_get_docstring(test_func)
+    assert result is not None
     assert "First line." in result
     assert "Second paragraph." in result
 

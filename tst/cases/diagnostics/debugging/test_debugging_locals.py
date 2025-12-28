@@ -13,9 +13,6 @@ Tests for rite.diagnostics.debugging.debugging_locals.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.diagnostics.debugging.debugging_locals import (
     debugging_locals,
@@ -30,16 +27,17 @@ def test_debugging_locals_captures_variables(capsys) -> None:
     """Test debugging_locals captures local variables."""
 
     def test_func():
-        x = 42
-        y = "hello"
+        var_x = 42  # noqa: F841 - captured by debugging_locals
+        var_y = "hello"  # noqa: F841 - captured by debugging_locals
         result = debugging_locals()
-        assert "x" in result
-        assert "y" in result
-        assert result["x"] == 42
-        assert result["y"] == "hello"
+        assert "var_x" in result
+        assert "var_y" in result
+        assert result["var_x"] == 42
+        assert result["var_y"] == "hello"
         return result
 
-    result = test_func()
+    test_result = test_func()
+    assert test_result is not None
     captured = capsys.readouterr()
     assert "LOCAL VARIABLES" in captured.out
 
@@ -48,31 +46,31 @@ def test_debugging_locals_excludes_private(capsys) -> None:
     """Test debugging_locals excludes private by default."""
 
     def test_func():
-        x = 1
-        _private = 2
+        var_x = 1  # noqa: F841 - captured by debugging_locals
+        _private = 2  # noqa: F841 - tested to be excluded
         result = debugging_locals(show_private=False)
-        assert "x" in result
+        assert "var_x" in result
         assert "_private" not in result
         return result
 
-    result = test_func()
-    assert result["x"] == 1
+    test_result = test_func()
+    assert test_result["var_x"] == 1
 
 
 def test_debugging_locals_includes_private(capsys) -> None:
     """Test debugging_locals includes private when requested."""
 
     def test_func():
-        x = 1
-        _private = 2
+        var_x = 1  # noqa: F841 - captured by debugging_locals
+        _private = 2  # noqa: F841 - captured by debugging_locals
         result = debugging_locals(show_private=True)
-        assert "x" in result
+        assert "var_x" in result
         assert "_private" in result
         return result
 
-    result = test_func()
-    assert result["x"] == 1
-    assert result["_private"] == 2
+    test_result = test_func()
+    assert test_result["var_x"] == 1
+    assert test_result["_private"] == 2
 
 
 def test_debugging_locals_frame_none(capsys, monkeypatch) -> None:
@@ -96,7 +94,10 @@ def test_debugging_locals_caller_frame_none(capsys, monkeypatch) -> None:
         f_back = None
         f_locals = {}
 
-    monkeypatch.setattr(inspect, "currentframe", lambda: FakeFrame())
+    def fake_currentframe():
+        return FakeFrame()
+
+    monkeypatch.setattr(inspect, "currentframe", fake_currentframe)
 
     result = debugging_locals()
     assert result == {}

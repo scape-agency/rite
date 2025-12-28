@@ -13,9 +13,6 @@ Tests for rite.crypto.random.random_hex.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.crypto.random.random_hex import (
     random_hex,

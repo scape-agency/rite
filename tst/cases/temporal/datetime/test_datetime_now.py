@@ -17,9 +17,6 @@ from __future__ import annotations
 from datetime import datetime, timezone
 import time
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.temporal.datetime.datetime_now import (
     datetime_now,

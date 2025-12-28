@@ -13,9 +13,6 @@ Tests for rite.reflection.attributes.attributes_set_attr.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.reflection.attributes.attributes_set_attr import (
     attributes_set_attr,

@@ -17,9 +17,6 @@ from __future__ import annotations
 import os
 import pathlib
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.conversion.to_bytes import to_bytes
 

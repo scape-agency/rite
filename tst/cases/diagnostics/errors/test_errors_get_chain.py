@@ -13,9 +13,6 @@ Tests for rite.diagnostics.errors.errors_get_chain.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.diagnostics.errors.errors_get_chain import (
     errors_get_chain,
@@ -55,8 +52,8 @@ def test_errors_get_chain_with_context() -> None:
     try:
         try:
             _ = 1 / 0
-        except ZeroDivisionError:
-            raise ValueError("wrapped")
+        except ZeroDivisionError as exc:
+            raise ValueError("wrapped") from exc
     except ValueError as e:
         chain = errors_get_chain(e)
         assert len(chain) >= 1

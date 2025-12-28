@@ -13,9 +13,6 @@ Tests for rite.net.url.url_build.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.net.url.url_build import (
     url_build,

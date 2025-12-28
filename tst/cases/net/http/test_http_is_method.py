@@ -13,9 +13,6 @@ Tests for rite.net.http.http_is_method.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.net.http.http_is_method import (
     http_is_method,

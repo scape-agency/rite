@@ -17,9 +17,6 @@ from __future__ import annotations
 import json
 import logging
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.diagnostics.logging.logging_structured import (
     _JSONFormatter,

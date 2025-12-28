@@ -13,8 +13,8 @@ Tests for rite.system.platform.platform_name.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
+# Import | Standard Library
+import platform
 
 # Import | Local Modules
 from rite.system.platform.platform_name import (
@@ -32,5 +32,5 @@ def test_platform_name() -> None:
     result = platform_name()
     assert isinstance(result, str)
     assert len(result) > 0
-    # On macOS, should be Darwin
-    assert result == "Darwin"
+    # Result should match platform.system()
+    assert result == platform.system()

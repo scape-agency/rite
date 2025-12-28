@@ -16,9 +16,6 @@ from __future__ import annotations
 # Import | Standard Library
 import inspect
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.reflection.signature.signature_get_signature import (
     signature_get_signature,
@@ -93,7 +90,7 @@ class TestSignatureGetSignature:
         """Test signature with complex type annotations."""
 
         def func(data: list[dict[str, int]]) -> tuple[str, int]:
-            pass
+            return ("", 0)
 
         sig = signature_get_signature(func)
         assert "data" in sig.parameters

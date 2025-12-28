@@ -14,9 +14,6 @@ import logging
 from pathlib import Path
 import tempfile
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.diagnostics.logging.logging_to_file import (
     logging_to_file,

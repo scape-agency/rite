@@ -13,9 +13,6 @@ Tests for rite.text.converters.converter_string_to_datetime.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.text.converters.converter_string_to_datetime import (
     convert_string_to_datetime,
@@ -28,9 +25,6 @@ from rite.text.converters.converter_string_to_datetime import (
 
 def test_convert_string_to_datetime() -> None:
     """Test convert_string_to_datetime() with valid inputs."""
-    # Import | Standard Library
-    from datetime import datetime
-
     # Test ISO format with timezone
     result = convert_string_to_datetime("2024-12-11T11:42:34+00:00")
     assert result is not None

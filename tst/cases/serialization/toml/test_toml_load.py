@@ -14,8 +14,7 @@ Tests for rite.serialization.toml.toml_load.
 from __future__ import annotations
 
 # Import | Standard Library
-import sys
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 
 # Import | Libraries
 import pytest
@@ -73,7 +72,6 @@ def test_toml_load_import_error(tmp_path) -> None:
     """Test toml_load() raises ImportError when tomllib unavailable."""
     # Import | Standard Library
     import builtins
-    from pathlib import Path
 
     original_import = builtins.__import__
 

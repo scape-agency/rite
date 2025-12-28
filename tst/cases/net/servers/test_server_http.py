@@ -17,9 +17,6 @@ from __future__ import annotations
 import io
 from unittest.mock import MagicMock, patch
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.net.servers.server_http import (
     BaseHTTPServer,

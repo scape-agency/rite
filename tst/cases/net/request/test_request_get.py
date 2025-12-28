@@ -29,7 +29,7 @@ from rite.net.request.request_get import (
 def test_request_get() -> None:
     """Test request_get() function."""
     # Import | Standard Library
-    from unittest.mock import MagicMock, mock_open, patch
+    from unittest.mock import MagicMock, patch
     from urllib.error import URLError
 
     # Test successful GET request with proper mock

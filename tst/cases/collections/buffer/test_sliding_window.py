@@ -13,9 +13,6 @@ Tests for rite.collections.buffer.sliding_window.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.collections.buffer.sliding_window import SlidingWindow
 

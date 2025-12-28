@@ -13,9 +13,6 @@ Tests for rite.collections.list.list_group_by.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.collections.list.list_group_by import (
     list_group_by,

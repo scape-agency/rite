@@ -13,9 +13,6 @@ Tests for rite.conversion.formats.formats_base64_decode.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.conversion.formats.formats_base64_decode import (
     formats_base64_decode,

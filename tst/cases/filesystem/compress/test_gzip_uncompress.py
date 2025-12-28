@@ -17,9 +17,6 @@ from __future__ import annotations
 import gzip
 import io
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.filesystem.compress.gzip_uncompress import (
     uncompress_file,

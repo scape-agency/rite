@@ -13,9 +13,6 @@ Tests for rite.functional.currying.currying_curry.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.functional.currying.currying_curry import (
     currying_curry,

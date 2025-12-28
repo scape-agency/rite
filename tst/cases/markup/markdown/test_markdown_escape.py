@@ -13,9 +13,6 @@ Tests for rite.markup.markdown.markdown_escape.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.markup.markdown.markdown_escape import (
     markdown_escape,

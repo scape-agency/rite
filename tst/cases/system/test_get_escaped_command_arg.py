@@ -13,9 +13,6 @@ Tests for rite.system.get_escaped_command_arg.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.system.get_escaped_command_arg import (
     get_escaped_command_arg,

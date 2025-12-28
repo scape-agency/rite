@@ -13,9 +13,6 @@ Tests for rite.conversion.formats.formats_json_decode.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.conversion.formats.formats_json_decode import (
     formats_json_decode,
@@ -33,7 +30,7 @@ def test_formats_json_decode() -> None:
     assert formats_json_decode("[1, 2, 3]") == [1, 2, 3]
     assert formats_json_decode('"hello"') == "hello"
     assert formats_json_decode("123") == 123
-    assert formats_json_decode("true") == True
+    assert formats_json_decode("true") is True
     assert formats_json_decode("null") is None
 
     # Test with bytes input

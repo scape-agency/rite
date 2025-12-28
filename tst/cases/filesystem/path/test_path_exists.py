@@ -16,9 +16,6 @@ from __future__ import annotations
 # Import | Standard Library
 from pathlib import Path
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.filesystem.path.path_exists import (
     path_exists,

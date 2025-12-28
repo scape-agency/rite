@@ -16,9 +16,6 @@ from __future__ import annotations
 # Import | Standard Library
 import inspect
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.reflection.signature.signature_get_return_annotation import (
     signature_get_return_annotation,

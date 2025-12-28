@@ -13,9 +13,6 @@ Tests for rite.crypto.cipher.cipher_rail_fence.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.crypto.cipher.cipher_rail_fence import (
     decode_rail_fence_cipher,

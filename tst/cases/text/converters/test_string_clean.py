@@ -13,9 +13,6 @@ Tests for rite.text.converters.string_clean.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.text.converters.string_clean import (
     string_clean,
