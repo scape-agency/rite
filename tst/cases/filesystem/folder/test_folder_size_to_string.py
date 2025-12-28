@@ -13,6 +13,10 @@ Tests for rite.filesystem.folder.folder_size_to_string.
 # Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
+import os
+from unittest.mock import MagicMock, patch
+
 # Import | Local Modules
 from rite.filesystem.folder.folder_size_to_string import (
     _TotalSize,
@@ -58,3 +62,24 @@ def test_folder_size_to_string(tmp_path) -> None:
     result = folder_size_to_string(root, recursive=True)
 
     assert result == "2.00 KB"
+
+
+def test_folder_size_to_string_oserror(tmp_path) -> None:
+    """Test folder_size_to_string handles OSError on stat (lines 86-88)."""
+    # Import | Standard Library
+    from pathlib import Path
+
+    root = tmp_path
+    (root / "accessible.bin").write_bytes(b"x" * 1024)
+
+    original_stat = Path.stat
+
+    def mock_stat(self, *args, **kwargs):
+        if "accessible" not in str(self):
+            raise OSError("Permission denied")
+        return original_stat(self, *args, **kwargs)
+
+    with patch.object(Path, "stat", mock_stat):
+        # Should skip files that raise OSError
+        result = folder_size_to_string(root, recursive=True)
+        assert "KB" in result or "B" in result

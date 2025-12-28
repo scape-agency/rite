@@ -4,7 +4,7 @@
 
 """
 Verify Mimetype Function
-=================================
+========================
 
 Check File Type
 
@@ -29,7 +29,10 @@ import mimetypes
 # =============================================================================
 
 
-def mimetype_verify(filename: str, allowed_types: list) -> bool:
+def mimetype_verify(
+    filename: str,
+    allowed_types: list,
+) -> bool:
     """
     Verify Mimetype Function
     ========================
@@ -45,12 +48,20 @@ def mimetype_verify(filename: str, allowed_types: list) -> bool:
     - bool: True if the file's MIME type is allowed, False otherwise.
     """
 
-    if not isinstance(allowed_types, list) or not all(
-        isinstance(item, str) for item in allowed_types
+    if not isinstance(
+        allowed_types,
+        list,
+    ) or not all(
+        isinstance(
+            item,
+            str,
+        )
+        for item in allowed_types
     ):
         raise ValueError("'allowed_types' must be a list of strings.")
 
     mime_type, _ = mimetypes.guess_type(filename)
+
     return mime_type in allowed_types
 
 

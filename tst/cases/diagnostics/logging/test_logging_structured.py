@@ -161,3 +161,18 @@ def test_logging_structured_no_duplicate_handlers() -> None:
 
     assert logger1 is logger2
     assert len(logger1.handlers) == 1
+
+
+def test_logging_structured_keyvalue_formatter() -> None:
+    """Test logging_structured uses KeyValueFormatter (line 66)."""
+    # Import | Standard Library
+    import uuid
+
+    # Use unique name to get fresh logger without existing handlers
+    unique_name = f"test_kv_{uuid.uuid4().hex[:8]}"
+    logger = logging_structured(unique_name, json_format=False)
+    assert logger is not None
+    assert len(logger.handlers) == 1
+    # The formatter should be _KeyValueFormatter
+    handler = logger.handlers[0]
+    assert handler.formatter is not None

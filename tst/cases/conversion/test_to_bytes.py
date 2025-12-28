@@ -205,6 +205,17 @@ def test_to_bytes_pathlike_returns_bytes() -> None:
     assert result == b"/path/to/file"
 
 
+def test_to_bytes_pathlike_returns_str() -> None:
+    """Test PathLike object that returns str from fspath (line 97-98)."""
+
+    class StrPath:
+        def __fspath__(self) -> str:
+            return "/path/to/file"
+
+    result = to_bytes(StrPath())
+    assert result == b"/path/to/file"
+
+
 def test_to_bytes_non_pathlike_object() -> None:
     """Test object that is not PathLike."""
 

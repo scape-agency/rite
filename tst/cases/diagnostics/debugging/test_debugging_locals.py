@@ -73,3 +73,30 @@ def test_debugging_locals_includes_private(capsys) -> None:
     result = test_func()
     assert result["x"] == 1
     assert result["_private"] == 2
+
+
+def test_debugging_locals_frame_none(capsys, monkeypatch) -> None:
+    """Test debugging_locals when currentframe returns None (line 62)."""
+    # Import | Standard Library
+    import inspect
+
+    # Monkeypatch to return None for currentframe
+    monkeypatch.setattr(inspect, "currentframe", lambda: None)
+
+    result = debugging_locals()
+    assert result == {}
+
+
+def test_debugging_locals_caller_frame_none(capsys, monkeypatch) -> None:
+    """Test debugging_locals when f_back is None (line 67)."""
+    # Import | Standard Library
+    import inspect
+
+    class FakeFrame:
+        f_back = None
+        f_locals = {}
+
+    monkeypatch.setattr(inspect, "currentframe", lambda: FakeFrame())
+
+    result = debugging_locals()
+    assert result == {}

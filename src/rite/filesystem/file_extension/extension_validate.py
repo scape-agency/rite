@@ -47,7 +47,8 @@ def extension_validate(
 
     Raises:
     ------
-        ValueError: If extension is None/empty, doesn't match regex, or not allowed.
+        ValueError: If extension is None/empty, doesn't match regex, or
+            not allowed.
 
     Example:
     -------
@@ -62,7 +63,16 @@ def extension_validate(
         raise ValueError("File extension is empty or None.")
 
     # Normalize: strip spaces, remove leading dots, lowercase
-    normalized_extension = str(extension).strip().lstrip(".").lower()
+    normalized_extension: str = (
+        str(
+            extension,
+        )
+        .strip()
+        .lstrip(
+            ".",
+        )
+        .lower()
+    )
     if not normalized_extension:
         raise ValueError("File extension is empty or None.")
 

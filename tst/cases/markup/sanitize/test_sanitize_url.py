@@ -96,3 +96,16 @@ def test_sanitize_url_exception_handling() -> None:
     # A URL that might cause issues during parsing but shouldn't crash
     result = sanitize_url("://broken", ["http"])
     assert result == ""
+
+
+def test_sanitize_url_exception_from_urlparse() -> None:
+    """Test sanitize_url exception handler (line 67)."""
+    from unittest.mock import patch
+
+    # Mock urlparse to raise an exception
+    with patch(
+        "rite.markup.sanitize.sanitize_url.urlparse",
+        side_effect=ValueError("parse error"),
+    ):
+        result = sanitize_url("https://test.com")
+        assert result == ""
