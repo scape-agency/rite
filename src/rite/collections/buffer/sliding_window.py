@@ -148,7 +148,7 @@ class SlidingWindow:
             return None
         return sum(self._window) / len(self._window)
 
-    def moving_sum(self) -> float:
+    def moving_sum(self) -> float | None:
         """
         Calculate moving sum of numeric window.
 

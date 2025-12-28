@@ -26,9 +26,38 @@ from rite.diagnostics.errors.errors_get_chain import (
 # =============================================================================
 
 
-def test_errors_get_chain() -> None:
-    """Test errors_get_chain() function."""
-    # TODO: Implement test
-    # result = errors_get_chain(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+def test_errors_get_chain_single() -> None:
+    """Test errors_get_chain with single exception."""
+    try:
+        raise ValueError("test error")
+    except ValueError as e:
+        chain = errors_get_chain(e)
+        assert len(chain) == 1
+        assert isinstance(chain[0], ValueError)
+
+
+def test_errors_get_chain_with_cause() -> None:
+    """Test errors_get_chain with exception cause."""
+    try:
+        try:
+            raise ValueError("root")
+        except ValueError as e:
+            raise KeyError("wrapped") from e
+    except KeyError as e:
+        chain = errors_get_chain(e)
+        assert len(chain) == 2
+        assert isinstance(chain[0], ValueError)
+        assert isinstance(chain[1], KeyError)
+
+
+def test_errors_get_chain_with_context() -> None:
+    """Test errors_get_chain with exception context."""
+    try:
+        try:
+            _ = 1 / 0
+        except ZeroDivisionError:
+            raise ValueError("wrapped")
+    except ValueError as e:
+        chain = errors_get_chain(e)
+        assert len(chain) >= 1
+        assert isinstance(chain[-1], ValueError)

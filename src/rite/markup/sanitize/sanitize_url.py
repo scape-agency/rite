@@ -57,9 +57,12 @@ def sanitize_url(url: str, allowed_schemes: list[str] | None = None) -> str:
     if allowed_schemes is None:
         allowed_schemes = ["http", "https"]
 
+    # Normalize allowed schemes to lowercase for case-insensitive comparison
+    allowed_schemes_lower = [s.lower() for s in allowed_schemes]
+
     try:
         parsed = urlparse(url)
-        if parsed.scheme.lower() in allowed_schemes:
+        if parsed.scheme.lower() in allowed_schemes_lower:
             return url
     except Exception:
         pass

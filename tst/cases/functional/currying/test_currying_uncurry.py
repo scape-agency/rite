@@ -13,6 +13,9 @@ Tests for rite.functional.currying.currying_uncurry.
 # Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
+from collections.abc import Callable
+
 # Import | Libraries
 import pytest
 
@@ -29,7 +32,7 @@ from rite.functional.currying.currying_uncurry import (
 def test_currying_uncurry() -> None:
     """Test that currying_uncurry restores multi-arg calling convention."""
 
-    def make_curried() -> callable:
+    def make_curried() -> Callable:
         return lambda a: lambda b: lambda c: a + b + c
 
     curried = make_curried()

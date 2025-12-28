@@ -58,11 +58,11 @@ class _SizedStream(Protocol):
 
     def tell(self, *args: Any, **kwargs: Any) -> int:
         """Return the current position in the file."""
-        pass
+        return 0
 
     def seek(self, *args: Any, **kwargs: Any) -> int:
         """Seek to a position in the file."""
-        pass
+        return 0
 
 
 # =============================================================================
@@ -89,7 +89,7 @@ def file_size_to_string(
     """
     if hasattr(filehandle, "size"):
         try:
-            return _convert_bytes_to_string(int(filehandle.size))
+            return _convert_bytes_to_string(int(filehandle.size))  # type: ignore[attr-defined]
         except (AttributeError, TypeError, ValueError):  # pragma: no cover
             pass
 

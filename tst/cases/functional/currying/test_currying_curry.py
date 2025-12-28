@@ -34,9 +34,9 @@ def test_currying_curry() -> None:
 
     curried = currying_curry(add)
 
-    assert curried(1)(2)(3) == 6
+    assert curried(1)(2)(3) == 6  # type: ignore[operator]
 
     partial_ab = curried(1, 2)
-    assert partial_ab(3) == 6
+    assert partial_ab(3) == 6  # type: ignore[operator]
 
     assert curried(1, 2, 3, 99) == 6

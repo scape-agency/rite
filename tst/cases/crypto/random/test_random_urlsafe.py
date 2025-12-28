@@ -42,3 +42,22 @@ def test_random_urlsafe() -> None:
     result1 = random_urlsafe(16)
     result2 = random_urlsafe(16)
     assert result1 != result2
+
+
+def test_random_urlsafe_edge_cases() -> None:
+    """Test random_urlsafe() edge cases."""
+    # Test zero bytes
+    result = random_urlsafe(0)
+    assert isinstance(result, str)
+    assert len(result) == 0
+
+    # Test single byte
+    result = random_urlsafe(1)
+    assert isinstance(result, str)
+    assert len(result) >= 1
+    assert all(c.isalnum() or c in "-_" for c in result)
+
+    # Test large size
+    result = random_urlsafe(256)
+    assert isinstance(result, str)
+    assert all(c.isalnum() or c in "-_" for c in result)

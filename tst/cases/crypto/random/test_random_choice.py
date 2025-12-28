@@ -40,3 +40,32 @@ def test_random_choice() -> None:
     # Test uniqueness (run multiple times)
     results = [random_choice(choices) for _ in range(20)]
     assert len(set(results)) > 1  # Should have variety
+
+
+def test_random_choice_edge_cases() -> None:
+    """Test random_choice() edge cases."""
+    # Test with single element list
+    result = random_choice([42])
+    assert result == 42
+
+    # Test with single character string
+    result = random_choice("X")
+    assert result == "X"
+
+    # Test with tuple
+    result = random_choice((1, 2, 3))
+    assert result in (1, 2, 3)
+
+    # Test with range
+    result = random_choice(range(5))
+    assert result in range(5)
+
+
+def test_random_choice_empty_sequence() -> None:
+    """Test random_choice() raises IndexError for empty sequence."""
+    with pytest.raises(IndexError):
+        random_choice([])
+    with pytest.raises(IndexError):
+        random_choice("")
+    with pytest.raises(IndexError):
+        random_choice(())

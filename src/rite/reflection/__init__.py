@@ -96,7 +96,6 @@ from .types import (
 
 __all__: list[str] = [
     # Legacy
-    "load_class",
     "ClassImportError",
     # Importing Utilities
     "importing_load_class",

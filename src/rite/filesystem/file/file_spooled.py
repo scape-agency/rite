@@ -22,6 +22,7 @@ from __future__ import annotations
 from pathlib import Path
 from shutil import copyfileobj
 import tempfile
+from typing import IO
 
 # Import | Local Modules
 from .file_spooled_settings import settings
@@ -33,7 +34,7 @@ from .file_spooled_settings import settings
 
 def create_spooled_temporary_file(
     filepath: str | Path | None = None,
-    fileobj: object | None = None,
+    fileobj: IO[bytes] | None = None,
 ) -> tempfile.SpooledTemporaryFile:
     """Create a spooled temporary file optionally seeded from a path or file.
 

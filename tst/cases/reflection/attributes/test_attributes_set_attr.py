@@ -34,10 +34,10 @@ def test_attributes_set_attr() -> None:
 
     obj = TestClass()
     attributes_set_attr(obj, "value", 42)
-    assert obj.value == 42
+    assert obj.value == 42  # type: ignore[attr-defined]
 
     attributes_set_attr(obj, "name", "test")
-    assert obj.name == "test"
+    assert obj.name == "test"  # type: ignore[attr-defined]
 
     attributes_set_attr(obj, "value", 100)
-    assert obj.value == 100
+    assert obj.value == 100  # type: ignore[attr-defined]

@@ -158,6 +158,8 @@ def test_compress_and_uncompress_round_trip(tmp_path: Path) -> None:
     )
     assert compressed_name.endswith(".gz")
 
+    uncompressed_file = None
+
     try:
         # Use the compressed spooled file as input for decompression
         uncompressed_file, uncompressed_name = uncompress_file(
@@ -172,4 +174,5 @@ def test_compress_and_uncompress_round_trip(tmp_path: Path) -> None:
         assert decompressed_content == original_content
     finally:
         compressed_file.close()
-        uncompressed_file.close()
+        if uncompressed_file is not None:
+            uncompressed_file.close()

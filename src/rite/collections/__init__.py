@@ -41,6 +41,9 @@ Examples
 # Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
+from typing import List
+
 # Import | Local Modules
 # Import | Local | Buffer
 from .buffer import BoundedBuffer, CircularBuffer, RingBuffer, SlidingWindow
@@ -88,7 +91,7 @@ from .tree import BinaryTreeNode, NestedSetStructure, TreeNode, Trie
 # Exports
 # =============================================================================
 
-__all__: list[str] = [
+__all__: List[str] = [
     # List Operations
     "list_chunk",
     "list_flatten",

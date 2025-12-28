@@ -13,6 +13,9 @@ Tests for rite.filesystem.path.path_exists.
 # Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
+from pathlib import Path
+
 # Import | Libraries
 import pytest
 

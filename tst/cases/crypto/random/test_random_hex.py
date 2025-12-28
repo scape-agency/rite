@@ -42,3 +42,22 @@ def test_random_hex() -> None:
     result1 = random_hex(16)
     result2 = random_hex(16)
     assert result1 != result2
+
+
+def test_random_hex_edge_cases() -> None:
+    """Test random_hex() edge cases."""
+    # Test zero bytes
+    result = random_hex(0)
+    assert isinstance(result, str)
+    assert len(result) == 0
+
+    # Test single byte
+    result = random_hex(1)
+    assert isinstance(result, str)
+    assert len(result) == 2  # 1 byte = 2 hex chars
+    assert all(c in "0123456789abcdef" for c in result)
+
+    # Test large size
+    result = random_hex(512)
+    assert isinstance(result, str)
+    assert len(result) == 1024  # 512 bytes = 1024 hex chars

@@ -41,3 +41,13 @@ def test_list_chunk(
 ) -> None:
     """Test list_chunk() with various inputs."""
     assert list_chunk(items, size) == expected
+
+
+def test_list_chunk_invalid_size() -> None:
+    """Test list_chunk() raises ValueError for invalid size."""
+    with pytest.raises(ValueError):
+        list_chunk([1, 2, 3], 0)
+    with pytest.raises(ValueError):
+        list_chunk([1, 2, 3], -1)
+    with pytest.raises(ValueError):
+        list_chunk([1, 2, 3], -100)
