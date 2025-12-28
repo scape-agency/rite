@@ -147,7 +147,8 @@ class TestBaseHTTPServer:
         mock_server.serve_forever.side_effect = KeyboardInterrupt()
         mock_server_class.return_value = mock_server
 
-        BaseHTTPServer.run(port=8888)
+        # Call run - it should handle KeyboardInterrupt gracefully
+        BaseHTTPServer.run(server_class=mock_server_class, port=8888)
 
         mock_server.server_close.assert_called_once()
 

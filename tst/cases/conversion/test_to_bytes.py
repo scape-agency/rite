@@ -192,3 +192,25 @@ def test_to_bytes_long_string() -> None:
     result = to_bytes(long_str)
     assert len(result) == 10000
     assert result == b"a" * 10000
+
+
+def test_to_bytes_pathlike_returns_bytes() -> None:
+    """Test PathLike object that returns bytes from fspath."""
+
+    class BytesPath:
+        def __fspath__(self) -> bytes:
+            return b"/path/to/file"
+
+    result = to_bytes(BytesPath())
+    assert result == b"/path/to/file"
+
+
+def test_to_bytes_non_pathlike_object() -> None:
+    """Test object that is not PathLike."""
+
+    class NotPathLike:
+        def __str__(self) -> str:
+            return "not-a-path"
+
+    result = to_bytes(NotPathLike())
+    assert result == b"not-a-path"

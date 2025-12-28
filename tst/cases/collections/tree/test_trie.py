@@ -155,3 +155,28 @@ class TestTrie:
         # __repr__ smoke test
         repr_str = repr(instance)
         assert "Trie" in repr_str
+
+    def test_insert_empty_string(self) -> None:
+        """Test inserting empty string (line 79)."""
+        instance = Trie()
+        instance.insert("")
+        assert len(instance) == 0
+
+    def test_delete_returns_true_with_children(self) -> None:
+        """Test delete when word has children (line 152)."""
+        instance = Trie()
+        instance.insert("he")
+        instance.insert("hello")
+
+        # Delete "he" but "hello" still exists
+        result = instance.delete("he")
+        assert result is True
+        assert not instance.search("he")
+        assert instance.search("hello")
+
+    def test_get_words_prefix_returns_empty(self) -> None:
+        """Test get_words_with_prefix with non-existent prefix (line 159)."""
+        instance = Trie()
+        instance.insert("apple")
+        result = instance.get_words_with_prefix("xyz")
+        assert result == []

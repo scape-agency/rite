@@ -40,3 +40,24 @@ def test_decode_vigenere_cipher() -> None:
     result = decode_vigenere_cipher(encoded, "KEY")
     assert result == "HELLO"
     assert isinstance(result, str)
+
+
+def test_encode_vigenere_cipher_with_non_alpha() -> None:
+    """Test encoding with non-alpha characters (line 60)."""
+    result = encode_vigenere_cipher("HEL LO!", "KEY")
+    assert " " in result
+    assert "!" in result
+
+
+def test_decode_vigenere_cipher_with_non_alpha() -> None:
+    """Test decoding with non-alpha characters (line 91)."""
+    encoded = encode_vigenere_cipher("A B C", "KEY")
+    decoded = decode_vigenere_cipher(encoded, "KEY")
+    assert decoded == "A B C"
+
+
+def test_vigenere_cipher_lowercase() -> None:
+    """Test with lowercase letters."""
+    encoded = encode_vigenere_cipher("hello", "key")
+    decoded = decode_vigenere_cipher(encoded, "key")
+    assert decoded == "hello"

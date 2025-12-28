@@ -47,3 +47,15 @@ from rite.text.converters.converter_string_to_bool import (
 def test_convert_string_to_bool(value: str, expected: bool | None) -> None:
     """Test convert_string_to_bool() with various inputs."""
     assert convert_string_to_bool(value) == expected
+
+
+def test_convert_string_to_bool_none_input() -> None:
+    """Test with None input (line 36)."""
+    assert convert_string_to_bool(None) is None
+
+
+def test_convert_string_to_bool_whitespace() -> None:
+    """Test with whitespace around values."""
+    assert convert_string_to_bool("  true  ") is True
+    assert convert_string_to_bool("  false  ") is False
+    assert convert_string_to_bool("  YES  ") is True

@@ -42,3 +42,12 @@ def test_is_palindrome() -> None:
     # Test with case sensitivity
     assert is_palindrome("Racecar", ignore_case=True) is True
     assert is_palindrome("Racecar", ignore_case=False) is False
+
+    # Test with ignore_spaces=False (line 49)
+    # "a a" is actually a palindrome since it reads the same forward/backward
+    assert is_palindrome("aa", ignore_spaces=False) is True
+    assert is_palindrome("ab", ignore_spaces=False) is False
+
+    # Test combination of ignore_spaces=False and ignore_case
+    assert is_palindrome("Aa", ignore_spaces=False, ignore_case=True) is True
+    assert is_palindrome("Aa", ignore_spaces=False, ignore_case=False) is False

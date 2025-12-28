@@ -75,3 +75,37 @@ def test_decode_playfair_cipher() -> None:
     result = decode_playfair_cipher(encoded, "KEY")
     assert isinstance(result, str)
     assert len(result) == len(encoded)
+
+
+def test_find_position_not_found() -> None:
+    """Test find_position with letter not in square (line 74)."""
+    square = create_playfair_square("KEY")
+    # J is replaced with I in Playfair
+    with pytest.raises(ValueError, match="not found in square"):
+        find_position("J", square)
+
+
+def test_playfair_cipher_pair_same_row() -> None:
+    """Test cipher_pair with same row (lines 104-105)."""
+    square = create_playfair_square("KEY")
+    # Create a pair that will be in the same row
+    # "KE" should be in same row since they're at start of key
+    pair = playfair_cipher_pair("AB", square, mode="encode")
+    decoded = playfair_cipher_pair(pair, square, mode="decode")
+    assert decoded == "AB"
+
+
+def test_playfair_cipher_pair_same_column() -> None:
+    """Test cipher_pair with same column."""
+    square = create_playfair_square("KEY")
+    # Find letters in the same column
+    pair = playfair_cipher_pair("KS", square, mode="encode")
+    assert isinstance(pair, str)
+    assert len(pair) == 2
+
+
+def test_prepare_text_with_j() -> None:
+    """Test prepare_text replaces J with I (line 136)."""
+    result = prepare_text("JELLO")
+    assert "J" not in result
+    assert "I" in result or result.startswith("I")

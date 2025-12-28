@@ -142,7 +142,7 @@ def test_read_head_bytes_failing_peek() -> None:
             raise OSError("Peek failed")
 
         def read(self, n: int) -> bytes:
-            return b"fallback"
+            return b"fallback"[:n]
 
         def tell(self) -> int:
             return 0

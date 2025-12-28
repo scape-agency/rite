@@ -87,3 +87,32 @@ def test_get_folder_size_multiple_subdirs(tmp_path) -> None:
     (tmp_path / "dir2" / "f2.txt").write_bytes(b"y" * 25)
 
     assert get_folder_size(tmp_path) == 40
+
+
+def test_get_folder_size_permission_error(tmp_path) -> None:
+    """get_folder_size should skip files that raise PermissionError."""
+    # Import | Standard Library
+    from pathlib import Path
+    from unittest.mock import MagicMock, patch
+
+    file_path = tmp_path / "readable.txt"
+    file_path.write_bytes(b"x" * 10)
+
+    # Create a mock path that will fail on stat
+    mock_path = MagicMock()
+    mock_path.is_file.return_value = True
+    mock_path.stat.side_effect = PermissionError("Permission denied")
+
+    # Get original iterator from rglob
+    original_results = list(tmp_path.rglob("*"))
+
+    # Create a patched version that includes our mock path
+    def mock_rglob(self, pattern):
+        for item in original_results:
+            yield item
+        yield mock_path
+
+    with patch.object(Path, "rglob", mock_rglob):
+        result = get_folder_size(tmp_path)
+        # Only the readable file should be counted
+        assert result == 10

@@ -72,3 +72,30 @@ def test_decode_four_square_cipher() -> None:
     result = decode_four_square_cipher(encoded, "KEY1", "KEY2")
     assert isinstance(result, str)
     assert len(result) == len(encoded)
+
+
+def test_find_position_not_found() -> None:
+    """Test find_position with letter not in square (line 73)."""
+    square = generate_square("KEY")
+    # J is typically omitted from Playfair-type squares
+    with pytest.raises(ValueError, match="not found in square"):
+        find_position("J", square)
+
+
+def test_four_square_cipher_pair_invalid_pair() -> None:
+    """Test cipher_pair with invalid pair length (line 99)."""
+    square = generate_square("")
+    with pytest.raises(ValueError, match="exactly two"):
+        four_square_cipher_pair("ABC", square, square, square, square)
+
+
+def test_four_square_cipher_pair_invalid_mode() -> None:
+    """Test cipher_pair with invalid mode (line 112)."""
+    square_tl = generate_square("")
+    square_tr = generate_square("KEY1")
+    square_bl = generate_square("KEY2")
+    square_br = generate_square("")
+    with pytest.raises(ValueError, match="encode.*decode"):
+        four_square_cipher_pair(
+            "HE", square_tl, square_tr, square_bl, square_br, mode="invalid"
+        )

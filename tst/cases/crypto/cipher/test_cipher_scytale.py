@@ -40,3 +40,23 @@ def test_decode_scytale_cipher() -> None:
     result = decode_scytale_cipher(encoded, 3)
     assert result == "HELLO"
     assert isinstance(result, str)
+
+
+def test_encode_scytale_invalid_diameter() -> None:
+    """Test encoding with invalid diameter (line 47)."""
+    with pytest.raises(ValueError, match="Diameter must be a positive"):
+        encode_scytale_cipher("HELLO", 0)
+
+
+def test_decode_scytale_invalid_diameter() -> None:
+    """Test decoding with invalid diameter (line 80)."""
+    with pytest.raises(ValueError, match="Diameter must be a positive"):
+        decode_scytale_cipher("HELLO", 0)
+
+
+def test_encode_scytale_with_padding() -> None:
+    """Test encoding with text that needs padding (line 51->54)."""
+    # Text length 5 with diameter 3 requires padding
+    result = encode_scytale_cipher("HELLO", 3)
+    # Should pad to 6 characters (2 rows x 3 cols)
+    assert len(result) == 6
