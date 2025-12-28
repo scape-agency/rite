@@ -45,15 +45,15 @@ python = ">=3.12,<4.0"
 # =============================================================================
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^8.3.4"                                  # Framework for testing
-pytest-cov = "^6.0.0"                              # Code coverage for tests
-coverage = "^7.6.10"                               # Coverage measurement
-black = "^24.8.0"                                  # Code formatter
+pytest = "^9.0.2"                                  # Framework for testing
+pytest-cov = "^7.0.0"                              # Code coverage for tests
+coverage = "^7.13.0"                               # Coverage measurement
+black = "^25.12.0"                                  # Code formatter
 flake8 = "^7.1.0"                                  # Linter for code quality
-mypy = "^1.14.1"                                   # Static type checker
-isort = "^5.10.1"                                  # Import sorter
+mypy = "^1.19.1"                                   # Static type checker
+isort = "^7.0.0"                                  # Import sorter
 tox = "^4.4.6"                                     # Testing multiple environments
-pre-commit = "^4.0.1"                              # Pre-commit hooks for linting and formatting
+pre-commit = "^4.5.1"                              # Pre-commit hooks for linting and formatting
 pylint = "^4.0.4"                                  # Static code analyzer
 bandit = { extras = ["toml"], version = "^1.7.5" } # Security linter
 
@@ -70,7 +70,7 @@ markdown = "^3.7.0"
 pygments = "^2.18.0"
 sphinx = "^8.1.0"
 sphinx-rtd-theme = "^3.0.2"
-sphinx-autodoc-typehints = "^2.5.0"
+sphinx-autodoc-typehints = "^3.5.2"
 myst-parser = "^4.0.0"
 
 
