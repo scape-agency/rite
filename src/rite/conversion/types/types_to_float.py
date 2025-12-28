@@ -27,14 +27,7 @@ Examples
 from __future__ import annotations
 
 # Import | Standard Library
-import re
 from typing import Any
-
-# =============================================================================
-# Pattern
-# =============================================================================
-
-_float_pat = re.compile(r"^\s*([-+]?\d*\.?\d+(?:[eE][-+]?\d+)?)\s*$")
 
 # =============================================================================
 # Functions
@@ -76,16 +69,11 @@ def types_to_float(x: Any, default: float | None = None) -> float | None:
         return float(x)
 
     if isinstance(x, str):
-        # Try direct conversion
+        # Try direct conversion (handles whitespace automatically)
         try:
             return float(x)
         except (ValueError, TypeError):
             pass
-
-        # Try pattern match for strings with whitespace
-        match = _float_pat.match(x)
-        if match:
-            return float(match.group(1))
 
     return default
 

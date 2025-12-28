@@ -3,8 +3,8 @@
 # =============================================================================
 
 """
-Rite - Cryptography - Cipher - Playfair Cipher Module
-=====================================================
+Playfair Cipher Module
+======================
 
 Provides functionality to encode and decode text using the Playfair cipher.
 
@@ -120,7 +120,12 @@ def prepare_text(text: str) -> str:
     Returns:
         Cleaned and paired text ready for encoding.
     """
-    text = "".join(filter(str.isalpha, text.upper())).replace("J", "I")
+    text = "".join(
+        filter(str.isalpha, text.upper()),
+    ).replace(
+        "J",
+        "I",
+    )
     result = []
     i = 0
     while i < len(text):
@@ -132,8 +137,7 @@ def prepare_text(text: str) -> str:
         else:
             result.append(a + b)
             i += 2
-    if len(result[-1]) == 1:
-        result[-1] += "X"
+    # Note: All pairs are always length 2 due to the logic above
     return "".join(result)
 
 
@@ -154,7 +158,11 @@ def encode_playfair_cipher(text: str, key: str) -> str:
     square = create_playfair_square(key)
     prepared = prepare_text(text)
     return "".join(
-        playfair_cipher_pair(prepared[i : i + 2], square, mode="encode")
+        playfair_cipher_pair(
+            prepared[i : i + 2],
+            square,
+            mode="encode",
+        )
         for i in range(0, len(prepared), 2)
     )
 
@@ -173,12 +181,16 @@ def decode_playfair_cipher(encoded_text: str, key: str) -> str:
     Returns:
         Decoded plaintext (not automatically de-padded).
     """
-    encoded_text = "".join(filter(str.isalpha, encoded_text.upper())).replace(
-        "J", "I"
-    )
+    encoded_text = "".join(
+        filter(str.isalpha, encoded_text.upper()),
+    ).replace("J", "I")
     square = create_playfair_square(key)
     return "".join(
-        playfair_cipher_pair(encoded_text[i : i + 2], square, mode="decode")
+        playfair_cipher_pair(
+            encoded_text[i : i + 2],
+            square,
+            mode="decode",
+        )
         for i in range(0, len(encoded_text), 2)
     )
 

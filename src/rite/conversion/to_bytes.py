@@ -89,20 +89,16 @@ def to_bytes(
     if callable(to_b):
         return to_b()
 
-    # Paths: handle before str() to avoid repr-like encodings
+    # Paths and strings: os.fspath handles both PathLike and str
     try:
         fspath = os.fspath(content)
         if isinstance(fspath, bytes):
             return fspath
-        if isinstance(fspath, str):
-            return fspath.encode(encoding, errors)
+        # fspath is str (either from PathLike or direct str input)
+        return fspath.encode(encoding, errors)
     except TypeError:
-        # not PathLike; continue
+        # not PathLike or str; convert to string first
         pass
-
-    # Strings & general objects
-    if isinstance(content, str):
-        return content.encode(encoding, errors)
 
     return str(content).encode(encoding, errors)
 

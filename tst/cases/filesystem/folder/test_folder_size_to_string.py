@@ -69,17 +69,44 @@ def test_folder_size_to_string_oserror(tmp_path) -> None:
     # Import | Standard Library
     from pathlib import Path
 
+    # Import | Local Modules
+    from rite.filesystem.folder import folder_list_files
+
     root = tmp_path
-    (root / "accessible.bin").write_bytes(b"x" * 1024)
+    (root / "file1.bin").write_bytes(b"x" * 1024)
+    (root / "file2.bin").write_bytes(b"y" * 1024)
 
-    original_stat = Path.stat
+    # Create fake paths that mimic real behavior
+    file1 = root / "file1.bin"
+    file2 = root / "file2.bin"
 
-    def mock_stat(self, *args, **kwargs):
-        if "accessible" not in str(self):
+    class MockStatResult:
+        """Mock stat result."""
+
+        st_size = 1024
+
+    class FakePathOK:
+        """Fake path that works normally."""
+
+        def stat(self):
+            return MockStatResult()
+
+    class FakePathError:
+        """Fake path that raises OSError on stat()."""
+
+        def stat(self):
             raise OSError("Permission denied")
-        return original_stat(self, *args, **kwargs)
 
-    with patch.object(Path, "stat", mock_stat):
-        # Should skip files that raise OSError
+    # Mock folder_list_files to return our fake paths
+    def mock_folder_list_files(path, recursive=False):
+        yield FakePathOK()  # This one works
+        yield FakePathError()  # This one raises OSError and is skipped
+        yield FakePathOK()  # This one also works
+
+    with patch(
+        "rite.filesystem.folder.folder_size_to_string.folder_list_files",
+        mock_folder_list_files,
+    ):
         result = folder_size_to_string(root, recursive=True)
-        assert "KB" in result or "B" in result
+        # 2 files at 1024 bytes each = 2048 bytes = 2.00 KB
+        assert result == "2.00 KB"

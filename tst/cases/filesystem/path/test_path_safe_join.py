@@ -105,3 +105,10 @@ def test_path_safe_join_equals_base() -> None:
     # When final path would equal base path, append /
     result = path_safe_join("/var/data", "")
     assert result == "var/data/"
+
+
+def test_path_safe_join_returns_to_base() -> None:
+    """Test path_safe_join when going down then up returns to base (line 75)."""
+    # Go into sub-directory then back up with ..
+    result = path_safe_join("/var/data", "sub", "..")
+    assert result == "var/data/"

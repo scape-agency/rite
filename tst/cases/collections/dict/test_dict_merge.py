@@ -13,9 +13,6 @@ Tests for rite.collections.dict.dict_merge.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.collections.dict.dict_merge import (
     dict_merge,
@@ -42,18 +39,24 @@ def test_dict_merge() -> None:
 
     # Test no arguments
     result = dict_merge()
-    assert result == {}
+    assert not result
 
     # Test single dict
     result = dict_merge({"a": 1, "b": 2})
     assert result == {"a": 1, "b": 2}
 
     # Test complete override
-    result = dict_merge({"a": 1, "b": 2}, {"a": 10, "b": 20})
+    result = dict_merge(
+        {"a": 1, "b": 2},
+        {"a": 10, "b": 20},
+    )
     assert result == {"a": 10, "b": 20}
 
-    # Test mixed types
-    result = dict_merge({"a": 1, "b": "text"}, {"c": 3.14})
+    # Test mixed types - use type: ignore for mixed value types
+    result = dict_merge(
+        {"a": 1, "b": "text"},  # type: ignore[arg-type]
+        {"c": 3.14},  # type: ignore[arg-type]
+    )
     assert result == {"a": 1, "b": "text", "c": 3.14}
 
 
@@ -77,10 +80,10 @@ def test_dict_merge_deep() -> None:
     result = dict_merge(d1, d2, deep=True)
     assert result == {"a": {"x": 10}}
 
-    # Test deep merge when value is not a dict
+    # Test deep merge when value is not a dict - use type: ignore
     d1 = {"a": {"x": 1}}
-    d2 = {"a": "string"}
-    result = dict_merge(d1, d2, deep=True)
+    d2 = {"a": "string"}  # type: ignore[dict-item]
+    result = dict_merge(d1, d2, deep=True)  # type: ignore[arg-type]
     assert result == {"a": "string"}
 
     # Test deep merge of three dicts
@@ -130,5 +133,5 @@ def test_dict_merge_edge_cases() -> None:
     d2 = {f"key_{i}": i * 2 for i in range(250, 750)}
     result = dict_merge(d1, d2)
     assert len(result) == 750
-    assert result[f"key_100"] == 100
-    assert result[f"key_600"] == 1200
+    assert result["key_100"] == 100
+    assert result["key_600"] == 1200

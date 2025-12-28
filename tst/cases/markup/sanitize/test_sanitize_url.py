@@ -100,6 +100,7 @@ def test_sanitize_url_exception_handling() -> None:
 
 def test_sanitize_url_exception_from_urlparse() -> None:
     """Test sanitize_url exception handler (line 67)."""
+    # Import | Standard Library
     from unittest.mock import patch
 
     # Mock urlparse to raise an exception

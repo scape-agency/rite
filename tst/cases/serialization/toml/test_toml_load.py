@@ -13,6 +13,10 @@ Tests for rite.serialization.toml.toml_load.
 # Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
+import sys
+from unittest.mock import MagicMock, patch
+
 # Import | Libraries
 import pytest
 
@@ -63,3 +67,25 @@ port = 5432
         assert "section" in result
     finally:
         Path(temp_path).unlink()
+
+
+def test_toml_load_import_error(tmp_path) -> None:
+    """Test toml_load() raises ImportError when tomllib unavailable."""
+    # Import | Standard Library
+    import builtins
+    from pathlib import Path
+
+    original_import = builtins.__import__
+
+    def mock_import(name, *args, **kwargs):
+        if name == "tomllib":
+            raise ImportError("No module named 'tomllib'")
+        return original_import(name, *args, **kwargs)
+
+    # Create a dummy TOML file
+    toml_file = tmp_path / "test.toml"
+    toml_file.write_text('[section]\nkey = "value"\n')
+
+    with patch.object(builtins, "__import__", side_effect=mock_import):
+        with pytest.raises(ImportError, match="tomllib requires Python 3.11"):
+            toml_load(toml_file)

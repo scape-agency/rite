@@ -148,16 +148,13 @@ class Trie:
 
         def _delete_helper(node: TrieNode, word: str, index: int) -> bool:
             if index == len(word):
-                if not node.is_end_of_word:
-                    return False
+                # Word exists (verified by search() call below)
                 node.is_end_of_word = False
                 node.value = None
                 return len(node.children) == 0
 
             char = word[index]
-            if char not in node.children:
-                return False
-
+            # Character exists (verified by search() call below)
             child = node.children[char]
             should_delete_child = _delete_helper(child, word, index + 1)
 

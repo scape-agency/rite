@@ -91,3 +91,18 @@ def test_mimetype_guess_invalid_url() -> None:
 
     result = mimetype_guess(Path("/path/to/file.jpg"))
     assert result in {"image/jpeg", "image/pjpeg"}
+
+
+def test_mimetype_guess_urlsplit_valueerror() -> None:
+    """Test mimetype_guess when urlsplit raises ValueError (lines 84-85)."""
+    # Import | Standard Library
+    from unittest.mock import patch
+
+    # Mock urlsplit to raise ValueError
+    with patch(
+        "rite.filesystem.mimetype.mimetype_guess.urlsplit",
+        side_effect=ValueError("Invalid URL"),
+    ):
+        # Should fall back to using name directly as path
+        result = mimetype_guess("some/path/file.jpg")
+        assert result in {"image/jpeg", "image/pjpeg"}

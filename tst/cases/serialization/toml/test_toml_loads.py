@@ -13,6 +13,10 @@ Tests for rite.serialization.toml.toml_loads.
 # Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
+import builtins
+from unittest.mock import patch
+
 # Import | Libraries
 import pytest
 
@@ -85,3 +89,17 @@ retries = 3
     result = toml_loads(toml_string)
     assert result["database"]["server"] == "127.0.0.1"
     assert result["database"]["connection"]["timeout"] == 30
+
+
+def test_toml_loads_import_error() -> None:
+    """Test toml_loads() raises ImportError when tomllib unavailable."""
+    original_import = builtins.__import__
+
+    def mock_import(name, *args, **kwargs):
+        if name == "tomllib":
+            raise ImportError("No module named 'tomllib'")
+        return original_import(name, *args, **kwargs)
+
+    with patch.object(builtins, "__import__", side_effect=mock_import):
+        with pytest.raises(ImportError, match="tomllib requires Python 3.11"):
+            toml_loads('key = "value"')

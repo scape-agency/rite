@@ -29,7 +29,9 @@ from rite.collections.dict.dict_deep_get import (
 def test_dict_deep_get() -> None:
     """Test dict_deep_get() function."""
     # Nested get
-    data = {"user": {"profile": {"name": "John", "age": 30}}}
+    data = {
+        "user": {"profile": {"name": "John", "age": 30}},
+    }
     result = dict_deep_get(data, ["user", "profile", "name"])
     assert result == "John"
 

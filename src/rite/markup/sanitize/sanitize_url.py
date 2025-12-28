@@ -64,7 +64,7 @@ def sanitize_url(url: str, allowed_schemes: list[str] | None = None) -> str:
         parsed = urlparse(url)
         if parsed.scheme.lower() in allowed_schemes_lower:
             return url
-    except Exception:
+    except (ValueError, AttributeError):
         pass
 
     return ""

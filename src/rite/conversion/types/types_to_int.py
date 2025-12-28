@@ -27,14 +27,7 @@ Examples
 from __future__ import annotations
 
 # Import | Standard Library
-import re
 from typing import Any
-
-# =============================================================================
-# Pattern
-# =============================================================================
-
-_int_pat = re.compile(r"^\s*([-+]?\d+)\s*$")
 
 # =============================================================================
 # Functions
@@ -77,16 +70,11 @@ def types_to_int(x: Any, default: int | None = None) -> int | None:
         return int(x)
 
     if isinstance(x, str):
-        # Try direct conversion
+        # Try direct conversion after stripping whitespace
         try:
-            return int(x)
+            return int(x.strip())
         except (ValueError, TypeError):
             pass
-
-        # Try pattern match for strings with whitespace
-        match = _int_pat.match(x)
-        if match:
-            return int(match.group(1))
 
     return default
 

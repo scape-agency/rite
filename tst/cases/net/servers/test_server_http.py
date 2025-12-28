@@ -23,7 +23,6 @@ import pytest
 # Import | Local Modules
 from rite.net.servers.server_http import (
     BaseHTTPServer,
-    test,
 )
 
 # =============================================================================
@@ -151,13 +150,3 @@ class TestBaseHTTPServer:
         BaseHTTPServer.run(server_class=mock_server_class, port=8888)
 
         mock_server.server_close.assert_called_once()
-
-
-# =============================================================================
-# Test Functions
-# =============================================================================
-
-
-def test_test_function_exists() -> None:
-    """Test that test() function exists and is callable."""
-    assert callable(test)

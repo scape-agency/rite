@@ -237,27 +237,6 @@ __all__: list[str] = [
 # =============================================================================
 
 
-def test():
-    """
-    Test Function
-    """
-
-    # Example usage
-    db_server = SQLiteServer("example.db")
-
-    # Insert data
-    db_server.insert("users", {"name": "Bob", "age": 25})
-
-    # Update data
-    db_server.update("users", {"age": 26}, "name = 'Bob'")
-
-    # Fetch data
-    print(db_server.fetch_all("SELECT * FROM users"))
-
-    # Delete data
-    db_server.delete("users", "name = 'Bob'")
-
-
 # =============================================================================
 # Main
 # =============================================================================
@@ -268,4 +247,3 @@ if __name__ == "__main__":
     import doctest
 
     doctest.testmod()
-    test()
