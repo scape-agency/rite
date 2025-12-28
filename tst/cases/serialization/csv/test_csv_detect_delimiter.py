@@ -73,8 +73,6 @@ class TestCsvDetectDelimiter:
             ("/absolute/path/data.tsv", "\t"),
         ],
     )
-    def test_detect_various_paths(
-        self, filename: str, expected: str
-    ) -> None:
+    def test_detect_various_paths(self, filename: str, expected: str) -> None:
         """Test detection with various path formats."""
         assert csv_detect_delimiter(filename) == expected
