@@ -9,9 +9,9 @@ docs_dir: doc
 site_dir: site
 
 # Repository
-repo_name: 'GitHub'
+repo_name: "GitHub"
 repo_url: https://github.com/scape-agency/rite/
-edit_uri_template: 'docs/{path}'
+edit_uri_template: "docs/{path}"
 
 dev_addr: 127.0.0.1:8888
 
@@ -19,14 +19,13 @@ dev_addr: 127.0.0.1:8888
 copyright: >
   Copyright &copy; 2026 <a href="https://www.scape.agency">Scape Agency BV</a>. All Rights Reserved.
 
-
 # hide:
 #   - footer
 
 # Configuration
 theme:
   name: material
-  custom_dir: 'doc/overrides'
+  custom_dir: "doc/overrides"
   locale: en
   language: en
   palette:
@@ -139,7 +138,6 @@ extra_javascript:
   - assets/script/extra.js
 extra_templates:
 
-
 # Extensions
 markdown_extensions:
   - abbr
@@ -183,50 +181,49 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 
-
 # Page tree
 nav:
-  - Home: 'index.md'
+  - Home: "index.md"
   - Getting Started:
-      - 'Quick Start': 'quick_start.md'
-      - 'Installation': 'installation.md'
-      - 'Getting Started': 'getting-started.md'
-      - 'Examples': 'examples.md'
+      - "Quick Start": "quick_start.md"
+      - "Installation": "installation.md"
+      - "Getting Started": "getting-started.md"
+      - "Examples": "examples.md"
   - API Reference:
-      - 'Overview': 'api/index.md'
+      - "Overview": "api/index.md"
       - Core:
-          - 'Collections': 'api/collections.md'
-          - 'Conversion': 'api/conversion.md'
-          - 'Text': 'api/text.md'
+          - "Collections": "api/collections.md"
+          - "Conversion": "api/conversion.md"
+          - "Text": "api/text.md"
       - System & I/O:
-          - 'Filesystem': 'api/filesystem.md'
-          - 'System': 'api/system.md'
-          - 'Net': 'api/net.md'
+          - "Filesystem": "api/filesystem.md"
+          - "System": "api/system.md"
+          - "Net": "api/net.md"
       - Data:
-          - 'Serialization': 'api/serialization.md'
-          - 'Markup': 'api/markup.md'
+          - "Serialization": "api/serialization.md"
+          - "Markup": "api/markup.md"
       - Security:
-          - 'Crypto': 'api/crypto.md'
-          - 'Numeric': 'api/numeric.md'
-          - 'Temporal': 'api/temporal.md'
+          - "Crypto": "api/crypto.md"
+          - "Numeric": "api/numeric.md"
+          - "Temporal": "api/temporal.md"
       - Development:
-          - 'Diagnostics': 'api/diagnostics.md'
-          - 'Functional': 'api/functional.md'
-          - 'Reflection': 'api/reflection.md'
+          - "Diagnostics": "api/diagnostics.md"
+          - "Functional": "api/functional.md"
+          - "Reflection": "api/reflection.md"
   - Development:
-      - 'Setup': 'development/setup.md'
-      - 'Configuration': 'development/configuration.md'
-      - 'Code Style': 'development/code-style.md'
-      - 'Testing': 'development/testing.md'
-      - 'AI Instructions': 'development/ai-instructions.md'
-      - 'Build': 'development/build.md'
-  - Contributing: 'contributing.md'
+      - "Setup": "development/setup.md"
+      - "Configuration": "development/configuration.md"
+      - "Code Style": "development/code-style.md"
+      - "Testing": "development/testing.md"
+      - "AI Instructions": "development/ai-instructions.md"
+      - "Build": "development/build.md"
+  - Contributing: "contributing.md"
   - Resources:
-      - 'Glossary': 'resources/glossary.md'
-      - 'Links': 'resources/links.md'
+      - "Glossary": "resources/glossary.md"
+      - "Links": "resources/links.md"
   - About:
-      - 'Authors': 'about/authors.md'
+      - "Authors": "about/authors.md"
   - Legal:
-      - 'License': 'legal/license.md'
-      - 'Privacy Policy': 'legal/privacy_policy.md'
-      - 'Disclaimer': 'legal/disclaimer.md'
+      - "License": "legal/license.md"
+      - "Privacy Policy": "legal/privacy_policy.md"
+      - "Disclaimer": "legal/disclaimer.md"

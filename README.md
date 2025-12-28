@@ -19,7 +19,7 @@
   |
   <a href="https://github.com/scape-agency/rite/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Aquestion&template=question.yml">Ask a Question</a>
   |
-  <a href="https://github.com/scape-agency/rite/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Aenhancement&template=suggestion.yml">Make a Sugestion</a>
+  <a href="https://github.com/scape-agency/rite/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Aenhancement&template=suggestion.yml">Make a Suggestion</a>
   |
   <a href="https://github.com/scape-agency/rite/discussions">Start a Discussion</a>
 </div>
@@ -49,16 +49,16 @@
 <details open="open">
 <summary>Table of Contents</summary>
 
-- [About](#about)
-- [Features](#features)
-- [Quick Start](#quick-start)
-  - [Installation](#installation)
-  - [Basic Usage](#basic-usage)
-- [Documentation](#documentation)
-- [Contributing](#contributing)
-- [Authors](#authors)
-- [License](#license)
-- [Disclaimer](#disclaimer)
+-   [About](#about)
+-   [Features](#features)
+-   [Quick Start](#quick-start)
+    -   [Installation](#installation)
+    -   [Basic Usage](#basic-usage)
+-   [Documentation](#documentation)
+-   [Contributing](#contributing)
+-   [Authors](#authors)
+-   [License](#license)
+-   [Disclaimer](#disclaimer)
 
 </details>
 
@@ -70,24 +70,24 @@
 
 ### Key Features
 
-- **Zero Dependencies**: No external runtime dependencies
-- **Type Safe**: Comprehensive type hints with Python 3.10+ syntax  
-- **Well Tested**: >80% code coverage with extensive test suite
-- **Modern Python**: Supports Python 3.10, 3.11, 3.12
-- **Modular Design**: Clear module organization with consistent structure
-- **Fully Documented**: Extensive documentation and practical examples
+-   **Zero Dependencies**: No external runtime dependencies
+-   **Type Safe**: Comprehensive type hints with Python 3.10+ syntax
+-   **Well Tested**: >80% code coverage with extensive test suite
+-   **Modern Python**: Supports Python 3.10, 3.11, 3.12
+-   **Modular Design**: Clear module organization with consistent structure
+-   **Fully Documented**: Extensive documentation and practical examples
 
 ### Module Overview
 
 **Core Modules:**
 
-- **crypto**: UUID generation, hashing (SHA-256, MD5, BLAKE2), HMAC, cryptographic utilities
-- **filesystem**: File/directory operations, path utilities, safe file handling
-- **text**: Slug generation, case conversion, text sanitization, text analysis
-- **collections**: List/dictionary utilities, data structures, iteration helpers
-- **conversion**: Type conversions, data format transformations (JSON, CSV)
-- **numeric**: Mathematical utilities, statistics, number operations
-- **temporal**: Date/time utilities, timestamp operations, formatting
+-   **crypto**: UUID generation, hashing (SHA-256, MD5, BLAKE2), HMAC, cryptographic utilities
+-   **filesystem**: File/directory operations, path utilities, safe file handling
+-   **text**: Slug generation, case conversion, text sanitization, text analysis
+-   **collections**: List/dictionary utilities, data structures, iteration helpers
+-   **conversion**: Type conversions, data format transformations (JSON, CSV)
+-   **numeric**: Mathematical utilities, statistics, number operations
+-   **temporal**: Date/time utilities, timestamp operations, formatting
 
 ---
 
@@ -153,29 +153,29 @@ flat = list_flatten([[1, 2], [3, 4]])  # [1, 2, 3, 4]
 
 ### User Documentation
 
-- **[Getting Started](doc/getting-started.md)** - Quick introduction and module overview
-- **[Installation Guide](doc/installation.md)** - Detailed installation instructions
-- **[Usage Examples](doc/examples.md)** - Practical examples for all modules
-- **[API Reference](https://www.pyrites.dev)** - Complete API documentation
+-   **[Getting Started](doc/getting-started.md)** - Quick introduction and module overview
+-   **[Installation Guide](doc/installation.md)** - Detailed installation instructions
+-   **[Usage Examples](doc/examples.md)** - Practical examples for all modules
+-   **[API Reference](https://www.pyrites.dev)** - Complete API documentation
 
 ### Developer Documentation
 
-- **[Contributing Guide](doc/contributing.md)** - How to contribute to Rite
-- **[Development Setup](doc/development/setup.md)** - Set up your development environment
-- **[Code Style Guide](doc/development/code-style.md)** - Code standards and conventions
-- **[Testing Guide](doc/development/testing.md)** - Testing practices and patterns
-- **[Configuration Reference](doc/development/configuration.md)** - Configuration files and settings
+-   **[Contributing Guide](doc/contributing.md)** - How to contribute to Rite
+-   **[Development Setup](doc/development/setup.md)** - Set up your development environment
+-   **[Code Style Guide](doc/development/code-style.md)** - Code standards and conventions
+-   **[Testing Guide](doc/development/testing.md)** - Testing practices and patterns
+-   **[Configuration Reference](doc/development/configuration.md)** - Configuration files and settings
 
 ### AI Agent Documentation
 
-- **[AI Instructions](doc/development/ai-instructions.md)** - Guidelines for AI agents and GitHub Copilot
+-   **[AI Instructions](doc/development/ai-instructions.md)** - Guidelines for AI agents and GitHub Copilot
 
 ### Additional Resources
 
-- **[Changelog](CHANGELOG.md)** - Version history and release notes
-- **[Architecture](ARCHITECTURE.txt)** - System architecture overview
-- **[Security Policy](SECURITY.md)** - Security guidelines and reporting
-- **[License](LICENSE)** - MIT License details
+-   **[Changelog](CHANGELOG.md)** - Version history and release notes
+-   **[Architecture](ARCHITECTURE.txt)** - System architecture overview
+-   **[Security Policy](SECURITY.md)** - Security guidelines and reporting
+-   **[License](LICENSE)** - MIT License details
 
 ---
 
@@ -185,8 +185,8 @@ flat = list_flatten([[1, 2], [3, 4]])  # [1, 2, 3, 4]
 
 Scape Agency is a spatial innovation collective that dreams, discovers and designs the everyday of tomorrow. We blend design thinking with emerging technologies to create a brighter perspective for people and planet. Our products and services naturalise technology in liveable and sustainable –scapes that spark the imagination and inspire future generations.
 
-- website: [scape.agency](https://www.scape.agency "Scape Agency website")
-- github: [github.com/scape-agency](https://github.com/scape-agency "Scape Agency Github")
+-   website: [scape.agency](https://www.scape.agency "Scape Agency website")
+-   github: [github.com/scape-agency](https://github.com/scape-agency "Scape Agency Github")
 
 ---
 
@@ -195,11 +195,11 @@ Scape Agency is a spatial innovation collective that dreams, discovers and desig
 We'd love for you to contribute and to make **rite** even better than it is today!
 Please refer to the [contribution guidelines](CONTRIBUTING.md) for details on:
 
-- Code of conduct
-- Development workflow
-- Code standards
-- Testing requirements
-- Pull request process
+-   Code of conduct
+-   Development workflow
+-   Code standards
+-   Testing requirements
+-   Pull request process
 
 > Quick start for contributors:
 

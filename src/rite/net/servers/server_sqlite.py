@@ -51,7 +51,8 @@ class SQLiteServer:
         insert(table, data_dict): Inserts data into a table.
         update(table, data_dict, condition): Updates data in a table based on
         a condition.
-        delete(table, condition): Deletes data from a table based on a condition.
+        delete(table, condition): Deletes data from a table based on a
+        condition.
         transaction(queries): Executes a series of queries in a transaction.
     """
 
@@ -206,7 +207,8 @@ class SQLiteServer:
         Executes a series of queries in a single transaction.
 
         Parameters:
-            queries (list[tuple[str, Tuple]]): A list of queries and their parameters.
+            queries (list[tuple[str, Tuple]]): A list of queries and their
+                parameters.
 
         Raises:
             sqlite3.Error: If an error occurs during the transaction.

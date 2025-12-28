@@ -6,6 +6,7 @@ support pyproject.toml yet. The canonical build configuration is in pyproject.to
 
 # Pylint struggles to resolve setuptools in some environments; keep a safe import
 try:  # type: ignore
+    # Import | Libraries
     from setuptools import setup  # pylint: disable=import-error
 except ImportError:  # pragma: no cover
     # Minimal fallback to make static analyzers happy; runtime should have setuptools

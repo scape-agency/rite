@@ -15,9 +15,9 @@ and working correctly in the Rite project.
 from __future__ import annotations
 
 # Import | Standard Library
+from pathlib import Path
 import subprocess
 import sys
-from pathlib import Path
 
 
 def run_command(cmd: list[str], description: str) -> tuple[bool, str]:

@@ -4,37 +4,37 @@
 
 # Documentation changes
 documentation:
-  - any: ['doc/**/*', '*.md', 'mkdocs.yml']
+  - any: ["doc/**/*", "*.md", "mkdocs.yml"]
 
 # Tests
 tests:
-  - any: ['tst/**/*', 'tests/**/*']
+  - any: ["tst/**/*", "tests/**/*"]
 
 # CI/CD
 ci:
-  - any: ['.github/**/*', '.pre-commit-config.yaml', 'tox.ini']
+  - any: [".github/**/*", ".pre-commit-config.yaml", "tox.ini"]
 
 # Dependencies
 dependencies:
-  - any: ['pyproject.toml', 'poetry.lock', 'requirements*.txt']
+  - any: ["pyproject.toml", "poetry.lock", "requirements*.txt"]
 
 # Core modules
 crypto:
-  - any: ['src/rite/crypto/**/*']
+  - any: ["src/rite/crypto/**/*"]
 
 filesystem:
-  - any: ['src/rite/filesystem/**/*']
+  - any: ["src/rite/filesystem/**/*"]
 
 text:
-  - any: ['src/rite/text/**/*']
+  - any: ["src/rite/text/**/*"]
 
 collections:
-  - any: ['src/rite/collections/**/*']
+  - any: ["src/rite/collections/**/*"]
 
 # Configuration
 configuration:
-  - any: ['*.ini', '*.cfg', '.flake8', '.pylintrc', '.coveragerc', '.editorconfig']
+  - any: ["*.ini", "*.cfg", ".flake8", ".pylintrc", ".coveragerc", ".editorconfig"]
 
 # Type hints
 typing:
-  - any: ['**/*.pyi']
+  - any: ["**/*.pyi"]

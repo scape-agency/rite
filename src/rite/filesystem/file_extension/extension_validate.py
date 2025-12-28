@@ -85,9 +85,9 @@ def extension_validate(
         }
         if normalized_extension not in allowed_normalized:
             allowed_str = ", ".join(sorted(allowed_normalized)) or "∅"
-            raise ValueError(
-                f"Extension '{normalized_extension}' not allowed. Allowed: {allowed_str}"
-            )
+            msg = f"Extension '{normalized_extension}' not allowed. "
+            msg += f"Allowed: {allowed_str}"
+            raise ValueError(msg)
 
 
 # =============================================================================

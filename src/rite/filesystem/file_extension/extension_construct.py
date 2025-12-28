@@ -54,7 +54,8 @@ def extension_construct(
     - Returns lowercase extension.
     - Returns "" if no extension.
     - Hidden files like ".env" have no extension.
-    - If `compound=True`, merges well-known compound extensions (e.g. ".tar.gz").
+    - If `compound=True`, merges well-known compound extensions
+      (e.g. ".tar.gz").
 
     Parameters
     ----------
@@ -63,8 +64,8 @@ def extension_construct(
     leading_dot : bool, default True
         If True, result includes the leading dot; otherwise it's omitted.
     compound : bool, default True
-        If True, return compound extensions (".tar.gz"). If False, only the last
-        suffix (".gz").
+        If True, return compound extensions (".tar.gz"). If False, only
+        the last suffix (".gz").
 
     Examples
     --------

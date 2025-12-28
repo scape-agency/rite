@@ -40,19 +40,19 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: benchmark-action/github-action-benchmark@v1
         with:
-          tool: 'pytest'
+          tool: "pytest"
           output-file-path: output.json
           github-token: ${{ secrets.GITHUB_TOKEN }}
           auto-push: true
-          alert-threshold: '150%'
+          alert-threshold: "150%"
 
       - name: Compare benchmarks
         if: github.event_name == 'pull_request'
         uses: benchmark-action/github-action-benchmark@v1
         with:
-          tool: 'pytest'
+          tool: "pytest"
           output-file-path: output.json
           github-token: ${{ secrets.GITHUB_TOKEN }}
           comment-on-alert: true
-          alert-threshold: '150%'
+          alert-threshold: "150%"
           fail-on-alert: false

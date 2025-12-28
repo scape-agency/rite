@@ -81,4 +81,3 @@ per-file-ignores =
 
 # Docstring conventions (PEP 257)
 docstring-convention = google
-

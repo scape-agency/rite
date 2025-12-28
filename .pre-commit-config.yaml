@@ -7,7 +7,7 @@ repos:
       - id: check-toml
       - id: check-json
       - id: check-added-large-files
-        args: ['--maxkb=1000']
+        args: ["--maxkb=1000"]
       - id: end-of-file-fixer
         # Ensures exactly one newline at end of file
       - id: trailing-whitespace
@@ -36,7 +36,7 @@ repos:
     rev: 7.1.1
     hooks:
       - id: flake8
-        args: ['--max-line-length=88', '--extend-ignore=E203,W503']
+        args: ["--max-line-length=88", "--extend-ignore=E203,W503"]
 
   # Type checking
   - repo: https://github.com/pre-commit/mirrors-mypy
@@ -48,7 +48,7 @@ repos:
           - types-requests
           - types-setuptools
           - types-urllib3
-        args: ['--config-file=mypy.ini']
+        args: ["--config-file=mypy.ini"]
         exclude: ^(tests?/|tst/)
 
   # Security checks
@@ -56,8 +56,8 @@ repos:
     rev: 1.7.5
     hooks:
       - id: bandit
-        args: ['-c', 'pyproject.toml']
-        additional_dependencies: ['bandit[toml]']
+        args: ["-c", "pyproject.toml"]
+        additional_dependencies: ["bandit[toml]"]
         exclude: ^(tests?/|tst/)
 
   # Additional Python checks
@@ -65,7 +65,7 @@ repos:
     rev: 6.3.0
     hooks:
       - id: pydocstyle
-        args: ['--convention=google', '--add-ignore=D100,D104']
+        args: ["--convention=google", "--add-ignore=D100,D104"]
         exclude: ^(tests?/|tst/|setup\.py)
 
   # YAML/TOML validation
@@ -81,5 +81,5 @@ repos:
     rev: v2.2.6
     hooks:
       - id: codespell
-        args: ['--ignore-words-list=crate,nd,te,assertIn']
+        args: ["--ignore-words-list=crate,nd,te,assertIn"]
         exclude: ^(poetry\.lock|\.git|htmlcov/)

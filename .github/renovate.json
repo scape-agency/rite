@@ -1,8 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
-  ],
+  "extends": ["config:recommended"],
   "baseBranches": ["dev"],
   "labels": ["dependencies", "renovate"],
   "assignees": ["vanvianen"],
@@ -22,7 +20,19 @@
     {
       "description": "Group development dependencies",
       "matchDepTypes": ["devDependencies"],
-      "matchPackagePatterns": ["pytest", "black", "isort", "flake8", "pylint", "mypy", "bandit", "coverage", "sphinx", "tox", "pre-commit"],
+      "matchPackagePatterns": [
+        "pytest",
+        "black",
+        "isort",
+        "flake8",
+        "pylint",
+        "mypy",
+        "bandit",
+        "coverage",
+        "sphinx",
+        "tox",
+        "pre-commit"
+      ],
       "groupName": "development dependencies",
       "automerge": true,
       "automergeType": "pr",

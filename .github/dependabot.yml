@@ -1,6 +1,4 @@
-
 ---
-
 # =============================================================================
 # Dependabot Configuration
 # =============================================================================
@@ -8,12 +6,10 @@
 version: 2
 
 updates:
-
   # Git Submodule dependencies
   # ===========================================================================
 
-  -
-    package-ecosystem: "gitsubmodule"
+  - package-ecosystem: "gitsubmodule"
     directory: "/"
     schedule:
       interval: "weekly"
@@ -28,13 +24,10 @@ updates:
       - "dependencies"
       - "gitsubmodule"
 
-
-
   # GitHub Actions dependencies
   # ===========================================================================
 
-  -
-    package-ecosystem: "github-actions"
+  - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
@@ -55,12 +48,10 @@ updates:
         patterns:
           - "*"
 
-
   # NPM dependencies
   # ===========================================================================
 
-  -
-    package-ecosystem: "npm"
+  - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "weekly"
@@ -74,12 +65,10 @@ updates:
       - "dependencies"
       - "npm"
 
-
   # Docker dependencies
   # ===========================================================================
 
-  -
-    package-ecosystem: "docker"
+  - package-ecosystem: "docker"
     directory: "/src/"
     schedule:
       interval: "weekly"
@@ -93,12 +82,10 @@ updates:
       - "dependencies"
       - "docker"
 
-
   # devContainer dependencies
   # ===========================================================================
 
-  -
-    package-ecosystem: "docker"
+  - package-ecosystem: "docker"
     directory: "/.devcontainer"
     schedule:
       interval: "weekly"
@@ -112,8 +99,7 @@ updates:
       - "dependencies"
       - "devcontainer"
 
-  -
-    package-ecosystem: "devcontainers"
+  - package-ecosystem: "devcontainers"
     directory: "/"
     schedule:
       interval: "weekly"
@@ -127,12 +113,10 @@ updates:
       - "dependencies"
       - "devcontainer"
 
-
   # PIP dependencies
   # ===========================================================================
 
-  -
-    package-ecosystem: "pip"
+  - package-ecosystem: "pip"
     directory: "/"
     schedule:
       interval: "daily"
