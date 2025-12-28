@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.3-beta.2](https://github.com/scape-agency/rite/compare/v0.2.3-beta.1...v0.2.3-beta.2) (2025-12-28)
+
+### 🐛 Bug Fixes
+
+* Resolve CI/CD pipeline failures ([15297da](https://github.com/scape-agency/rite/commit/15297da742ea8575ebf73c78a2896886d16e174e))
+
 ## [0.2.3-beta.1](https://github.com/scape-agency/rite/compare/v0.2.2...v0.2.3-beta.1) (2025-12-28)
 
 ### 🐛 Bug Fixes
