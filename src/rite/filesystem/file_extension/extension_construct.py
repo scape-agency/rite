@@ -102,7 +102,7 @@ def extension_construct(
         # Join all suffixes if they match a known compound tar* pattern
         joined: str = "".join(suffixes)
         if any(joined.endswith(c) for c in _COMPOUND_TAR_SUFFIXES):
-            ext: str = joined
+            ext = joined
 
     if not leading_dot:
         return ext.lstrip(".")

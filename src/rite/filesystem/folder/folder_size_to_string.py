@@ -42,7 +42,7 @@ class _TotalSize:
     def __init__(self, byte_count: int) -> None:
         self.size = byte_count
 
-    def tell(self, *_args, **_kwargs) -> int:  # type: ignore[override]
+    def tell(self, *_args: object, **_kwargs: object) -> int:
         """Return the current position; for this wrapper, the total size.
 
         This satisfies the ``_SizedStream`` protocol used by
@@ -52,7 +52,7 @@ class _TotalSize:
 
         return int(self.size)
 
-    def seek(self, *_args, **_kwargs) -> int:  # type: ignore[override]
+    def seek(self, *_args: object, **_kwargs: object) -> int:
         """Dummy ``seek`` implementation for protocol compatibility."""
 
         return int(self.size)

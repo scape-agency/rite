@@ -21,6 +21,7 @@ max-line-length = 79
 # - W504: Line break occurred after a binary operator
 # - F401: Ignore unused imports in `__init__.py` files (API exposure)
 # - F403: Unable to detect undefined names from star imports
+# - E731: Do not assign a lambda expression (allowed in tests)
 ignore =
     E203,
     E266,
@@ -28,7 +29,8 @@ ignore =
     W503,
     W504,
     F401,
-    F403
+    F403,
+    E731
 
 # Enable the following rules:
 # - E731: Do not assign a lambda expression, use a def
@@ -76,8 +78,8 @@ enable-noqa = True
 # Per-file ignores
 per-file-ignores =
     __init__.py:F401,F403
-    **/tests/*:F401,F403,E501
-    **/tst/*:F401,F403,E501
+    **/tests/*:F401,F403,E501,E731
+    **/tst/*:F401,F403,E501,E731
 
 # Docstring conventions (PEP 257)
 docstring-convention = google

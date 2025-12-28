@@ -187,7 +187,7 @@ class Trie:
         if node is None:
             return []
 
-        words = []
+        words: list[str] = []
         self._collect_words(node, prefix, words)
         return words
 
@@ -204,7 +204,7 @@ class Trie:
             list[str]: All words in the trie.
 
         """
-        words = []
+        words: list[str] = []
         self._collect_words(self.root, "", words)
         return words
 
@@ -263,11 +263,6 @@ class Trie:
 # =============================================================================
 # Module Exports
 # =============================================================================
-
-__all__: list[str] = [
-    "Trie",
-    "TrieNode",
-]
 
 __all__: list[str] = [
     "Trie",

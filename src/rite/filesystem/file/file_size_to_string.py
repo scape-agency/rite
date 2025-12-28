@@ -91,9 +91,7 @@ def file_size_to_string(
     """
     if hasattr(filehandle, "size"):
         try:
-            return _convert_bytes_to_string(
-                int(filehandle.size)  # type: ignore[attr-defined]
-            )
+            return _convert_bytes_to_string(int(getattr(filehandle, "size")))
         except (AttributeError, TypeError, ValueError):  # pragma: no cover
             pass
 

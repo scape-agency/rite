@@ -51,7 +51,9 @@ def uncompress_file(
     gzip_file = gzip.GzipFile(fileobj=input_file, mode="rb")
     try:
         input_file.seek(0)
-        output_file = create_spooled_temporary_file(fileobj=gzip_file)
+        output_file = create_spooled_temporary_file(
+            fileobj=gzip_file  # type: ignore[arg-type]
+        )
     finally:
         gzip_file.close()
     new_basename = os.path.basename(filename).replace(".gz", "")

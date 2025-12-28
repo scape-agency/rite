@@ -93,7 +93,8 @@ def playfair_cipher_pair(
     Returns:
         Encoded or decoded two-letter string.
     """
-    a, b = pair
+    a: str = pair[0]
+    b: str = pair[1]
     r1, c1 = find_position(a, square)
     r2, c2 = find_position(b, square)
 

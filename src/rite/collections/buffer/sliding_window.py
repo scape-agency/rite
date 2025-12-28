@@ -146,7 +146,7 @@ class SlidingWindow:
         """
         if not self._window:
             return None
-        return sum(self._window) / len(self._window)
+        return float(sum(self._window)) / len(self._window)
 
     def moving_sum(self) -> float | None:
         """
@@ -159,7 +159,7 @@ class SlidingWindow:
         """
         if not self._window:
             return None
-        return sum(self._window)
+        return float(sum(self._window))
 
     def moving_max(self) -> Any | None:
         """

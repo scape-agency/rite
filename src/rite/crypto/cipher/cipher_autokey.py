@@ -104,7 +104,7 @@ def decode_autokey_cipher(
         Decoded plaintext.
     """
     key_stream = key
-    result = []
+    result: list[str] = []
 
     for char in encoded_text:
         if char.isalpha():

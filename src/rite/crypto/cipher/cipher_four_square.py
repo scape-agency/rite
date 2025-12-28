@@ -98,7 +98,8 @@ def four_square_cipher_pair(
     if len(pair) != 2:
         raise ValueError("Pair must be exactly two alphabetic characters.")
 
-    a, b = pair
+    a: str = pair[0]
+    b: str = pair[1]
 
     if mode == "encode":
         r1, c1 = find_position(a, square_tl)

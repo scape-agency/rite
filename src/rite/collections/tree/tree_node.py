@@ -145,7 +145,7 @@ class TreeNode:
         """
         if self.is_leaf():
             return 0
-        return 1 + max(child.get_height() for child in self.children)
+        return 1 + int(max(child.get_height() for child in self.children))
 
     def get_siblings(self) -> list[Self]:
         """
