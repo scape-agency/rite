@@ -66,28 +66,35 @@
 
 ## About
 
-**rite** is a modern Python utility library with zero external runtime dependencies. Built with Python 3.10+ in mind, it provides a comprehensive collection of utilities for cryptography, filesystem operations, text processing, collections, conversions, and more.
+**rite** is a modern Python utility library with zero external runtime dependencies. Built with Python 3.12+ in mind, it provides a comprehensive collection of utilities for cryptography, filesystem operations, text processing, collections, conversions, networking, and more.
 
 ### Key Features
 
 -   **Zero Dependencies**: No external runtime dependencies
--   **Type Safe**: Comprehensive type hints with Python 3.10+ syntax
--   **Well Tested**: >80% code coverage with extensive test suite
--   **Modern Python**: Supports Python 3.10, 3.11, 3.12
+-   **Type Safe**: Comprehensive type hints with Python 3.12+ syntax
+-   **Well Tested**: >99% code coverage with extensive test suite
+-   **Modern Python**: Supports Python 3.12, 3.13
 -   **Modular Design**: Clear module organization with consistent structure
 -   **Fully Documented**: Extensive documentation and practical examples
 
 ### Module Overview
 
-**Core Modules:**
-
--   **crypto**: UUID generation, hashing (SHA-256, MD5, BLAKE2), HMAC, cryptographic utilities
--   **filesystem**: File/directory operations, path utilities, safe file handling
--   **text**: Slug generation, case conversion, text sanitization, text analysis
--   **collections**: List/dictionary utilities, data structures, iteration helpers
--   **conversion**: Type conversions, data format transformations (JSON, CSV)
--   **numeric**: Mathematical utilities, statistics, number operations
--   **temporal**: Date/time utilities, timestamp operations, formatting
+| Module | Description |
+|--------|-------------|
+| **collections** | Buffers, caches (LRU/LFU/TTL), dict/list/set utilities, queues, trees |
+| **conversion** | Type conversions, format transformations, unit conversions |
+| **crypto** | UUID generation, hashing (SHA-256, MD5, BLAKE2), ciphers, random |
+| **diagnostics** | Debugging, error handling, logging, metrics, profiling |
+| **filesystem** | File/folder operations, compression, path utilities, MIME types |
+| **functional** | Composition, currying, decorators, memoization, predicates |
+| **markup** | HTML/XML/Markdown processing, entity encoding, sanitization |
+| **net** | HTTP utilities, MIME types, URL encoding, request helpers |
+| **numeric** | Math operations, statistics, number formatting |
+| **reflection** | Attributes, inspection, signatures, type checking |
+| **serialization** | JSON, CSV, INI, TOML, pickle serialization |
+| **system** | Environment, platform detection, process management, shell |
+| **temporal** | Date/time utilities, timestamp operations, formatting |
+| **text** | Slug generation, case conversion, sanitization, analysis, search |
 
 ---
 
@@ -138,13 +145,39 @@ from rite.text.slug import slug_generate
 from rite.text.case import case_to_snake
 
 slug = slug_generate("Hello World!")  # 'hello-world'
-snake = case_to_snake("helloWorld")  # 'hello_world'
+snake = case_to_snake("helloWorld")   # 'hello_world'
 
 # Collections
 from rite.collections.list import list_unique, list_flatten
 
-unique = list_unique([1, 2, 2, 3])  # [1, 2, 3]
-flat = list_flatten([[1, 2], [3, 4]])  # [1, 2, 3, 4]
+unique = list_unique([1, 2, 2, 3])    # [1, 2, 3]
+flat = list_flatten([[1, 2], [3, 4]]) # [1, 2, 3, 4]
+
+# Serialization
+from rite.serialization.json import json_load, json_dump
+
+data = json_load("config.json")
+json_dump(data, "output.json", indent=2)
+
+# Functional
+from rite.functional.composition import composition_pipe
+
+pipeline = composition_pipe(str.strip, str.lower, str.title)
+result = pipeline("  hello world  ")  # 'Hello World'
+
+# System
+from rite.system.platform import platform_is_linux, platform_name
+
+if platform_is_linux():
+    print(f"Running on {platform_name()}")
+
+# Diagnostics
+from rite.diagnostics.profiling import profiling_stopwatch
+
+with profiling_stopwatch() as timer:
+    # ... your code ...
+    pass
+print(f"Elapsed: {timer.elapsed:.3f}s")
 ```
 
 ---
