@@ -120,6 +120,8 @@ class metrics_histogram:
         """
         if not self._values:
             return 0.0
+        if len(self._values) == 1:
+            return self._values[0]
         return statistics.quantiles(self._values, n=100)[int(p) - 1]
 
     def reset(self) -> None:

@@ -13,6 +13,9 @@ Tests for rite.system.platform.platform_is_windows.
 # Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
+import sys
+
 # Import | Libraries
 import pytest
 
@@ -31,5 +34,6 @@ def test_platform_is_windows() -> None:
     # Test returns bool
     result = platform_is_windows()
     assert isinstance(result, bool)
-    # On macOS, should be False
-    assert result is False
+    # Should match sys.platform check
+    expected = sys.platform == "win32"
+    assert result is expected

@@ -56,7 +56,7 @@ def test_copy_files_recursive(tmp_path) -> None:
     copy_files(source_dir, target_dir, recursive=True)
 
     copied_files = {
-        str(p.relative_to(target_dir))
+        str(p.relative_to(target_dir)).replace("\\", "/")
         for p in target_dir.rglob("*")
         if p.is_file()
     }

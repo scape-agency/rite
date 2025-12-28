@@ -29,49 +29,80 @@ from rite.system.process.process_run import (
 def test_process_run() -> None:
     """Test process_run() function."""
     # Import | Standard Library
+    import os
     from pathlib import Path
     import subprocess
+    import sys
     import tempfile
 
-    # Test successful command
-    code, out, err = process_run(["echo", "hello"])
+    # Test successful command - use platform-agnostic approach
+    if sys.platform == "win32":
+        code, out, err = process_run(["cmd", "/c", "echo hello"])
+    else:
+        code, out, err = process_run(["echo", "hello"])
     assert code == 0
-    assert out == "hello"
-    assert err == ""
+    assert "hello" in out
 
     # Test failing command
-    code, out, err = process_run(["false"])
+    if sys.platform == "win32":
+        code, out, err = process_run(["cmd", "/c", "exit 1"])
+    else:
+        code, out, err = process_run(["false"])
     assert code != 0
 
     # Test command with stderr
-    code, out, err = process_run(["sh", "-c", "echo err >&2"])
+    if sys.platform == "win32":
+        code, out, err = process_run(["cmd", "/c", "echo err >&2"])
+    else:
+        code, out, err = process_run(["sh", "-c", "echo err >&2"])
     assert "err" in err
 
     # Test command with working directory
     with tempfile.TemporaryDirectory() as tmpdir:
-        code, out, err = process_run(["pwd"], cwd=tmpdir)
+        if sys.platform == "win32":
+            code, out, err = process_run(["cmd", "/c", "cd"], cwd=tmpdir)
+        else:
+            code, out, err = process_run(["pwd"], cwd=tmpdir)
         assert code == 0
-        assert tmpdir in out
+        # Normalize path comparison for cross-platform
+        assert os.path.normcase(os.path.realpath(tmpdir)) in os.path.normcase(
+            os.path.realpath(out.strip())
+        )
 
     # Test command with cwd as string
     with tempfile.TemporaryDirectory() as tmpdir:
-        code, out, err = process_run(["pwd"], cwd=str(tmpdir))
+        if sys.platform == "win32":
+            code, out, err = process_run(["cmd", "/c", "cd"], cwd=str(tmpdir))
+        else:
+            code, out, err = process_run(["pwd"], cwd=str(tmpdir))
         assert code == 0
 
     # Test command with cwd as Path
     with tempfile.TemporaryDirectory() as tmpdir:
-        code, out, err = process_run(["pwd"], cwd=Path(tmpdir))
+        if sys.platform == "win32":
+            code, out, err = process_run(["cmd", "/c", "cd"], cwd=Path(tmpdir))
+        else:
+            code, out, err = process_run(["pwd"], cwd=Path(tmpdir))
         assert code == 0
 
     # Test check=False (default)
-    code, out, err = process_run(["false"], check=False)
+    if sys.platform == "win32":
+        code, out, err = process_run(["cmd", "/c", "exit 1"], check=False)
+    else:
+        code, out, err = process_run(["false"], check=False)
     assert code != 0
 
     # Test check=True raises exception
     with pytest.raises(subprocess.CalledProcessError):
-        process_run(["false"], check=True)
+        if sys.platform == "win32":
+            process_run(["cmd", "/c", "exit 1"], check=True)
+        else:
+            process_run(["false"], check=True)
 
     # Test both stdout and stderr
-    code, out, err = process_run(["sh", "-c", "echo out; echo err >&2"])
+    if sys.platform == "win32":
+        code, out, err = process_run(["cmd", "/c", "echo out && echo err >&2"])
+    else:
+        code, out, err = process_run(["sh", "-c", "echo out; echo err >&2"])
     assert "out" in out
     assert "err" in err

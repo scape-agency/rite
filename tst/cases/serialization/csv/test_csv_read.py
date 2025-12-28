@@ -135,7 +135,8 @@ class TestCsvRead:
         # Create CSV with Unicode
         csv_file = tmp_path / "unicode.csv"
         csv_file.write_text(
-            "name,greeting\nAlice,Hello\nBöb,Hallö\nJosé,¡Hola!\n"
+            "name,greeting\nAlice,Hello\nBöb,Hallö\nJosé,¡Hola!\n",
+            encoding="utf-8",
         )
 
         # Read the CSV

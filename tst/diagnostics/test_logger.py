@@ -50,19 +50,23 @@ def test_logger_initialization():
     """
     Test initialization of the Logger with console and file logging.
     """
-    with tempfile.NamedTemporaryFile(delete=False) as temp_log:
-        logger = Logger(name="TestLogger", log_file=temp_log.name)
-        assert logger.log_file == temp_log.name, "Log file path should match."
-
-    os.remove(temp_log.name)
+    with tempfile.TemporaryDirectory() as tmpdir:
+        temp_log = os.path.join(tmpdir, "test.log")
+        logger = Logger(name="TestLogger", log_file=temp_log)
+        assert logger.log_file == temp_log, "Log file path should match."
+        # Close handlers before directory cleanup
+        for handler in logger.logger.handlers[:]:
+            handler.close()
+            logger.logger.removeHandler(handler)
 
 
 def test_logging_levels():
     """
     Test logging at various levels (debug, info, warning, error, critical).
     """
-    with tempfile.NamedTemporaryFile(delete=False) as temp_log:
-        logger = Logger(name="TestLogger", log_file=temp_log.name)
+    with tempfile.TemporaryDirectory() as tmpdir:
+        temp_log = os.path.join(tmpdir, "test.log")
+        logger = Logger(name="TestLoggerLevels", log_file=temp_log)
 
         logger.debug("Debug message")
         logger.info("Info message")
@@ -70,7 +74,11 @@ def test_logging_levels():
         logger.error("Error message")
         logger.critical("Critical message")
 
-        with open(temp_log.name, "r", encoding="utf-8") as log_file:
+        # Flush handlers
+        for handler in logger.logger.handlers:
+            handler.flush()
+
+        with open(temp_log, "r", encoding="utf-8") as log_file:
             log_content = log_file.read()
 
         assert (
@@ -87,7 +95,10 @@ def test_logging_levels():
             "Critical message" in log_content
         ), "Critical message should be logged."
 
-    os.remove(temp_log.name)
+        # Close handlers before directory cleanup
+        for handler in logger.logger.handlers[:]:
+            handler.close()
+            logger.logger.removeHandler(handler)
 
 
 def test_invalid_log_level():
@@ -104,20 +115,24 @@ def test_clear_log():
     """
     Test clearing the log file content.
     """
-    with tempfile.NamedTemporaryFile(delete=False) as temp_log:
-        logger = Logger(name="TestLogger", log_file=temp_log.name)
+    with tempfile.TemporaryDirectory() as tmpdir:
+        temp_log = os.path.join(tmpdir, "test.log")
+        logger = Logger(name="TestLoggerClear", log_file=temp_log)
 
         logger.info("Test message")
         logger.clear_log()
 
-        with open(temp_log.name, "r", encoding="utf-8") as log_file:
+        with open(temp_log, "r", encoding="utf-8") as log_file:
             log_content = log_file.read()
 
         assert (
             log_content == ""
         ), "Log file should be cleared after calling clear_log."
 
-    os.remove(temp_log.name)
+        # Close handlers before directory cleanup
+        for handler in logger.logger.handlers[:]:
+            handler.close()
+            logger.logger.removeHandler(handler)
 
 
 def test_console_logging(capsys):

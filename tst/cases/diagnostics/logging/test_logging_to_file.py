@@ -40,9 +40,11 @@ def test_logging_to_file_writes_to_file() -> None:
         log_file = Path(tmpdir) / "test.log"
         logger = logging_to_file("test_write", str(log_file))
         logger.info("Test message")
-        # Flush handler to ensure content is written
-        for handler in logger.handlers:
+        # Flush and close handlers to ensure content is written and file released
+        for handler in logger.handlers[:]:
             handler.flush()
+            handler.close()
+            logger.removeHandler(handler)
 
         content = log_file.read_text()
         assert "Test message" in content
@@ -57,9 +59,11 @@ def test_logging_to_file_respects_level() -> None:
         )
         logger.debug("Debug message")
         logger.warning("Warning message")
-        # Flush handler to ensure content is written
-        for handler in logger.handlers:
+        # Flush and close handlers to ensure content is written and file released
+        for handler in logger.handlers[:]:
             handler.flush()
+            handler.close()
+            logger.removeHandler(handler)
 
         content = log_file.read_text()
         assert "Debug message" not in content
@@ -75,9 +79,11 @@ def test_logging_to_file_custom_format() -> None:
             "test_format", str(log_file), format_string=custom_format
         )
         logger.info("Test")
-        # Flush handler to ensure content is written
-        for handler in logger.handlers:
+        # Flush and close handlers to ensure content is written and file released
+        for handler in logger.handlers[:]:
             handler.flush()
+            handler.close()
+            logger.removeHandler(handler)
 
         content = log_file.read_text()
         assert "test_format - Test" in content
