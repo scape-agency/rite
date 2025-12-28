@@ -10,70 +10,82 @@ Welcome to the **Rite** documentation! Rite is a modern Python utility library p
 
 ## Features
 
-- **Zero Dependencies**: No external runtime dependencies
-- **Type Safe**: Comprehensive type hints with Python 3.10+ syntax
-- **Well Tested**: >80% code coverage
-- **Modern Python**: Python 3.10, 3.11, 3.12 support
-- **Modular**: Clear module organization with consistent structure
-- **Documented**: Extensive documentation and examples
+-   **Zero Dependencies**: No external runtime dependencies
+-   **Type Safe**: Comprehensive type hints with Python 3.10+ syntax
+-   **Well Tested**: >80% code coverage
+-   **Modern Python**: Python 3.10, 3.11, 3.12 support
+-   **Modular**: Clear module organization with consistent structure
+-   **Documented**: Extensive documentation and examples
 
 ## Quick Links
 
 ### Getting Started
-- [Installation](installation.md) - Install Rite in your project
-- [Getting Started](getting-started.md) - Quick introduction and basic usage
-- [Examples](examples.md) - Practical usage examples
-- [Quick Start](quick_start.md) - Jump right in
+
+-   [Installation](installation.md) - Install Rite in your project
+-   [Getting Started](getting-started.md) - Quick introduction and basic usage
+-   [Examples](examples.md) - Practical usage examples
+-   [Quick Start](quick_start.md) - Jump right in
 
 ### API Reference
-- [API Overview](api/index.md) - Complete API documentation
-- [Text Module](api/text.md) - Text processing (92+ functions)
-- [Crypto Module](api/crypto.md) - Cryptography and hashing
-- [Filesystem Module](api/filesystem.md) - File operations
-- [Temporal Module](api/temporal.md) - Date/time utilities
-- [All Modules](api/index.md) - Browse all 13 modules
+
+-   [API Overview](api/index.md) - Complete API documentation
+-   [Text Module](api/text.md) - Text processing (92+ functions)
+-   [Crypto Module](api/crypto.md) - Cryptography and hashing
+-   [Filesystem Module](api/filesystem.md) - File operations
+-   [Temporal Module](api/temporal.md) - Date/time utilities
+-   [All Modules](api/index.md) - Browse all 13 modules
 
 ### For Contributors
-- [Contributing](contributing.md) - How to contribute to Rite
-- [Development Setup](development/setup.md) - Set up your development environment
-- [Code Style](development/code-style.md) - Code style guidelines
-- [Testing](development/testing.md) - Testing practices
-- [Configuration](development/configuration.md) - Configuration reference
+
+-   [Contributing](contributing.md) - How to contribute to Rite
+-   [Development Setup](development/setup.md) - Set up your development environment
+-   [Code Style](development/code-style.md) - Code style guidelines
+-   [Testing](development/testing.md) - Testing practices
+-   [Configuration](development/configuration.md) - Configuration reference
 
 ### For AI Agents
-- [AI Instructions](development/ai-instructions.md) - Guidelines for AI agents and GitHub Copilot
+
+-   [AI Instructions](development/ai-instructions.md) - Guidelines for AI agents and GitHub Copilot
 
 ### Reference
-- [Changelog](https://github.com/scape-agency/rite/blob/main/CHANGELOG.md) - Version history
-- [Architecture](https://github.com/scape-agency/rite/blob/main/ARCHITECTURE.md) - System architecture
+
+-   [Changelog](https://github.com/scape-agency/rite/blob/main/CHANGELOG.md) - Version history
+-   [Architecture](https://github.com/scape-agency/rite/blob/main/ARCHITECTURE.md) - System architecture
 
 ## Module Overview
 
 ### Cryptography (`rite.crypto`)
+
 UUID generation, hashing (SHA-256, MD5, BLAKE2), HMAC, and cryptographic utilities.
 
 ### Filesystem (`rite.filesystem`)
+
 File and directory operations, path utilities, safe file handling.
 
 ### Text Processing (`rite.text`)
+
 Slug generation, case conversion, text sanitization, text analysis.
 
 ### Collections (`rite.collections`)
+
 List and dictionary utilities, data structures, iteration helpers.
 
 ### Conversions (`rite.conversion`)
+
 Type conversions, data format transformations (JSON, CSV, etc.).
 
 ### Numeric (`rite.numeric`)
+
 Mathematical utilities, statistics, number operations.
 
 ### Temporal (`rite.temporal`)
+
 Date and time utilities, timestamp operations, formatting.
 
 ## Requirements
 
-- Python 3.10 or higher
-- No external dependencies
+-   Python 3.10 or higher
+-   No external dependencies
 
 ## Installation
 
@@ -126,5 +138,5 @@ flat = list_flatten([[1, 2], [3, 4]])  # [1, 2, 3, 4]
 
 Scape Agency is a spatial innovation collective that dreams, discovers and designs the everyday of tomorrow. We blend design thinking with emerging technologies to create a brighter perspective for people and planet. Our products and services naturalise technology in liveable and sustainable –scapes that spark the imagination and inspire future generations.
 
-- Website: [scape.agency](https://www.scape.agency)
-- GitHub: [github.com/scape-agency](https://github.com/scape-agency)
+-   Website: [scape.agency](https://www.scape.agency)
+-   GitHub: [github.com/scape-agency](https://github.com/scape-agency)

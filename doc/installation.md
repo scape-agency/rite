@@ -2,9 +2,9 @@
 
 ## Requirements
 
-- **Python**: >=3.12, <4.0
-- **Operating System**: Linux, macOS, Windows
-- **Package Manager**: pip or Poetry (recommended)
+-   **Python**: >=3.12, <4.0
+-   **Operating System**: Linux, macOS, Windows
+-   **Package Manager**: pip or Poetry (recommended)
 
 ## Installation Methods
 
@@ -147,6 +147,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 ## Next Steps
 
-- [Quick Start Guide](getting-started.md)
-- [API Reference](api/index.md)
-- [Examples](examples.md)
+-   [Quick Start Guide](getting-started.md)
+-   [API Reference](api/index.md)
+-   [Examples](examples.md)

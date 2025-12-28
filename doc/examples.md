@@ -73,16 +73,16 @@ from pathlib import Path
 if file_exists("config.json"):
     # Read file
     content = file_read("config.json")
-    
+
     # Copy file
     file_copy("config.json", "config.backup.json")
-    
+
     # Move file
     file_move("old_location.txt", "new_location.txt")
-    
+
     # Write file
     file_write("output.txt", "Hello, World!")
-    
+
     # Delete file
     file_delete("temp.txt")
 ```
@@ -543,50 +543,50 @@ from pathlib import Path
 def process_user_data(input_file: str, output_file: str) -> None:
     """
     Complete data processing pipeline.
-    
+
     Args:
         input_file: Input JSON file path.
         output_file: Output JSON file path.
     """
     # Read input file
     raw_data = file_read(input_file)
-    
+
     # Parse JSON
     data = json_to_dict(raw_data)
-    
+
     # Process each user
     processed_users = []
     for user in data.get("users", []):
         # Normalize keys to snake_case
         normalized = {
-            case_to_snake(k): v 
+            case_to_snake(k): v
             for k, v in user.items()
         }
-        
+
         # Filter out empty values
         cleaned = dict_filter(
             normalized,
             lambda k, v: v is not None and v != ""
         )
-        
+
         # Add ID hash
         cleaned["id_hash"] = hash_sha256(
             str(cleaned.get("email", ""))
         )
-        
+
         processed_users.append(cleaned)
-    
+
     # Create output data
     output = {
         "processed_at": unix_timestamp(),
         "count": len(processed_users),
         "users": processed_users
     }
-    
+
     # Write to file
     json_output = dict_to_json(output, indent=2)
     file_write(output_file, json_output)
-    
+
     print(f"Processed {len(processed_users)} users")
 
 
@@ -596,6 +596,6 @@ process_user_data("input.json", "output.json")
 
 ## See Also
 
-- [Getting Started Guide](getting-started.md)
-- [API Documentation](api/index.md)
-- [Contributing Guide](contributing.md)
+-   [Getting Started Guide](getting-started.md)
+-   [API Documentation](api/index.md)
+-   [Contributing Guide](contributing.md)

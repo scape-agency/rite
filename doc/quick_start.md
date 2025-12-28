@@ -4,13 +4,13 @@
 
 > Install using PIP
 
-``` sh
+```sh
 pip install rite
 ```
 
 > Install using PIP with specific version parameter:
 
-``` sh
+```sh
 pip install rite==0.0.0
 ```
 

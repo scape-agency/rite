@@ -5,10 +5,10 @@ The `rite.text` module provides comprehensive text processing utilities includin
 ## Overview
 
 ::: rite.text
-    options:
-      show_root_heading: true
-      show_source: false
-      heading_level: 2
+options:
+show_root_heading: true
+show_source: false
+heading_level: 2
 
 ## Submodules
 
@@ -17,132 +17,90 @@ The `rite.text` module provides comprehensive text processing utilities includin
 Transform text between different naming conventions and styles.
 
 ::: rite.text.case
-    options:
-      members:
-        - to_snake_case
-        - to_camel_case
-        - to_pascal_case
-        - to_kebab_case
-        - to_constant_case
-        - to_dot_case
-        - to_path_case
-        - to_title_case
-        - to_sentence_case
-        - to_lower_case
-        - to_upper_case
-      show_source: false
-      heading_level: 3
+options:
+members: - to_snake_case - to_camel_case - to_pascal_case - to_kebab_case - to_constant_case - to_dot_case - to_path_case - to_title_case - to_sentence_case - to_lower_case - to_upper_case
+show_source: false
+heading_level: 3
 
 ### Slug Generation
 
 Create URL-friendly slugs from text.
 
 ::: rite.text.slug
-    options:
-      members:
-        - slugify
-        - slug_unique
-        - slug_add_prefix
-        - slug_add_suffix
-        - slug_is_valid
-      show_source: false
-      heading_level: 3
+options:
+members: - slugify - slug_unique - slug_add_prefix - slug_add_suffix - slug_is_valid
+show_source: false
+heading_level: 3
 
 ### Text Analysis
 
 Analyze text content and structure.
 
 ::: rite.text.analysis
-    options:
-      members:
-        - char_frequency
-        - word_count
-        - is_palindrome
-        - longest_word
-        - shortest_word
-        - average_word_length
-      show_source: false
-      heading_level: 3
+options:
+members: - char_frequency - word_count - is_palindrome - longest_word - shortest_word - average_word_length
+show_source: false
+heading_level: 3
 
 ### Text Validation
 
 Validate text format and content.
 
 ::: rite.text.validation
-    options:
-      members:
-        - text_is_email
-        - text_is_numeric
-        - text_is_alpha
-        - text_is_alphanumeric
-      show_source: false
-      heading_level: 3
+options:
+members: - text_is_email - text_is_numeric - text_is_alpha - text_is_alphanumeric
+show_source: false
+heading_level: 3
 
 ### Text Manipulation
 
 Manipulate and transform text.
 
 ::: rite.text.manipulation
-    options:
-      members:
-        - text_truncate
-        - text_pad_left
-        - text_pad_right
-        - text_wrap
-      show_source: false
-      heading_level: 3
+options:
+members: - text_truncate - text_pad_left - text_pad_right - text_wrap
+show_source: false
+heading_level: 3
 
 ### Text Search
 
 Search and find patterns in text.
 
 ::: rite.text.search
-    options:
-      members:
-        - text_contains
-        - text_starts_with
-        - text_ends_with
-        - text_find
-        - text_count
-      show_source: false
-      heading_level: 3
+options:
+members: - text_contains - text_starts_with - text_ends_with - text_find - text_count
+show_source: false
+heading_level: 3
 
 ### Sanitization
 
 Clean and sanitize text content.
 
 ::: rite.text.sanitize
-    options:
-      members:
-        - sanitize
-        - clean
-      show_source: false
-      heading_level: 3
+options:
+members: - sanitize - clean
+show_source: false
+heading_level: 3
 
 ### Morse Code
 
 Encode and decode Morse code.
 
 ::: rite.text.morse
-    options:
-      members:
-        - morse_encode
-        - morse_decode
-      show_source: false
-      heading_level: 3
+options:
+members: - morse_encode - morse_decode
+show_source: false
+heading_level: 3
 
 ### Random Generation
 
 Generate random strings.
 
 ::: rite.text.random
-    options:
-      members:
-        - random_string
-        - random_hex
-        - random_alphanumeric
-      show_source: false
-      heading_level: 3
+options:
+members: - random_string - random_hex - random_alphanumeric
+show_source: false
+heading_level: 3
 
 ## Examples
 

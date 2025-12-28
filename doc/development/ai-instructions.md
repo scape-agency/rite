@@ -5,10 +5,11 @@ This guide provides comprehensive instructions for AI agents and GitHub Copilot 
 ## Project Overview
 
 **Rite** is a modern Python utility library with:
-- **Target**: Python 3.10, 3.11, 3.12
-- **Dependencies**: Zero external runtime dependencies
-- **License**: MIT
-- **Repository**: https://github.com/scape-agency/rite
+
+-   **Target**: Python 3.10, 3.11, 3.12
+-   **Dependencies**: Zero external runtime dependencies
+-   **License**: MIT
+-   **Repository**: https://github.com/scape-agency/rite
 
 ## Core Principles
 
@@ -109,17 +110,20 @@ src/rite/
 ## Naming Conventions
 
 ### Module Files
+
 Use module-specific prefixes:
-- `crypto/uuid/uuid_hex.py`
-- `crypto/hash/hash_sha256.py`
-- `filesystem/file/file_copy.py`
-- `text/slug/slug_is_valid.py`
+
+-   `crypto/uuid/uuid_hex.py`
+-   `crypto/hash/hash_sha256.py`
+-   `filesystem/file/file_copy.py`
+-   `text/slug/slug_is_valid.py`
 
 ### Code Elements
-- **Functions/Variables**: `snake_case`
-- **Classes**: `PascalCase`
-- **Constants**: `UPPER_CASE`
-- **Private**: `_leading_underscore`
+
+-   **Functions/Variables**: `snake_case`
+-   **Classes**: `PascalCase`
+-   **Constants**: `UPPER_CASE`
+-   **Private**: `_leading_underscore`
 
 ## Type Hints
 
@@ -148,6 +152,7 @@ Four sections in exact order:
 4. **Local Modules**: From rite package
 
 Use custom headers:
+
 ```python
 # Import | Future
 # Import | Standard Library
@@ -226,34 +231,39 @@ class TestFunction:
 ```
 
 ### Test Markers
-- `@pytest.mark.unit` - Unit tests
-- `@pytest.mark.integration` - Integration tests
-- `@pytest.mark.slow` - Slow tests
-- `@pytest.mark.security` - Security tests
+
+-   `@pytest.mark.unit` - Unit tests
+-   `@pytest.mark.integration` - Integration tests
+-   `@pytest.mark.slow` - Slow tests
+-   `@pytest.mark.security` - Security tests
 
 ## Code Quality Standards
 
 ### Formatting
-- **Black**: 79 character line length
-- **isort**: Black-compatible profile
-- **No trailing whitespace**
-- **LF line endings**
-- **Final newline in every file**
+
+-   **Black**: 79 character line length
+-   **isort**: Black-compatible profile
+-   **No trailing whitespace**
+-   **LF line endings**
+-   **Final newline in every file**
 
 ### Linting
-- **Flake8**: Max line length 79, max complexity 15
-- **Pylint**: Score target 10.0
-- **No unused imports**
-- **No commented-out code**
+
+-   **Flake8**: Max line length 79, max complexity 15
+-   **Pylint**: Score target 10.0
+-   **No unused imports**
+-   **No commented-out code**
 
 ### Type Checking
-- **Mypy**: Strict optional, warn on redundant casts
-- **All functions**: Return type hints required
-- **All parameters**: Type hints required
+
+-   **Mypy**: Strict optional, warn on redundant casts
+-   **All functions**: Return type hints required
+-   **All parameters**: Type hints required
 
 ## AI Agent Guidelines
 
 ### When Creating New Files:
+
 1. Use the correct module prefix
 2. Follow the four-section template exactly
 3. Add comprehensive docstrings with examples
@@ -262,6 +272,7 @@ class TestFunction:
 6. Create corresponding test file
 
 ### When Modifying Files:
+
 1. Maintain the four-section structure
 2. Preserve import organization
 3. Update `__all__` if adding exports
@@ -269,6 +280,7 @@ class TestFunction:
 5. Don't break existing type hints
 
 ### When Writing Tests:
+
 1. Create test file in `tst/` mirroring `src/` structure
 2. Use descriptive test names
 3. Include parametrized tests for multiple cases
@@ -276,16 +288,17 @@ class TestFunction:
 5. Aim for >80% coverage
 
 ### Quality Checklist:
-- [ ] Python 3.10+ syntax used
-- [ ] `from __future__ import annotations` present
-- [ ] Four-section structure followed
-- [ ] Correct module prefix in filename
-- [ ] Type hints on all functions/methods
-- [ ] Google-style docstrings with examples
-- [ ] `__all__` defined
-- [ ] No external dependencies in src/
-- [ ] Tests created/updated
-- [ ] Line length ≤ 79 characters
+
+-   [ ] Python 3.10+ syntax used
+-   [ ] `from __future__ import annotations` present
+-   [ ] Four-section structure followed
+-   [ ] Correct module prefix in filename
+-   [ ] Type hints on all functions/methods
+-   [ ] Google-style docstrings with examples
+-   [ ] `__all__` defined
+-   [ ] No external dependencies in src/
+-   [ ] Tests created/updated
+-   [ ] Line length ≤ 79 characters
 
 ## Common Commands
 
@@ -306,17 +319,19 @@ make all
 ## Configuration Files
 
 All tools have dedicated configuration files:
-- **Black**: `pyproject.toml` [tool.black]
-- **isort**: `.isort.cfg`
-- **Flake8**: `.flake8`
-- **Pylint**: `.pylintrc`
-- **Mypy**: `mypy.ini`
-- **Pytest**: `pytest.ini`
-- **Coverage**: `.coveragerc`
+
+-   **Black**: `pyproject.toml` [tool.black]
+-   **isort**: `.isort.cfg`
+-   **Flake8**: `.flake8`
+-   **Pylint**: `.pylintrc`
+-   **Mypy**: `mypy.ini`
+-   **Pytest**: `pytest.ini`
+-   **Coverage**: `.coveragerc`
 
 ## Common Patterns
 
 ### Error Handling
+
 ```python
 def safe_operation(value: str) -> str | None:
     """Return result or None on failure."""
@@ -327,6 +342,7 @@ def safe_operation(value: str) -> str | None:
 ```
 
 ### File Operations
+
 ```python
 from pathlib import Path
 
@@ -339,6 +355,7 @@ def read_config(path: Path | str) -> dict[str, Any]:
 ```
 
 ### Type Checking
+
 ```python
 from typing import TypeVar
 
@@ -352,16 +369,18 @@ def first_or_default(items: list[T], default: T) -> T:
 ## What NOT to Do
 
 ### ❌ Never Use:
-- Python 2 compatibility code
-- `# -*- coding: utf-8 -*-` declarations
-- External dependencies in src/
-- `Optional[X]` instead of `X | None`
-- `Union[X, Y]` instead of `X | Y`
-- `Dict`, `List`, `Tuple` from typing module
-- Commented-out code
-- TODO comments without issues
+
+-   Python 2 compatibility code
+-   `# -*- coding: utf-8 -*-` declarations
+-   External dependencies in src/
+-   `Optional[X]` instead of `X | None`
+-   `Union[X, Y]` instead of `X | Y`
+-   `Dict`, `List`, `Tuple` from typing module
+-   Commented-out code
+-   TODO comments without issues
 
 ### ❌ Never Import:
+
 ```python
 # Don't use in src/
 import requests
@@ -370,6 +389,7 @@ import pandas
 ```
 
 ### ✅ Only Use:
+
 ```python
 # Standard library only in src/
 import os
@@ -380,19 +400,19 @@ from typing import Any, TypeVar
 
 ## Remember
 
-- **Modern Python only** (3.10+)
-- **Zero runtime dependencies**
-- **Consistent structure everywhere**
-- **Type hints always**
-- **Test everything**
-- **Document thoroughly**
+-   **Modern Python only** (3.10+)
+-   **Zero runtime dependencies**
+-   **Consistent structure everywhere**
+-   **Type hints always**
+-   **Test everything**
+-   **Document thoroughly**
 
 When in doubt, look at existing files in the codebase as examples.
 
 ## See Also
 
-- [Code Style Guide](code-style.md)
-- [Development Setup](setup.md)
-- [Testing Guide](testing.md)
-- [Configuration Guide](configuration.md)
-- [Contributing Guide](https://github.com/scape-agency/rite/blob/main/CONTRIBUTING.md)
+-   [Code Style Guide](code-style.md)
+-   [Development Setup](setup.md)
+-   [Testing Guide](testing.md)
+-   [Configuration Guide](configuration.md)
+-   [Contributing Guide](https://github.com/scape-agency/rite/blob/main/CONTRIBUTING.md)

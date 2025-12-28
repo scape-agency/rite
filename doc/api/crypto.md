@@ -5,10 +5,10 @@ The `rite.crypto` module provides cryptographic operations including hashing, ci
 ## Overview
 
 ::: rite.crypto
-    options:
-      show_root_heading: true
-      show_source: false
-      heading_level: 2
+options:
+show_root_heading: true
+show_source: false
+heading_level: 2
 
 ## Submodules
 
@@ -17,66 +17,40 @@ The `rite.crypto` module provides cryptographic operations including hashing, ci
 Cryptographic hash functions.
 
 ::: rite.crypto.hash
-    options:
-      members:
-        - hash_md5
-        - hash_sha1
-        - hash_sha256
-        - hash_sha384
-        - hash_sha512
-        - hash_sha3_256
-        - hash_sha3_512
-        - hash_blake2b
-        - hash_blake2s
-      show_source: false
-      heading_level: 3
+options:
+members: - hash_md5 - hash_sha1 - hash_sha256 - hash_sha384 - hash_sha512 - hash_sha3_256 - hash_sha3_512 - hash_blake2b - hash_blake2s
+show_source: false
+heading_level: 3
 
 ### UUID Generation
 
 Generate and validate UUIDs.
 
 ::: rite.crypto.uuid
-    options:
-      members:
-        - uuid_random
-        - uuid_hex
-        - uuid_string
-        - uuid_from_name
-        - uuid_is_valid
-        - uuid_is_random
-        - uuid_get_version
-      show_source: false
-      heading_level: 3
+options:
+members: - uuid_random - uuid_hex - uuid_string - uuid_from_name - uuid_is_valid - uuid_is_random - uuid_get_version
+show_source: false
+heading_level: 3
 
 ### Secure Random
 
 Cryptographically secure random generation.
 
 ::: rite.crypto.random
-    options:
-      members:
-        - random_bytes
-        - random_int
-        - random_hex
-        - random_choice
-        - random_urlsafe
-      show_source: false
-      heading_level: 3
+options:
+members: - random_bytes - random_int - random_hex - random_choice - random_urlsafe
+show_source: false
+heading_level: 3
 
 ### Ciphers
 
 Classical cipher implementations.
 
 ::: rite.crypto.cipher
-    options:
-      members:
-        - cipher_caesar
-        - cipher_rot13
-        - cipher_vigenere
-        - cipher_atbash
-        - cipher_xor
-      show_source: false
-      heading_level: 3
+options:
+members: - cipher_caesar - cipher_rot13 - cipher_vigenere - cipher_atbash - cipher_xor
+show_source: false
+heading_level: 3
 
 ## Examples
 

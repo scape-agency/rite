@@ -14,32 +14,32 @@ Rite is organized into semantic submodules, each focusing on a specific domain:
 
 ### Core Utilities
 
-- **[Collections](collections.md)** - Advanced data structures and collection utilities
-- **[Conversion](conversion.md)** - Type conversion and format transformation utilities
-- **[Text](text.md)** - Comprehensive text processing and manipulation
+-   **[Collections](collections.md)** - Advanced data structures and collection utilities
+-   **[Conversion](conversion.md)** - Type conversion and format transformation utilities
+-   **[Text](text.md)** - Comprehensive text processing and manipulation
 
 ### System & I/O
 
-- **[Filesystem](filesystem.md)** - File and directory operations
-- **[System](system.md)** - System-level operations and environment management
-- **[Net](net.md)** - Network utilities and URL handling
+-   **[Filesystem](filesystem.md)** - File and directory operations
+-   **[System](system.md)** - System-level operations and environment management
+-   **[Net](net.md)** - Network utilities and URL handling
 
 ### Data & Serialization
 
-- **[Serialization](serialization.md)** - JSON, CSV, TOML, Pickle, and INI operations
-- **[Markup](markup.md)** - HTML, XML, and Markdown processing
+-   **[Serialization](serialization.md)** - JSON, CSV, TOML, Pickle, and INI operations
+-   **[Markup](markup.md)** - HTML, XML, and Markdown processing
 
 ### Security & Data Processing
 
-- **[Crypto](crypto.md)** - Cryptographic operations, hashing, and UUIDs
-- **[Numeric](numeric.md)** - Numerical operations and mathematical utilities
-- **[Temporal](temporal.md)** - Date, time, and duration management
+-   **[Crypto](crypto.md)** - Cryptographic operations, hashing, and UUIDs
+-   **[Numeric](numeric.md)** - Numerical operations and mathematical utilities
+-   **[Temporal](temporal.md)** - Date, time, and duration management
 
 ### Development & Debugging
 
-- **[Diagnostics](diagnostics.md)** - Logging, profiling, and error handling
-- **[Functional](functional.md)** - Functional programming utilities
-- **[Reflection](reflection.md)** - Runtime introspection and dynamic loading
+-   **[Diagnostics](diagnostics.md)** - Logging, profiling, and error handling
+-   **[Functional](functional.md)** - Functional programming utilities
+-   **[Reflection](reflection.md)** - Runtime introspection and dynamic loading
 
 ## Quick Start
 

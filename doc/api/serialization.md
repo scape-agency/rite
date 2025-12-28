@@ -5,10 +5,10 @@ The `rite.serialization` module provides utilities for working with various data
 ## Overview
 
 ::: rite.serialization
-    options:
-      show_root_heading: true
-      show_source: false
-      heading_level: 2
+options:
+show_root_heading: true
+show_source: false
+heading_level: 2
 
 ## Submodules
 
@@ -17,68 +17,50 @@ The `rite.serialization` module provides utilities for working with various data
 Parse and generate JSON data.
 
 ::: rite.serialization.json
-    options:
-      members:
-        - json_load
-        - json_loads
-        - json_dump
-        - json_dumps
-        - json_validate
-      show_source: false
-      heading_level: 3
+options:
+members: - json_load - json_loads - json_dump - json_dumps - json_validate
+show_source: false
+heading_level: 3
 
 ### CSV
 
 Read and write CSV files.
 
 ::: rite.serialization.csv
-    options:
-      members:
-        - csv_read
-        - csv_write
-        - csv_detect_delimiter
-      show_source: false
-      heading_level: 3
+options:
+members: - csv_read - csv_write - csv_detect_delimiter
+show_source: false
+heading_level: 3
 
 ### TOML
 
 Parse TOML configuration files (Python 3.11+).
 
 ::: rite.serialization.toml
-    options:
-      members:
-        - toml_load
-        - toml_loads
-      show_source: false
-      heading_level: 3
+options:
+members: - toml_load - toml_loads
+show_source: false
+heading_level: 3
 
 ### Pickle
 
 Serialize and deserialize Python objects.
 
 ::: rite.serialization.pickle
-    options:
-      members:
-        - pickle_dump
-        - pickle_load
-        - pickle_dumps
-        - pickle_loads
-      show_source: false
-      heading_level: 3
+options:
+members: - pickle_dump - pickle_load - pickle_dumps - pickle_loads
+show_source: false
+heading_level: 3
 
 ### INI
 
 Read and write INI configuration files.
 
 ::: rite.serialization.ini
-    options:
-      members:
-        - ini_read
-        - ini_write
-        - ini_get
-        - ini_set
-      show_source: false
-      heading_level: 3
+options:
+members: - ini_read - ini_write - ini_get - ini_set
+show_source: false
+heading_level: 3
 
 ## Examples
 

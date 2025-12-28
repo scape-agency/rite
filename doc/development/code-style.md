@@ -177,10 +177,10 @@ class MyClass:
     def __init__(self):
         self._private = "internal use"
         self.__really_private = "name mangled"
-    
+
     def _internal_method(self):
         pass
-    
+
     def public_method(self):
         pass
 ```
@@ -272,14 +272,14 @@ def complex_function(
     Examples:
         >>> complex_function("test", 5)
         {'status': 'ok', 'data': [...]}
-        
+
         >>> complex_function("")
         Traceback (most recent call last):
         ValueError: param1 cannot be empty
     """
     if not param1:
         raise ValueError("param1 cannot be empty")
-    
+
     return {"status": "ok", "data": []}
 ```
 
@@ -606,15 +606,15 @@ poetry run mypy src/
 
 ## Resources
 
-- [Black Code Style](https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html)
-- [PEP 8](https://peps.python.org/pep-0008/)
-- [PEP 484](https://peps.python.org/pep-0484/) - Type Hints
-- [PEP 526](https://peps.python.org/pep-0526/) - Variable Annotations
-- [PEP 604](https://peps.python.org/pep-0604/) - Union Operators
-- [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html)
+-   [Black Code Style](https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html)
+-   [PEP 8](https://peps.python.org/pep-0008/)
+-   [PEP 484](https://peps.python.org/pep-0484/) - Type Hints
+-   [PEP 526](https://peps.python.org/pep-0526/) - Variable Annotations
+-   [PEP 604](https://peps.python.org/pep-0604/) - Union Operators
+-   [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html)
 
 ## See Also
 
-- [Development Setup](setup.md)
-- [Configuration Guide](configuration.md)
-- [AI Instructions](ai-instructions.md)
+-   [Development Setup](setup.md)
+-   [Configuration Guide](configuration.md)
+-   [AI Instructions](ai-instructions.md)

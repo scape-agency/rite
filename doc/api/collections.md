@@ -5,10 +5,10 @@ The `rite.collections` module provides advanced data structures including caches
 ## Overview
 
 ::: rite.collections
-    options:
-      show_root_heading: true
-      show_source: false
-      heading_level: 2
+options:
+show_root_heading: true
+show_source: false
+heading_level: 2
 
 ## Submodules
 
@@ -17,71 +17,50 @@ The `rite.collections` module provides advanced data structures including caches
 LRU, LFU, and TTL cache implementations.
 
 ::: rite.collections.cache
-    options:
-      members:
-        - lru_cache
-        - lfu_cache
-        - ttl_cache
-      show_source: false
-      heading_level: 3
+options:
+members: - lru_cache - lfu_cache - ttl_cache
+show_source: false
+heading_level: 3
 
 ### Buffer
 
 Circular and sliding window buffers.
 
 ::: rite.collections.buffer
-    options:
-      members:
-        - circular_buffer
-        - bounded_buffer
-        - ring_buffer
-        - sliding_window
-      show_source: false
-      heading_level: 3
+options:
+members: - circular_buffer - bounded_buffer - ring_buffer - sliding_window
+show_source: false
+heading_level: 3
 
 ### Dictionary Utilities
 
 Deep operations on dictionaries.
 
 ::: rite.collections.dict
-    options:
-      members:
-        - dict_deep_get
-        - dict_deep_set
-        - dict_merge
-        - dict_filter
-        - dict_invert
-      show_source: false
-      heading_level: 3
+options:
+members: - dict_deep_get - dict_deep_set - dict_merge - dict_filter - dict_invert
+show_source: false
+heading_level: 3
 
 ### List Utilities
 
 Advanced list operations.
 
 ::: rite.collections.list
-    options:
-      members:
-        - list_chunk
-        - list_flatten
-        - list_group_by
-        - list_interleave
-        - list_partition
-        - list_unique
-      show_source: false
-      heading_level: 3
+options:
+members: - list_chunk - list_flatten - list_group_by - list_interleave - list_partition - list_unique
+show_source: false
+heading_level: 3
 
 ### Tree Structures
 
 Tree and trie data structures.
 
 ::: rite.collections.tree
-    options:
-      members:
-        - TreeNode
-        - BinaryTreeNode
-        - Trie
-      show_source: false
-      heading_level: 3
+options:
+members: - TreeNode - BinaryTreeNode - Trie
+show_source: false
+heading_level: 3
 
 ## Examples
 

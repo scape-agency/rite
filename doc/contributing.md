@@ -45,12 +45,12 @@ git checkout -b fix/your-bug-fix
 
 Rite follows strict code quality standards:
 
-- **Python 3.12+** syntax only
-- **Zero runtime dependencies** in src/
-- **Type hints** on all functions
-- **Google-style docstrings**
-- **79 character line length**
-- **Modular file structure** with prefixes
+-   **Python 3.12+** syntax only
+-   **Zero runtime dependencies** in src/
+-   **Type hints** on all functions
+-   **Google-style docstrings**
+-   **79 character line length**
+-   **Modular file structure** with prefixes
 
 See [AI Instructions](development/ai-instructions.md) for detailed guidelines.
 
@@ -162,13 +162,13 @@ make check
 
 Pre-commit hooks run automatically on commit:
 
-- File checks (trailing whitespace, EOF, merge conflicts)
-- Black formatting
-- isort import sorting
-- Flake8 linting
-- Mypy type checking
-- Bandit security scanning
-- pydocstyle docstring validation
+-   File checks (trailing whitespace, EOF, merge conflicts)
+-   Black formatting
+-   isort import sorting
+-   Flake8 linting
+-   Mypy type checking
+-   Bandit security scanning
+-   pydocstyle docstring validation
 
 To run manually:
 
@@ -192,56 +192,60 @@ chore(deps): Update dependencies
 ```
 
 Types:
-- `feat`: New feature
-- `fix`: Bug fix
-- `docs`: Documentation
-- `style`: Formatting
-- `refactor`: Code restructuring
-- `perf`: Performance improvement
-- `test`: Tests
-- `build`: Build system
-- `ci`: CI/CD
-- `chore`: Maintenance
+
+-   `feat`: New feature
+-   `fix`: Bug fix
+-   `docs`: Documentation
+-   `style`: Formatting
+-   `refactor`: Code restructuring
+-   `perf`: Performance improvement
+-   `test`: Tests
+-   `build`: Build system
+-   `ci`: CI/CD
+-   `chore`: Maintenance
 
 Scopes (module names):
-- `crypto`, `filesystem`, `text`, `collections`, `conversion`, `numeric`, `temporal`, `core`, `tests`, `docs`, `ci`, `deps`, `config`
+
+-   `crypto`, `filesystem`, `text`, `collections`, `conversion`, `numeric`, `temporal`, `core`, `tests`, `docs`, `ci`, `deps`, `config`
 
 ## Pull Request Process
 
 ### 1. Ensure Quality
 
-- All tests pass
-- Coverage maintained or improved
-- No linting errors
-- Type checking passes
-- Documentation updated
+-   All tests pass
+-   Coverage maintained or improved
+-   No linting errors
+-   Type checking passes
+-   Documentation updated
 
 ### 2. Update Documentation
 
-- Add docstrings to new functions
-- Update relevant markdown files
-- Add examples if applicable
-- Update CHANGELOG.md
+-   Add docstrings to new functions
+-   Update relevant markdown files
+-   Add examples if applicable
+-   Update CHANGELOG.md
 
 ### 3. Submit PR
 
 Use one of the PR templates:
-- [Feature PR Template](https://github.com/scape-agency/rite/blob/main/.github/PULL_REQUEST_TEMPLATE.md)
-- [Bugfix PR Template](https://github.com/scape-agency/rite/blob/main/.github/PULL_REQUEST_TEMPLATE.md)
+
+-   [Feature PR Template](https://github.com/scape-agency/rite/blob/main/.github/PULL_REQUEST_TEMPLATE.md)
+-   [Bugfix PR Template](https://github.com/scape-agency/rite/blob/main/.github/PULL_REQUEST_TEMPLATE.md)
 
 Fill in:
-- Clear description
-- Motivation and context
-- Testing performed
-- Breaking changes (if any)
-- Related issues
+
+-   Clear description
+-   Motivation and context
+-   Testing performed
+-   Breaking changes (if any)
+-   Related issues
 
 ### 4. Review Process
 
-- CI checks must pass
-- At least one maintainer approval required
-- Address review comments promptly
-- Keep PR focused and small when possible
+-   CI checks must pass
+-   At least one maintainer approval required
+-   Address review comments promptly
+-   Keep PR focused and small when possible
 
 ## Development Tips
 
@@ -261,10 +265,10 @@ make version           # Show current version
 
 The repository includes VS Code configurations:
 
-- `.vscode/settings.json` - IDE settings
-- `.vscode/launch.json` - Debug configurations
-- `.vscode/tasks.json` - Task definitions
-- `.vscode/snippets.code-snippets` - Code snippets
+-   `.vscode/settings.json` - IDE settings
+-   `.vscode/launch.json` - Debug configurations
+-   `.vscode/tasks.json` - Task definitions
+-   `.vscode/snippets.code-snippets` - Code snippets
 
 ### Using Dev Container
 
@@ -296,10 +300,10 @@ src/rite/
 
 Files should use module-specific prefixes:
 
-- `crypto/uuid/uuid_hex.py` (uuid_ prefix)
-- `crypto/hash/hash_sha256.py` (hash_ prefix)
-- `filesystem/file/file_copy.py` (file_ prefix)
-- `text/slug/slug_is_valid.py` (slug_ prefix)
+-   `crypto/uuid/uuid_hex.py` (uuid\_ prefix)
+-   `crypto/hash/hash_sha256.py` (hash\_ prefix)
+-   `filesystem/file/file_copy.py` (file\_ prefix)
+-   `text/slug/slug_is_valid.py` (slug\_ prefix)
 
 ### 3. Create Test File
 
@@ -312,15 +316,15 @@ tst/
         └── test_function.py
 ```
 
-### 4. Update __init__.py
+### 4. Update **init**.py
 
 Add exports to module's `__init__.py`.
 
 ### 5. Add Documentation
 
-- Comprehensive docstrings with examples
-- Update API reference if needed
-- Add usage examples
+-   Comprehensive docstrings with examples
+-   Update API reference if needed
+-   Add usage examples
 
 ## Reporting Issues
 
@@ -328,20 +332,20 @@ Add exports to module's `__init__.py`.
 
 Use the [bug report template](https://github.com/scape-agency/rite/issues/new?template=bug_report.md):
 
-- Clear description
-- Steps to reproduce
-- Expected vs actual behavior
-- Python version and OS
-- Code sample (if applicable)
+-   Clear description
+-   Steps to reproduce
+-   Expected vs actual behavior
+-   Python version and OS
+-   Code sample (if applicable)
 
 ### Feature Requests
 
 Use the [feature request template](https://github.com/scape-agency/rite/issues/new?template=feature_request.md):
 
-- Clear description
-- Use case and motivation
-- Proposed API (if applicable)
-- Alternatives considered
+-   Clear description
+-   Use case and motivation
+-   Proposed API (if applicable)
+-   Alternatives considered
 
 ## Release Process
 
@@ -356,22 +360,23 @@ Releases are automated using semantic-release:
 
 ## Community
 
-- **GitHub Discussions**: Ask questions, share ideas
-- **GitHub Issues**: Report bugs, request features
-- **Pull Requests**: Contribute code
+-   **GitHub Discussions**: Ask questions, share ideas
+-   **GitHub Issues**: Report bugs, request features
+-   **Pull Requests**: Contribute code
 
 ## Recognition
 
 Contributors are recognized in:
-- [AUTHORS.md](about/authors.md)
-- GitHub contributors page
-- Release notes
+
+-   [AUTHORS.md](about/authors.md)
+-   GitHub contributors page
+-   Release notes
 
 ## Questions?
 
-- Check existing documentation
-- Search GitHub issues
-- Ask in GitHub Discussions
-- Contact maintainers
+-   Check existing documentation
+-   Search GitHub issues
+-   Ask in GitHub Discussions
+-   Contact maintainers
 
 Thank you for contributing to Rite! 🎉

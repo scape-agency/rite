@@ -5,57 +5,61 @@
 Rite follows a **Single Point of Truth** principle: every tool has exactly ONE configuration file.
 
 This eliminates:
-- ❌ Duplicate settings across multiple files
-- ❌ Conflicting configurations
-- ❌ Uncertainty about which config is used
-- ❌ Maintenance overhead
+
+-   ❌ Duplicate settings across multiple files
+-   ❌ Conflicting configurations
+-   ❌ Uncertainty about which config is used
+-   ❌ Maintenance overhead
 
 ## Configuration Files
 
 ### Critical Tools
 
-| Tool | Config File | Purpose |
-|------|-------------|---------|
+| Tool       | Config File      | Purpose                           |
+| ---------- | ---------------- | --------------------------------- |
 | **Poetry** | `pyproject.toml` | Package metadata and dependencies |
-| **Black** | `pyproject.toml` | Code formatting |
-| **isort** | `.isort.cfg` | Import sorting |
-| **Pytest** | `pytest.ini` | Test framework |
-| **Git** | `.gitignore` | Version control exclusions |
+| **Black**  | `pyproject.toml` | Code formatting                   |
+| **isort**  | `.isort.cfg`     | Import sorting                    |
+| **Pytest** | `pytest.ini`     | Test framework                    |
+| **Git**    | `.gitignore`     | Version control exclusions        |
 
 ### Code Quality Tools
 
-| Tool | Config File | Purpose |
-|------|-------------|---------|
-| **Flake8** | `.flake8` | PEP8 linting |
-| **Pylint** | `.pylintrc` | Static code analysis |
-| **Mypy** | `mypy.ini` | Type checking |
-| **Bandit** | `pyproject.toml` | Security scanning |
-| **Coverage** | `.coveragerc` | Code coverage |
+| Tool         | Config File      | Purpose              |
+| ------------ | ---------------- | -------------------- |
+| **Flake8**   | `.flake8`        | PEP8 linting         |
+| **Pylint**   | `.pylintrc`      | Static code analysis |
+| **Mypy**     | `mypy.ini`       | Type checking        |
+| **Bandit**   | `pyproject.toml` | Security scanning    |
+| **Coverage** | `.coveragerc`    | Code coverage        |
 
 ### Development Tools
 
-| Tool | Config File | Purpose |
-|------|-------------|---------|
-| **Tox** | `tox.ini` | Multi-environment testing |
-| **Pre-commit** | `.pre-commit-config.yaml` | Git hooks |
-| **EditorConfig** | `.editorconfig` | Editor settings |
-| **VS Code** | `.vscode/settings.json` | IDE configuration |
+| Tool             | Config File               | Purpose                   |
+| ---------------- | ------------------------- | ------------------------- |
+| **Tox**          | `tox.ini`                 | Multi-environment testing |
+| **Pre-commit**   | `.pre-commit-config.yaml` | Git hooks                 |
+| **EditorConfig** | `.editorconfig`           | Editor settings           |
+| **VS Code**      | `.vscode/settings.json`   | IDE configuration         |
 
 ## Common Settings
 
 All tools are configured with consistent settings:
 
 ### Line Length
+
 **79 characters** (Black standard)
 
 Used by: Black, isort, Flake8, Pylint, EditorConfig, VS Code
 
 ### Python Version
+
 **>=3.10, <4.0**
 
 Target: Python 3.10, 3.11, 3.12
 
 ### Type Hints
+
 **Modern Python 3.10+ syntax**
 
 ```python
@@ -225,23 +229,24 @@ PYTHONUNBUFFERED=1
 **File:** `.vscode/settings.json`
 
 Key settings:
-- Black as default formatter
-- Format on save enabled
-- isort on save enabled
-- Flake8, Pylint, Mypy enabled
-- Pytest as test framework
-- Line length indicators at 79
+
+-   Black as default formatter
+-   Format on save enabled
+-   isort on save enabled
+-   Flake8, Pylint, Mypy enabled
+-   Pytest as test framework
+-   Line length indicators at 79
 
 ### PyCharm
 
 1. Settings → Tools → Black
-   - Enable "On code reformat"
+    - Enable "On code reformat"
 2. Settings → Tools → isort
-   - Enable "On save"
+    - Enable "On save"
 3. Settings → Editor → Code Style → Python
-   - Hard wrap at 79
+    - Hard wrap at 79
 4. Settings → Tools → Python Integrated Tools
-   - Default test runner: pytest
+    - Default test runner: pytest
 
 ## Verification
 
@@ -265,14 +270,14 @@ When updating tool settings:
 
 1. **Modify only ONE file** (single point of truth)
 2. **Test the change**:
-   ```bash
-   make check
-   ```
+    ```bash
+    make check
+    ```
 3. **Update documentation** if needed
 4. **Commit with descriptive message**:
-   ```bash
-   git commit -m "config: Update Black line length"
-   ```
+    ```bash
+    git commit -m "config: Update Black line length"
+    ```
 
 ## Configuration Matrix
 
@@ -282,29 +287,29 @@ For a complete overview of all settings, see the original configuration document
 
 ### ✅ Do
 
-- Keep settings consistent across tools
-- Use dedicated config files for each tool
-- Document configuration changes
-- Test configuration changes
+-   Keep settings consistent across tools
+-   Use dedicated config files for each tool
+-   Document configuration changes
+-   Test configuration changes
 
 ### ❌ Don't
 
-- Duplicate settings in multiple files
-- Override settings locally without team agreement
-- Ignore configuration warnings
-- Mix configuration styles
+-   Duplicate settings in multiple files
+-   Override settings locally without team agreement
+-   Ignore configuration warnings
+-   Mix configuration styles
 
 ## Resources
 
-- [Black Configuration](https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html)
-- [isort Configuration](https://pycqa.github.io/isort/docs/configuration/config_files.html)
-- [Flake8 Configuration](https://flake8.pycqa.org/en/latest/user/configuration.html)
-- [Pylint Configuration](https://pylint.pycqa.org/en/latest/user_guide/configuration/index.html)
-- [Mypy Configuration](https://mypy.readthedocs.io/en/stable/config_file.html)
-- [Pytest Configuration](https://docs.pytest.org/en/stable/reference/customize.html)
+-   [Black Configuration](https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html)
+-   [isort Configuration](https://pycqa.github.io/isort/docs/configuration/config_files.html)
+-   [Flake8 Configuration](https://flake8.pycqa.org/en/latest/user/configuration.html)
+-   [Pylint Configuration](https://pylint.pycqa.org/en/latest/user_guide/configuration/index.html)
+-   [Mypy Configuration](https://mypy.readthedocs.io/en/stable/config_file.html)
+-   [Pytest Configuration](https://docs.pytest.org/en/stable/reference/customize.html)
 
 ## See Also
 
-- [Development Setup](setup.md)
-- [Code Style Guidelines](code-style.md)
-- [Testing Guide](testing.md)
+-   [Development Setup](setup.md)
+-   [Code Style Guidelines](code-style.md)
+-   [Testing Guide](testing.md)

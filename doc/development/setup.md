@@ -4,10 +4,10 @@ This guide will help you set up your development environment for Rite.
 
 ## Prerequisites
 
-- **Python**: 3.10, 3.11, or 3.12
-- **Git**: For version control
-- **Poetry**: 1.8.0 or higher (recommended)
-- **Docker**: Optional, for Dev Container
+-   **Python**: 3.10, 3.11, or 3.12
+-   **Git**: For version control
+-   **Poetry**: 1.8.0 or higher (recommended)
+-   **Docker**: Optional, for Dev Container
 
 ## Initial Setup
 
@@ -60,8 +60,8 @@ All development tools are pre-configured:
 
 ### Code Formatting
 
-- **Black**: Code formatter (79 char line length)
-- **isort**: Import sorter (Black-compatible)
+-   **Black**: Code formatter (79 char line length)
+-   **isort**: Import sorter (Black-compatible)
 
 ```bash
 # Format code
@@ -73,8 +73,8 @@ make format-check
 
 ### Linting
 
-- **Flake8**: PEP8 linting
-- **Pylint**: Static code analysis
+-   **Flake8**: PEP8 linting
+-   **Pylint**: Static code analysis
 
 ```bash
 # Lint code
@@ -87,7 +87,7 @@ poetry run pylint src/
 
 ### Type Checking
 
-- **Mypy**: Static type checker
+-   **Mypy**: Static type checker
 
 ```bash
 # Type check
@@ -99,7 +99,7 @@ poetry run mypy src/
 
 ### Security
 
-- **Bandit**: Security vulnerability scanner
+-   **Bandit**: Security vulnerability scanner
 
 ```bash
 # Security scan
@@ -111,8 +111,8 @@ poetry run bandit -r src/ -c pyproject.toml
 
 ### Testing
 
-- **Pytest**: Test framework
-- **Coverage**: Code coverage measurement
+-   **Pytest**: Test framework
+-   **Coverage**: Code coverage measurement
 
 ```bash
 # Run tests
@@ -133,18 +133,18 @@ poetry run pytest -m integration
 
 All tools have dedicated configuration files:
 
-| Tool | Config File | Location |
-|------|-------------|----------|
-| Black | `pyproject.toml` | `[tool.black]` |
-| isort | `.isort.cfg` | Root |
-| Flake8 | `.flake8` | Root |
-| Pylint | `.pylintrc` | Root |
-| Mypy | `mypy.ini` | Root |
-| Pytest | `pytest.ini` | Root |
-| Coverage | `.coveragerc` | Root |
-| Tox | `tox.ini` | Root |
-| Pre-commit | `.pre-commit-config.yaml` | Root |
-| EditorConfig | `.editorconfig` | Root |
+| Tool         | Config File               | Location       |
+| ------------ | ------------------------- | -------------- |
+| Black        | `pyproject.toml`          | `[tool.black]` |
+| isort        | `.isort.cfg`              | Root           |
+| Flake8       | `.flake8`                 | Root           |
+| Pylint       | `.pylintrc`               | Root           |
+| Mypy         | `mypy.ini`                | Root           |
+| Pytest       | `pytest.ini`              | Root           |
+| Coverage     | `.coveragerc`             | Root           |
+| Tox          | `tox.ini`                 | Root           |
+| Pre-commit   | `.pre-commit-config.yaml` | Root           |
+| EditorConfig | `.editorconfig`           | Root           |
 
 See [Configuration Philosophy](configuration.md) for details.
 
@@ -160,21 +160,23 @@ code .
 ```
 
 Recommended extensions are automatically suggested:
-- Python
-- Pylance
-- Black Formatter
-- isort
-- Flake8
-- Pylint
-- GitHub Copilot
-- GitLens
-- Coverage Gutters
+
+-   Python
+-   Pylance
+-   Black Formatter
+-   isort
+-   Flake8
+-   Pylint
+-   GitHub Copilot
+-   GitLens
+-   Coverage Gutters
 
 Settings are pre-configured in:
-- `.vscode/settings.json` - IDE settings
-- `.vscode/launch.json` - Debug configurations
-- `.vscode/tasks.json` - Task definitions
-- `.vscode/snippets.code-snippets` - Code snippets
+
+-   `.vscode/settings.json` - IDE settings
+-   `.vscode/launch.json` - Debug configurations
+-   `.vscode/tasks.json` - Task definitions
+-   `.vscode/snippets.code-snippets` - Code snippets
 
 ### Dev Container
 
@@ -358,15 +360,15 @@ poetry run tox -e py312
 
 ## Next Steps
 
-- Read [Contributing Guide](https://github.com/scape-agency/rite/blob/main/CONTRIBUTING.md)
-- Review [Code Style Guidelines](code-style.md)
-- Check [AI Instructions](ai-instructions.md)
-- Explore [API Reference](../api/index.md)
+-   Read [Contributing Guide](https://github.com/scape-agency/rite/blob/main/CONTRIBUTING.md)
+-   Review [Code Style Guidelines](code-style.md)
+-   Check [AI Instructions](ai-instructions.md)
+-   Explore [API Reference](../api/index.md)
 
 ## Resources
 
-- [Poetry Documentation](https://python-poetry.org/docs/)
-- [Pre-commit Documentation](https://pre-commit.com/)
-- [Pytest Documentation](https://docs.pytest.org/)
-- [Black Documentation](https://black.readthedocs.io/)
-- [Mypy Documentation](https://mypy.readthedocs.io/)
+-   [Poetry Documentation](https://python-poetry.org/docs/)
+-   [Pre-commit Documentation](https://pre-commit.com/)
+-   [Pytest Documentation](https://docs.pytest.org/)
+-   [Black Documentation](https://black.readthedocs.io/)
+-   [Mypy Documentation](https://mypy.readthedocs.io/)

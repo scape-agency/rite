@@ -38,56 +38,63 @@ file_copy("source.txt", "destination.txt")
 Rite is organized into functional modules:
 
 ### Cryptography (`rite.crypto`)
-- **uuid**: UUID generation and validation
-- **hash**: Hashing functions (SHA256, MD5, etc.)
-- **cipher**: Encryption and decryption utilities
+
+-   **uuid**: UUID generation and validation
+-   **hash**: Hashing functions (SHA256, MD5, etc.)
+-   **cipher**: Encryption and decryption utilities
 
 ### Filesystem (`rite.filesystem`)
-- **file**: File operations (copy, move, read, write)
-- **folder**: Directory operations
-- **path**: Path manipulation utilities
+
+-   **file**: File operations (copy, move, read, write)
+-   **folder**: Directory operations
+-   **path**: Path manipulation utilities
 
 ### Text Processing (`rite.text`)
-- **slug**: URL-friendly slug generation and validation
-- **case**: Case conversion (camelCase, snake_case, etc.)
-- **sanitize**: Text sanitization and cleaning
-- **random**: Random string generation
+
+-   **slug**: URL-friendly slug generation and validation
+-   **case**: Case conversion (camelCase, snake_case, etc.)
+-   **sanitize**: Text sanitization and cleaning
+-   **random**: Random string generation
 
 ### Collections (`rite.collections`)
-- **buffer**: Circular buffers, ring buffers
-- **cache**: LRU, LFU, TTL caches
-- **queue**: Priority queues, deques
-- **tree**: Tree data structures
+
+-   **buffer**: Circular buffers, ring buffers
+-   **cache**: LRU, LFU, TTL caches
+-   **queue**: Priority queues, double-ended queues
+-   **tree**: Tree data structures
 
 ### Conversion (`rite.conversion`)
-- Type conversion utilities
-- Data format conversions
+
+-   Type conversion utilities
+-   Data format conversions
 
 ### Numeric (`rite.numeric`)
-- Mathematical utilities
-- Number formatting and parsing
+
+-   Mathematical utilities
+-   Number formatting and parsing
 
 ### Temporal (`rite.temporal`)
-- Date and time utilities
-- Timezone handling
+
+-   Date and time utilities
+-   Timezone handling
 
 ## Next Steps
 
-- [Installation Guide](installation.md)
-- [API Reference](api/index.md)
-- [Examples](examples.md)
-- [Development Guide](development/setup.md)
+-   [Installation Guide](installation.md)
+-   [API Reference](api/index.md)
+-   [Examples](examples.md)
+-   [Development Guide](development/setup.md)
 
 ## Requirements
 
-- Python >=3.10, <4.0
-- No external runtime dependencies
+-   Python >=3.10, <4.0
+-   No external runtime dependencies
 
 ## Support
 
-- [Documentation](https://rite.scape.agency)
-- [GitHub Issues](https://github.com/scape-agency/rite/issues)
-- [Contributing Guidelines](contributing.md)
+-   [Documentation](https://rite.scape.agency)
+-   [GitHub Issues](https://github.com/scape-agency/rite/issues)
+-   [Contributing Guidelines](contributing.md)
 
 ## License
 

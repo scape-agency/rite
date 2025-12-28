@@ -5,10 +5,10 @@ The `rite.temporal` module provides comprehensive date, time, and duration manag
 ## Overview
 
 ::: rite.temporal
-    options:
-      show_root_heading: true
-      show_source: false
-      heading_level: 2
+options:
+show_root_heading: true
+show_source: false
+heading_level: 2
 
 ## Submodules
 
@@ -17,70 +17,50 @@ The `rite.temporal` module provides comprehensive date, time, and duration manag
 Work with datetime objects.
 
 ::: rite.temporal.datetime
-    options:
-      members:
-        - datetime_now
-        - datetime_from_timestamp
-        - datetime_to_timestamp
-        - datetime_parse
-        - datetime_format
-        - datetime_to_iso
-      show_source: false
-      heading_level: 3
+options:
+members: - datetime_now - datetime_from_timestamp - datetime_to_timestamp - datetime_parse - datetime_format - datetime_to_iso
+show_source: false
+heading_level: 3
 
 ### Duration Management
 
 Create and manage time durations.
 
 ::: rite.temporal.duration
-    options:
-      members:
-        - duration_from_seconds
-        - duration_from_minutes
-        - duration_from_hours
-        - duration_from_days
-        - duration_to_seconds
-      show_source: false
-      heading_level: 3
+options:
+members: - duration_from_seconds - duration_from_minutes - duration_from_hours - duration_from_days - duration_to_seconds
+show_source: false
+heading_level: 3
 
 ### Timezone Handling
 
 Manage timezones and conversions.
 
 ::: rite.temporal.timezone
-    options:
-      members:
-        - timezone_get
-        - timezone_convert
-        - timezone_list
-      show_source: false
-      heading_level: 3
+options:
+members: - timezone_get - timezone_convert - timezone_list
+show_source: false
+heading_level: 3
 
 ### Calendar Utilities
 
 Calendar and date calculations.
 
 ::: rite.temporal.calendar
-    options:
-      members:
-        - calendar_is_leap_year
-        - calendar_month_days
-        - calendar_weekday
-      show_source: false
-      heading_level: 3
+options:
+members: - calendar_is_leap_year - calendar_month_days - calendar_weekday
+show_source: false
+heading_level: 3
 
 ### Formatting
 
 Format dates and times.
 
 ::: rite.temporal.formatting
-    options:
-      members:
-        - format_iso8601
-        - format_rfc3339
-        - format_human_readable
-      show_source: false
-      heading_level: 3
+options:
+members: - format_iso8601 - format_rfc3339 - format_human_readable
+show_source: false
+heading_level: 3
 
 ## Examples
 

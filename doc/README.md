@@ -116,56 +116,59 @@ def example_function(param1: str, param2: int = 0) -> bool:
 Description of the module.
 
 ::: rite.module.submodule
-    options:
-      show_source: false
-      heading_level: 2
+options:
+show_source: false
+heading_level: 2
 ```
 
 ### Styling Guidelines
 
-- **Brand Colors**: Defined in `assets/style/extra.css`
-  - Primary: `rgb(0, 0, 15)` (near black)
-  - Accent: `#2196f3` (blue)
-- **Typography**: Manrope font family
-- **Code**: Roboto Mono for code blocks
-- **Line Length**: 79 characters in code examples
+-   **Brand Colors**: Defined in `assets/style/extra.css`
+    -   Primary: `rgb(0, 0, 15)` (near black)
+    -   Accent: `#2196f3` (blue)
+-   **Typography**: Manrope font family
+-   **Code**: Roboto Mono for code blocks
+-   **Line Length**: 79 characters in code examples
 
 ## Configuration Files
 
 ### mkdocs.yml
 
 Main configuration for MkDocs:
-- Site metadata
-- Navigation structure
-- Theme configuration
-- Plugin settings
-- Markdown extensions
+
+-   Site metadata
+-   Navigation structure
+-   Theme configuration
+-   Plugin settings
+-   Markdown extensions
 
 ### conf.py
 
 Sphinx configuration:
-- Project information
-- Extension settings
-- HTML theme options
-- API documentation settings
+
+-   Project information
+-   Extension settings
+-   HTML theme options
+-   API documentation settings
 
 ### assets/style/extra.css
 
 Custom CSS for MkDocs Material theme:
-- Brand colors
-- Typography
-- Component styling
-- Responsive design
+
+-   Brand colors
+-   Typography
+-   Component styling
+-   Responsive design
 
 ## API Reference
 
 API documentation is automatically generated from docstrings using `mkdocstrings`. The API pages in `api/` directory organize modules by category:
 
-- **Core**: Collections, Conversion, Text
-- **System & I/O**: Filesystem, System, Net
-- **Data**: Serialization, Markup
-- **Security**: Crypto, Numeric, Temporal
-- **Development**: Diagnostics, Functional, Reflection
+-   **Core**: Collections, Conversion, Text
+-   **System & I/O**: Filesystem, System, Net
+-   **Data**: Serialization, Markup
+-   **Security**: Crypto, Numeric, Temporal
+-   **Development**: Diagnostics, Functional, Reflection
 
 ## Deployment
 
@@ -196,10 +199,11 @@ When adding or modifying code:
 ### Adding Examples
 
 Examples should be:
-- Runnable code snippets
-- Show common use cases
-- Include expected output
-- Cover edge cases
+
+-   Runnable code snippets
+-   Show common use cases
+-   Include expected output
+-   Cover edge cases
 
 ### Checking Links
 
@@ -216,16 +220,19 @@ find doc -name "*.md" -exec grep -H "\[.*\](.*)" {} \;
 ### Build Errors
 
 **Import errors**: Ensure source directory is in Python path:
+
 ```bash
 export PYTHONPATH="${PYTHONPATH}:$(pwd)/src"
 ```
 
 **Missing dependencies**: Install all documentation dependencies:
+
 ```bash
 pip install -r requirements-docs.txt
 ```
 
 **Theme issues**: Clear MkDocs cache:
+
 ```bash
 rm -rf ~/.mkdocs/
 ```
@@ -250,8 +257,8 @@ When contributing documentation:
 
 ## Resources
 
-- [MkDocs Documentation](https://www.mkdocs.org/)
-- [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
-- [mkdocstrings](https://mkdocstrings.github.io/)
-- [Sphinx Documentation](https://www.sphinx-doc.org/)
-- [Google Style Docstrings](https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings)
+-   [MkDocs Documentation](https://www.mkdocs.org/)
+-   [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
+-   [mkdocstrings](https://mkdocstrings.github.io/)
+-   [Sphinx Documentation](https://www.sphinx-doc.org/)
+-   [Google Style Docstrings](https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings)

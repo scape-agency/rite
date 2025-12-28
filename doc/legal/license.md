@@ -2,7 +2,6 @@
 
 Except where otherwise noted, **rite** is licensed under the terms of the [MIT License](https://opensource.org/licenses/MIT "MIT License").
 
-
 ## MIT License
 
 **Copyright (c) 2023 Scape Agency BV**

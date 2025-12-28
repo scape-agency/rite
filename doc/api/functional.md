@@ -5,10 +5,10 @@ The `rite.functional` module provides functional programming utilities including
 ## Overview
 
 ::: rite.functional
-    options:
-      show_root_heading: true
-      show_source: false
-      heading_level: 2
+options:
+show_root_heading: true
+show_source: false
+heading_level: 2
 
 ## Submodules
 
@@ -17,51 +17,40 @@ The `rite.functional` module provides functional programming utilities including
 Function composition utilities.
 
 ::: rite.functional.composition
-    options:
-      members:
-        - composition_compose
-        - composition_pipe
-        - composition_chain
-      show_source: false
-      heading_level: 3
+options:
+members: - composition_compose - composition_pipe - composition_chain
+show_source: false
+heading_level: 3
 
 ### Currying
 
 Function currying and partial application.
 
 ::: rite.functional.currying
-    options:
-      members:
-        - currying_curry
-        - currying_uncurry
-      show_source: false
-      heading_level: 3
+options:
+members: - currying_curry - currying_uncurry
+show_source: false
+heading_level: 3
 
 ### Decorators
 
 Useful decorators.
 
 ::: rite.functional.decorators
-    options:
-      members:
-        - decorators_debounce
-        - decorators_throttle
-        - decorators_once
-        - decorators_deprecated
-      show_source: false
-      heading_level: 3
+options:
+members: - decorators_debounce - decorators_throttle - decorators_once - decorators_deprecated
+show_source: false
+heading_level: 3
 
 ### Memoization
 
 Function result caching.
 
 ::: rite.functional.memoization
-    options:
-      members:
-        - memoization_memoize
-        - memoization_lru_cache
-      show_source: false
-      heading_level: 3
+options:
+members: - memoization_memoize - memoization_lru_cache
+show_source: false
+heading_level: 3
 
 ## Examples
 

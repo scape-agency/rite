@@ -5,10 +5,10 @@ The `rite.filesystem` module provides file and directory operations, path manage
 ## Overview
 
 ::: rite.filesystem
-    options:
-      show_root_heading: true
-      show_source: false
-      heading_level: 2
+options:
+show_root_heading: true
+show_source: false
+heading_level: 2
 
 ## Submodules
 
@@ -17,61 +17,40 @@ The `rite.filesystem` module provides file and directory operations, path manage
 Read, write, copy, move, and delete files.
 
 ::: rite.filesystem.file
-    options:
-      members:
-        - file_read_text
-        - file_write_text
-        - file_read_bytes
-        - file_write_bytes
-        - file_copy
-        - file_move
-        - file_delete
-        - file_rename
-        - file_size_to_string
-      show_source: false
-      heading_level: 3
+options:
+members: - file_read_text - file_write_text - file_read_bytes - file_write_bytes - file_copy - file_move - file_delete - file_rename - file_size_to_string
+show_source: false
+heading_level: 3
 
 ### Folder Operations
 
 Manage directories and list files.
 
 ::: rite.filesystem.folder
-    options:
-      members:
-        - folder_ensure_exists
-        - folder_list_files
-        - folder_size_to_string
-      show_source: false
-      heading_level: 3
+options:
+members: - folder_ensure_exists - folder_list_files - folder_size_to_string
+show_source: false
+heading_level: 3
 
 ### Path Utilities
 
 Path manipulation and validation.
 
 ::: rite.filesystem.path
-    options:
-      members:
-        - path_exists
-        - path_is_file
-        - path_is_dir
-        - path_clean
-        - path_secure
-        - path_safe_join
-        - path_leaf
-      show_source: false
-      heading_level: 3
+options:
+members: - path_exists - path_is_file - path_is_dir - path_clean - path_secure - path_safe_join - path_leaf
+show_source: false
+heading_level: 3
 
 ### Compression
 
 Gzip compression and decompression.
 
 ::: rite.filesystem.compress
-    options:
-      members:
-        - compress_file
-        - uncompress_file
-      show_source: false
-      heading_level: 3
+options:
+members: - compress_file - uncompress_file
+show_source: false
+heading_level: 3
 
 ## Examples
 

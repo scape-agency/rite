@@ -289,9 +289,9 @@ poetry run pytest --cov=rite --cov-report=xml
 
 ### Coverage Goals
 
-- **Overall**: >80% coverage
-- **New code**: >90% coverage
-- **Critical modules**: 100% coverage
+-   **Overall**: >80% coverage
+-   **New code**: >90% coverage
+-   **Critical modules**: 100% coverage
 
 ### Excluding from Coverage
 
@@ -575,13 +575,13 @@ async def test_async_function() -> None:
 
 ## Resources
 
-- [Pytest Documentation](https://docs.pytest.org/)
-- [Coverage.py Documentation](https://coverage.readthedocs.io/)
-- [Python Testing with pytest](https://pythontest.com/pytest-book/)
-- [Effective Python Testing](https://realpython.com/python-testing/)
+-   [Pytest Documentation](https://docs.pytest.org/)
+-   [Coverage.py Documentation](https://coverage.readthedocs.io/)
+-   [Python Testing with pytest](https://pythontest.com/pytest-book/)
+-   [Effective Python Testing](https://realpython.com/python-testing/)
 
 ## See Also
 
-- [Code Style Guide](code-style.md)
-- [Development Setup](setup.md)
-- [Contributing Guide](https://github.com/scape-agency/rite/blob/main/CONTRIBUTING.md)
+-   [Code Style Guide](code-style.md)
+-   [Development Setup](setup.md)
+-   [Contributing Guide](https://github.com/scape-agency/rite/blob/main/CONTRIBUTING.md)
