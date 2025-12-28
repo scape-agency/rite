@@ -141,6 +141,6 @@ class TestBoundedBuffer:
         buffer.append(1)
         buffer.append(2)
         buffer.append(3)
-        items = buffer.items()
+        items = buffer.get_all()
         assert items == [1, 2, 3]
         assert isinstance(items, list)

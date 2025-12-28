@@ -146,7 +146,9 @@ class TestSlidingWindow:
         """Test aggregation function called on add when window is full."""
         window = SlidingWindow(3, aggregation_func=sum)
         result1 = window.add(1)  # Not full yet
+        assert result1 is None
         result2 = window.add(2)  # Not full yet
+        assert result2 is None
         result3 = window.add(3)  # Full now, should return sum
         assert result3 == 6
 
@@ -154,9 +156,9 @@ class TestSlidingWindow:
         """Test getting current aggregation result."""
         window = SlidingWindow(3, aggregation_func=sum)
         # Empty window
-        assert window.aggregation_result() is None
+        assert window.get_aggregate() is None
 
         window.add(1)
         window.add(2)
         # Non-empty window with aggregation function
-        assert window.aggregation_result() == 3
+        assert window.get_aggregate() == 3

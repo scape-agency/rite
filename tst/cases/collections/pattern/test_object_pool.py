@@ -147,3 +147,37 @@ class TestObjectPool:
         assert "ObjectPool" in repr_str
         assert "max_size=10" in repr_str
         assert "available=1" in repr_str
+
+    def test_total_count(self):
+        """Test total object count (available + in use)."""
+        pool = ObjectPool(make_poolable, max_size=5)
+
+        obj1 = pool.acquire()
+        obj2 = pool.acquire()
+        pool.release(obj1)
+
+        # 1 available + 1 in use = 2 total
+        assert pool.size() == 2
+
+    def test_in_use_count(self):
+        """Test in-use object count."""
+        pool = ObjectPool(make_poolable, max_size=5)
+
+        assert pool.in_use_count() == 0
+
+        obj1 = pool.acquire()
+        obj2 = pool.acquire()
+        assert pool.in_use_count() == 2
+
+        pool.release(obj1)
+        assert pool.in_use_count() == 1
+
+    def test_release_invalid_object(self):
+        """Test releasing object not from pool."""
+        pool = ObjectPool(make_poolable, max_size=5)
+        invalid_obj = PoolableObject(999)
+
+        with pytest.raises(
+            ValueError, match="Object was not acquired from this pool"
+        ):
+            pool.release(invalid_obj)
