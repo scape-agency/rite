@@ -29,15 +29,13 @@ from rite.crypto.cipher.cipher_atbash import (
 
 def test_encode_atbash_cipher() -> None:
     """Test encode_atbash_cipher() function."""
-    # TODO: Implement test
-    # result = encode_atbash_cipher(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = encode_atbash_cipher("HELLO")
+    assert result == "SVOOL"
+    assert isinstance(result, str)
 
 
 def test_decode_atbash_cipher() -> None:
     """Test decode_atbash_cipher() function."""
-    # TODO: Implement test
-    # result = decode_atbash_cipher(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = decode_atbash_cipher("SVOOL")
+    assert result == "HELLO"
+    assert isinstance(result, str)

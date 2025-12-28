@@ -26,9 +26,29 @@ from rite.conversion.types.types_to_float import (
 # =============================================================================
 
 
-def test_types_to_float() -> None:
-    """Test types_to_float() function."""
-    # TODO: Implement test
-    # result = types_to_float(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "value, default, expected",
+    [
+        (None, None, None),
+        (None, 0.0, 0.0),
+        (0, None, 0.0),
+        (42, None, 42.0),
+        (-7, None, -7.0),
+        (3.14, None, 3.14),
+        (True, None, 1.0),
+        (False, None, 0.0),
+        ("3.14", None, 3.14),
+        ("  3.14  ", None, 3.14),
+        ("1.5e3", None, 1500.0),
+        ("  -2.5  ", None, -2.5),
+        ("invalid", None, None),
+        ("invalid", 1.5, 1.5),
+    ],
+)
+def test_types_to_float(
+    value: object,
+    default: float | None,
+    expected: float | None,
+) -> None:
+    """Test types_to_float() for numeric and string inputs."""
+    assert types_to_float(value, default) == expected

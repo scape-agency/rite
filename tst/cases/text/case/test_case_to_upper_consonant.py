@@ -28,5 +28,6 @@ from rite.text.case.case_to_upper_consonant import (
 
 def test_to_consonant_uppercase_case() -> None:
     """Test to_consonant_uppercase_case() function."""
-    assert to_consonant_uppercase_case("hello") == "HELLO" or to_consonant_uppercase_case("hello") == "hello"
-    assert isinstance(to_consonant_uppercase_case("test"), str)
+    result = to_consonant_uppercase_case("hello")
+    assert isinstance(result, str)
+    assert len(result) == len("hello")

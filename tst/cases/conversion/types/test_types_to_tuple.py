@@ -26,9 +26,19 @@ from rite.conversion.types.types_to_tuple import (
 # =============================================================================
 
 
-def test_types_to_tuple() -> None:
-    """Test types_to_tuple() function."""
-    # TODO: Implement test
-    # result = types_to_tuple(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+def test_types_to_tuple_basic_iterables() -> None:
+    """Test conversion of iterables and scalars to tuple."""
+    values = (1, 2, 3)
+    assert types_to_tuple(values) is values
+
+    assert types_to_tuple([1, 2, 3]) == (1, 2, 3)
+
+    result = types_to_tuple({1, 2, 3})
+    assert sorted(result) == [1, 2, 3]
+
+    assert types_to_tuple("hi") == ("h", "i")
+    assert types_to_tuple(42) == (42,)
+
+    # bytes are treated as a single value, not iterated
+    data = b"ab"
+    assert types_to_tuple(data) == (data,)

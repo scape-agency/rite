@@ -26,9 +26,37 @@ from rite.conversion.types.types_to_dict import (
 # =============================================================================
 
 
-def test_types_to_dict() -> None:
-    """Test types_to_dict() function."""
-    # TODO: Implement test
-    # result = types_to_dict(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+def test_types_to_dict_from_mapping_and_pairs() -> None:
+    """Test conversion from mappings and sequences of key/value pairs."""
+    data = {"a": 1, "b": 2}
+    assert types_to_dict(data) is data
+
+    class CustomMapping(dict):
+        """Simple mapping subclass for testing."""
+
+    custom = CustomMapping({"x": 10})
+    assert types_to_dict(custom) == {"x": 10}
+
+    pairs = [("a", 1), ("b", 2)]
+    assert types_to_dict(pairs) == {"a": 1, "b": 2}
+
+
+def test_types_to_dict_with_key_attr() -> None:
+    """Test using key_attr to build dict from objects."""
+
+    class Item:
+        def __init__(self, key: str, value: int) -> None:
+            self.key = key
+            self.value = value
+
+    items = [Item("a", 1), Item("b", 2)]
+    result = types_to_dict(items, key_attr="key")
+    assert set(result.keys()) == {"a", "b"}
+    assert result["a"].value == 1
+    assert result["b"].value == 2
+
+
+def test_types_to_dict_invalid_input_raises() -> None:
+    """Test that unsupported inputs raise ValueError."""
+    with pytest.raises(ValueError):
+        types_to_dict(123)

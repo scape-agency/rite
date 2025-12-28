@@ -29,15 +29,14 @@ from rite.crypto.cipher.cipher_baconian import (
 
 def test_encode_baconian_cipher() -> None:
     """Test encode_baconian_cipher() function."""
-    # TODO: Implement test
-    # result = encode_baconian_cipher(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = encode_baconian_cipher("ab")
+    assert result == "aaaaaaaaab"
+    assert isinstance(result, str)
 
 
 def test_decode_baconian_cipher() -> None:
     """Test decode_baconian_cipher() function."""
-    # TODO: Implement test
-    # result = decode_baconian_cipher(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    encoded = encode_baconian_cipher("abc")
+    result = decode_baconian_cipher(encoded)
+    assert result == "abc"
+    assert isinstance(result, str)

@@ -27,8 +27,16 @@ from rite.functional.decorators.decorators_once import (
 
 
 def test_decorators_once() -> None:
-    """Test decorators_once() function."""
-    # TODO: Implement test
-    # result = decorators_once(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    """decorators_once should only execute the function once.""""
+
+    calls = {"count": 0}
+
+    @decorators_once()
+    def get_value() -> int:
+        calls["count"] += 1
+        return 42
+
+    assert get_value() == 42
+    assert get_value() == 42
+    assert calls["count"] == 1
+

@@ -27,8 +27,15 @@ from rite.functional.currying.currying_uncurry import (
 
 
 def test_currying_uncurry() -> None:
-    """Test currying_uncurry() function."""
-    # TODO: Implement test
-    # result = currying_uncurry(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    """Test that currying_uncurry restores multi-arg calling convention."""
+
+    def make_curried() -> callable:
+        return lambda a: lambda b: lambda c: a + b + c
+
+    curried = make_curried()
+    uncurried = currying_uncurry(curried, 3)
+
+    assert uncurried(1, 2, 3) == 6
+
+    with pytest.raises(TypeError):
+        uncurried(1, 2)

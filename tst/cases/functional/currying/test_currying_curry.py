@@ -27,8 +27,16 @@ from rite.functional.currying.currying_curry import (
 
 
 def test_currying_curry() -> None:
-    """Test currying_curry() function."""
-    # TODO: Implement test
-    # result = currying_curry(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    """Test that currying_curry transforms function into curried form."""
+
+    def add(a: int, b: int, c: int) -> int:
+        return a + b + c
+
+    curried = currying_curry(add)
+
+    assert curried(1)(2)(3) == 6
+
+    partial_ab = curried(1, 2)
+    assert partial_ab(3) == 6
+
+    assert curried(1, 2, 3, 99) == 6

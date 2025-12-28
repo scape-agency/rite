@@ -13,9 +13,6 @@ Tests for rite.functional.predicates.predicates_identity.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.functional.predicates.predicates_identity import (
     predicates_identity,
@@ -26,9 +23,11 @@ from rite.functional.predicates.predicates_identity import (
 # =============================================================================
 
 
-def test_predicates_identity() -> None:
-    """Test predicates_identity() function."""
-    # TODO: Implement test
-    # result = predicates_identity(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+def test_predicates_identity_returns_input() -> None:
+    """predicates_identity() returns the input unchanged.""""
+    assert predicates_identity(42) == 42
+    assert predicates_identity("hello") == "hello"
+
+    data = [1, 2, 3]
+    assert predicates_identity(data) is data
+

@@ -13,9 +13,6 @@ Tests for rite.filesystem.folder.folder_ensure_exists.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.filesystem.folder.folder_ensure_exists import (
     folder_ensure_exists,
@@ -26,9 +23,24 @@ from rite.filesystem.folder.folder_ensure_exists import (
 # =============================================================================
 
 
-def test_folder_ensure_exists() -> None:
-    """Test folder_ensure_exists() function."""
-    # TODO: Implement test
-    # result = folder_ensure_exists(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+def test_folder_ensure_exists_creates_directory(tmp_path) -> None:
+    """folder_ensure_exists should create missing directories."""
+    target = tmp_path / "ensure" / "nested"
+
+    assert not target.exists()
+
+    folder_ensure_exists(target)
+
+    assert target.exists()
+    assert target.is_dir()
+
+
+def test_folder_ensure_exists_idempotent(tmp_path) -> None:
+    """Calling folder_ensure_exists multiple times should be safe."""
+    target = tmp_path / "again"
+
+    folder_ensure_exists(target)
+    folder_ensure_exists(target)
+
+    assert target.exists()
+    assert target.is_dir()

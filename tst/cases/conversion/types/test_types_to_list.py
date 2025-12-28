@@ -26,9 +26,26 @@ from rite.conversion.types.types_to_list import (
 # =============================================================================
 
 
-def test_types_to_list() -> None:
-    """Test types_to_list() function."""
-    # TODO: Implement test
-    # result = types_to_list(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+def test_types_to_list_basic_iterables() -> None:
+    """Test conversion of common iterables to list."""
+    values = [1, 2, 3]
+    assert types_to_list(values) is values
+
+    assert types_to_list((1, 2, 3)) == [1, 2, 3]
+
+    result = types_to_list({1, 2, 3})
+    assert sorted(result) == [1, 2, 3]
+
+
+def test_types_to_list_strings_and_scalars() -> None:
+    """Test string handling and non-iterable scalars."""
+    assert types_to_list("hello", split_strings=True) == [
+        "h",
+        "e",
+        "l",
+        "l",
+        "o",
+    ]
+    assert types_to_list("hello", split_strings=False) == ["hello"]
+    assert types_to_list(42) == [42]
+    assert types_to_list(None) == [None]

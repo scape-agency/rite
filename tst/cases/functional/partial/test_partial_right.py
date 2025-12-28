@@ -27,8 +27,11 @@ from rite.functional.partial.partial_right import (
 
 
 def test_partial_right() -> None:
-    """Test partial_right() function."""
-    # TODO: Implement test
-    # result = partial_right(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    """partial_right should fix arguments from the right side.""""
+
+    def subtract(x: int, y: int, z: int) -> int:
+        return x - y - z
+
+    f = partial_right(subtract, 5, 2)
+    assert f(10) == 3
+

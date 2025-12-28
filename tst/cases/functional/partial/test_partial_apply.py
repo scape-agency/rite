@@ -27,8 +27,17 @@ from rite.functional.partial.partial_apply import (
 
 
 def test_partial_apply() -> None:
-    """Test partial_apply() function."""
-    # TODO: Implement test
-    # result = partial_apply(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    """partial_apply should fix positional and keyword arguments.""""
+
+    def multiply(x: int, y: int, z: int) -> int:
+        return x * y * z
+
+    double = partial_apply(multiply, 2)
+    assert double(3, 4) == 24
+
+    def power(base: int, exponent: int) -> int:
+        return base**exponent
+
+    square = partial_apply(power, exponent=2)
+    assert square(5) == 25
+

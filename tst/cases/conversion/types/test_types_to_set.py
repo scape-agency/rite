@@ -26,9 +26,12 @@ from rite.conversion.types.types_to_set import (
 # =============================================================================
 
 
-def test_types_to_set() -> None:
-    """Test types_to_set() function."""
-    # TODO: Implement test
-    # result = types_to_set(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+def test_types_to_set_basic_iterables() -> None:
+    """Test conversion of iterables and scalars to set."""
+    values = {1, 2, 3}
+    assert types_to_set(values) is values
+
+    assert types_to_set([1, 2, 2, 3]) == {1, 2, 3}
+    assert types_to_set((1, 2, 3)) == {1, 2, 3}
+    assert types_to_set("hello") == {"h", "e", "l", "o"}
+    assert types_to_set(42) == {42}

@@ -29,15 +29,14 @@ from rite.crypto.cipher.cipher_vigenere import (
 
 def test_encode_vigenere_cipher() -> None:
     """Test encode_vigenere_cipher() function."""
-    # TODO: Implement test
-    # result = encode_vigenere_cipher(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = encode_vigenere_cipher("HELLO", "KEY")
+    assert isinstance(result, str)
+    assert len(result) == len("HELLO")
 
 
 def test_decode_vigenere_cipher() -> None:
     """Test decode_vigenere_cipher() function."""
-    # TODO: Implement test
-    # result = decode_vigenere_cipher(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    encoded = encode_vigenere_cipher("HELLO", "KEY")
+    result = decode_vigenere_cipher(encoded, "KEY")
+    assert result == "HELLO"
+    assert isinstance(result, str)

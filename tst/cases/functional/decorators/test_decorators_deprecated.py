@@ -27,8 +27,12 @@ from rite.functional.decorators.decorators_deprecated import (
 
 
 def test_decorators_deprecated() -> None:
-    """Test decorators_deprecated() function."""
-    # TODO: Implement test
-    # result = decorators_deprecated(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    """decorators_deprecated should emit a DeprecationWarning.""""
+
+    @decorators_deprecated("Use new_func instead")
+    def old_func() -> str:
+        return "old"
+
+    with pytest.warns(DeprecationWarning):
+        assert old_func() == "old"
+

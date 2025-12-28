@@ -29,15 +29,14 @@ from rite.crypto.cipher.cipher_scytale import (
 
 def test_encode_scytale_cipher() -> None:
     """Test encode_scytale_cipher() function."""
-    # TODO: Implement test
-    # result = encode_scytale_cipher(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = encode_scytale_cipher("HELLO", 3)
+    assert isinstance(result, str)
+    assert len(result) >= len("HELLO")
 
 
 def test_decode_scytale_cipher() -> None:
     """Test decode_scytale_cipher() function."""
-    # TODO: Implement test
-    # result = decode_scytale_cipher(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    encoded = encode_scytale_cipher("HELLO", 3)
+    result = decode_scytale_cipher(encoded, 3)
+    assert result == "HELLO"
+    assert isinstance(result, str)

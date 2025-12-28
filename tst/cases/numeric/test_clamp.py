@@ -26,9 +26,19 @@ from rite.numeric.clamp import (
 # =============================================================================
 
 
-def test_clamp() -> None:
-    """Test clamp() function."""
-    # TODO: Implement test
-    # result = clamp(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "value, lo, hi, expected",
+    [
+        (5, 0, 10, 5),
+        (-5, 0, 10, 0),
+        (15, 0, 10, 10),
+        (0, 0, 10, 0),
+        (10, 0, 10, 10),
+        (None, 0, 10, None),
+    ],
+)
+def test_clamp(
+    value: float | None, lo: float, hi: float, expected: float | None
+) -> None:
+    """Test clamping within, below, and above bounds, including None."""
+    assert clamp(value, lo, hi) == expected

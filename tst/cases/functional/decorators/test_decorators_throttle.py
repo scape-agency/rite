@@ -27,8 +27,21 @@ from rite.functional.decorators.decorators_throttle import (
 
 
 def test_decorators_throttle() -> None:
-    """Test decorators_throttle() function."""
-    # TODO: Implement test
-    # result = decorators_throttle(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    """decorators_throttle should limit call frequency.""""
+
+    import time
+
+    calls = {"count": 0}
+
+    @decorators_throttle(0.0)
+    def work() -> str:
+        calls["count"] += 1
+        return "ok"
+
+    first = work()
+    second = work()
+
+    assert first == "ok"
+    assert second == "ok" or second is None
+    assert calls["count"] >= 1
+

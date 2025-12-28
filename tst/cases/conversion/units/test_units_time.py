@@ -33,65 +33,97 @@ from rite.conversion.units.units_time import (
 # =============================================================================
 
 
-def test_units_seconds_to_minutes() -> None:
-    """Test units_seconds_to_minutes() function."""
-    # TODO: Implement test
-    # result = units_seconds_to_minutes(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "seconds,expected",
+    [
+        (60.0, 1.0),
+        (120.0, 2.0),
+    ],
+)
+def test_units_seconds_to_minutes(seconds: float, expected: float) -> None:
+    """Convert seconds to minutes using simple division."""
+    assert units_seconds_to_minutes(seconds) == expected
 
 
-def test_units_minutes_to_seconds() -> None:
-    """Test units_minutes_to_seconds() function."""
-    # TODO: Implement test
-    # result = units_minutes_to_seconds(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "minutes,expected",
+    [
+        (1.0, 60.0),
+        (2.0, 120.0),
+    ],
+)
+def test_units_minutes_to_seconds(minutes: float, expected: float) -> None:
+    """Convert minutes to seconds using multiplication by 60."""
+    assert units_minutes_to_seconds(minutes) == expected
 
 
-def test_units_seconds_to_hours() -> None:
-    """Test units_seconds_to_hours() function."""
-    # TODO: Implement test
-    # result = units_seconds_to_hours(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "seconds,expected",
+    [
+        (3600.0, 1.0),
+        (7200.0, 2.0),
+    ],
+)
+def test_units_seconds_to_hours(seconds: float, expected: float) -> None:
+    """Convert seconds to hours using documented examples."""
+    assert units_seconds_to_hours(seconds) == expected
 
 
-def test_units_hours_to_seconds() -> None:
-    """Test units_hours_to_seconds() function."""
-    # TODO: Implement test
-    # result = units_hours_to_seconds(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "hours,expected",
+    [
+        (1.0, 3600.0),
+        (2.0, 7200.0),
+    ],
+)
+def test_units_hours_to_seconds(hours: float, expected: float) -> None:
+    """Convert hours to seconds using multiplication by 3600."""
+    assert units_hours_to_seconds(hours) == expected
 
 
-def test_units_seconds_to_days() -> None:
-    """Test units_seconds_to_days() function."""
-    # TODO: Implement test
-    # result = units_seconds_to_days(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "seconds,expected",
+    [
+        (86400.0, 1.0),
+        (172800.0, 2.0),
+    ],
+)
+def test_units_seconds_to_days(seconds: float, expected: float) -> None:
+    """Convert seconds to days using documented examples."""
+    assert units_seconds_to_days(seconds) == expected
 
 
-def test_units_days_to_seconds() -> None:
-    """Test units_days_to_seconds() function."""
-    # TODO: Implement test
-    # result = units_days_to_seconds(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "days,expected",
+    [
+        (1.0, 86400.0),
+        (2.0, 172800.0),
+    ],
+)
+def test_units_days_to_seconds(days: float, expected: float) -> None:
+    """Convert days to seconds using multiplication by 86400."""
+    assert units_days_to_seconds(days) == expected
 
 
-def test_units_minutes_to_hours() -> None:
-    """Test units_minutes_to_hours() function."""
-    # TODO: Implement test
-    # result = units_minutes_to_hours(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "minutes,expected",
+    [
+        (60.0, 1.0),
+        (120.0, 2.0),
+    ],
+)
+def test_units_minutes_to_hours(minutes: float, expected: float) -> None:
+    """Convert minutes to hours using simple division."""
+    assert units_minutes_to_hours(minutes) == expected
 
 
-def test_units_hours_to_minutes() -> None:
-    """Test units_hours_to_minutes() function."""
-    # TODO: Implement test
-    # result = units_hours_to_minutes(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "hours,expected",
+    [
+        (1.0, 60.0),
+        (2.0, 120.0),
+    ],
+)
+def test_units_hours_to_minutes(hours: float, expected: float) -> None:
+    """Convert hours to minutes using multiplication by 60."""
+    assert units_hours_to_minutes(hours) == expected

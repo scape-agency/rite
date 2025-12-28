@@ -31,49 +31,73 @@ from rite.conversion.units.units_weight import (
 # =============================================================================
 
 
-def test_units_grams_to_kilograms() -> None:
-    """Test units_grams_to_kilograms() function."""
-    # TODO: Implement test
-    # result = units_grams_to_kilograms(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "grams,expected",
+    [
+        (1000.0, 1.0),
+        (500.0, 0.5),
+    ],
+)
+def test_units_grams_to_kilograms(grams: float, expected: float) -> None:
+    """Convert grams to kilograms using division by 1000."""
+    assert units_grams_to_kilograms(grams) == expected
 
 
-def test_units_kilograms_to_grams() -> None:
-    """Test units_kilograms_to_grams() function."""
-    # TODO: Implement test
-    # result = units_kilograms_to_grams(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "kilograms,expected",
+    [
+        (1.0, 1000.0),
+        (0.5, 500.0),
+    ],
+)
+def test_units_kilograms_to_grams(kilograms: float, expected: float) -> None:
+    """Convert kilograms to grams using multiplication by 1000."""
+    assert units_kilograms_to_grams(kilograms) == expected
 
 
-def test_units_grams_to_pounds() -> None:
-    """Test units_grams_to_pounds() function."""
-    # TODO: Implement test
-    # result = units_grams_to_pounds(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "grams,expected",
+    [
+        (453.592, 1.0),
+        (1000.0, 2.2),
+    ],
+)
+def test_units_grams_to_pounds(grams: float, expected: float) -> None:
+    """Convert grams to pounds using documented examples."""
+    assert units_grams_to_pounds(grams) == pytest.approx(expected, rel=1e-2)
 
 
-def test_units_pounds_to_grams() -> None:
-    """Test units_pounds_to_grams() function."""
-    # TODO: Implement test
-    # result = units_pounds_to_grams(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "pounds,expected",
+    [
+        (1.0, 453.592),
+        (2.2, 997.9),
+    ],
+)
+def test_units_pounds_to_grams(pounds: float, expected: float) -> None:
+    """Convert pounds to grams using documented factor."""
+    assert units_pounds_to_grams(pounds) == pytest.approx(expected, rel=1e-2)
 
 
-def test_units_grams_to_ounces() -> None:
-    """Test units_grams_to_ounces() function."""
-    # TODO: Implement test
-    # result = units_grams_to_ounces(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "grams,expected",
+    [
+        (28.3495, 1.0),
+        (100.0, 3.53),
+    ],
+)
+def test_units_grams_to_ounces(grams: float, expected: float) -> None:
+    """Convert grams to ounces using documented examples."""
+    assert units_grams_to_ounces(grams) == pytest.approx(expected, rel=1e-2)
 
 
-def test_units_ounces_to_grams() -> None:
-    """Test units_ounces_to_grams() function."""
-    # TODO: Implement test
-    # result = units_ounces_to_grams(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "ounces,expected",
+    [
+        (1.0, 28.3495),
+        (10.0, 283.5),
+    ],
+)
+def test_units_ounces_to_grams(ounces: float, expected: float) -> None:
+    """Convert ounces to grams using documented factor."""
+    assert units_ounces_to_grams(ounces) == pytest.approx(expected, rel=1e-2)

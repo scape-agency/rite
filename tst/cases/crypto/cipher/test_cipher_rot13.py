@@ -29,15 +29,13 @@ from rite.crypto.cipher.cipher_rot13 import (
 
 def test_encode_rot13_cipher() -> None:
     """Test encode_rot13_cipher() function."""
-    # TODO: Implement test
-    # result = encode_rot13_cipher(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = encode_rot13_cipher("HELLO")
+    assert result == "URYYB"
+    assert isinstance(result, str)
 
 
 def test_decode_rot13_cipher() -> None:
     """Test decode_rot13_cipher() function."""
-    # TODO: Implement test
-    # result = decode_rot13_cipher(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = decode_rot13_cipher("URYYB")
+    assert result == "HELLO"
+    assert isinstance(result, str)

@@ -13,9 +13,6 @@ Tests for rite.filesystem.folder.folder_create.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.filesystem.folder.folder_create import (
     create_directory,
@@ -26,9 +23,25 @@ from rite.filesystem.folder.folder_create import (
 # =============================================================================
 
 
-def test_create_directory() -> None:
-    """Test create_directory() function."""
-    # TODO: Implement test
-    # result = create_directory(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+def test_create_directory_with_path(tmp_path) -> None:
+    """create_directory should create nested directories for Path input."""
+    target = tmp_path / "a" / "b" / "c"
+
+    assert not target.exists()
+
+    result = create_directory(target)
+
+    assert result == target
+    assert target.exists()
+    assert target.is_dir()
+
+
+def test_create_directory_with_str(tmp_path) -> None:
+    """create_directory should accept string paths as well."""
+    target = tmp_path / "string_path"
+
+    result = create_directory(str(target))
+
+    assert result == target
+    assert target.exists()
+    assert target.is_dir()

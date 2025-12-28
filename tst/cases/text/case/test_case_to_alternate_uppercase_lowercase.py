@@ -28,5 +28,12 @@ from rite.text.case.case_to_alternate_uppercase_lowercase import (
 
 def test_to_alternate_uppercase_lowercase_case() -> None:
     """Test to_alternate_uppercase_lowercase_case() function."""
-    assert to_alternate_uppercase_lowercase_case("hello") == "HELLO" or to_alternate_uppercase_lowercase_case("hello") == "hello"
-    assert isinstance(to_alternate_uppercase_lowercase_case("test"), str)
+    result = to_alternate_uppercase_lowercase_case("hello")
+    assert result == "hElLo"
+    assert isinstance(result, str)
+    # Verify alternating pattern: even indices lowercase, odd indices uppercase
+    for i, char in enumerate(result):
+        if i % 2 == 0:
+            assert char.islower() or not char.isalpha()
+        else:
+            assert char.isupper() or not char.isalpha()

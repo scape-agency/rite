@@ -31,49 +31,81 @@ from rite.conversion.units.units_temperature import (
 # =============================================================================
 
 
-def test_units_celsius_to_fahrenheit() -> None:
-    """Test units_celsius_to_fahrenheit() function."""
-    # TODO: Implement test
-    # result = units_celsius_to_fahrenheit(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "celsius,expected",
+    [
+        (0.0, 32.0),
+        (100.0, 212.0),
+        (-40.0, -40.0),
+    ],
+)
+def test_units_celsius_to_fahrenheit(celsius: float, expected: float) -> None:
+    """Convert Celsius to Fahrenheit using documented identity points."""
+    assert units_celsius_to_fahrenheit(celsius) == expected
 
 
-def test_units_fahrenheit_to_celsius() -> None:
-    """Test units_fahrenheit_to_celsius() function."""
-    # TODO: Implement test
-    # result = units_fahrenheit_to_celsius(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "fahrenheit,expected",
+    [
+        (32.0, 0.0),
+        (212.0, 100.0),
+        (-40.0, -40.0),
+    ],
+)
+def test_units_fahrenheit_to_celsius(
+    fahrenheit: float, expected: float
+) -> None:
+    """Convert Fahrenheit to Celsius using documented identity points."""
+    assert units_fahrenheit_to_celsius(fahrenheit) == expected
 
 
-def test_units_celsius_to_kelvin() -> None:
-    """Test units_celsius_to_kelvin() function."""
-    # TODO: Implement test
-    # result = units_celsius_to_kelvin(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "celsius,expected",
+    [
+        (0.0, 273.15),
+        (100.0, 373.15),
+        (-273.15, 0.0),
+    ],
+)
+def test_units_celsius_to_kelvin(celsius: float, expected: float) -> None:
+    """Convert Celsius to Kelvin using documented examples."""
+    assert units_celsius_to_kelvin(celsius) == pytest.approx(expected)
 
 
-def test_units_kelvin_to_celsius() -> None:
-    """Test units_kelvin_to_celsius() function."""
-    # TODO: Implement test
-    # result = units_kelvin_to_celsius(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "kelvin,expected",
+    [
+        (273.15, 0.0),
+        (373.15, 100.0),
+        (0.0, -273.15),
+    ],
+)
+def test_units_kelvin_to_celsius(kelvin: float, expected: float) -> None:
+    """Convert Kelvin to Celsius using documented examples."""
+    assert units_kelvin_to_celsius(kelvin) == pytest.approx(expected)
 
 
-def test_units_fahrenheit_to_kelvin() -> None:
-    """Test units_fahrenheit_to_kelvin() function."""
-    # TODO: Implement test
-    # result = units_fahrenheit_to_kelvin(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "fahrenheit,expected",
+    [
+        (32.0, 273.15),
+        (212.0, 373.15),
+    ],
+)
+def test_units_fahrenheit_to_kelvin(
+    fahrenheit: float, expected: float
+) -> None:
+    """Convert Fahrenheit to Kelvin via Celsius step."""
+    assert units_fahrenheit_to_kelvin(fahrenheit) == pytest.approx(expected)
 
 
-def test_units_kelvin_to_fahrenheit() -> None:
-    """Test units_kelvin_to_fahrenheit() function."""
-    # TODO: Implement test
-    # result = units_kelvin_to_fahrenheit(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "kelvin,expected",
+    [
+        (273.15, 32.0),
+        (373.15, 212.0),
+    ],
+)
+def test_units_kelvin_to_fahrenheit(kelvin: float, expected: float) -> None:
+    """Convert Kelvin to Fahrenheit via Celsius step."""
+    assert units_kelvin_to_fahrenheit(kelvin) == pytest.approx(expected)

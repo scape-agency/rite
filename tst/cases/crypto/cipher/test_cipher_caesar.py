@@ -29,15 +29,13 @@ from rite.crypto.cipher.cipher_caesar import (
 
 def test_encode_caesar_cipher() -> None:
     """Test encode_caesar_cipher() function."""
-    # TODO: Implement test
-    # result = encode_caesar_cipher(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = encode_caesar_cipher("HELLO", 3)
+    assert result == "KHOOR"
+    assert isinstance(result, str)
 
 
 def test_decode_caesar_cipher() -> None:
     """Test decode_caesar_cipher() function."""
-    # TODO: Implement test
-    # result = decode_caesar_cipher(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = decode_caesar_cipher("KHOOR", 3)
+    assert result == "HELLO"
+    assert isinstance(result, str)

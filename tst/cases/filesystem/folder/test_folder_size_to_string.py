@@ -13,9 +13,6 @@ Tests for rite.filesystem.folder.folder_size_to_string.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.filesystem.folder.folder_size_to_string import (
     _TotalSize,
@@ -52,9 +49,13 @@ class Test_TotalSize:
 # =============================================================================
 
 
-def test_folder_size_to_string() -> None:
-    """Test folder_size_to_string() function."""
-    # TODO: Implement test
-    # result = folder_size_to_string(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+def test_folder_size_to_string(tmp_path) -> None:
+    """folder_size_to_string should return a human-readable total size.""""
+    root = tmp_path
+    (root / "f1.bin").write_bytes(b"x" * 1024)
+    (root / "f2.bin").write_bytes(b"y" * 1024)
+
+    result = folder_size_to_string(root, recursive=True)
+
+    assert result == "2.00 KB"
+

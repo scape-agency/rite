@@ -27,8 +27,13 @@ from rite.numeric.statistics.statistics_median import (
 
 
 def test_statistics_median() -> None:
-    """Test statistics_median() function."""
-    # TODO: Implement test
-    # result = statistics_median(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    """Test statistics_median() for odd and even length lists."""
+    assert statistics_median([1, 2, 3, 4, 5]) == 3
+    assert statistics_median([1, 2, 3, 4]) == 2.5
+    assert statistics_median([5]) == 5
+
+
+def test_statistics_median_empty_raises() -> None:
+    """statistics_median() should raise on empty list."""
+    with pytest.raises(ValueError):
+        statistics_median([])

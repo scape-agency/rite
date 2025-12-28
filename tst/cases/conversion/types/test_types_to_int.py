@@ -26,9 +26,27 @@ from rite.conversion.types.types_to_int import (
 # =============================================================================
 
 
-def test_types_to_int() -> None:
-    """Test types_to_int() function."""
-    # TODO: Implement test
-    # result = types_to_int(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "value, default, expected",
+    [
+        (None, None, None),
+        (None, 0, 0),
+        (0, None, 0),
+        (42, None, 42),
+        (-7, None, -7),
+        (3.14, None, 3),
+        (True, None, 1),
+        (False, None, 0),
+        ("42", None, 42),
+        ("  42  ", None, 42),
+        ("-5", None, -5),
+        ("  +10  ", None, 10),
+        ("invalid", None, None),
+        ("invalid", 1, 1),
+    ],
+)
+def test_types_to_int(
+    value: object, default: int | None, expected: int | None
+) -> None:
+    """Test types_to_int() for ints, floats, strings, and defaults."""
+    assert types_to_int(value, default) == expected

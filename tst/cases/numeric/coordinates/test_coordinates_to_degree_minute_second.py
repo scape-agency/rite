@@ -13,9 +13,6 @@ Tests for rite.numeric.coordinates.coordinates_to_degree_minute_second.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.numeric.coordinates.coordinates_to_degree_minute_second import (
     coordinates_to_degree_minute_second,
@@ -26,9 +23,22 @@ from rite.numeric.coordinates.coordinates_to_degree_minute_second import (
 # =============================================================================
 
 
-def test_coordinates_to_degree_minute_second() -> None:
-    """Test coordinates_to_degree_minute_second() function."""
-    # TODO: Implement test
-    # result = coordinates_to_degree_minute_second(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+def test_coordinates_to_degree_minute_second_positive() -> None:
+    """Test positive values conversion to DMS format.""""
+    assert coordinates_to_degree_minute_second(12.5) == (12, 30, 0.0)
+    assert coordinates_to_degree_minute_second(0.0) == (0, 0, 0.0)
+
+
+def test_coordinates_to_degree_minute_second_negative() -> None:
+    """Test negative values keep sign when absolute is False.""""
+    assert coordinates_to_degree_minute_second(-12.508333) == (-12, 30, 29.988000000004242)
+
+
+def test_coordinates_to_degree_minute_second_absolute() -> None:
+    """Test negative values are made absolute when requested.""""
+    assert coordinates_to_degree_minute_second(-12.5, absolute=True) == (
+        12,
+        30,
+        0.0,
+    )
+

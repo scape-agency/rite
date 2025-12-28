@@ -26,9 +26,17 @@ from rite.numeric.range.range_normalize import (
 # =============================================================================
 
 
-def test_range_normalize() -> None:
-    """Test range_normalize() function."""
-    # TODO: Implement test
-    # result = range_normalize(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "value, minimum, maximum, expected",
+    [
+        (5, 0, 10, 0.5),
+        (0, 0, 10, 0.0),
+        (10, 0, 10, 1.0),
+        (5, 5, 5, 0.0),  # degenerate range
+    ],
+)
+def test_range_normalize(
+    value: float, minimum: float, maximum: float, expected: float
+) -> None:
+    """Test normalization to 0-1 including degenerate ranges."""
+    assert range_normalize(value, minimum, maximum) == expected
