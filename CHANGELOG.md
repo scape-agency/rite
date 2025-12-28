@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.3-beta.1](https://github.com/scape-agency/rite/compare/v0.2.2...v0.2.3-beta.1) (2025-12-28)
+
+### 🐛 Bug Fixes
+
+* Cross-platform compatibility for Windows CI ([c09b120](https://github.com/scape-agency/rite/commit/c09b120e1c7f7a1b69f84fa2295cda44f7b13677))
+
+### 📦 Build
+
+* **deps)(deps-dev:** bump the development-dependencies group with 8 updates ([df66395](https://github.com/scape-agency/rite/commit/df66395cf3379083c2b691ab4184a1a4a4b0d524))
+
 ## [0.2.2](https://github.com/scape-agency/rite/compare/v0.2.0-beta.5...v0.2.2) (2025-12-27)
 
 ### ✨ Features
