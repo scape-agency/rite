@@ -13,6 +13,10 @@ Tests for rite.temporal.datetime.datetime_now.
 # Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
+from datetime import datetime, timezone
+import time
+
 # Import | Libraries
 import pytest
 
@@ -25,9 +29,6 @@ from rite.temporal.datetime.datetime_now import (
 # Imports
 # =============================================================================
 
-# Import | Standard Library
-import time
-from datetime import datetime, timezone
 
 # =============================================================================
 # Test Functions

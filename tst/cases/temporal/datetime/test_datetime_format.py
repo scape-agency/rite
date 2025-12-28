@@ -13,6 +13,9 @@ Tests for rite.temporal.datetime.datetime_format.
 # Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
+from datetime import datetime
+
 # Import | Libraries
 import pytest
 
@@ -25,8 +28,6 @@ from rite.temporal.datetime.datetime_format import (
 # Imports
 # =============================================================================
 
-# Import | Standard Library
-from datetime import datetime
 
 # =============================================================================
 # Test Functions

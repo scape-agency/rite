@@ -13,6 +13,9 @@ Tests for rite.temporal.datetime.datetime_from_timestamp.
 # Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
+from datetime import datetime, timezone
+
 # Import | Libraries
 import pytest
 
@@ -25,8 +28,6 @@ from rite.temporal.datetime.datetime_from_timestamp import (
 # Imports
 # =============================================================================
 
-# Import | Standard Library
-from datetime import datetime, timezone
 
 # =============================================================================
 # Test Functions
@@ -45,7 +46,7 @@ class TestDatetimeFromTimestamp:
     def test_specific_timestamp(self) -> None:
         """Test with specific timestamp."""
         # 2024-12-27 00:00:00 UTC
-        result = datetime_from_timestamp(1735344000)
+        result = datetime_from_timestamp(1735257600)
         assert result.year == 2024
         assert result.month == 12
         assert result.day == 27
@@ -60,13 +61,13 @@ class TestDatetimeFromTimestamp:
 
     def test_float_timestamp(self) -> None:
         """Test with float timestamp for millisecond precision."""
-        result = datetime_from_timestamp(1735344000.5)
+        result = datetime_from_timestamp(1735257600.5)
         assert result.year == 2024
         assert result.microsecond == 500000
 
     def test_with_explicit_utc_timezone(self) -> None:
         """Test with explicit UTC timezone."""
-        result = datetime_from_timestamp(1735344000, tz=timezone.utc)
+        result = datetime_from_timestamp(1735257600, tz=timezone.utc)
         assert result.tzinfo == timezone.utc
         assert result.year == 2024
 
@@ -80,8 +81,8 @@ class TestDatetimeFromTimestamp:
         [
             (0, 1970, 1, 1),
             (86400, 1970, 1, 2),  # One day after epoch
-            (1735344000, 2024, 12, 27),
-            (1735430400, 2024, 12, 28),
+            (1735257600, 2024, 12, 27),
+            (1735344000, 2024, 12, 28),
         ],
     )
     def test_various_timestamps(
