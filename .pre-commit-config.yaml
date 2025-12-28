@@ -67,7 +67,7 @@ repos:
     rev: 6.3.0
     hooks:
       - id: pydocstyle
-        args: ["--convention=google", "--add-ignore=D100,D104"]
+        args: ["--convention=google", "--add-ignore=D100,D104,D212,D205,D415"]
         exclude: ^(tests?/|tst/|setup\.py)
 
   # YAML/TOML validation

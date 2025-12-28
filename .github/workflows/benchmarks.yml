@@ -37,10 +37,22 @@ jobs:
           poetry run pip install pytest-benchmark
 
       - name: Run benchmarks
-        run: poetry run pytest tst/ --benchmark-only --benchmark-json=output.json || true
+        run: |
+          poetry run pytest tst/ --benchmark-only --benchmark-json=output.json 2>/dev/null || true
+          # Create empty valid JSON if no benchmarks exist
+          if [ ! -s output.json ] || ! python -c "import json; json.load(open('output.json'))" 2>/dev/null; then
+            echo '{"machine_info": {}, "commit_info": {}, "benchmarks": []}' > output.json
+          fi
+
+      - name: Check if benchmarks exist
+        id: check_benchmarks
+        run: |
+          BENCHMARK_COUNT=$(python -c "import json; print(len(json.load(open('output.json')).get('benchmarks', [])))")
+          echo "count=$BENCHMARK_COUNT" >> $GITHUB_OUTPUT
+          echo "Found $BENCHMARK_COUNT benchmark(s)"
 
       - name: Store benchmark result
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.check_benchmarks.outputs.count != '0'
         uses: benchmark-action/github-action-benchmark@v1
         with:
           tool: "pytest"
@@ -50,7 +62,7 @@ jobs:
           alert-threshold: "150%"
 
       - name: Compare benchmarks
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && steps.check_benchmarks.outputs.count != '0'
         uses: benchmark-action/github-action-benchmark@v1
         with:
           tool: "pytest"

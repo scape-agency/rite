@@ -41,6 +41,8 @@ packages = [{ include = "rite", from = "src" }]
 
 [tool.poetry.dependencies]
 python = ">=3.12,<4.0"
+
+# Windows-specific dependency for timezone data
 tzdata = { version = ">=2024.1", markers = "sys_platform == 'win32'" }
 
 
@@ -52,10 +54,11 @@ tzdata = { version = ">=2024.1", markers = "sys_platform == 'win32'" }
 pytest = "^9.0.2"                                  # Framework for testing
 pytest-cov = "^7.0.0"                              # Code coverage for tests
 coverage = "^7.13.0"                               # Coverage measurement
-black = "^25.12.0"                                  # Code formatter
+urllib3 = "^2.6.2"                                 # HTTP client (transitive, pinned for security)
+black = "^25.12.0"                                 # Code formatter
 flake8 = "^7.1.0"                                  # Linter for code quality
 mypy = "^1.19.1"                                   # Static type checker
-isort = "^7.0.0"                                  # Import sorter
+isort = "^7.0.0"                                   # Import sorter
 tox = "^4.4.6"                                     # Testing multiple environments
 pre-commit = "^4.5.1"                              # Pre-commit hooks for linting and formatting
 pylint = "^4.0.4"                                  # Static code analyzer
@@ -184,17 +187,17 @@ exclude_dirs = [
   "*/wip/*",
 ]
 skips = [
-  "B101",  # assert_used - we use asserts in tests
-  "B301",  # pickle - we provide pickle utilities (documented risk)
-  "B310",  # urllib_urlopen - URL utilities need to open URLs
-  "B311",  # random - used for non-cryptographic purposes (text styling)
-  "B318",  # xml.dom.minidom.parseString - XML parsing utilities
-  "B324",  # hashlib weak hash - we provide MD5/SHA1 for compatibility
-  "B403",  # pickle import - we provide pickle serialization utilities
-  "B404",  # subprocess import - required for process management
-  "B406",  # xml.sax - XML parsing utilities (documented risk)
-  "B408",  # xml.dom.minidom - XML parsing utilities (documented risk)
-  "B601",  # paramiko_calls - not applicable
-  "B603",  # subprocess_without_shell - shell=False is intentional
-  "B608",  # hardcoded_sql - SQL utilities use parameterized queries
+  "B101", # assert_used - we use asserts in tests
+  "B301", # pickle - we provide pickle utilities (documented risk)
+  "B310", # urllib_urlopen - URL utilities need to open URLs
+  "B311", # random - used for non-cryptographic purposes (text styling)
+  "B318", # xml.dom.minidom.parseString - XML parsing utilities
+  "B324", # hashlib weak hash - we provide MD5/SHA1 for compatibility
+  "B403", # pickle import - we provide pickle serialization utilities
+  "B404", # subprocess import - required for process management
+  "B406", # xml.sax - XML parsing utilities (documented risk)
+  "B408", # xml.dom.minidom - XML parsing utilities (documented risk)
+  "B601", # paramiko_calls - not applicable
+  "B603", # subprocess_without_shell - shell=False is intentional
+  "B608", # hardcoded_sql - SQL utilities use parameterized queries
 ]
