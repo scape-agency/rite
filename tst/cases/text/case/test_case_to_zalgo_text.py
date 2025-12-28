@@ -28,7 +28,6 @@ from rite.text.case.case_to_zalgo_text import (
 
 def test_to_zalgo_text_case() -> None:
     """Test to_zalgo_text_case() function."""
-    # TODO: Implement test
-    # result = to_zalgo_text_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_zalgo_text_case("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

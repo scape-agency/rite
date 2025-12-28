@@ -32,25 +32,19 @@ class Test_TotalSize:
 
     def test_instantiation(self) -> None:
         """Test _TotalSize can be instantiated."""
-        # TODO: Implement test
-        instance = _TotalSize()
+        instance = _TotalSize(1024)
         assert instance is not None
+        assert instance.size == 1024
 
     def test_tell(self) -> None:
         """Test _TotalSize.tell() method."""
-        # TODO: Implement test
-        instance = _TotalSize()
-        # result = instance.tell()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance = _TotalSize(2048)
+        assert instance.tell() == 2048
 
     def test_seek(self) -> None:
         """Test _TotalSize.seek() method."""
-        # TODO: Implement test
-        instance = _TotalSize()
-        # result = instance.seek()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance = _TotalSize(4096)
+        assert instance.seek() == 4096
 
 
 # =============================================================================

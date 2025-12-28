@@ -28,7 +28,6 @@ from rite.text.case.case_to_spongebob_mocking import (
 
 def test_to_mocking_spongebob_case() -> None:
     """Test to_mocking_spongebob_case() function."""
-    # TODO: Implement test
-    # result = to_mocking_spongebob_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_mocking_spongebob_case("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

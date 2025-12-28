@@ -28,7 +28,6 @@ from rite.text.random.random_alphanumeric import (
 
 def test_random_alphanumeric() -> None:
     """Test random_alphanumeric() function."""
-    # TODO: Implement test
-    # result = random_alphanumeric(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = random_alphanumeric(10)
+    assert isinstance(result, str)
+    assert len(result) == 10

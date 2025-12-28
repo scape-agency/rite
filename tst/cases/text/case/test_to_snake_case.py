@@ -28,7 +28,6 @@ from rite.text.case.to_snake_case import (
 
 def test_to_snake_case() -> None:
     """Test to_snake_case() function."""
-    # TODO: Implement test
-    # result = to_snake_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_snake_case("hello world")
+    assert isinstance(result, str)
+    assert len(result) > 0

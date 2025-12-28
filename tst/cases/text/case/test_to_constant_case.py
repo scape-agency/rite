@@ -28,7 +28,6 @@ from rite.text.case.to_constant_case import (
 
 def test_to_constant_case() -> None:
     """Test to_constant_case() function."""
-    # TODO: Implement test
-    # result = to_constant_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_constant_case("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

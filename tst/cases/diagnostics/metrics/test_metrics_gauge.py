@@ -31,46 +31,44 @@ class Testmetrics_gauge:
 
     def test_instantiation(self) -> None:
         """Test metrics_gauge can be instantiated."""
-        # TODO: Implement test
-        instance = metrics_gauge()
+        instance = metrics_gauge("test_gauge")
         assert instance is not None
+        assert instance.name == "test_gauge"
+        assert instance.value == 0.0
 
     def test_value(self) -> None:
-        """Test metrics_gauge.value() method."""
-        # TODO: Implement test
-        instance = metrics_gauge()
-        # result = instance.value()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        """Test metrics_gauge.value property."""
+        instance = metrics_gauge("test_gauge")
+        assert instance.value == 0.0
+        instance.set(42.5)
+        assert instance.value == 42.5
 
     def test_set(self) -> None:
         """Test metrics_gauge.set() method."""
-        # TODO: Implement test
-        instance = metrics_gauge()
-        # result = instance.set()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance = metrics_gauge("test_gauge")
+        instance.set(10.0)
+        assert instance.value == 10.0
 
     def test_increment(self) -> None:
         """Test metrics_gauge.increment() method."""
-        # TODO: Implement test
-        instance = metrics_gauge()
-        # result = instance.increment()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance = metrics_gauge("test_gauge")
+        instance.increment(5.0)
+        assert instance.value == 5.0
+        instance.increment()
+        assert instance.value == 6.0
 
     def test_decrement(self) -> None:
         """Test metrics_gauge.decrement() method."""
-        # TODO: Implement test
-        instance = metrics_gauge()
-        # result = instance.decrement()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance = metrics_gauge("test_gauge")
+        instance.set(10.0)
+        instance.decrement(3.0)
+        assert instance.value == 7.0
+        instance.decrement()
+        assert instance.value == 6.0
 
     def test_reset(self) -> None:
         """Test metrics_gauge.reset() method."""
-        # TODO: Implement test
-        instance = metrics_gauge()
-        # result = instance.reset()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance = metrics_gauge("test_gauge")
+        instance.set(100.0)
+        instance.reset()
+        assert instance.value == 0.0

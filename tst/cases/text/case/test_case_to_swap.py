@@ -28,7 +28,6 @@ from rite.text.case.case_to_swap import (
 
 def test_to_swap_case() -> None:
     """Test to_swap_case() function."""
-    # TODO: Implement test
-    # result = to_swap_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_swap_case("Hello")
+    assert isinstance(result, str)
+    assert len(result) == len("Hello")

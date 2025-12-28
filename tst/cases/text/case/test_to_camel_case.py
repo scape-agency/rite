@@ -28,7 +28,6 @@ from rite.text.case.to_camel_case import (
 
 def test_to_camel_case() -> None:
     """Test to_camel_case() function."""
-    # TODO: Implement test
-    # result = to_camel_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_camel_case("hello world")
+    assert isinstance(result, str)
+    assert len(result) > 0

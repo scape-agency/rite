@@ -28,7 +28,6 @@ from rite.text.case.case_to_random import (
 
 def test_to_random_case() -> None:
     """Test to_random_case() function."""
-    # TODO: Implement test
-    # result = to_random_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_random_case("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

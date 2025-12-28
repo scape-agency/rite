@@ -28,7 +28,6 @@ from rite.text.case.case_to_slug import (
 
 def test_to_slug_case() -> None:
     """Test to_slug_case() function."""
-    # TODO: Implement test
-    # result = to_slug_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_slug_case("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

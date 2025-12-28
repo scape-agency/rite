@@ -68,7 +68,7 @@ class ObjectPool:
         self.max_size = max_size
         self.reset_func = reset
         self._available: list[Any] = []
-        self._in_use: set[Any] = set()
+        self._in_use: list[Any] = []
 
     def acquire(self) -> Any:
         """
@@ -84,7 +84,7 @@ class ObjectPool:
         else:
             obj = self.factory()
 
-        self._in_use.add(obj)
+        self._in_use.append(obj)
         return obj
 
     def release(self, obj: Any) -> None:

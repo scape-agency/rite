@@ -28,7 +28,6 @@ from rite.text.converters.string_clean import (
 
 def test_string_clean() -> None:
     """Test string_clean() function."""
-    # TODO: Implement test
-    # result = string_clean(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = string_clean("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

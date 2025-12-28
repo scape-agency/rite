@@ -28,7 +28,6 @@ from rite.text.case.case_to_spongebob_meme import (
 
 def test_to_spongebob_meme_case() -> None:
     """Test to_spongebob_meme_case() function."""
-    # TODO: Implement test
-    # result = to_spongebob_meme_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_spongebob_meme_case("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

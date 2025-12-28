@@ -28,7 +28,6 @@ from rite.text.morse.morse_encode import (
 
 def test_morse_encode() -> None:
     """Test morse_encode() function."""
-    # TODO: Implement test
-    # result = morse_encode(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = morse_encode("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

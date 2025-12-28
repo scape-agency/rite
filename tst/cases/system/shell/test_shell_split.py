@@ -28,7 +28,14 @@ from rite.system.shell.shell_split import (
 
 def test_shell_split() -> None:
     """Test shell_split() function."""
-    # TODO: Implement test
-    # result = shell_split(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test simple command
+    result = shell_split("ls -la")
+    assert result == ["ls", "-la"]
+
+    # Test with quoted arguments
+    result = shell_split("echo 'hello world'")
+    assert result == ["echo", "hello world"]
+
+    # Test with escaped quotes
+    result = shell_split("ls '/tmp/file name.txt'")
+    assert result == ["ls", "/tmp/file name.txt"]

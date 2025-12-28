@@ -28,7 +28,6 @@ from rite.text.converters.case_to_emoji import (
 
 def test_to_emoji_case() -> None:
     """Test to_emoji_case() function."""
-    # TODO: Implement test
-    # result = to_emoji_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_emoji_case("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

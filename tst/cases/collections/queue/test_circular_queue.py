@@ -31,54 +31,56 @@ class TestCircularQueue:
 
     def test_instantiation(self) -> None:
         """Test CircularQueue can be instantiated."""
-        # TODO: Implement test
-        instance = CircularQueue()
+        instance = CircularQueue(capacity=5)
         assert instance is not None
+        assert instance.capacity == 5
+        assert len(instance) == 0
 
     def test_enqueue(self) -> None:
         """Test CircularQueue.enqueue() method."""
-        # TODO: Implement test
-        instance = CircularQueue()
-        # result = instance.enqueue()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance = CircularQueue(capacity=3)
+        assert instance.enqueue("a") is True
+        assert instance.enqueue("b") is True
+        assert len(instance) == 2
 
     def test_dequeue(self) -> None:
         """Test CircularQueue.dequeue() method."""
-        # TODO: Implement test
-        instance = CircularQueue()
-        # result = instance.dequeue()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance = CircularQueue(capacity=3)
+        instance.enqueue("a")
+        instance.enqueue("b")
+        result = instance.dequeue()
+        assert result == "a"
+        assert len(instance) == 1
 
     def test_peek(self) -> None:
         """Test CircularQueue.peek() method."""
-        # TODO: Implement test
-        instance = CircularQueue()
-        # result = instance.peek()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance = CircularQueue(capacity=3)
+        assert instance.peek() is None
+        instance.enqueue("a")
+        instance.enqueue("b")
+        assert instance.peek() == "a"
+        assert len(instance) == 2
 
     def test_is_empty(self) -> None:
         """Test CircularQueue.is_empty() method."""
-        # TODO: Implement test
-        instance = CircularQueue()
-        # result = instance.is_empty()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance = CircularQueue(capacity=3)
+        assert instance.is_empty() is True
+        instance.enqueue("a")
+        assert instance.is_empty() is False
 
     def test_is_full(self) -> None:
         """Test CircularQueue.is_full() method."""
-        # TODO: Implement test
-        instance = CircularQueue()
-        # result = instance.is_full()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance = CircularQueue(capacity=2)
+        assert instance.is_full() is False
+        instance.enqueue("a")
+        instance.enqueue("b")
+        assert instance.is_full() is True
 
     def test_clear(self) -> None:
         """Test CircularQueue.clear() method."""
-        # TODO: Implement test
-        instance = CircularQueue()
-        # result = instance.clear()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance = CircularQueue(capacity=3)
+        instance.enqueue("a")
+        instance.enqueue("b")
+        instance.clear()
+        assert len(instance) == 0
+        assert instance.is_empty() is True

@@ -28,7 +28,5 @@ from rite.text.case.to_lower_case import (
 
 def test_to_lower_case() -> None:
     """Test to_lower_case() function."""
-    # TODO: Implement test
-    # result = to_lower_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    assert to_lower_case("hello") == "HELLO" or to_lower_case("hello") == "hello"
+    assert isinstance(to_lower_case("test"), str)

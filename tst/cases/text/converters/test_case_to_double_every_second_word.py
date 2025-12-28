@@ -28,7 +28,6 @@ from rite.text.converters.case_to_double_every_second_word import (
 
 def test_to_double_every_second_word_case() -> None:
     """Test to_double_every_second_word_case() function."""
-    # TODO: Implement test
-    # result = to_double_every_second_word_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_double_every_second_word_case("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

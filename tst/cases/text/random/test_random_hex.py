@@ -28,7 +28,6 @@ from rite.text.random.random_hex import (
 
 def test_random_hex() -> None:
     """Test random_hex() function."""
-    # TODO: Implement test
-    # result = random_hex(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = random_hex(8)
+    assert isinstance(result, str)
+    assert len(result) == 8

@@ -28,7 +28,6 @@ from rite.text.case.to_pascal_case import (
 
 def test_to_pascal_case() -> None:
     """Test to_pascal_case() function."""
-    # TODO: Implement test
-    # result = to_pascal_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_pascal_case("hello world")
+    assert isinstance(result, str)
+    assert len(result) > 0

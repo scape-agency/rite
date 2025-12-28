@@ -28,7 +28,6 @@ from rite.text.converters.case_to_nato_phonetic_alphabet import (
 
 def test_to_nato_phonetic_alphabet_case() -> None:
     """Test to_nato_phonetic_alphabet_case() function."""
-    # TODO: Implement test
-    # result = to_nato_phonetic_alphabet_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_nato_phonetic_alphabet_case("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

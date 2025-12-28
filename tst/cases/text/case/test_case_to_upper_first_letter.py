@@ -28,7 +28,6 @@ from rite.text.case.case_to_upper_first_letter import (
 
 def test_to_upper_first_letter_case() -> None:
     """Test to_upper_first_letter_case() function."""
-    # TODO: Implement test
-    # result = to_upper_first_letter_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_upper_first_letter_case("hello")
+    assert isinstance(result, str)
+    assert result[0].isupper()

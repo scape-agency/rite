@@ -28,7 +28,7 @@ from rite.text.case.case_to_acronym import (
 
 def test_to_acronym_case() -> None:
     """Test to_acronym_case() function."""
-    # TODO: Implement test
-    # result = to_acronym_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    assert to_acronym_case("Random Access Memory") == "RAM"
+    assert to_acronym_case("Hyper Text Markup Language") == "HTML"
+    assert to_acronym_case("") == ""
+    assert to_acronym_case("hello world") == "HW"

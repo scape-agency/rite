@@ -28,7 +28,6 @@ from rite.text.sanitize.sanitize_text import (
 
 def test_sanitize() -> None:
     """Test sanitize() function."""
-    # TODO: Implement test
-    # result = sanitize(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = sanitize("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

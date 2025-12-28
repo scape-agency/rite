@@ -28,7 +28,6 @@ from rite.text.manipulation.text_truncate import (
 
 def test_text_truncate() -> None:
     """Test text_truncate() function."""
-    # TODO: Implement test
-    # result = text_truncate(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = text_truncate("hello world", 5)
+    assert isinstance(result, str)
+    assert len(result) <= 5

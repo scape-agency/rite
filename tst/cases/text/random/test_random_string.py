@@ -28,7 +28,6 @@ from rite.text.random.random_string import (
 
 def test_random_string() -> None:
     """Test random_string() function."""
-    # TODO: Implement test
-    # result = random_string(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = random_string(10)
+    assert isinstance(result, str)
+    assert len(result) == 10

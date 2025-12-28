@@ -28,7 +28,6 @@ from rite.text.case.case_to_upside_down import (
 
 def test_to_upside_down_case() -> None:
     """Test to_upside_down_case() function."""
-    # TODO: Implement test
-    # result = to_upside_down_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_upside_down_case("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

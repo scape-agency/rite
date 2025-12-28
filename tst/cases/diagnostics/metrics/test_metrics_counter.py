@@ -31,30 +31,29 @@ class Testmetrics_counter:
 
     def test_instantiation(self) -> None:
         """Test metrics_counter can be instantiated."""
-        # TODO: Implement test
-        instance = metrics_counter()
+        instance = metrics_counter("test_counter")
         assert instance is not None
+        assert instance.name == "test_counter"
+        assert instance.value == 0.0
 
     def test_value(self) -> None:
-        """Test metrics_counter.value() method."""
-        # TODO: Implement test
-        instance = metrics_counter()
-        # result = instance.value()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        """Test metrics_counter.value property."""
+        instance = metrics_counter("test_counter")
+        assert instance.value == 0.0
+        instance.increment()
+        assert instance.value == 1.0
 
     def test_increment(self) -> None:
         """Test metrics_counter.increment() method."""
-        # TODO: Implement test
-        instance = metrics_counter()
-        # result = instance.increment()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance = metrics_counter("test_counter")
+        instance.increment()
+        assert instance.value == 1.0
+        instance.increment(5)
+        assert instance.value == 6.0
 
     def test_reset(self) -> None:
         """Test metrics_counter.reset() method."""
-        # TODO: Implement test
-        instance = metrics_counter()
-        # result = instance.reset()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance = metrics_counter("test_counter")
+        instance.increment(10)
+        instance.reset()
+        assert instance.value == 0.0

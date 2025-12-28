@@ -28,7 +28,6 @@ from rite.text.converters.case_to_ascii_value import (
 
 def test_to_ascii_value_case() -> None:
     """Test to_ascii_value_case() function."""
-    # TODO: Implement test
-    # result = to_ascii_value_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_ascii_value_case("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

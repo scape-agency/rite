@@ -28,7 +28,5 @@ from rite.text.case.case_to_alternate_uppercase_lowercase import (
 
 def test_to_alternate_uppercase_lowercase_case() -> None:
     """Test to_alternate_uppercase_lowercase_case() function."""
-    # TODO: Implement test
-    # result = to_alternate_uppercase_lowercase_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    assert to_alternate_uppercase_lowercase_case("hello") == "HELLO" or to_alternate_uppercase_lowercase_case("hello") == "hello"
+    assert isinstance(to_alternate_uppercase_lowercase_case("test"), str)

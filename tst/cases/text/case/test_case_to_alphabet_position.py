@@ -28,7 +28,6 @@ from rite.text.case.case_to_alphabet_position import (
 
 def test_to_alphabet_position_case() -> None:
     """Test to_alphabet_position_case() function."""
-    # TODO: Implement test
-    # result = to_alphabet_position_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_alphabet_position_case("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

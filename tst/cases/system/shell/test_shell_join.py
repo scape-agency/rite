@@ -28,7 +28,14 @@ from rite.system.shell.shell_join import (
 
 def test_shell_join() -> None:
     """Test shell_join() function."""
-    # TODO: Implement test
-    # result = shell_join(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test simple command
+    result = shell_join(["ls", "-la"])
+    assert result == "ls -la"
+
+    # Test with arguments containing spaces
+    result = shell_join(["echo", "hello world"])
+    assert result == "echo 'hello world'"
+
+    # Test single argument
+    result = shell_join(["ls"])
+    assert result == "ls"

@@ -32,65 +32,103 @@ class TestSQLiteServer:
 
     def test_instantiation(self) -> None:
         """Test SQLiteServer can be instantiated."""
-        # TODO: Implement test
-        instance = SQLiteServer()
-        assert instance is not None
+        # Import | Standard Library
+        import tempfile
+
+        with tempfile.NamedTemporaryFile(delete=False) as tmp:
+            instance = SQLiteServer(tmp.name)
+            assert instance is not None
+            assert instance.db_path == tmp.name
 
     def test_execute_query(self) -> None:
         """Test SQLiteServer.execute_query() method."""
-        # TODO: Implement test
-        instance = SQLiteServer()
-        # result = instance.execute_query()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        # Import | Standard Library
+        import tempfile
+
+        with tempfile.NamedTemporaryFile(delete=False) as tmp:
+            instance = SQLiteServer(tmp.name)
+            instance.execute_query("CREATE TABLE test (id INTEGER, name TEXT)")
+            instance.execute_query("INSERT INTO test VALUES (1, 'test')")
+            # Should not raise
 
     def test_fetch_all(self) -> None:
         """Test SQLiteServer.fetch_all() method."""
-        # TODO: Implement test
-        instance = SQLiteServer()
-        # result = instance.fetch_all()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        # Import | Standard Library
+        import tempfile
+
+        with tempfile.NamedTemporaryFile(delete=False) as tmp:
+            instance = SQLiteServer(tmp.name)
+            instance.execute_query("CREATE TABLE test (id INTEGER, name TEXT)")
+            instance.execute_query("INSERT INTO test VALUES (1, 'test1')")
+            instance.execute_query("INSERT INTO test VALUES (2, 'test2')")
+            result = instance.fetch_all("SELECT * FROM test")
+            assert len(result) == 2
 
     def test_fetch_one(self) -> None:
         """Test SQLiteServer.fetch_one() method."""
-        # TODO: Implement test
-        instance = SQLiteServer()
-        # result = instance.fetch_one()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        # Import | Standard Library
+        import tempfile
+
+        with tempfile.NamedTemporaryFile(delete=False) as tmp:
+            instance = SQLiteServer(tmp.name)
+            instance.execute_query("CREATE TABLE test (id INTEGER, name TEXT)")
+            instance.execute_query("INSERT INTO test VALUES (1, 'test')")
+            result = instance.fetch_one("SELECT * FROM test WHERE id=1")
+            assert result is not None
 
     def test_insert(self) -> None:
         """Test SQLiteServer.insert() method."""
-        # TODO: Implement test
-        instance = SQLiteServer()
-        # result = instance.insert()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        # Import | Standard Library
+        import tempfile
+
+        with tempfile.NamedTemporaryFile(delete=False) as tmp:
+            instance = SQLiteServer(tmp.name)
+            instance.execute_query("CREATE TABLE test (id INTEGER, name TEXT)")
+            instance.insert("test", {"id": 1, "name": "test"})
+            result = instance.fetch_all("SELECT * FROM test")
+            assert len(result) == 1
 
     def test_update(self) -> None:
         """Test SQLiteServer.update() method."""
-        # TODO: Implement test
-        instance = SQLiteServer()
-        # result = instance.update()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        # Import | Standard Library
+        import tempfile
+
+        with tempfile.NamedTemporaryFile(delete=False) as tmp:
+            instance = SQLiteServer(tmp.name)
+            instance.execute_query("CREATE TABLE test (id INTEGER, name TEXT)")
+            instance.execute_query("INSERT INTO test VALUES (1, 'test')")
+            instance.update("test", {"name": "updated"}, "id=1")
+            result = instance.fetch_one("SELECT name FROM test WHERE id=1")
+            assert result[0] == "updated"
 
     def test_delete(self) -> None:
         """Test SQLiteServer.delete() method."""
-        # TODO: Implement test
-        instance = SQLiteServer()
-        # result = instance.delete()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        # Import | Standard Library
+        import tempfile
+
+        with tempfile.NamedTemporaryFile(delete=False) as tmp:
+            instance = SQLiteServer(tmp.name)
+            instance.execute_query("CREATE TABLE test (id INTEGER, name TEXT)")
+            instance.execute_query("INSERT INTO test VALUES (1, 'test')")
+            instance.delete("test", "id=1")
+            result = instance.fetch_all("SELECT * FROM test")
+            assert len(result) == 0
 
     def test_transaction(self) -> None:
         """Test SQLiteServer.transaction() method."""
-        # TODO: Implement test
-        instance = SQLiteServer()
-        # result = instance.transaction()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        # Import | Standard Library
+        import tempfile
+
+        with tempfile.NamedTemporaryFile(delete=False) as tmp:
+            instance = SQLiteServer(tmp.name)
+            instance.execute_query("CREATE TABLE test (id INTEGER, name TEXT)")
+            queries = [
+                ("INSERT INTO test VALUES (?, ?)", (1, "test1")),
+                ("INSERT INTO test VALUES (?, ?)", (2, "test2")),
+            ]
+            instance.transaction(queries)
+            result = instance.fetch_all("SELECT * FROM test")
+            assert len(result) == 2
 
 
 # =============================================================================

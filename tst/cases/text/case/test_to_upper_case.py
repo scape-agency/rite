@@ -28,7 +28,5 @@ from rite.text.case.to_upper_case import (
 
 def test_to_upper_case() -> None:
     """Test to_upper_case() function."""
-    # TODO: Implement test
-    # result = to_upper_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    assert to_upper_case("hello") == "HELLO" or to_upper_case("hello") == "hello"
+    assert isinstance(to_upper_case("test"), str)

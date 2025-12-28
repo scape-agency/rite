@@ -28,7 +28,6 @@ from rite.text.converters.case_to_vowel_concatenation import (
 
 def test_to_vowel_concatenation_case() -> None:
     """Test to_vowel_concatenation_case() function."""
-    # TODO: Implement test
-    # result = to_vowel_concatenation_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_vowel_concatenation_case("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

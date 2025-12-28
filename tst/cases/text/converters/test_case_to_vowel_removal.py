@@ -28,7 +28,6 @@ from rite.text.converters.case_to_vowel_removal import (
 
 def test_to_vowel_removal_case() -> None:
     """Test to_vowel_removal_case() function."""
-    # TODO: Implement test
-    # result = to_vowel_removal_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_vowel_removal_case("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

@@ -28,7 +28,6 @@ from rite.text.converters.case_to_numeronym import (
 
 def test_to_numeronym_case() -> None:
     """Test to_numeronym_case() function."""
-    # TODO: Implement test
-    # result = to_numeronym_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_numeronym_case("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

@@ -28,7 +28,6 @@ from rite.text.case.to_title_case import (
 
 def test_to_title_case() -> None:
     """Test to_title_case() function."""
-    # TODO: Implement test
-    # result = to_title_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_title_case("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

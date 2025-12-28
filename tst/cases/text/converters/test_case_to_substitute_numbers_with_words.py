@@ -28,7 +28,6 @@ from rite.text.converters.case_to_substitute_numbers_with_words import (
 
 def test_to_substitute_numbers_with_words_case() -> None:
     """Test to_substitute_numbers_with_words_case() function."""
-    # TODO: Implement test
-    # result = to_substitute_numbers_with_words_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_substitute_numbers_with_words_case("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

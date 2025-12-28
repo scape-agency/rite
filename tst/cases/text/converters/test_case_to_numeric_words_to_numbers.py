@@ -28,7 +28,6 @@ from rite.text.converters.case_to_numeric_words_to_numbers import (
 
 def test_to_numeric_words_to_numbers_case() -> None:
     """Test to_numeric_words_to_numbers_case() function."""
-    # TODO: Implement test
-    # result = to_numeric_words_to_numbers_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_numeric_words_to_numbers_case("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

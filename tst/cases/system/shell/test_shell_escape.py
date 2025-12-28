@@ -28,7 +28,14 @@ from rite.system.shell.shell_escape import (
 
 def test_shell_escape() -> None:
     """Test shell_escape() function."""
-    # TODO: Implement test
-    # result = shell_escape(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Test with spaces
+    result = shell_escape("file name.txt")
+    assert result == "'file name.txt'"
+
+    # Test simple string (no escaping needed)
+    result = shell_escape("simple")
+    assert result == "simple"
+
+    # Test with special characters
+    result = shell_escape("test$var")
+    assert "$" not in result or "'" in result

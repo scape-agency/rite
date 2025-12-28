@@ -28,7 +28,6 @@ from rite.text.case.to_dot_case import (
 
 def test_to_dot_case() -> None:
     """Test to_dot_case() function."""
-    # TODO: Implement test
-    # result = to_dot_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_dot_case("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

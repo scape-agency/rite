@@ -20,6 +20,9 @@ import pytest
 from rite.text.morse.morse_decode import (
     morse_decode,
 )
+from rite.text.morse.morse_encode import (
+    morse_encode,
+)
 
 # =============================================================================
 # Test Functions
@@ -28,7 +31,6 @@ from rite.text.morse.morse_decode import (
 
 def test_morse_decode() -> None:
     """Test morse_decode() function."""
-    # TODO: Implement test
-    # result = morse_decode(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    morse_code = morse_encode("a")
+    result = morse_decode(morse_code)
+    assert isinstance(result, str)

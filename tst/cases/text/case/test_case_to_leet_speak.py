@@ -28,7 +28,6 @@ from rite.text.case.case_to_leet_speak import (
 
 def test_to_leet_speak_case() -> None:
     """Test to_leet_speak_case() function."""
-    # TODO: Implement test
-    # result = to_leet_speak_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_leet_speak_case("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

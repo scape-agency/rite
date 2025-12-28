@@ -31,62 +31,53 @@ class TestLogger:
 
     def test_instantiation(self) -> None:
         """Test Logger can be instantiated."""
-        # TODO: Implement test
-        instance = Logger()
+        instance = Logger("test_logger")
         assert instance is not None
+        assert instance.logger.name == "test_logger"
 
     def test_log(self) -> None:
         """Test Logger.log() method."""
-        # TODO: Implement test
-        instance = Logger()
-        # result = instance.log()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance = Logger("test_logger")
+        instance.log("info", "Test message")
+        # Should not raise
 
     def test_debug(self) -> None:
         """Test Logger.debug() method."""
-        # TODO: Implement test
-        instance = Logger()
-        # result = instance.debug()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance = Logger("test_logger")
+        instance.debug("Debug message")
+        # Should not raise
 
     def test_info(self) -> None:
         """Test Logger.info() method."""
-        # TODO: Implement test
-        instance = Logger()
-        # result = instance.info()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance = Logger("test_logger")
+        instance.info("Info message")
+        # Should not raise
 
     def test_warning(self) -> None:
         """Test Logger.warning() method."""
-        # TODO: Implement test
-        instance = Logger()
-        # result = instance.warning()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance = Logger("test_logger")
+        instance.warning("Warning message")
+        # Should not raise
 
     def test_error(self) -> None:
         """Test Logger.error() method."""
-        # TODO: Implement test
-        instance = Logger()
-        # result = instance.error()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance = Logger("test_logger")
+        instance.error("Error message")
+        # Should not raise
 
     def test_critical(self) -> None:
         """Test Logger.critical() method."""
-        # TODO: Implement test
-        instance = Logger()
-        # result = instance.critical()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance = Logger("test_logger")
+        instance.critical("Critical message")
+        # Should not raise
 
     def test_clear_log(self) -> None:
         """Test Logger.clear_log() method."""
-        # TODO: Implement test
-        instance = Logger()
-        # result = instance.clear_log()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        # Import | Standard Library
+        import tempfile
+
+        tmp = tempfile.NamedTemporaryFile(delete=False)
+        instance = Logger("test_logger", log_file=tmp.name)
+        instance.info("Test message")
+        instance.clear_log()
+        # Should not raise

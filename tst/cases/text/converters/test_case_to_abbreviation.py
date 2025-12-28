@@ -28,7 +28,6 @@ from rite.text.converters.case_to_abbreviation import (
 
 def test_to_abbreviation_case() -> None:
     """Test to_abbreviation_case() function."""
-    # TODO: Implement test
-    # result = to_abbreviation_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_abbreviation_case("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0

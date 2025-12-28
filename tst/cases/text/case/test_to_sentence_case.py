@@ -28,7 +28,6 @@ from rite.text.case.to_sentence_case import (
 
 def test_to_sentence_case() -> None:
     """Test to_sentence_case() function."""
-    # TODO: Implement test
-    # result = to_sentence_case(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    result = to_sentence_case("hello")
+    assert isinstance(result, str)
+    assert len(result) > 0
