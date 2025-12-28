@@ -74,9 +74,9 @@ Rite is organized into functional modules:
 ## Next Steps
 
 - [Installation Guide](installation.md)
-- [API Reference](../api/index.md)
+- [API Reference](api/index.md)
 - [Examples](examples.md)
-- [Development Guide](../development/setup.md)
+- [Development Guide](development/setup.md)
 
 ## Requirements
 
@@ -87,8 +87,8 @@ Rite is organized into functional modules:
 
 - [Documentation](https://rite.scape.agency)
 - [GitHub Issues](https://github.com/scape-agency/rite/issues)
-- [Contributing Guidelines](../contributing.md)
+- [Contributing Guidelines](contributing.md)
 
 ## License
 
-Rite is released under the MIT License. See [LICENSE](../legal/license.md) for details.
+Rite is released under the MIT License. See [LICENSE](legal/license.md) for details.

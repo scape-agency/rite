@@ -185,7 +185,7 @@ For a complete, containerized development environment:
 3. Open Command Palette: "Dev Containers: Reopen in Container"
 4. Wait for container to build (first time only)
 
-See [.devcontainer/README.md](../../.devcontainer/README.md) for details.
+See the [Dev Container documentation](https://github.com/scape-agency/rite/tree/main/.devcontainer) for details.
 
 ## Makefile Commands
 
@@ -358,7 +358,7 @@ poetry run tox -e py312
 
 ## Next Steps
 
-- Read [Contributing Guide](../contributing.md)
+- Read [Contributing Guide](https://github.com/scape-agency/rite/blob/main/CONTRIBUTING.md)
 - Review [Code Style Guidelines](code-style.md)
 - Check [AI Instructions](ai-instructions.md)
 - Explore [API Reference](../api/index.md)

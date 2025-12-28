@@ -44,8 +44,8 @@ Welcome to the **Rite** documentation! Rite is a modern Python utility library p
 - [AI Instructions](development/ai-instructions.md) - Guidelines for AI agents and GitHub Copilot
 
 ### Reference
-- [Changelog](../CHANGELOG.md) - Version history
-- [Architecture](../ARCHITECTURE.txt) - System architecture
+- [Changelog](https://github.com/scape-agency/rite/blob/main/CHANGELOG.md) - Version history
+- [Architecture](https://github.com/scape-agency/rite/blob/main/ARCHITECTURE.md) - System architecture
 
 ## Module Overview
 

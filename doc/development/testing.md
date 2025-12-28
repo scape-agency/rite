@@ -112,7 +112,7 @@ class TestFunction:
         # Test empty input
         result = function("")
         assert result == ""
-        
+
         # Test None input
         with pytest.raises(TypeError):
             function(None)
@@ -176,11 +176,11 @@ class TestFileOperations:
         # Create test file
         source = tmp_path / "source.txt"
         source.write_text("test content")
-        
+
         # Copy file
         dest = tmp_path / "dest.txt"
         file_copy(source, dest)
-        
+
         # Verify
         assert dest.read_text() == "test content"
         assert file_exists(dest)
@@ -327,9 +327,9 @@ def test_with_mock() -> None:
     """Test with mocked dependency."""
     mock_service = Mock()
     mock_service.get_data.return_value = {"key": "value"}
-    
+
     result = function_using_service(mock_service)
-    
+
     mock_service.get_data.assert_called_once()
     assert result["key"] == "value"
 
@@ -338,9 +338,9 @@ def test_with_mock() -> None:
 def test_with_patch(mock_external: Mock) -> None:
     """Test with patched function."""
     mock_external.return_value = "mocked"
-    
+
     result = function()
-    
+
     assert result == "mocked"
     mock_external.assert_called()
 ```
@@ -401,10 +401,10 @@ def test_user_creation() -> None:
     # Arrange
     name = "John Doe"
     email = "john@example.com"
-    
+
     # Act
     user = create_user(name, email)
-    
+
     # Assert
     assert user.name == name
     assert user.email == email
@@ -441,7 +441,7 @@ class TestCounter:
         counter = Counter()
         counter.increment()
         assert counter.value == 1
-    
+
     def test_decrement(self) -> None:
         counter = Counter()
         counter.decrement()
@@ -450,11 +450,11 @@ class TestCounter:
 # ❌ Bad: Tests depend on execution order
 class TestCounter:
     counter = Counter()
-    
+
     def test_increment(self) -> None:
         self.counter.increment()
         assert self.counter.value == 1
-    
+
     def test_another_increment(self) -> None:
         # Assumes previous test ran first
         self.counter.increment()
@@ -546,7 +546,7 @@ def test_file_operations(tmp_path: Path) -> None:
     # Create test file
     test_file = tmp_path / "test.txt"
     test_file.write_text("content")
-    
+
     # Test
     result = read_file(test_file)
     assert result == "content"
@@ -559,7 +559,7 @@ def test_exception_message() -> None:
     """Test exception details."""
     with pytest.raises(ValueError) as exc_info:
         function("invalid")
-    
+
     assert "invalid" in str(exc_info.value)
 ```
 
@@ -584,4 +584,4 @@ async def test_async_function() -> None:
 
 - [Code Style Guide](code-style.md)
 - [Development Setup](setup.md)
-- [Contributing Guide](../contributing.md)
+- [Contributing Guide](https://github.com/scape-agency/rite/blob/main/CONTRIBUTING.md)

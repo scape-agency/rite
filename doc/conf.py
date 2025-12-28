@@ -10,7 +10,6 @@ This configuration integrates with MkDocs via mkdocstrings.
 
 # Import | Standard Library
 import os
-from pathlib import Path
 import sys
 
 # =============================================================================
@@ -25,7 +24,7 @@ sys.path.insert(0, os.path.abspath("../src"))
 # =============================================================================
 
 project = "rite"
-copyright = "2023-2025, Scape Agency BV"
+copyright = "2023-2025, Scape Agency BV"  # pylint: disable=redefined-builtin
 author = "Scape Agency"
 release = "0.1.2"
 version = "0.1.2"
@@ -138,7 +137,6 @@ html_css_files = ["custom.css"]
 
 html_theme_options = {
     "logo_only": False,
-    "display_version": True,
     "prev_next_buttons_location": "bottom",
     "style_external_links": False,
     "collapse_navigation": True,
@@ -148,7 +146,7 @@ html_theme_options = {
     "titles_only": False,
 }
 
-html_logo = "assets/image/logo_light.png"
+html_logo = "assets/image/rite_logo_light.png"
 html_favicon = "assets/favicon/favicon.ico"
 
 html_context = {

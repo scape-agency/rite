@@ -4,7 +4,7 @@ Thank you for your interest in contributing to Rite! We welcome contributions fr
 
 ## Code of Conduct
 
-By participating in this project, you agree to abide by our [Code of Conduct](../.github/CODE_OF_CONDUCT.md).
+By participating in this project, you agree to abide by our [Code of Conduct](https://github.com/scape-agency/rite/blob/main/CODE_OF_CONDUCT.md).
 
 ## Getting Started
 
@@ -52,7 +52,7 @@ Rite follows strict code quality standards:
 - **79 character line length**
 - **Modular file structure** with prefixes
 
-See [AI Instructions](ai-instructions.md) for detailed guidelines.
+See [AI Instructions](development/ai-instructions.md) for detailed guidelines.
 
 ### File Structure
 
@@ -226,8 +226,8 @@ Scopes (module names):
 ### 3. Submit PR
 
 Use one of the PR templates:
-- [Feature PR Template](../.github/PULL_REQUEST_TEMPLATE/feature.md)
-- [Bugfix PR Template](../.github/PULL_REQUEST_TEMPLATE/bugfix.md)
+- [Feature PR Template](https://github.com/scape-agency/rite/blob/main/.github/PULL_REQUEST_TEMPLATE.md)
+- [Bugfix PR Template](https://github.com/scape-agency/rite/blob/main/.github/PULL_REQUEST_TEMPLATE.md)
 
 Fill in:
 - Clear description
@@ -275,7 +275,7 @@ Open in VS Code with Dev Containers extension:
 3. Command Palette: "Dev Containers: Reopen in Container"
 4. Environment is automatically set up
 
-See [.devcontainer/README.md](../../.devcontainer/README.md).
+See the [Dev Container documentation](https://github.com/scape-agency/rite/tree/main/.devcontainer) for details.
 
 ## Adding New Modules
 
@@ -326,7 +326,7 @@ Add exports to module's `__init__.py`.
 
 ### Bug Reports
 
-Use the [bug report template](../.github/ISSUE_TEMPLATE/bug_report.md):
+Use the [bug report template](https://github.com/scape-agency/rite/issues/new?template=bug_report.md):
 
 - Clear description
 - Steps to reproduce
@@ -336,7 +336,7 @@ Use the [bug report template](../.github/ISSUE_TEMPLATE/bug_report.md):
 
 ### Feature Requests
 
-Use the [feature request template](../.github/ISSUE_TEMPLATE/feature_request.md):
+Use the [feature request template](https://github.com/scape-agency/rite/issues/new?template=feature_request.md):
 
 - Clear description
 - Use case and motivation

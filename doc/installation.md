@@ -103,7 +103,7 @@ docker-compose build
 docker-compose up
 ```
 
-See [.devcontainer/README.md](../../.devcontainer/README.md) for details.
+See the [Dev Container documentation](https://github.com/scape-agency/rite/tree/main/.devcontainer) for details.
 
 ## Troubleshooting
 
@@ -148,5 +148,5 @@ export PATH="$HOME/.local/bin:$PATH"
 ## Next Steps
 
 - [Quick Start Guide](getting-started.md)
-- [API Reference](../api/index.md)
+- [API Reference](api/index.md)
 - [Examples](examples.md)

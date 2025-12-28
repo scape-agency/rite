@@ -395,4 +395,4 @@ When in doubt, look at existing files in the codebase as examples.
 - [Development Setup](setup.md)
 - [Testing Guide](testing.md)
 - [Configuration Guide](configuration.md)
-- [Contributing Guide](../contributing.md)
+- [Contributing Guide](https://github.com/scape-agency/rite/blob/main/CONTRIBUTING.md)
