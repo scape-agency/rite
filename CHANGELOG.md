@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.2.0-beta.6](https://github.com/scape-agency/rite/compare/v0.2.0-beta.5...v0.2.0-beta.6) (2025-12-27)
+## [0.2.1](https://github.com/scape-agency/rite/compare/v0.2.0-beta.5...v0.2.1) (2025-12-27)
 
 ### ✨ Features
 
