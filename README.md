@@ -79,22 +79,22 @@
 
 ### Module Overview
 
-| Module | Description |
-|--------|-------------|
-| **collections** | Buffers, caches (LRU/LFU/TTL), dict/list/set utilities, queues, trees |
-| **conversion** | Type conversions, format transformations, unit conversions |
-| **crypto** | UUID generation, hashing (SHA-256, MD5, BLAKE2), ciphers, random |
-| **diagnostics** | Debugging, error handling, logging, metrics, profiling |
-| **filesystem** | File/folder operations, compression, path utilities, MIME types |
-| **functional** | Composition, currying, decorators, memoization, predicates |
-| **markup** | HTML/XML/Markdown processing, entity encoding, sanitization |
-| **net** | HTTP utilities, MIME types, URL encoding, request helpers |
-| **numeric** | Math operations, statistics, number formatting |
-| **reflection** | Attributes, inspection, signatures, type checking |
-| **serialization** | JSON, CSV, INI, TOML, pickle serialization |
-| **system** | Environment, platform detection, process management, shell |
-| **temporal** | Date/time utilities, timestamp operations, formatting |
-| **text** | Slug generation, case conversion, sanitization, analysis, search |
+| Module            | Description                                                           |
+| ----------------- | --------------------------------------------------------------------- |
+| **collections**   | Buffers, caches (LRU/LFU/TTL), dict/list/set utilities, queues, trees |
+| **conversion**    | Type conversions, format transformations, unit conversions            |
+| **crypto**        | UUID generation, hashing (SHA-256, MD5, BLAKE2), ciphers, random      |
+| **diagnostics**   | Debugging, error handling, logging, metrics, profiling                |
+| **filesystem**    | File/folder operations, compression, path utilities, MIME types       |
+| **functional**    | Composition, currying, decorators, memoization, predicates            |
+| **markup**        | HTML/XML/Markdown processing, entity encoding, sanitization           |
+| **net**           | HTTP utilities, MIME types, URL encoding, request helpers             |
+| **numeric**       | Math operations, statistics, number formatting                        |
+| **reflection**    | Attributes, inspection, signatures, type checking                     |
+| **serialization** | JSON, CSV, INI, TOML, pickle serialization                            |
+| **system**        | Environment, platform detection, process management, shell            |
+| **temporal**      | Date/time utilities, timestamp operations, formatting                 |
+| **text**          | Slug generation, case conversion, sanitization, analysis, search      |
 
 ---
 

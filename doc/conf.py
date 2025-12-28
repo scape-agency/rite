@@ -73,6 +73,11 @@ exclude_patterns = [
     "**/__pycache__",
 ]
 
+# Suppress warnings for orphan documents (not in toctree)
+# and myst header level warnings
+# These are standalone pages that don't need to be in navigation
+suppress_warnings = ["toc.not_included", "myst.header"]
+
 # Pygments style
 pygments_style = "sphinx"
 

@@ -183,6 +183,18 @@ exclude_dirs = [
   "*/bup/*",
   "*/wip/*",
 ]
-skips = ["B101", "B601"]
-# B101: assert_used (we use asserts in tests)
-# B601: paramiko_calls (not applicable)
+skips = [
+  "B101",  # assert_used - we use asserts in tests
+  "B301",  # pickle - we provide pickle utilities (documented risk)
+  "B310",  # urllib_urlopen - URL utilities need to open URLs
+  "B311",  # random - used for non-cryptographic purposes (text styling)
+  "B318",  # xml.dom.minidom.parseString - XML parsing utilities
+  "B324",  # hashlib weak hash - we provide MD5/SHA1 for compatibility
+  "B403",  # pickle import - we provide pickle serialization utilities
+  "B404",  # subprocess import - required for process management
+  "B406",  # xml.sax - XML parsing utilities (documented risk)
+  "B408",  # xml.dom.minidom - XML parsing utilities (documented risk)
+  "B601",  # paramiko_calls - not applicable
+  "B603",  # subprocess_without_shell - shell=False is intentional
+  "B608",  # hardcoded_sql - SQL utilities use parameterized queries
+]
