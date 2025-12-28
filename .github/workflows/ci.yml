@@ -54,6 +54,10 @@ jobs:
           restore-keys: |
             poetry-${{ runner.os }}-${{ matrix.python-version }}-
 
+      - name: Verify poetry.lock is up to date
+        shell: bash
+        run: poetry check --lock
+
       - name: Install dependencies
         shell: bash
         run: poetry install --no-interaction

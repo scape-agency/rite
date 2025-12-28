@@ -85,3 +85,10 @@ repos:
       - id: codespell
         args: ["--ignore-words-list=crate,nd,te,assertIn,hel,caf,statics,pres,fo"]
         exclude: ^(poetry\.lock|\.git|htmlcov/|res/)
+
+  # Poetry lock file validation
+  - repo: https://github.com/python-poetry/poetry
+    rev: 1.8.0
+    hooks:
+      - id: poetry-check
+        args: ["--lock"]
