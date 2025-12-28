@@ -76,7 +76,7 @@ repos:
     hooks:
       - id: prettier
         types_or: [yaml, markdown, json]
-        exclude: ^(poetry\.lock|\.vscode/)
+        exclude: ^(poetry\.lock|\.vscode/|\.devcontainer/|\.pre-commit-config\.yaml)
 
   # Spell checking (optional - can disable if too noisy)
   - repo: https://github.com/codespell-project/codespell

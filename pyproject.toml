@@ -7,7 +7,7 @@
 
 [tool.poetry]
 name = "rite"
-version = "0.2.1"
+version = "0.2.2"
 description = "Python Utility Package"
 authors = ["Scape Agency <info@scape.agency>"]
 license = "MIT License"
@@ -21,13 +21,16 @@ classifiers = [
   "Intended Audience :: Developers",
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
   "Topic :: Software Development :: Libraries :: Python Modules",
+  "Typing :: Typed",
 ]
 include = [
   "src/rite/**",
+  "src/rite/py.typed",
   "README.md",
   "LICENSE",
-  "docs/**",     # Include documentation in the package
+  "docs/**",           # Include documentation in the package
 ]
 packages = [{ include = "rite", from = "src" }]
 
@@ -159,10 +162,8 @@ commands = ["mypy src/"]
 
 [tool.black]
 line-length = 79
-target-version = ["py310", "py311", "py312"]
+target-version = ["py312", "py313"]
 extend-exclude = '(\.eggs|\.git|\.hg|\.mypy_cache|\.tox|\.venv|_build|buck-out|build|dist|htmlcov|bup|wip)'
-# Ensure files end with exactly one newline
-ensure-newline = true
 
 
 # =============================================================================

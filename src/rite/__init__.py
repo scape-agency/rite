@@ -51,18 +51,18 @@ from . import (
     temporal,
     text,
 )
+from .__version__ import __version__
 
 # =============================================================================
 # Information
 # =============================================================================
 
 __author__ = "Lars van Vianen"
-__copyright__ = "Copyright 2022, Scape Agency"
+__copyright__ = "Copyright 2025, Scape Agency"
 __credits__ = [
     "Lars van Vianen",
 ]
 __license__ = "MIT License"
-__version__ = "0.1.2"
 __maintainer__ = "Scape Agency"
 __email__ = "info@scape.agency"
 __status__ = "Alpha"
@@ -73,6 +73,7 @@ __status__ = "Alpha"
 # =============================================================================
 
 __all__: list[str] = [
+    "__version__",
     "text",
     "numeric",
     "temporal",
