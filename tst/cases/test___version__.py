@@ -35,7 +35,7 @@ def test_version_is_string() -> None:
 def test_version_format() -> None:
     """Test that __version__ has valid format."""
     # Should be semver-like: X.Y.Z or X.Y.Z-suffix
-    # Handle formats like "0.2.3b3" by extracting the major.minor.patch part
+    # Handle formats like "0.2.4b3" by extracting the major.minor.patch part
     # Import | Standard Library
     import re
 
