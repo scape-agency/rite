@@ -1,0 +1,25 @@
+# www.robotstxt.org/
+# Robots.txt for Rite Documentation
+
+# Allow all well-behaved crawlers
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /search/opensearch.xml
+
+# Crawl-delay for specific bots (if needed)
+# User-agent: Googlebot
+# Crawl-delay: 0
+
+# Special rules for AI scrapers (optional - uncomment to block)
+# User-agent: GPTBot
+# Disallow: /
+# User-agent: ChatGPT-User
+# Disallow: /
+
+# Sitemap location
+Sitemap: https://www.pyrites.dev/sitemap.xml
+
+# Host (primary domain)
+Host: www.pyrites.dev

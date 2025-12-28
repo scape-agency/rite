@@ -1,0 +1,15 @@
+/* TEAM */
+Developer: Scape Agency
+Site: https://www.scape.agency
+Location: Amsterdam, Netherlands
+
+/* THANKS */
+MkDocs Team
+Material for MkDocs
+Python Software Foundation
+
+/* SITE */
+Last update: 2025/12/27
+Standards: HTML5, CSS3, Python 3.10+
+Components: MkDocs, Material Theme, Sphinx
+Software: VS Code, Git, Poetry

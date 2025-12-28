@@ -1,0 +1,41 @@
+{
+  "name": "Rite - Modern Python Utility Library",
+  "short_name": "Rite",
+  "description": "Zero-dependency Python utility library for Python 3.10+",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2196f3",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/assets/favicon/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/favicon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/image/rite_logo_light.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["development", "utilities", "productivity"],
+  "shortcuts": [
+    {
+      "name": "API Reference",
+      "url": "/api/",
+      "description": "Browse API documentation"
+    },
+    {
+      "name": "Getting Started",
+      "url": "/getting-started/",
+      "description": "Quick start guide"
+    }
+  ]
+}
