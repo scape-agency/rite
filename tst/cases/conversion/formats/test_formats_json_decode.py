@@ -35,3 +35,21 @@ def test_formats_json_decode() -> None:
     assert formats_json_decode("123") == 123
     assert formats_json_decode("true") == True
     assert formats_json_decode("null") is None
+
+    # Test with bytes input
+    assert formats_json_decode(b'{"a": 1}') == {"a": 1}
+    assert formats_json_decode(b"[1, 2, 3]") == [1, 2, 3]
+
+    # Test with default values on invalid JSON
+    assert formats_json_decode("invalid") is None
+    assert formats_json_decode("invalid", {}) == {}
+    assert formats_json_decode("invalid", []) == []
+    assert formats_json_decode("{invalid json}", "default") == "default"
+
+    # Test nested structures
+    assert formats_json_decode('{"a": {"b": {"c": 1}}}') == {
+        "a": {"b": {"c": 1}}
+    }
+
+    # Test with special characters
+    assert formats_json_decode('{"emoji": "😀"}') == {"emoji": "😀"}

@@ -37,3 +37,17 @@ def test_formats_base64_decode() -> None:
 
     # Test with padding
     assert formats_base64_decode("YQ==") == b"a"
+
+    # Test with default return on invalid input
+    assert formats_base64_decode("invalid!@#$%") is None
+    assert formats_base64_decode("invalid!@#$%", b"") == b""
+    assert formats_base64_decode("not-valid", b"fallback") == b"fallback"
+
+    # Test special characters
+    assert formats_base64_decode("5LiW55WM") == b"\xe4\xb8\x96\xe7\x95\x8c"
+
+    # Test numbers
+    assert formats_base64_decode("MDEyMzQ1") == b"012345"
+
+    # Test longer strings
+    assert formats_base64_decode("SGVsbG8gV29ybGQh") == b"Hello World!"
