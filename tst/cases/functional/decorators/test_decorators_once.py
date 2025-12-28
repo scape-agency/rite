@@ -27,7 +27,7 @@ from rite.functional.decorators.decorators_once import (
 
 
 def test_decorators_once() -> None:
-    """decorators_once should only execute the function once.""""
+    """decorators_once should only execute the function once."""
 
     calls = {"count": 0}
 
@@ -39,4 +39,3 @@ def test_decorators_once() -> None:
     assert get_value() == 42
     assert get_value() == 42
     assert calls["count"] == 1
-

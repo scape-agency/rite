@@ -26,9 +26,33 @@ from rite.filesystem.file.file_copy import (
 # =============================================================================
 
 
-def test_copy_file() -> None:
-    """Test copy_file() function."""
-    # TODO: Implement test
-    # result = copy_file(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+def test_copy_file_copies_contents(tmp_path) -> None:
+    """copy_file should copy file contents to destination."""
+    source = tmp_path / "source.txt"
+    dest = tmp_path / "dest" / "dest.txt"
+    source.write_text("hello")
+
+    copy_file(source, dest)
+
+    assert dest.exists()
+    assert dest.read_text() == "hello"
+
+
+def test_copy_file_missing_source_raises(tmp_path) -> None:
+    """copy_file should raise if source file is missing."""
+    source = tmp_path / "missing.txt"
+    dest = tmp_path / "dest.txt"
+
+    with pytest.raises(FileNotFoundError):
+        copy_file(source, dest)
+
+
+def test_copy_file_no_overwrite(tmp_path) -> None:
+    """copy_file should not overwrite if overwrite=False and dest exists."""
+    source = tmp_path / "source.txt"
+    dest = tmp_path / "dest.txt"
+    source.write_text("source")
+    dest.write_text("existing")
+
+    with pytest.raises(FileExistsError):
+        copy_file(source, dest, overwrite=False)

@@ -35,6 +35,5 @@ def test_float_to_degree_minute_negative() -> None:
 
 
 def test_float_to_degree_minute_absolute() -> None:
-    """Test negative values are made absolute when requested.""""
+    """Test negative values are made absolute when requested."""
     assert float_to_degree_minute(-12.5, absolute=True) == (12, 30.0)
-

@@ -27,7 +27,7 @@ from rite.functional.memoization.memoization_lru_cache import (
 
 
 def test_memoization_lru_cache() -> None:
-    """memoization_lru_cache should apply functools.lru_cache behavior.""""
+    """memoization_lru_cache should apply functools.lru_cache behavior."""
 
     calls = {"count": 0}
 
@@ -42,4 +42,3 @@ def test_memoization_lru_cache() -> None:
 
     assert square(3) == 9
     assert calls["count"] == 2
-

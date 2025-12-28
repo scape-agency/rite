@@ -24,7 +24,7 @@ from rite.filesystem.folder.folder_size_get import (
 
 
 def test_get_folder_size_includes_nested_files(tmp_path) -> None:
-    """get_folder_size should sum sizes of all files recursively.""""
+    """get_folder_size should sum sizes of all files recursively."""
     root = tmp_path
     file_a = root / "a.bin"
     subdir = root / "sub"
@@ -39,6 +39,5 @@ def test_get_folder_size_includes_nested_files(tmp_path) -> None:
 
 
 def test_get_folder_size_empty(tmp_path) -> None:
-    """Empty folder should report size 0.""""
+    """Empty folder should report size 0."""
     assert get_folder_size(tmp_path) == 0
-

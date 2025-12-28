@@ -13,6 +13,9 @@ Tests for rite.filesystem.folder.folder_list_folders.
 # Import | Future
 from __future__ import annotations
 
+# Import | Libraries
+import pytest
+
 # Import | Local Modules
 from rite.filesystem.folder.folder_list_folders import (
     list_folders,
@@ -24,7 +27,7 @@ from rite.filesystem.folder.folder_list_folders import (
 
 
 def test_list_folders_non_recursive(tmp_path) -> None:
-    """list_folders should return only direct subdirectories by default.""""
+    """list_folders should return only direct subdirectories by default."""
     root = tmp_path
     sub1 = root / "sub1"
     sub2 = root / "sub2"
@@ -39,7 +42,7 @@ def test_list_folders_non_recursive(tmp_path) -> None:
 
 
 def test_list_folders_recursive_and_pattern(tmp_path) -> None:
-    """list_folders supports recursive search and glob pattern filtering.""""
+    """list_folders supports recursive search and glob pattern filtering."""
     root = tmp_path
     (root / "sub1").mkdir()
     (root / "sub2").mkdir()
@@ -57,7 +60,7 @@ def test_list_folders_recursive_and_pattern(tmp_path) -> None:
 
 
 def test_list_folders_raises_for_missing_or_file(tmp_path) -> None:
-    """list_folders should error on missing path or non-directory.""""
+    """list_folders should error on missing path or non-directory."""
     missing = tmp_path / "missing"
     with pytest.raises(FileNotFoundError):
         list_folders(missing)
@@ -66,4 +69,3 @@ def test_list_folders_raises_for_missing_or_file(tmp_path) -> None:
     file_path.write_text("data")
     with pytest.raises(NotADirectoryError):
         list_folders(file_path)
-

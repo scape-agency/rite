@@ -50,7 +50,7 @@ class Test_TotalSize:
 
 
 def test_folder_size_to_string(tmp_path) -> None:
-    """folder_size_to_string should return a human-readable total size.""""
+    """folder_size_to_string should return a human-readable total size."""
     root = tmp_path
     (root / "f1.bin").write_bytes(b"x" * 1024)
     (root / "f2.bin").write_bytes(b"y" * 1024)
@@ -58,4 +58,3 @@ def test_folder_size_to_string(tmp_path) -> None:
     result = folder_size_to_string(root, recursive=True)
 
     assert result == "2.00 KB"
-

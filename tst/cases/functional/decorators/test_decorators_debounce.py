@@ -27,8 +27,9 @@ from rite.functional.decorators.decorators_debounce import (
 
 
 def test_decorators_debounce() -> None:
-    """decorators_debounce should delay execution by given time.""""
+    """decorators_debounce should delay execution by given time."""
 
+    # Import | Standard Library
     import time
 
     calls = {"count": 0}
@@ -45,4 +46,3 @@ def test_decorators_debounce() -> None:
     assert result == "done"
     assert calls["count"] == 1
     assert end >= start
-

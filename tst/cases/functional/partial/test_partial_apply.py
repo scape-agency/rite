@@ -27,7 +27,7 @@ from rite.functional.partial.partial_apply import (
 
 
 def test_partial_apply() -> None:
-    """partial_apply should fix positional and keyword arguments.""""
+    """partial_apply should fix positional and keyword arguments."""
 
     def multiply(x: int, y: int, z: int) -> int:
         return x * y * z
@@ -40,4 +40,3 @@ def test_partial_apply() -> None:
 
     square = partial_apply(power, exponent=2)
     assert square(5) == 25
-

@@ -27,8 +27,9 @@ from rite.functional.decorators.decorators_throttle import (
 
 
 def test_decorators_throttle() -> None:
-    """decorators_throttle should limit call frequency.""""
+    """decorators_throttle should limit call frequency."""
 
+    # Import | Standard Library
     import time
 
     calls = {"count": 0}
@@ -44,4 +45,3 @@ def test_decorators_throttle() -> None:
     assert first == "ok"
     assert second == "ok" or second is None
     assert calls["count"] >= 1
-

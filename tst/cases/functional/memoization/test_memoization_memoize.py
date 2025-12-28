@@ -27,7 +27,7 @@ from rite.functional.memoization.memoization_memoize import (
 
 
 def test_memoization_memoize() -> None:
-    """memoization_memoize should cache results based on arguments.""""
+    """memoization_memoize should cache results based on arguments."""
 
     calls: dict[str, int] = {"count": 0}
 
@@ -42,4 +42,3 @@ def test_memoization_memoize() -> None:
 
     assert inc(2) == 3
     assert calls["count"] == 2
-

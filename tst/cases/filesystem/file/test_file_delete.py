@@ -26,9 +26,20 @@ from rite.filesystem.file.file_delete import (
 # =============================================================================
 
 
-def test_delete_file() -> None:
-    """Test delete_file() function."""
-    # TODO: Implement test
-    # result = delete_file(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+def test_delete_file_removes_existing(tmp_path) -> None:
+    """delete_file should remove an existing file in directory."""
+    directory = tmp_path
+    file_path = directory / "test.txt"
+    file_path.write_text("content")
+
+    delete_file(str(directory), "test.txt")
+
+    assert not file_path.exists()
+
+
+def test_delete_file_missing_raises(tmp_path) -> None:
+    """delete_file should raise FileNotFoundError for missing file."""
+    directory = tmp_path
+
+    with pytest.raises(FileNotFoundError):
+        delete_file(str(directory), "missing.txt")

@@ -24,7 +24,7 @@ from rite.functional.predicates.predicates_negate import (
 
 
 def test_predicates_negate_inverts_predicate() -> None:
-    """predicates_negate() returns a predicate with inverted result.""""
+    """predicates_negate() returns a predicate with inverted result."""
     is_even = lambda x: x % 2 == 0
     is_odd = predicates_negate(is_even)
 
@@ -33,4 +33,3 @@ def test_predicates_negate_inverts_predicate() -> None:
 
     assert is_odd(2) is False
     assert is_odd(3) is True
-

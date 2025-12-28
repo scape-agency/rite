@@ -13,6 +13,9 @@ Tests for rite.filesystem.mimetype.mimetype_validate.
 # Import | Future
 from __future__ import annotations
 
+# Import | Standard Library
+import io
+
 # Import | Libraries
 import pytest
 
@@ -32,7 +35,6 @@ class TestMimeValidationError:
 
     def test_instantiation(self) -> None:
         """Test MimeValidationError can be instantiated."""
-        # TODO: Implement test
         instance = MimeValidationError()
         assert instance is not None
 
@@ -42,9 +44,12 @@ class TestMimeValidationError:
 # =============================================================================
 
 
-def test_validate_mimetype() -> None:
-    """Test validate_mimetype() function."""
-    # TODO: Implement test
-    # result = validate_mimetype(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+def test_validate_mimetype_allows_and_forbids() -> None:
+    """Validate that allowed and forbidden patterns are enforced."""
+    stream = io.BytesIO(b"\x89PNG\r\n\x1a\nrest")
+
+    mime = validate_mimetype(stream, allowed=["image/*"])
+    assert mime == "image/png"
+
+    with pytest.raises(MimeValidationError):
+        validate_mimetype(stream, forbidden=["image/png"])

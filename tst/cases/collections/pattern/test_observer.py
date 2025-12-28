@@ -17,10 +17,7 @@ from __future__ import annotations
 import pytest
 
 # Import | Local Modules
-from rite.collections.pattern.observer import (
-    Observable,
-    Observer,
-)
+from rite.collections.pattern.observer import Observable, Observer
 
 # =============================================================================
 # Test Class: Observer
@@ -32,17 +29,14 @@ class TestObserver:
 
     def test_instantiation(self) -> None:
         """Test Observer can be instantiated."""
-        # TODO: Implement test
         instance = Observer()
         assert instance is not None
 
     def test_update(self) -> None:
         """Test Observer.update() method."""
-        # TODO: Implement test
         instance = Observer()
-        # result = instance.update()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        with pytest.raises(NotImplementedError):
+            instance.update(None)
 
 
 # =============================================================================
@@ -55,54 +49,102 @@ class TestObservable:
 
     def test_instantiation(self) -> None:
         """Test Observable can be instantiated."""
-        # TODO: Implement test
         instance = Observable()
-        assert instance is not None
+        assert instance.observers == ()
 
     def test_observers(self) -> None:
         """Test Observable.observers() method."""
-        # TODO: Implement test
         instance = Observable()
-        # result = instance.observers()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        assert isinstance(instance.observers, tuple)
+        assert len(instance.observers) == 0
 
     def test_attach(self) -> None:
         """Test Observable.attach() method."""
-        # TODO: Implement test
-        instance = Observable()
-        # result = instance.attach()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+
+        class _Observer(Observer):
+            def update(self, observable, *args, **kwargs):  # type: ignore[override]
+                self.called = True  # pragma: no cover - side effect only
+
+        observable = Observable()
+        observer = _Observer()
+
+        observable.attach(observer)
+        assert observer in observable.observers
+
+        # Attaching the same observer twice should not duplicate it
+        observable.attach(observer)
+        assert observable.get_observer_count() == 1
 
     def test_detach(self) -> None:
         """Test Observable.detach() method."""
-        # TODO: Implement test
-        instance = Observable()
-        # result = instance.detach()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+
+        class _Observer(Observer):
+            def update(self, observable, *args, **kwargs):  # type: ignore[override]
+                pass
+
+        observable = Observable()
+        observer = _Observer()
+        observable.attach(observer)
+        observable.detach(observer)
+
+        assert observer not in observable.observers
+
+        # Detaching a non-existent observer should be a no-op
+        observable.detach(observer)
 
     def test_notify(self) -> None:
         """Test Observable.notify() method."""
-        # TODO: Implement test
-        instance = Observable()
-        # result = instance.notify()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+
+        class _Observer(Observer):
+            def __init__(self) -> None:
+                self.notifications: list[
+                    tuple[Observable | None, tuple, dict]
+                ] = []
+
+            def update(  # type: ignore[override]
+                self,
+                observable,
+                *args,
+                **kwargs,
+            ) -> None:
+                self.notifications.append((observable, args, kwargs))
+
+        observable = Observable()
+        observer = _Observer()
+        observable.attach(observer)
+
+        observable.notify("event", key="value")
+
+        assert len(observer.notifications) == 1
+        subject, args, kwargs = observer.notifications[0]
+        assert subject is observable
+        assert args == ("event",)
+        assert kwargs == {"key": "value"}
 
     def test_get_observer_count(self) -> None:
         """Test Observable.get_observer_count() method."""
-        # TODO: Implement test
-        instance = Observable()
-        # result = instance.get_observer_count()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        observable = Observable()
+        assert observable.get_observer_count() == 0
+
+        class _Observer(Observer):
+            def update(self, observable, *args, **kwargs):  # type: ignore[override]
+                pass
+
+        observable.attach(_Observer())
+        observable.attach(_Observer())
+        assert observable.get_observer_count() == 2
 
     def test_clear_observers(self) -> None:
         """Test Observable.clear_observers() method."""
-        # TODO: Implement test
-        instance = Observable()
-        # result = instance.clear_observers()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        observable = Observable()
+
+        class _Observer(Observer):
+            def update(self, observable, *args, **kwargs):  # type: ignore[override]
+                pass
+
+        observable.attach(_Observer())
+        observable.attach(_Observer())
+        assert observable.get_observer_count() == 2
+
+        observable.clear_observers()
+        assert observable.get_observer_count() == 0

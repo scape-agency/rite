@@ -24,7 +24,7 @@ from rite.filesystem.folder.folder_list_files import (
 
 
 def test_folder_list_files_non_recursive(tmp_path) -> None:
-    """folder_list_files yields only top-level files when not recursive.""""
+    """folder_list_files yields only top-level files when not recursive."""
     root = tmp_path
     file_a = root / "a.txt"
     file_b = root / "b.txt"
@@ -41,7 +41,7 @@ def test_folder_list_files_non_recursive(tmp_path) -> None:
 
 
 def test_folder_list_files_recursive(tmp_path) -> None:
-    """folder_list_files yields files from subdirectories when recursive.""""
+    """folder_list_files yields files from subdirectories when recursive."""
     root = tmp_path
     (root / "a.txt").write_text("A")
     subdir = root / "sub"
@@ -50,4 +50,3 @@ def test_folder_list_files_recursive(tmp_path) -> None:
 
     names = {p.name for p in folder_list_files(root, recursive=True)}
     assert names == {"a.txt", "c.txt"}
-

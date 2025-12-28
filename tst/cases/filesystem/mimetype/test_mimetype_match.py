@@ -13,22 +13,16 @@ Tests for rite.filesystem.mimetype.mimetype_match.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
-from rite.filesystem.mimetype.mimetype_match import (
-    mimetype_match,
-)
+from rite.filesystem.mimetype.mimetype_match import mimetype_match
 
 # =============================================================================
 # Test Functions
 # =============================================================================
 
 
-def test_mimetype_match() -> None:
-    """Test mimetype_match() function."""
-    # TODO: Implement test
-    # result = mimetype_match(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+def test_mimetype_match_exact_and_wildcard() -> None:
+    """Test exact matches and wildcard pattern matching."""
+    assert mimetype_match("image/png", "image/png")
+    assert mimetype_match("image/jpeg", "image/*")
+    assert not mimetype_match("text/plain", "image/*")

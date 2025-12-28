@@ -24,10 +24,9 @@ from rite.functional.predicates.predicates_identity import (
 
 
 def test_predicates_identity_returns_input() -> None:
-    """predicates_identity() returns the input unchanged.""""
+    """predicates_identity() returns the input unchanged."""
     assert predicates_identity(42) == 42
     assert predicates_identity("hello") == "hello"
 
     data = [1, 2, 3]
     assert predicates_identity(data) is data
-

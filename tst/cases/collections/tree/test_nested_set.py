@@ -13,9 +13,6 @@ Tests for rite.collections.tree.nested_set.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
 from rite.collections.tree.nested_set import (
     NestedSetStructure,
@@ -31,46 +28,64 @@ class TestNestedSetStructure:
 
     def test_instantiation(self) -> None:
         """Test NestedSetStructure can be instantiated."""
-        # TODO: Implement test
         instance = NestedSetStructure()
-        assert instance is not None
+        assert len(instance) == 0
 
     def test_add(self) -> None:
         """Test NestedSetStructure.add() method."""
-        # TODO: Implement test
         instance = NestedSetStructure()
-        # result = instance.add()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance.add("root")
+        instance.add("child1", parent="root")
+        instance.add("child2", parent="root")
+
+        assert "root" in instance
+        assert len(instance) == 3
+        assert instance.children("root") == ["child1", "child2"]
 
     def test_children(self) -> None:
         """Test NestedSetStructure.children() method."""
-        # TODO: Implement test
         instance = NestedSetStructure()
-        # result = instance.children()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance.add("root")
+        instance.add("child", parent="root")
+
+        assert instance.children("root") == ["child"]
+        assert instance.children("child") == []
+        assert instance.children("missing") == []
 
     def test_parent(self) -> None:
         """Test NestedSetStructure.parent() method."""
-        # TODO: Implement test
         instance = NestedSetStructure()
-        # result = instance.parent()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance.add("root")
+        instance.add("child", parent="root")
+
+        assert instance.parent("child") == "root"
+        assert instance.parent("root") is None
+        assert instance.parent("missing") is None
 
     def test_original(self) -> None:
         """Test NestedSetStructure.original() method."""
-        # TODO: Implement test
         instance = NestedSetStructure()
-        # result = instance.original()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+
+        a1 = ("a",)
+        instance.add(a1)
+
+        # Equal value should map back to stored canonical instance
+        a2 = ("a",)
+        assert instance.original(a2) is a1
+
+        # Non-matching item should be returned as-is
+        b = ("b",)
+        assert instance.original(b) is b
 
     def test_nested_items(self) -> None:
         """Test NestedSetStructure.nested_items() method."""
-        # TODO: Implement test
         instance = NestedSetStructure()
-        # result = instance.nested_items()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance.add("root1")
+        instance.add("child1", parent="root1")
+        instance.add("child2", parent="root1")
+        instance.add("root2")
+        instance.add("child3", parent="root2")
+
+        items = instance.nested_items()
+        # Expect depth-first traversal respecting insertion order
+        assert items == ["root1", "child1", "child2", "root2", "child3"]

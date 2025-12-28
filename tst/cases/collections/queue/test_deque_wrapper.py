@@ -13,13 +13,8 @@ Tests for rite.collections.queue.deque_wrapper.
 # Import | Future
 from __future__ import annotations
 
-# Import | Libraries
-import pytest
-
 # Import | Local Modules
-from rite.collections.queue.deque_wrapper import (
-    DequeWrapper,
-)
+from rite.collections.queue.deque_wrapper import DequeWrapper
 
 # =============================================================================
 # Test Class: DequeWrapper
@@ -31,86 +26,109 @@ class TestDequeWrapper:
 
     def test_instantiation(self) -> None:
         """Test DequeWrapper can be instantiated."""
-        # TODO: Implement test
         instance = DequeWrapper()
-        assert instance is not None
+        assert instance.is_empty()
+        assert len(instance) == 0
 
     def test_push_left(self) -> None:
         """Test DequeWrapper.push_left() method."""
-        # TODO: Implement test
         instance = DequeWrapper()
-        # result = instance.push_left()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance.push_left(1)
+        instance.push_left(2)
+
+        assert len(instance) == 2
+        assert instance.peek_left() == 2
 
     def test_push_right(self) -> None:
         """Test DequeWrapper.push_right() method."""
-        # TODO: Implement test
         instance = DequeWrapper()
-        # result = instance.push_right()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance.push_right(1)
+        instance.push_right(2)
+
+        assert len(instance) == 2
+        assert instance.peek_right() == 2
 
     def test_pop_left(self) -> None:
         """Test DequeWrapper.pop_left() method."""
-        # TODO: Implement test
         instance = DequeWrapper()
-        # result = instance.pop_left()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance.push_right(1)
+        instance.push_right(2)
+
+        assert instance.pop_left() == 1
+        assert instance.pop_left() == 2
+        assert instance.is_empty()
 
     def test_pop_right(self) -> None:
         """Test DequeWrapper.pop_right() method."""
-        # TODO: Implement test
         instance = DequeWrapper()
-        # result = instance.pop_right()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance.push_right(1)
+        instance.push_right(2)
+
+        assert instance.pop_right() == 2
+        assert instance.pop_right() == 1
+        assert instance.is_empty()
 
     def test_peek_left(self) -> None:
         """Test DequeWrapper.peek_left() method."""
-        # TODO: Implement test
         instance = DequeWrapper()
-        # result = instance.peek_left()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance.push_right(1)
+        instance.push_right(2)
+
+        assert instance.peek_left() == 1
+        assert len(instance) == 2
 
     def test_peek_right(self) -> None:
         """Test DequeWrapper.peek_right() method."""
-        # TODO: Implement test
         instance = DequeWrapper()
-        # result = instance.peek_right()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance.push_right(1)
+        instance.push_right(2)
+
+        assert instance.peek_right() == 2
+        assert len(instance) == 2
 
     def test_rotate(self) -> None:
         """Test DequeWrapper.rotate() method."""
-        # TODO: Implement test
         instance = DequeWrapper()
-        # result = instance.rotate()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        for i in range(1, 6):
+            instance.push_right(i)
+
+        instance.rotate(2)
+        assert instance.pop_left() == 4
+        assert instance.pop_left() == 5
+
+        # Negative rotation
+        instance = DequeWrapper()
+        for i in range(1, 6):
+            instance.push_right(i)
+        instance.rotate(-2)
+        assert instance.pop_left() == 3
+        assert instance.pop_left() == 4
 
     def test_clear(self) -> None:
         """Test DequeWrapper.clear() method."""
-        # TODO: Implement test
         instance = DequeWrapper()
-        # result = instance.clear()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance.push_right(1)
+        instance.push_right(2)
+
+        instance.clear()
+        assert instance.is_empty()
 
     def test_is_empty(self) -> None:
         """Test DequeWrapper.is_empty() method."""
-        # TODO: Implement test
         instance = DequeWrapper()
-        # result = instance.is_empty()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        assert instance.is_empty() is True
+
+        instance.push_right(1)
+        assert instance.is_empty() is False
 
     def test_to_list(self) -> None:
         """Test DequeWrapper.to_list() method."""
-        # TODO: Implement test
         instance = DequeWrapper()
-        # result = instance.to_list()
-        # assert result is not None
-        pytest.skip("Test not implemented")
+        instance.push_right(1)
+        instance.push_right(2)
+
+        assert instance.to_list() == [1, 2]
+
+        # __repr__ smoke test
+        repr_str = repr(instance)
+        assert "DequeWrapper" in repr_str
