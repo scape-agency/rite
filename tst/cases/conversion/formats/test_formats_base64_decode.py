@@ -39,9 +39,9 @@ def test_formats_base64_decode() -> None:
     assert formats_base64_decode("YQ==") == b"a"
 
     # Test with default return on invalid input
-    assert formats_base64_decode("invalid!@#$%") is None
-    assert formats_base64_decode("invalid!@#$%", b"") == b""
-    assert formats_base64_decode("not-valid", b"fallback") == b"fallback"
+    assert formats_base64_decode("invalid&") is None
+    assert formats_base64_decode("invalid&", b"") == b""
+    assert formats_base64_decode("invalid&", b"fallback") == b"fallback"
 
     # Test special characters
     assert formats_base64_decode("5LiW55WM") == b"\xe4\xb8\x96\xe7\x95\x8c"
