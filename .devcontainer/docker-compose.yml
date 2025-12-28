@@ -2,7 +2,7 @@
 # Docker Compose for Rite Dev Container
 # =============================================================================
 
-version: '3.8'
+version: "3.8"
 
 services:
   devcontainer:
@@ -45,12 +45,12 @@ services:
 
     # Network configuration
     ports:
-      - "8000:8000"  # Documentation server
-      - "8080:8080"  # Development server
+      - "8000:8000" # Documentation server
+      - "8080:8080" # Development server
 
     # Capabilities
     cap_add:
-      - SYS_PTRACE  # For debugging
+      - SYS_PTRACE # For debugging
 
     # Security options
     security_opt:
@@ -63,10 +63,10 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '4'
+          cpus: "4"
           memory: 8G
         reservations:
-          cpus: '2'
+          cpus: "2"
           memory: 4G
 
 volumes:

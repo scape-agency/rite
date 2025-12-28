@@ -1,5 +1,7 @@
 # =============================================================================
+
 # Dev Container README
+
 # =============================================================================
 
 # Rite Development Container
@@ -8,21 +10,21 @@ This directory contains the configuration for the Rite development container, pr
 
 ## Features
 
-- **Python 3.15** with all necessary development tools
-- **Poetry** for dependency management
-- **Pre-configured VS Code** with Python extensions
-- **Git** with Git LFS support
-- **GitHub CLI** for repository management
-- **Zsh with Oh My Zsh** for enhanced shell experience
-- **All development tools** pre-installed (Black, isort, Flake8, Pylint, Mypy, Pytest)
+-   **Python 3.15** with all necessary development tools
+-   **Poetry** for dependency management
+-   **Pre-configured VS Code** with Python extensions
+-   **Git** with Git LFS support
+-   **GitHub CLI** for repository management
+-   **Zsh with Oh My Zsh** for enhanced shell experience
+-   **All development tools** pre-installed (Black, isort, Flake8, Pylint, Mypy, Pytest)
 
 ## Quick Start
 
 ### Prerequisites
 
-- Docker Desktop (or Docker Engine + Docker Compose)
-- Visual Studio Code
-- Dev Containers extension for VS Code
+-   Docker Desktop (or Docker Engine + Docker Compose)
+-   Visual Studio Code
+-   Dev Containers extension for VS Code
 
 ### Usage
 
@@ -48,89 +50,98 @@ This directory contains the configuration for the Rite development container, pr
 ### devcontainer.json
 
 Main configuration file that defines:
-- Container name and workspace folder
-- VS Code extensions to install
-- VS Code settings
-- Port forwarding
-- Environment variables
-- Post-create commands
+
+-   Container name and workspace folder
+-   VS Code extensions to install
+-   VS Code settings
+-   Port forwarding
+-   Environment variables
+-   Post-create commands
 
 ### Dockerfile
 
 Defines the container image with:
-- Python 3.15 base image
-- System dependencies
-- Poetry installation
-- Non-root user setup
-- Zsh and Oh My Zsh
-- Development tools
+
+-   Python 3.15 base image
+-   System dependencies
+-   Poetry installation
+-   Non-root user setup
+-   Zsh and Oh My Zsh
+-   Development tools
 
 ### docker-compose.yml
 
 Orchestrates the container with:
-- Volume mounts for workspace and caches
-- Port mappings
-- Environment variables
-- Resource limits
-- Network configuration
+
+-   Volume mounts for workspace and caches
+-   Port mappings
+-   Environment variables
+-   Resource limits
+-   Network configuration
 
 ### bin/post-create.sh
 
 Post-creation setup script (formerly `.devcontainer/post-create.sh`, now in `bin/`):
 
 Setup script that runs after container creation:
-- Installs project dependencies
-- Sets up pre-commit hooks
-- Configures git
-- Verifies tool installations
-- Creates necessary directories
+
+-   Installs project dependencies
+-   Sets up pre-commit hooks
+-   Configures git
+-   Verifies tool installations
+-   Creates necessary directories
 
 ## Volumes
 
 Persistent volumes are created for:
-- Bash history
-- Zsh history
-- Poetry cache
-- VS Code extensions
+
+-   Bash history
+-   Zsh history
+-   Poetry cache
+-   VS Code extensions
 
 This ensures your development environment persists across container rebuilds.
 
 ## Port Forwarding
 
 The following ports are forwarded:
-- **8000**: Documentation server
-- **8080**: Development server
+
+-   **8000**: Documentation server
+-   **8080**: Development server
 
 ## Environment Variables
 
 Pre-configured environment variables:
-- `PYTHONPATH=/workspace/src`
-- `PYTHONDONTWRITEBYTECODE=1`
-- `PYTHONUNBUFFERED=1`
-- `RITE_ENV=development`
-- `POETRY_VIRTUALENVS_IN_PROJECT=true`
+
+-   `PYTHONPATH=/workspace/src`
+-   `PYTHONDONTWRITEBYTECODE=1`
+-   `PYTHONUNBUFFERED=1`
+-   `RITE_ENV=development`
+-   `POETRY_VIRTUALENVS_IN_PROJECT=true`
 
 ## Installed Tools
 
 The container comes with these tools pre-installed:
-- Python 3.15
-- Poetry 1.8.0
-- Git with Git LFS
-- GitHub CLI
-- Zsh with Oh My Zsh
-- Build essentials (gcc, g++, make)
-- Development lbin/ibraries
+
+-   Python 3.15
+-   Poetry 1.8.0
+-   Git with Git LFS
+-   GitHub CLI
+-   Zsh with Oh My Zsh
+-   Build essentials (gcc, g++, make)
+-   Development libraries
 
 After running `post-create.sh`, these are also available:
-- Black (code formatter)
-- isort (import sorter)
-- Flake8 (linter)
-- Pylint (static analyzer)
-- Mypy (type checker)
-- Pytest (test framework)
-- Coverage (code coverage)
-- Pre-commit (git hooks)
-- All other dependencies from pyproject.toml
+
+-   Black (code formatter)
+-   isort (import sorter)
+-   Flake8 (linter)
+-   Pylint (static analyzer)
+-   Mypy (type checker)
+-   Pytest (test framework)
+-   Coverage (code coverage)
+-   Pre-commit (git hooks)
+-   All other dependencies from pyproject.toml
 
 ## Customization
 
@@ -169,10 +180,10 @@ Edit `docker-compose.yml` and adjust the limits:
 
 ```yaml
 deploy:
-  resources:
-    limits:
-      cpus: '8'
-      memory: 16G
+    resources:
+        limits:
+            cpus: "8"
+            memory: 16G
 ```
 
 ## Troubleshooting
@@ -212,7 +223,7 @@ If ports 8000 or 8080 are already in use, edit `docker-compose.yml`:
 
 ```yaml
 ports:
-  - "8001:8000"  # Use 8001 on host instead
+    - "8001:8000" # Use 8001 on host instead
 ```
 
 ## Best Practices
@@ -234,22 +245,24 @@ ports:
 ## Security
 
 The container:
-- Runs as non-root user by default
-- Uses minimal base image (slim-bookworm)
-- Only installs necessary packages
-- Cleans up apt cache to reduce attack surface
-- Uses specific version pins where appropriate
+
+-   Runs as non-root user by default
+-   Uses minimal base image (slim-bookworm)
+-   Only installs necessary packages
+-   Cleans up apt cache to reduce attack surface
+-   Uses specific version pins where appropriate
 
 ## Additional Resources
 
-- [VS Code Dev Containers Documentation](https://code.visualstudio.com/docs/devcontainers/containers)
-- [Docker Documentation](https://docs.docker.com/)
-- [Poetry Documentation](https://python-poetry.org/docs/)
-- [Rite Documentation](../../README.md)
+-   [VS Code Dev Containers Documentation](https://code.visualstudio.com/docs/devcontainers/containers)
+-   [Docker Documentation](https://docs.docker.com/)
+-   [Poetry Documentation](https://python-poetry.org/docs/)
+-   [Rite Documentation](../../README.md)
 
 ## Support
 
 For issues or questions:
+
 1. Check the troubleshooting section above
 2. Review the main project documentation
 3. Open an issue on GitHub
