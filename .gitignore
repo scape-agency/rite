@@ -212,3 +212,6 @@ site/
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Sphinx documentation build output
+doc/_build/
