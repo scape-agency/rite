@@ -57,9 +57,6 @@ def run_command(cmd: list[str], description: str) -> tuple[bool, str]:
     except FileNotFoundError:
         print(f"✗ {description} - NOT FOUND")
         return False, "Command not found"
-    except Exception as e:
-        print(f"✗ {description} - ERROR: {e}")
-        return False, str(e)
 
 
 def main() -> int:

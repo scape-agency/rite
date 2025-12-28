@@ -32,7 +32,7 @@ def get_module_info(
         classes_with_methods is list of (class_name, [method_names]).
     """
     try:
-        with open(file_path) as f:
+        with open(file_path, encoding="utf-8") as f:
             tree = ast.parse(f.read())
 
         functions = []
@@ -56,7 +56,7 @@ def get_module_info(
                 classes.append((node.name, methods))
 
         return functions, classes
-    except Exception as e:
+    except (OSError, SyntaxError) as e:
         print(f"Error parsing {file_path}: {e}")
         return [], []
 
@@ -219,7 +219,7 @@ def create_test_file(
 
     # Create test file
     test_file.parent.mkdir(parents=True, exist_ok=True)
-    with open(test_file, "w") as f:
+    with open(test_file, "w", encoding="utf-8") as f:
         f.write(content)
 
     print(f"Created: {test_file}")

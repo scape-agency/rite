@@ -150,19 +150,18 @@ class BaseHTTPServer(BaseHTTPRequestHandler):
         server_class: type[HTTPServer] = HTTPServer,
         handler_class: type[BaseHTTPRequestHandler] | None = None,
         port: int = 8000,
-    ):
-        """
-        Static method to run the HTTP server.
+    ) -> None:
+        """Run the HTTP server.
 
-        Parameters:
-            server_class (HTTPServer): The HTTP server class.
-            handler_class (BaseHTTPRequestHandler): The HTTP request handler
-            class.
-            port (int): Port number to run the server on.
+        Args:
+            server_class: HTTP server class to use. Defaults to
+                :class:`http.server.HTTPServer`.
+            handler_class: Request handler class. Defaults to
+                :class:`BaseHTTPServer` if not provided.
+            port: Port number to run the server on. Defaults to ``8000``.
 
-        Returns
-        -------
-            None
+        Returns:
+            None.
         """
         if handler_class is None:
             handler_class = BaseHTTPServer
