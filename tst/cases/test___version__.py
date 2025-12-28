@@ -35,12 +35,20 @@ def test_version_is_string() -> None:
 def test_version_format() -> None:
     """Test that __version__ has valid format."""
     # Should be semver-like: X.Y.Z or X.Y.Z-suffix
-    parts = __version__.replace("-", ".").split(".")
-    assert len(parts) >= 3
-    # First three should be numeric
-    assert parts[0].isdigit()
-    assert parts[1].isdigit()
-    assert parts[2].isdigit()
+    # Handle formats like "0.2.3b3" by extracting the major.minor.patch part
+    # Import | Standard Library
+    import re
+
+    # Match semantic version pattern with optional suffix
+    pattern = r"^(\d+)\.(\d+)\.(\d+)([a-z]\d+|-.+)?$"
+    match = re.match(pattern, __version__, re.IGNORECASE)
+
+    assert (
+        match is not None
+    ), f"Version '{__version__}' doesn't match semver pattern"
+    assert match.group(1).isdigit()
+    assert match.group(2).isdigit()
+    assert match.group(3).isdigit()
 
 
 def test_version_not_empty() -> None:

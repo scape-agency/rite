@@ -23,22 +23,22 @@ from rite.__main__ import (
 # =============================================================================
 
 
-def test_main() -> None:
+def test_main(monkeypatch, capsys) -> None:
     """Test main() function."""
     # Import | Standard Library
-    import io
     import sys
 
-    # Capture output
-    captured_output = io.StringIO()
-    sys.stdout = captured_output
+    # Mock sys.argv to provide the 'info' command
+    monkeypatch.setattr(sys, "argv", ["rite", "info"])
 
-    main()
+    # Call main
+    result = main()
 
-    sys.stdout = sys.__stdout__
-    output = captured_output.getvalue()
+    # Verify it returned successfully
+    assert result == 0
 
-    # Check that main output is printed
-    assert "rite is set!" in output
-    assert "rite:" in output
-    assert "Python:" in output
+    # Check output contains version info
+    captured = capsys.readouterr()
+    assert "rite v" in captured.out
+    assert "collections" in captured.out
+    assert "https://www.pyrites.dev" in captured.out

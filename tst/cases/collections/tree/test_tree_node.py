@@ -1,108 +1,116 @@
-# =============================================================================
-# Test: tree_node
-# =============================================================================
+# -*- coding: utf-8 -*-
 
-"""
-Tests for rite.collections.tree.tree_node.
-"""
-
-# =============================================================================
-# Imports
-# =============================================================================
-
-# Import | Future
-from __future__ import annotations
-
-# Import | Libraries
-import pytest
+"""Tests for TreeNode."""
 
 # Import | Local Modules
-from rite.collections.tree.tree_node import (
-    TreeNode,
-)
-
-# =============================================================================
-# Test Class: TreeNode
-# =============================================================================
+from src.rite.collections.tree import TreeNode
 
 
 class TestTreeNode:
-    """Tests for TreeNode class."""
+    """Test cases for TreeNode class."""
 
-    def test_instantiation(self) -> None:
-        """Test TreeNode can be instantiated."""
-        instance = TreeNode(value="root")
-        assert instance is not None
-        assert instance.value == "root"
-        assert len(instance.children) == 0
-        assert instance.parent is None
+    def test_init(self):
+        """Test node initialization."""
+        node = TreeNode(1)
+        assert node.value == 1
+        assert not node.children
+        assert node.parent is None
 
-    def test_add_child(self) -> None:
-        """Test TreeNode.add_child() method."""
-        parent = TreeNode(value="parent")
-        child = TreeNode(value="child")
+    def test_init_with_children(self):
+        """Test initialization with children."""
+        child1 = TreeNode(2)
+        child2 = TreeNode(3)
+        parent = TreeNode(1, children=[child1, child2])
+
+        assert len(parent.children) == 2
+        assert child1.parent is parent
+        assert child2.parent is parent
+
+    def test_add_child(self):
+        """Test adding a child."""
+        parent = TreeNode(1)
+        child = TreeNode(2)
         parent.add_child(child)
-        assert len(parent.children) == 1
-        assert child.parent == parent
 
-    def test_remove_child(self) -> None:
-        """Test TreeNode.remove_child() method."""
-        parent = TreeNode(value="parent")
-        child = TreeNode(value="child")
+        assert child in parent.children
+        assert child.parent is parent
+
+    def test_remove_child(self):
+        """Test removing a child."""
+        parent = TreeNode(1)
+        child = TreeNode(2)
         parent.add_child(child)
-        parent.remove_child(child)
-        assert len(parent.children) == 0
+
+        result = parent.remove_child(child)
+        assert result is True
+        assert child not in parent.children
         assert child.parent is None
 
-    def test_is_leaf(self) -> None:
-        """Test TreeNode.is_leaf() method."""
-        leaf = TreeNode(value="leaf")
-        assert leaf.is_leaf() is True
+    def test_remove_nonexistent_child(self):
+        """Test removing non-existent child."""
+        parent = TreeNode(1)
+        child = TreeNode(2)
 
-        parent = TreeNode(value="parent")
-        child = TreeNode(value="child")
+        result = parent.remove_child(child)
+        assert result is False
+
+    def test_is_leaf(self):
+        """Test leaf detection."""
+        parent = TreeNode(1)
+        child = TreeNode(2)
+
+        assert child.is_leaf()
         parent.add_child(child)
-        assert parent.is_leaf() is False
+        assert not parent.is_leaf()
 
-    def test_is_root(self) -> None:
-        """Test TreeNode.is_root() method."""
-        root = TreeNode(value="root")
-        assert root.is_root() is True
+    def test_is_root(self):
+        """Test root detection."""
+        parent = TreeNode(1)
+        child = TreeNode(2)
+        parent.add_child(child)
 
-        child = TreeNode(value="child")
-        root.add_child(child)
-        assert child.is_root() is False
+        assert parent.is_root()
+        assert not child.is_root()
 
-    def test_get_depth(self) -> None:
-        """Test TreeNode.get_depth() method."""
-        root = TreeNode(value="root")
-        child = TreeNode(value="child")
-        grandchild = TreeNode(value="grandchild")
-        root.add_child(child)
-        child.add_child(grandchild)
+    def test_get_depth(self):
+        """Test depth calculation."""
+        root = TreeNode(1)
+        child1 = TreeNode(2)
+        child2 = TreeNode(3)
+        grandchild = TreeNode(4)
+
+        root.add_child(child1)
+        child1.add_child(child2)
+        child2.add_child(grandchild)
 
         assert root.get_depth() == 0
-        assert child.get_depth() == 1
-        assert grandchild.get_depth() == 2
+        assert child1.get_depth() == 1
+        assert child2.get_depth() == 2
+        assert grandchild.get_depth() == 3
 
-    def test_get_height(self) -> None:
-        """Test TreeNode.get_height() method."""
-        root = TreeNode(value="root")
-        child = TreeNode(value="child")
-        grandchild = TreeNode(value="grandchild")
-        root.add_child(child)
-        child.add_child(grandchild)
+    def test_get_height(self):
+        """Test height calculation."""
+        root = TreeNode(1)
+        child1 = TreeNode(2)
+        child2 = TreeNode(3)
+        grandchild = TreeNode(4)
+
+        root.add_child(child1)
+        root.add_child(child2)
+        child1.add_child(grandchild)
 
         assert grandchild.get_height() == 0
-        assert child.get_height() == 1
+        assert child1.get_height() == 1
+        assert child2.get_height() == 0
         assert root.get_height() == 2
 
-    def test_get_siblings(self) -> None:
-        """Test TreeNode.get_siblings() method."""
-        parent = TreeNode(value="parent")
-        child1 = TreeNode(value="child1")
-        child2 = TreeNode(value="child2")
-        child3 = TreeNode(value="child3")
+    def test_get_siblings(self):
+        """Test getting siblings."""
+        parent = TreeNode(1)
+        child1 = TreeNode(2)
+        child2 = TreeNode(3)
+        child3 = TreeNode(4)
+
         parent.add_child(child1)
         parent.add_child(child2)
         parent.add_child(child3)
@@ -111,54 +119,90 @@ class TestTreeNode:
         assert len(siblings) == 2
         assert child2 in siblings
         assert child3 in siblings
+        assert child1 not in siblings
 
-    def test_get_ancestors(self) -> None:
-        """Test TreeNode.get_ancestors() method."""
-        root = TreeNode(value="root")
-        child = TreeNode(value="child")
-        grandchild = TreeNode(value="grandchild")
+    def test_get_siblings_root(self):
+        """Test root node has no siblings."""
+        root = TreeNode(1)
+        assert root.get_siblings() == []
+
+    def test_get_ancestors(self):
+        """Test getting ancestors."""
+        root = TreeNode(1)
+        child = TreeNode(2)
+        grandchild = TreeNode(3)
+
         root.add_child(child)
         child.add_child(grandchild)
 
         ancestors = grandchild.get_ancestors()
         assert len(ancestors) == 2
-        assert ancestors[0] == child
-        assert ancestors[1] == root
+        assert ancestors[0] is child
+        assert ancestors[1] is root
 
-    def test_traverse_preorder(self) -> None:
-        """Test TreeNode.traverse_preorder() method."""
-        root = TreeNode(value=1)
-        child1 = TreeNode(value=2)
-        child2 = TreeNode(value=3)
+    def test_get_ancestors_root(self):
+        """Test root has no ancestors."""
+        root = TreeNode(1)
+        assert not root.get_ancestors()
+
+    def test_traverse_preorder(self):
+        """Test pre-order traversal."""
+        root = TreeNode(1)
+        child1 = TreeNode(2)
+        child2 = TreeNode(3)
+        grandchild1 = TreeNode(4)
+        grandchild2 = TreeNode(5)
+
         root.add_child(child1)
         root.add_child(child2)
+        child1.add_child(grandchild1)
+        child1.add_child(grandchild2)
 
-        result = list(root.traverse_preorder())
-        values = [node.value for node in result]
-        assert values == [1, 2, 3]
+        nodes = root.traverse_preorder()
+        values = [n.value for n in nodes]
+        assert values == [1, 2, 4, 5, 3]
 
-    def test_traverse_postorder(self) -> None:
-        """Test TreeNode.traverse_postorder() method."""
-        root = TreeNode(value=1)
-        child1 = TreeNode(value=2)
-        child2 = TreeNode(value=3)
+    def test_traverse_postorder(self):
+        """Test post-order traversal."""
+        root = TreeNode(1)
+        child1 = TreeNode(2)
+        child2 = TreeNode(3)
+        grandchild1 = TreeNode(4)
+        grandchild2 = TreeNode(5)
+
         root.add_child(child1)
         root.add_child(child2)
+        child1.add_child(grandchild1)
+        child1.add_child(grandchild2)
 
-        result = list(root.traverse_postorder())
-        values = [node.value for node in result]
-        assert values == [2, 3, 1]
+        nodes = root.traverse_postorder()
+        values = [n.value for n in nodes]
+        assert values == [4, 5, 2, 3, 1]
 
-    def test_traverse_levelorder(self) -> None:
-        """Test TreeNode.traverse_levelorder() method."""
-        root = TreeNode(value=1)
-        child1 = TreeNode(value=2)
-        child2 = TreeNode(value=3)
-        grandchild = TreeNode(value=4)
+    def test_traverse_levelorder(self):
+        """Test level-order traversal."""
+        root = TreeNode(1)
+        child1 = TreeNode(2)
+        child2 = TreeNode(3)
+        grandchild1 = TreeNode(4)
+        grandchild2 = TreeNode(5)
+
         root.add_child(child1)
         root.add_child(child2)
-        child1.add_child(grandchild)
+        child1.add_child(grandchild1)
+        child1.add_child(grandchild2)
 
-        result = list(root.traverse_levelorder())
-        values = [node.value for node in result]
-        assert values == [1, 2, 3, 4]
+        nodes = root.traverse_levelorder()
+        values = [n.value for n in nodes]
+        assert values == [1, 2, 3, 4, 5]
+
+    def test_repr(self):
+        """Test string representation."""
+        node = TreeNode(42)
+        child = TreeNode(1)
+        node.add_child(child)
+
+        repr_str = repr(node)
+        assert "TreeNode" in repr_str
+        assert "value=42" in repr_str
+        assert "children=1" in repr_str
