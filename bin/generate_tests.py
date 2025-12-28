@@ -268,7 +268,7 @@ def main() -> None:
         else:
             skipped_count += 1
 
-    print(f"\nSummary:")
+    print("\nSummary:")
     print(f"  Created: {created_count}")
     print(f"  Skipped (already exist): {skipped_count}")
     print(f"  Total: {created_count + skipped_count}")

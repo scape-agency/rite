@@ -31,10 +31,10 @@ def run_command(cmd: list[str], description: str) -> tuple[bool, str]:
     Returns:
         Tuple of (success: bool, output: str).
     """
-    print(f"\n{'='*70}")
+    print(f"\n{'=' * 70}")
     print(f"Testing: {description}")
     print(f"Command: {' '.join(cmd)}")
-    print(f"{'='*70}")
+    print(f"{'=' * 70}")
 
     try:
         result = subprocess.run(

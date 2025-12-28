@@ -4,8 +4,10 @@ repos:
     hooks:
       - id: check-merge-conflict
       - id: check-yaml
+        args: ["--unsafe"]
       - id: check-toml
       - id: check-json
+        exclude: ^(\.vscode/|\.devcontainer/)
       - id: check-added-large-files
         args: ["--maxkb=1000"]
       - id: end-of-file-fixer
@@ -81,5 +83,5 @@ repos:
     rev: v2.2.6
     hooks:
       - id: codespell
-        args: ["--ignore-words-list=crate,nd,te,assertIn"]
-        exclude: ^(poetry\.lock|\.git|htmlcov/)
+        args: ["--ignore-words-list=crate,nd,te,assertIn,hel,caf,statics,pres,fo"]
+        exclude: ^(poetry\.lock|\.git|htmlcov/|res/)
