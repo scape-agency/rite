@@ -26,9 +26,26 @@ from rite.net.validation.validation_is_port import (
 # =============================================================================
 
 
-def test_validation_is_port() -> None:
-    """Test validation_is_port() function."""
-    # TODO: Implement test
-    # result = validation_is_port(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+@pytest.mark.parametrize(
+    "port,expected",
+    [
+        (80, True),
+        (443, True),
+        (8080, True),
+        (65535, True),
+        (1, True),
+        (0, False),
+        (65536, False),
+        (-1, False),
+        (70000, False),
+    ],
+)
+def test_validation_is_port(port: int, expected: bool) -> None:
+    """Test validation_is_port() with various port numbers.
+
+    Args:
+        port: Port number to validate.
+        expected: Whether port is valid.
+    """
+    result = validation_is_port(port)
+    assert result == expected

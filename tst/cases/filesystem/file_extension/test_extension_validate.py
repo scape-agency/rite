@@ -28,7 +28,27 @@ from rite.filesystem.file_extension.extension_validate import (
 
 def test_extension_validate() -> None:
     """Test extension_validate() function."""
-    # TODO: Implement test
-    # result = extension_validate(test_input)
-    # assert result == expected_output
-    pytest.skip("Test not implemented")
+    # Valid extensions should not raise
+    extension_validate("pdf")
+    extension_validate("jpg")
+    extension_validate("txt")
+
+    # Test with allowed list
+    extension_validate("jpg", allowed=["jpg", "png", "gif"])
+    extension_validate("PNG", allowed=["jpg", "png", "gif"])
+
+    # Invalid: None
+    with pytest.raises(ValueError, match="empty or None"):
+        extension_validate(None)
+
+    # Invalid: empty string
+    with pytest.raises(ValueError, match="empty or None"):
+        extension_validate("")
+
+    # Invalid: not in allowed list
+    with pytest.raises(ValueError, match="not allowed"):
+        extension_validate("exe", allowed=["jpg", "png", "gif"])
+
+    # Invalid: doesn't match regex
+    with pytest.raises(ValueError, match="Invalid file extension"):
+        extension_validate("!!!invalid!!!")
