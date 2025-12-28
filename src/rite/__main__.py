@@ -3,10 +3,14 @@
 # =============================================================================
 
 """
-Provides a rite entry point
-===========================
+Rite CLI Entry Point
+====================
 
+Command-line interface entry point for the rite package.
 
+Usage:
+    python -m rite [command] [options]
+    rite [command] [options]
 
 """
 
@@ -19,28 +23,20 @@ Provides a rite entry point
 from __future__ import annotations
 
 # Import | Standard Library
-import platform
+import sys
 
 # Import | Local Modules
-import rite
+from .cli import cli_main
 
 # =============================================================================
 # Main
 # =============================================================================
 
 
-def main():
-    """Main entry point for rite package."""
-    print()
-    print("rite is set!")
-    print()
-    print(f"rite: {rite.__version__}")
-    print(
-        f"Python: {platform.python_version()}"
-        f" ({platform.python_implementation()})"
-    )
-    print()
+def main() -> int:
+    """Main entry point for rite CLI."""
+    return cli_main()
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
