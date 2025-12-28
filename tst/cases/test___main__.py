@@ -28,6 +28,7 @@ from rite.__main__ import (
 
 def test_main() -> None:
     """Test main() function."""
+    # Import | Standard Library
     import io
     import sys
 

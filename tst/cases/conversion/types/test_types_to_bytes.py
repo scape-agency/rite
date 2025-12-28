@@ -62,7 +62,35 @@ def test_types_to_bytes_dunder_bytes_and_pathlike() -> None:
     obj = CustomBytes()
     assert types_to_bytes(obj) == b"custom"
 
-    path = pathlib.Path("some/path.txt")
-    result = types_to_bytes(path)
+    # Test PathLike object without __bytes__ method
+    class CustomPath:
+        def __init__(self, path: str):
+            self.path = path
+
+        def __fspath__(self) -> str:
+            """Return filesystem path."""
+            return self.path
+
+    custom_path = CustomPath("test/path.txt")
+    result = types_to_bytes(custom_path)
     assert isinstance(result, (bytes, bytearray))
-    assert result.decode("utf-8") == os.fspath(path)
+    assert result.decode("utf-8") == "test/path.txt"
+
+
+def test_types_to_bytes_fallback_to_str() -> None:
+    """Test fallback conversion of objects without special handling."""
+
+    # Object without __bytes__ method
+    class CustomObject:
+        def __str__(self) -> str:
+            """Return string representation."""
+            return "custom_object"
+
+    obj = CustomObject()
+    result = types_to_bytes(obj)
+    assert result == b"custom_object"
+
+    # List without special handling
+    list_obj = [1, 2, 3]
+    result = types_to_bytes(list_obj)
+    assert result == b"[1, 2, 3]"

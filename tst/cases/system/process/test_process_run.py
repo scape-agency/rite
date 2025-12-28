@@ -28,6 +28,7 @@ from rite.system.process.process_run import (
 
 def test_process_run() -> None:
     """Test process_run() function."""
+    # Import | Standard Library
     from pathlib import Path
     import subprocess
     import tempfile
@@ -71,8 +72,6 @@ def test_process_run() -> None:
         process_run(["false"], check=True)
 
     # Test both stdout and stderr
-    code, out, err = process_run(
-        ["sh", "-c", "echo out; echo err >&2"]
-    )
+    code, out, err = process_run(["sh", "-c", "echo out; echo err >&2"])
     assert "out" in out
     assert "err" in err

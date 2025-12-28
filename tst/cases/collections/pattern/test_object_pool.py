@@ -85,3 +85,34 @@ class TestObjectPool:
         assert instance.in_use_count() == 1
         instance.release(obj)
         assert instance.in_use_count() == 0
+    def test_release_with_reset_func(self) -> None:
+        """Test ObjectPool.release() with reset parameter."""
+        reset_called = []
+
+        def factory() -> dict:
+            """Create a new dict with count."""
+            return {"count": 0}
+
+        def reset_func(obj: dict) -> None:
+            """Reset the object."""
+            obj["count"] = 0
+            reset_called.append(True)
+
+        instance = ObjectPool(
+            factory=factory,
+            reset=reset_func,
+            max_size=2,
+        )
+        obj = instance.acquire()
+        obj["count"] = 5
+        instance.release(obj)
+        assert reset_called
+        assert obj["count"] == 0
+
+    def test_release_not_acquired(self) -> None:
+        """Test ObjectPool.release() with object not acquired from pool."""
+        instance = ObjectPool(factory=lambda: {})
+        obj_not_from_pool = {}
+
+        with pytest.raises(ValueError, match="not acquired from this pool"):
+            instance.release(obj_not_from_pool)

@@ -28,6 +28,7 @@ from rite.system.process.process_check_output import (
 
 def test_process_check_output() -> None:
     """Test process_check_output() function."""
+    # Import | Standard Library
     from pathlib import Path
     import subprocess
     import tempfile

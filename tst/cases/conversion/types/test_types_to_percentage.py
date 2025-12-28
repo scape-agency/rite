@@ -43,6 +43,13 @@ from rite.conversion.types.types_to_percentage import (
         ("0.5", True, None, 50.0),
         ("invalid", True, None, None),
         ("invalid", True, 0.0, 0.0),
+        ([1, 2, 3], True, None, None),  # Non-numeric type returns default
+        (
+            {"key": "value"},
+            True,
+            50.0,
+            50.0,
+        ),  # Non-numeric type returns default
     ],
 )
 def test_types_to_percentage(

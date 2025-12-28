@@ -129,6 +129,54 @@ class TestDequeWrapper:
 
         assert instance.to_list() == [1, 2]
 
-        # __repr__ smoke test
+    def test_repr(self) -> None:
+        """Test DequeWrapper.__repr__() method."""
+        instance = DequeWrapper()
         repr_str = repr(instance)
         assert "DequeWrapper" in repr_str
+        assert "size=0" in repr_str
+        assert "max_size=None" in repr_str
+
+        instance.push_right(1)
+        instance.push_right(2)
+        repr_str = repr(instance)
+        assert "size=2" in repr_str
+
+        # Test with max_size
+        instance_with_max = DequeWrapper(max_size=5)
+        instance_with_max.push_right(1)
+        repr_str = repr(instance_with_max)
+        assert "max_size=5" in repr_str
+
+    def test_peek_empty(self) -> None:
+        """Test peek methods on empty deque."""
+        instance = DequeWrapper()
+        assert instance.peek_left() is None
+        assert instance.peek_right() is None
+
+    def test_pop_empty(self) -> None:
+        """Test pop methods on empty deque."""
+        instance = DequeWrapper()
+        assert instance.pop_left() is None
+        assert instance.pop_right() is None
+
+    def test_max_size_enforcement(self) -> None:
+        """Test that max_size is enforced."""
+        instance = DequeWrapper(max_size=2)
+        instance.push_right(1)
+        instance.push_right(2)
+        instance.push_right(3)  # Should drop oldest
+
+        assert len(instance) == 2
+        assert instance.pop_left() == 2
+        assert instance.pop_left() == 3
+
+    def test_iteration(self) -> None:
+        """Test iteration over deque."""
+        instance = DequeWrapper()
+        instance.push_right(1)
+        instance.push_right(2)
+        instance.push_right(3)
+
+        items = [item for item in instance]
+        assert items == [1, 2, 3]
