@@ -140,7 +140,7 @@ extra_css:
   - assets/style/extra.css
 extra_javascript:
   - assets/script/extra.js
-extra_templates:
+extra_templates: []
 
 # Extensions
 markdown_extensions:

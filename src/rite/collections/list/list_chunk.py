@@ -19,6 +19,7 @@ Examples
 [[1, 2], [3, 4], [5]]
 >>> list_chunk([1, 2, 3, 4, 5, 6], size=3)
 [[1, 2, 3], [4, 5, 6]]
+
 """
 
 # =============================================================================
@@ -42,7 +43,10 @@ T = TypeVar("T")
 # =============================================================================
 
 
-def list_chunk(items: list[T], size: int) -> list[list[T]]:
+def list_chunk(
+    items: list[T],
+    size: int,
+) -> list[list[T]]:
     """
     Split a list into chunks of specified size.
 
@@ -66,6 +70,7 @@ def list_chunk(items: list[T], size: int) -> list[list[T]]:
         >>> list_chunk([1, 2, 3], size=5)
         [[1, 2, 3]]
     """
+
     if size <= 0:
         raise ValueError("Chunk size must be positive")
 
