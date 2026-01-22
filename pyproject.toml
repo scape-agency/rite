@@ -74,7 +74,7 @@ mkdocs = "^1.6.1"
 mkdocs-material = "^9.7.1"
 mkdocstrings = { extras = ["python"], version = "^1.0.1" }
 pymdown-extensions = "^10.20.0"
-markdown = "^3.7.0"
+markdown = "^3.10.1"
 pygments = "^2.18.0"
 sphinx = "^8.1.0"
 sphinx-rtd-theme = "^3.1.0"
