@@ -73,7 +73,7 @@ bandit = { extras = ["toml"], version = "^1.7.5" } # Security linter
 mkdocs = "^1.6.1"
 mkdocs-material = "^9.7.1"
 mkdocstrings = { extras = ["python"], version = "^1.0.3" }
-pymdown-extensions = "^10.20.1"
+pymdown-extensions = "^10.21.0"
 markdown = "^3.10.2"
 pygments = "^2.18.0"
 sphinx = "^8.1.0"
