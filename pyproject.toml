@@ -54,16 +54,16 @@ tzdata = { version = ">=2024.1", markers = "sys_platform == 'win32'" }
 pytest = "^9.0.2"                                  # Framework for testing
 pytest-cov = "^7.0.0"                              # Code coverage for tests
 pytest-benchmark = "^5.2.0"                        # Performance benchmarking
-coverage = "^7.13.1"                               # Coverage measurement
+coverage = "^7.13.4"                               # Coverage measurement
 urllib3 = "^2.6.3"                                 # HTTP client (transitive, pinned for security)
-black = "^25.12.0"                                 # Code formatter
+black = "^26.1.0"                                 # Code formatter
 flake8 = "^7.1.0"                                  # Linter for code quality
 mypy = "^1.19.1"                                   # Static type checker
-isort = "^7.0.0"                                   # Import sorter
-tox = "^4.34.1"                                     # Testing multiple environments
+isort = "^8.0.0"                                   # Import sorter
+tox = "^4.44.0"                                     # Testing multiple environments
 pre-commit = "^4.5.1"                              # Pre-commit hooks for linting and formatting
 pylint = "^4.0.4"                                  # Static code analyzer
-bandit = { extras = ["toml"], version = "^1.7.5" } # Security linter
+bandit = { extras = ["toml"], version = "^1.9.3" } # Security linter
 
 # =============================================================================
 # Documentation Dependencies
