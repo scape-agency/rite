@@ -39,8 +39,7 @@ def test_toml_load(tmp_path: pytest.TempPathFactory) -> None:
     with tempfile.NamedTemporaryFile(
         mode="w", suffix=".toml", delete=False
     ) as f:
-        f.write(
-            """
+        f.write("""
 [section]
 key = "value"
 number = 42
@@ -48,8 +47,7 @@ number = 42
 [database]
 host = "localhost"
 port = 5432
-"""
-        )
+""")
         temp_path = f.name
 
     try:
