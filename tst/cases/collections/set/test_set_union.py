@@ -2,7 +2,13 @@
 # Test: Set Union
 # =============================================================================
 
-"""Tests for rite.collections.set.set_union."""
+"""Tests for rite.collections.set.set_union.
+"""
+
+
+# =============================================================================
+# Imports
+# =============================================================================
 
 # Import | Future
 from __future__ import annotations

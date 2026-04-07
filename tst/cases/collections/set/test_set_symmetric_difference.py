@@ -2,7 +2,13 @@
 # Test: Set Symmetric Difference
 # =============================================================================
 
-"""Tests for rite.collections.set.set_symmetric_difference."""
+"""Tests for rite.collections.set.set_symmetric_difference.
+"""
+
+
+# =============================================================================
+# Imports
+# =============================================================================
 
 # Import | Future
 from __future__ import annotations

@@ -4,7 +4,7 @@
 from .gzip_compress import compress_file
 from .gzip_uncompress import uncompress_file
 
-__all__ = [
+__all__: list[str] = [
     "compress_file",
     "uncompress_file",
 ]

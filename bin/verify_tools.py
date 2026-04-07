@@ -9,7 +9,13 @@ Verify Tool Configuration
 
 This script verifies that all development tools are properly configured
 and working correctly in the Rite project.
+
 """
+
+
+# =============================================================================
+# Imports
+# =============================================================================
 
 # Import | Future
 from __future__ import annotations

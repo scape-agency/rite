@@ -32,4 +32,4 @@ def filename_to_date(
 filename_to_datefilename_to_date = filename_to_date
 
 
-__all__ = ["filename_to_date", "filename_to_datefilename_to_date"]
+__all__: list[str] = ["filename_to_date", "filename_to_datefilename_to_date"]

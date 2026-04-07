@@ -2,7 +2,13 @@
 # Test: Set Difference
 # =============================================================================
 
-"""Tests for rite.collections.set.set_difference."""
+"""Tests for rite.collections.set.set_difference.
+"""
+
+
+# =============================================================================
+# Imports
+# =============================================================================
 
 # Import | Future
 from __future__ import annotations

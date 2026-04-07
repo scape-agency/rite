@@ -13,7 +13,7 @@ from .file_spooled import create_spooled_temporary_file
 from .file_write_bytes import file_write_bytes
 from .file_write_text import file_write_text
 
-__all__ = [
+__all__: list[str] = [
     "copy_file",
     "copy_files",
     "delete_file",

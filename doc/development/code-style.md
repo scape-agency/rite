@@ -551,7 +551,13 @@ Tests follow the same style guidelines with additions:
 # Test: Module Name
 # =============================================================================
 
-"""Tests for rite.module.function."""
+"""Tests for rite.module.function.
+"""
+
+
+# =============================================================================
+# Imports
+# =============================================================================
 
 # Import | Future
 from __future__ import annotations

@@ -196,7 +196,13 @@ def function(param1: str, param2: int = 0) -> bool:
 # Test: Module Name
 # =============================================================================
 
-"""Tests for rite.module.function."""
+"""Tests for rite.module.function.
+"""
+
+
+# =============================================================================
+# Imports
+# =============================================================================
 
 # Import | Future
 from __future__ import annotations

@@ -8,7 +8,13 @@ of src/rite/. Each test file includes:
 - Test class for each source class
 - Test function for each source function
 - Basic test structure following project conventions
+
 """
+
+
+# =============================================================================
+# Imports
+# =============================================================================
 
 # Import | Future
 from __future__ import annotations
