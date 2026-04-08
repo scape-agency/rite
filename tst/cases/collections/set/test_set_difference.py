@@ -2,9 +2,7 @@
 # Test: Set Difference
 # =============================================================================
 
-"""Tests for rite.collections.set.set_difference.
-"""
-
+"""Tests for rite.collections.set.set_difference."""
 
 # =============================================================================
 # Imports
