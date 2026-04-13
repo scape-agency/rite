@@ -43,7 +43,7 @@ jobs:
 
       - name: Create issue if nightly fails
         if: failure() && github.event_name == 'schedule'
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const title = `Nightly test failure on ${{ matrix.os }} with Python ${{ matrix.python-version }}`;
