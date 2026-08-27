@@ -17,7 +17,6 @@ Provides a simple `mimetype_guess()` routine with an optional
 Returns a lowercase MIME string like "image/png", or `None` when unknown.
 """
 
-
 # =============================================================================
 # Imports
 # =============================================================================
