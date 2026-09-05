@@ -21,10 +21,10 @@ jobs:
         python-version: ["3.10", "3.11", "3.12", "3.13-dev"]
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python-version }}
           allow-prereleases: true
@@ -43,7 +43,7 @@ jobs:
 
       - name: Create issue if nightly fails
         if: failure() && github.event_name == 'schedule'
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const title = `Nightly test failure on ${{ matrix.os }} with Python ${{ matrix.python-version }}`;
