@@ -2,9 +2,7 @@
 # Test: Set Union
 # =============================================================================
 
-"""Tests for rite.collections.set.set_union.
-"""
-
+"""Tests for rite.collections.set.set_union."""
 
 # =============================================================================
 # Imports
