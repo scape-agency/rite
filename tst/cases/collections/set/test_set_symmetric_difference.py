@@ -2,8 +2,7 @@
 # Test: Set Symmetric Difference
 # =============================================================================
 
-"""Tests for rite.collections.set.set_symmetric_difference.
-"""
+"""Tests for rite.collections.set.set_symmetric_difference."""
 
 
 # =============================================================================
